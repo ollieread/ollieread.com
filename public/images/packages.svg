@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="331" height="286" viewBox="0 0 331 286">
+  <g fill="none" fill-rule="evenodd" transform="translate(2 2.5)">
+    <g transform="translate(92)">
+      <g transform="translate(0 .5)">
+        <polygon fill="#D1E2F4" points="0 126.96 72.166 169 146 126.119 73.417 84.08"/>
+        <polygon fill="#6E9CCD" points="0 42.881 0 126.96 72.166 169 72.166 84.92"/>
+        <polygon fill="#6E9CCD" points="72.166 42.04 72.166 126.119 146 169 146 84.92" transform="matrix(-1 0 0 1 218.166 0)"/>
+        <polygon fill="#FCFCFC" points="0 42.881 72.166 84.92 146 42.04 73.417 0"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M72.1657143 167.313249L72.1657143 84.920398M.417142857 44.9825871L72.1657143 86.60199"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M72.5828571,44.141791 L146,86.60199" transform="matrix(-1 0 0 1 218.583 0)"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M34.6228571,21.0199005 L108.874286,63.9004975" transform="matrix(-1 0 0 1 143.497 0)"/>
+        <path stroke="#2B6CB0" stroke-width="4" d="M0,42.880597 L73.4171429,0 L146,42.039801 L146,126.119403 L72.1657143,169 L0,126.960199 L0,42.880597 Z"/>
+      </g>
+      <g transform="translate(14 78.5)">
+        <polygon fill="#69CB8C" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#69CB8C" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#6E9CCD" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#6E9CCD" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#6E9CCD" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(14 91.5)">
+        <polygon fill="#69CB8C" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#69CB8C" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#69CB8C" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#69CB8C" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#69CB8C" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(14 103.5)">
+        <polygon fill="#CB6969" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#6E9CCD" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#6E9CCD" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#6E9CCD" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#6E9CCD" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(90 72.5)">
+        <polygon fill="#6E9CCD" stroke="#2B6CB0" stroke-width="4" points="0 24.538 0 48.654 0 66 42 40.615 42 0"/>
+        <path stroke="#6E9CCD" stroke-linecap="square" stroke-width="3" d="M34.02,34.2692308 L41.16,38.5"/>
+        <polygon fill="#D1E2F4" stroke="#6E9CCD" stroke-width="3" points="36.12 34.692 36.12 3.385 0 24.538 0 55.846"/>
+        <polygon fill="#2B6CB0" points="14.7 20.144 18.06 18.192 18.06 28.346 14.7 30.298"/>
+        <polygon fill="#2B6CB0" points=".42 43.668 10.5 37.814 10.5 41.198 .42 47.052"/>
+        <polygon fill="#2B6CB0" points="22.26 30.984 32.34 25.13 32.34 28.514 22.26 34.368"/>
+        <polygon stroke="#2B6CB0" stroke-width="4" points="0 24.538 0 48.654 0 66 42 40.615 42 0"/>
+      </g>
+    </g>
+    <g transform="translate(0 54)">
+      <g transform="translate(0 .5)">
+        <polygon fill="#D1E2F4" points="0 126.96 72.66 169 147 126.119 73.92 84.08"/>
+        <polygon fill="#D1E2F4" points="0 42.881 0 126.96 72.66 169 72.66 84.92"/>
+        <polygon fill="#6E9CCD" points="72.66 42.04 72.66 126.119 147 169 147 84.92" transform="matrix(-1 0 0 1 219.66 0)"/>
+        <polygon fill="#FCFCFC" points="0 42.881 72.66 84.92 147 42.04 73.92 0"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M72.66 167.313249L72.66 84.920398M.42 44.9825871L72.66 86.60199"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M73.08,44.141791 L147,86.60199" transform="matrix(-1 0 0 1 220.08 0)"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M34.86,21.0199005 L109.62,63.9004975" transform="matrix(-1 0 0 1 144.48 0)"/>
+        <path stroke="#2B6CB0" stroke-width="4" d="M0,42.880597 L73.92,0 L147,42.039801 L147,126.119403 L72.66,169 L0,126.960199 L0,42.880597 Z"/>
+      </g>
+      <g transform="translate(15 78.5)">
+        <polygon fill="#69CB8C" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#69CB8C" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#6E9CCD" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#6E9CCD" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#6E9CCD" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(15 91.5)">
+        <polygon fill="#69CB8C" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#69CB8C" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#69CB8C" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#69CB8C" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#69CB8C" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(15 103.5)">
+        <polygon fill="#CB6969" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#6E9CCD" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#6E9CCD" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#6E9CCD" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#6E9CCD" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(90 72.5)">
+        <polygon fill="#6E9CCD" stroke="#2B6CB0" stroke-width="4" points="0 24.538 0 48.654 0 66 42 40.615 42 0"/>
+        <path stroke="#6E9CCD" stroke-linecap="square" stroke-width="3" d="M34.02,34.2692308 L41.16,38.5"/>
+        <polygon fill="#D1E2F4" stroke="#6E9CCD" stroke-width="3" points="36.12 34.692 36.12 3.385 0 24.538 0 55.846"/>
+        <polygon fill="#2B6CB0" points="14.7 20.144 18.06 18.192 18.06 28.346 14.7 30.298"/>
+        <polygon fill="#2B6CB0" points=".42 43.668 10.5 37.814 10.5 41.198 .42 47.052"/>
+        <polygon fill="#2B6CB0" points="22.26 30.984 32.34 25.13 32.34 28.514 22.26 34.368"/>
+        <polygon stroke="#2B6CB0" stroke-width="4" points="0 24.538 0 48.654 0 66 42 40.615 42 0"/>
+      </g>
+    </g>
+    <g transform="translate(181 54)">
+      <g transform="translate(0 .5)">
+        <polygon fill="#D1E2F4" points="0 126.96 72.166 169 146 126.119 73.417 84.08"/>
+        <polygon fill="#6E9CCD" points="0 42.881 0 126.96 72.166 169 72.166 84.92"/>
+        <polygon fill="#D1E2F4" points="72.166 42.04 72.166 126.119 146 169 146 84.92" transform="matrix(-1 0 0 1 218.166 0)"/>
+        <polygon fill="#FCFCFC" points="0 42.881 72.166 84.92 146 42.04 73.417 0"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M72.1657143 167.313249L72.1657143 84.920398M.417142857 44.9825871L72.1657143 86.60199"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M72.5828571,44.141791 L146,86.60199" transform="matrix(-1 0 0 1 218.583 0)"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M34.6228571,21.0199005 L108.874286,63.9004975" transform="matrix(-1 0 0 1 143.497 0)"/>
+        <path stroke="#2B6CB0" stroke-width="4" d="M0,42.880597 L73.4171429,0 L146,42.039801 L146,126.119403 L72.1657143,169 L0,126.960199 L0,42.880597 Z"/>
+      </g>
+      <g transform="translate(14 78.5)">
+        <polygon fill="#69CB8C" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#69CB8C" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#6E9CCD" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#6E9CCD" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#6E9CCD" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(14 91.5)">
+        <polygon fill="#69CB8C" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#69CB8C" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#69CB8C" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#69CB8C" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#69CB8C" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(14 103.5)">
+        <polygon fill="#CB6969" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#6E9CCD" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#6E9CCD" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#6E9CCD" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#6E9CCD" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(90 72.5)">
+        <polygon fill="#6E9CCD" stroke="#2B6CB0" stroke-width="4" points="0 24.538 0 48.654 0 66 42 40.615 42 0"/>
+        <path stroke="#6E9CCD" stroke-linecap="square" stroke-width="3" d="M34.02,34.2692308 L41.16,38.5"/>
+        <polygon fill="#D1E2F4" stroke="#6E9CCD" stroke-width="3" points="36.12 34.692 36.12 3.385 0 24.538 0 55.846"/>
+        <polygon fill="#2B6CB0" points="14.7 20.144 18.06 18.192 18.06 28.346 14.7 30.298"/>
+        <polygon fill="#2B6CB0" points=".42 43.668 10.5 37.814 10.5 41.198 .42 47.052"/>
+        <polygon fill="#2B6CB0" points="22.26 30.984 32.34 25.13 32.34 28.514 22.26 34.368"/>
+        <polygon stroke="#2B6CB0" stroke-width="4" points="0 24.538 0 48.654 0 66 42 40.615 42 0"/>
+      </g>
+    </g>
+    <g transform="translate(92 111)">
+      <g transform="translate(0 .5)">
+        <polygon fill="#D1E2F4" points="0 126.96 72.166 169 146 126.119 73.417 84.08"/>
+        <polygon fill="#D1E2F4" points="0 42.881 0 126.96 72.166 169 72.166 84.92"/>
+        <polygon fill="#D1E2F4" points="72.166 42.04 72.166 126.119 146 169 146 84.92" transform="matrix(-1 0 0 1 218.166 0)"/>
+        <polygon fill="#FCFCFC" points="0 42.881 72.166 84.92 146 42.04 73.417 0"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M72.1657143 167.313249L72.1657143 84.920398M.417142857 44.9825871L72.1657143 86.60199"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M72.5828571,44.141791 L146,86.60199" transform="matrix(-1 0 0 1 218.583 0)"/>
+        <path stroke="#6E9CCD" stroke-width="4" d="M34.6228571,21.0199005 L108.874286,63.9004975" transform="matrix(-1 0 0 1 143.497 0)"/>
+        <path stroke="#2B6CB0" stroke-width="4" d="M0,42.880597 L73.4171429,0 L146,42.039801 L146,126.119403 L72.1657143,169 L0,126.960199 L0,42.880597 Z"/>
+      </g>
+      <g transform="translate(14 78.5)">
+        <polygon fill="#69CB8C" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#69CB8C" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#6E9CCD" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#6E9CCD" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#6E9CCD" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(14 91.5)">
+        <polygon fill="#69CB8C" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#69CB8C" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#69CB8C" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#69CB8C" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#69CB8C" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(14 103.5)">
+        <polygon fill="#CB6969" points="0 0 3.364 1.925 3.364 5.258 0 3.333"/>
+        <polygon fill="#6E9CCD" points="6.727 3.849 10.091 5.774 10.091 9.107 6.727 7.182"/>
+        <polygon fill="#6E9CCD" points="13.455 7.698 16.818 9.623 16.818 12.956 13.455 11.032"/>
+        <polygon fill="#6E9CCD" points="20.182 11.547 23.545 13.472 23.545 16.805 20.182 14.881"/>
+        <polygon fill="#6E9CCD" points="26.909 15.396 30.273 17.321 30.273 20.654 26.909 18.73"/>
+        <polygon fill="#6E9CCD" points="33.636 19.245 37 21.17 37 24.503 33.636 22.579"/>
+      </g>
+      <g transform="translate(90 72.5)">
+        <polygon fill="#6E9CCD" stroke="#2B6CB0" stroke-width="4" points="0 24.538 0 48.654 0 66 42 40.615 42 0"/>
+        <path stroke="#6E9CCD" stroke-linecap="square" stroke-width="3" d="M34.02,34.2692308 L41.16,38.5"/>
+        <polygon fill="#D1E2F4" stroke="#6E9CCD" stroke-width="3" points="36.12 34.692 36.12 3.385 0 24.538 0 55.846"/>
+        <polygon fill="#2B6CB0" points="14.7 20.144 18.06 18.192 18.06 28.346 14.7 30.298"/>
+        <polygon fill="#2B6CB0" points=".42 43.668 10.5 37.814 10.5 41.198 .42 47.052"/>
+        <polygon fill="#2B6CB0" points="22.26 30.984 32.34 25.13 32.34 28.514 22.26 34.368"/>
+        <polygon stroke="#2B6CB0" stroke-width="4" points="0 24.538 0 48.654 0 66 42 40.615 42 0"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,153 @@
+.box {
+  @apply shadow-md rounded mb-4;
+
+  &__row {
+    @apply flex -mx-3;
+
+    .box {
+      @apply mx-3 flex-1;
+    }
+  }
+
+  &--focal {
+    .box__body {
+      @apply py-12;
+    }
+  }
+
+  &--link {
+    @apply shadow-lg;
+
+    &:hover {
+      @apply shadow-none;
+    }
+  }
+
+  &--seamless {
+    .box__header {
+      @apply pb-0;
+    }
+
+    .box__body {
+      @apply border-t-0 border-b-0;
+    }
+  }
+
+  &--headerless {
+    .box__body {
+      @apply rounded-t;
+    }
+  }
+
+  &--footerless {
+    .box__body {
+      @apply rounded-b;
+    }
+  }
+
+  &--small {
+    @apply w-full mx-auto;
+
+    @include responsiveMin('md') {
+      @apply w-2/3;
+    }
+
+    @include responsiveMin('lg') {
+      @apply w-1/2;
+    }
+  }
+
+  &--split {
+    @apply flex shadow-lg;
+
+    .box__body {
+      @apply inline-block border-blue-500 text-center py-12 border-r-0 flex-grow;
+
+      &--cta {
+        @apply w-1/2 bg-blue-600 text-white text-xl flex flex-col justify-center content-center text-center py-6;
+
+        & + .box__body {
+          @apply w-1/2;
+        }
+      }
+
+      &:first-of-type {
+        @apply rounded-l;
+      }
+
+      &:last-of-type {
+        @apply rounded-r border-r;
+      }
+    }
+
+    &-horizontal {
+      @apply flex-col;
+
+      .box__body {
+        @apply w-full inline-block border-blue-500 text-center py-12 border-b-0 flex-1;
+
+        &--cta {
+          @apply bg-blue-600 text-white text-xl flex flex-col justify-center content-center text-center py-6;
+        }
+
+        &:first-of-type {
+          @apply rounded-t;
+        }
+
+        &:last-of-type {
+          @apply rounded-b border-b;
+        }
+      }
+    }
+  }
+
+  &__header {
+    @apply bg-white rounded-t border border-b-0 px-4 py-3 relative;
+
+    &-title {
+      @apply text-2xl text-blue-500 block;
+    }
+
+    &-subtitle {
+      @apply text-lg text-blue-400 block;
+    }
+
+    &-date {
+      @apply text-blue-700 italic block;
+    }
+
+    &-bump {
+      @apply absolute;
+      top   : -.8rem;
+      right : .5rem;
+    }
+  }
+
+  &__body {
+    @apply bg-white border p-4 py-3;
+
+    &-heading {
+      @apply text-3xl font-bold text-white my-5;
+    }
+  }
+
+  &__image {
+    @apply border border-b-0;
+  }
+
+  &__footer {
+    @apply bg-white rounded-b border border-t-0 px-4 py-3;
+
+    &--secondary {
+      @apply bg-gray-100 py-2 text-gray-500;
+    }
+
+    &-bar {
+      @apply w-full block;
+
+      &:not(:first-of-type) {
+        @apply mt-2;
+      }
+    }
+  }
+}

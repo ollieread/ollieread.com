@@ -1,0 +1,45 @@
+.avatar {
+  @apply bg-gray-200 rounded-full mx-auto shadow-md flex-grow-0 flex-shrink-0 relative inline-block object-cover object-center;
+  width  : 72px !important;
+  height : 72px !important;
+
+  &--spaced {
+    @apply mx-3;
+  }
+
+  &__image {
+    min-width  : 72px;
+    min-height : 72px;
+  }
+
+  &__social {
+    @apply bg-white rounded-full mx-auto shadow-md flex-grow-0 flex-shrink-0 text-center flex justify-center content-center items-center absolute;
+    width  : 30px;
+    height : 30px;
+    bottom : -5px;
+    left   : -5px;
+
+    &--github {
+      @extend .fab;
+      @extend .fa-github;
+      color : #333333;
+    }
+
+    &--twitter {
+      @extend .fab;
+      @extend .fa-twitter;
+      color : #1da1f2;
+    }
+
+    &--google {
+      &:before {
+        width               : 16px;
+        height              : 16px;
+        background-image    : url('/images/google-logo.svg');
+        background-repeat   : no-repeat;
+        background-position : center;
+        content             : '';
+      }
+    }
+  }
+}

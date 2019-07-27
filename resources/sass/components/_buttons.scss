@@ -1,0 +1,142 @@
+.button {
+  @apply bg-white border rounded shadow px-3 py-2 text-gray-700 inline-block align-middle;
+
+  &:hover {
+    @apply shadow-none bg-gray-100 text-gray-900;
+  }
+
+  &--small {
+    @apply px-2 py-1 text-sm;
+  }
+
+  &--primary {
+    @apply bg-blue-600 border-blue-500 text-white shadow-md;
+
+    &:hover {
+      @apply bg-blue-500 border-blue-400 text-blue-100;
+    }
+
+    .button__icon {
+      @apply text-blue-100;
+    }
+  }
+
+  &--text {
+    @apply bg-transparent border-0 shadow-none;
+
+    &:hover {
+      @apply shadow-inner;
+    }
+  }
+
+  &__bar {
+    @apply w-full flex flex-col justify-start my-4;
+
+    &--spaced {
+      @apply mt-12;
+    }
+
+    &--slim {
+      @apply my-1;
+    }
+
+    .button {
+      @apply mr-0 mb-3 w-full;
+
+      &:last-of-type {
+        @apply mb-0;
+      }
+    }
+
+    &--flexible {
+      @apply flex-row justify-center;
+
+      .button {
+        @apply mx-1 mb-0 w-auto;
+      }
+    }
+
+    @media(min-width : 461px) {
+      @apply flex-row;
+
+      .button {
+        @apply mr-3 mb-0 w-auto;
+      }
+    }
+
+    &--centered {
+      @apply flex justify-center;
+    }
+  }
+
+  &--icon {
+    @apply rounded-full text-center p-2;
+    width: 44px !important;
+
+    .button__icon {
+      @apply mr-0 mt-0 float-none;
+    }
+  }
+
+  &--social-auth {
+    width : 215px;
+  }
+
+  &__icon {
+    @include fa-icon();
+    @extend .far;
+    @apply mr-2 mt-1 float-left;
+
+    &--brand {
+      @extend .fab;
+    }
+
+    &--github {
+      @extend .fab;
+      @extend .fa-github;
+      color : #333333;
+    }
+
+    &--twitter {
+      @extend .fab;
+      @extend .fa-twitter;
+      color : #1da1f2;
+    }
+
+    &--linkedin {
+      @extend .fab;
+      @extend .fa-linkedin;
+      color : #0077b5;
+    }
+
+    &--keybase {
+      @extend .fab;
+      @extend .fa-keybase;
+      color : #4c8eff;
+    }
+
+    &--reddit {
+      @extend .fab;
+      @extend .fa-reddit;
+      color : #ff4500;
+    }
+
+    &--stack {
+      @extend .fab;
+      @extend .fa-stack-overflow;
+      color : #f48024;
+    }
+
+    &--google {
+      width               : 16px;
+      height              : 16px;
+      background-image    : url('/images/google-logo.svg');
+      background-repeat   : no-repeat;
+      background-position : center;
+    }
+  }
+
+  &--disabled {
+    @apply bg-gray-200 shadow-none cursor-not-allowed;
+  }
+}

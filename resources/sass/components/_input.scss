@@ -1,0 +1,77 @@
+.input {
+  @apply my-2 text-left;
+
+  &--stack {
+    .input__field {
+      @apply rounded-none border-t-0;
+
+      &:first-of-type {
+        @apply rounded-t border-t mt-0;
+      }
+
+      &:last-of-type {
+        @apply rounded-b;
+      }
+    }
+  }
+
+  &--invalid {
+    .input__label, .input__feedback {
+      @apply text-red-500;
+    }
+
+    .input__field {
+      @apply border-red-500;
+    }
+  }
+
+  &--valid {
+    .input__label, .input__feedback {
+      @apply text-green-500;
+    }
+
+    .input__field {
+      @apply border-green-500;
+    }
+  }
+
+  &__label {
+    @apply uppercase text-sm text-gray-700 tracking-wider font-bold text-left block w-full my-2;
+
+    &--sronly {
+      @extend .sr-only;
+    }
+
+    &--required {
+      &:after {
+        @apply text-red-500 ml-2;
+        content: '*';
+      }
+    }
+  }
+
+  &__field {
+    @apply rounded border p-2 w-full outline-none text-gray-600 bg-gray-100;
+
+    &:focus {
+      @apply shadow-inner;
+    }
+
+    /*&:invalid {
+      @apply border-red-500;
+    }
+
+    &:valid {
+      @apply border-green-500;
+    }*/
+  }
+
+  &__info {
+    @apply text-gray-500 text-sm text-left mb-2 block;
+  }
+
+  &__feedback {
+    @apply text-sm text-left block;
+  }
+
+}

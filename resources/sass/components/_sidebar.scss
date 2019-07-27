@@ -1,0 +1,51 @@
+.sidebar {
+  @apply inset-y-0 left-0 h-screen flex flex-col content-between text-blue-100 fixed;
+  width: 20rem;
+  z-index: 99999;
+
+  &__header {
+    @apply p-4 pb-2 flex flex-col items-center content-center justify-center bg-blue-700;
+
+    &--inline {
+      @apply flex-row;
+    }
+
+    &-heading {
+      @apply text-white text-3xl;
+    }
+
+    &-subheading {
+      @apply text-base text-blue-200;
+    }
+  }
+
+  &__content {
+    @apply p-4 bg-blue-600 flex-grow overflow-y-scroll;
+  }
+
+  &__footer {
+    @apply p-4 bg-blue-700;
+  }
+
+  @media (max-width: #{map-get($breakpoints, 'sm')}) {
+    @apply w-full;
+    left: -100vw;
+  }
+
+  &--open {
+    left: 0;
+  }
+
+  &__menu-link {
+    @apply absolute bg-blue-600 text-white text-center rounded-full flex justify-center content-center items-center;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    top: 1rem;
+    right: 1rem;
+
+    @media (min-width : #{map-get($breakpoints, 'sm') + 1px}) {
+      @apply hidden;
+    }
+  }
+}
