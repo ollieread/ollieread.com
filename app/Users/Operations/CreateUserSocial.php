@@ -24,12 +24,30 @@ class CreateUserSocial
      */
     private $socialUser;
 
+    private function getMetadata(): array
+    {
+        $metadata = [];
+
+        if ($this->provider === 'discord') {
+            $metadata = [
+                'discriminator' => $this->socialUser->offsetGet('discriminator'),
+                'mfa_enabled'   => $this->socialUser->offsetGet('mfa_enabled'),
+                'verified'      => $this->socialUser->offsetGet('verified'),
+                'locale'        => $this->socialUser->offsetGet('locale'),
+                'flags'         => $this->socialUser->offsetGet('flags'),
+                'premium_type'  => $this->socialUser->offsetGet('premium_type'),
+            ];
+        }
+
+        return $metadata;
+    }
+
     public function perform(): ?Social
     {
         $social = (new Social)->fill([
             'provider'  => $this->provider,
             'social_id' => $this->socialUser->getId(),
-            'metadata'  => [],
+            'metadata'  => $this->getMetadata(),
             'avatar'    => $this->socialUser->getAvatar(),
         ]);
 

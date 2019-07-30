@@ -40,4 +40,11 @@ return [
         'redirect'      => env('APP_URL') . '/social/twitter/response',
     ],
 
+    'discord' => [
+        'client_id'     => env('DISCORD_CLIENT_ID'),
+        'client_secret' => env('DISCORD_CLIENT_SECRET'),
+        'token'         => env('DISCORD_TOKEN'),
+        'redirect'      => env('APP_URL') . '/social/discord/response',
+    ],
+
 ];

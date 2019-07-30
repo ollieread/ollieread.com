@@ -43,6 +43,11 @@
                     <i class="button__icon button__icon--github"></i>
                     GitHub
                 </a>
+
+                <a href="{{ route('users:social.auth', 'discord') }}" class="button">
+                    <i class="button__icon button__icon--discord"></i>
+                    Discord
+                </a>
             </div>
 
             <div class="form form--inset">

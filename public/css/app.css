@@ -7928,6 +7928,7 @@ video {
 .fab,
 .layout .avatar__social--twitter,
 .layout .avatar__social--github,
+.layout .button__icon--discord,
 .layout .button__icon--stack,
 .layout .button__icon--reddit,
 .layout .button__icon--keybase,
@@ -8062,6 +8063,7 @@ video {
 .fab.fa-pull-left,
 .layout .fa-pull-left.avatar__social--twitter,
 .layout .fa-pull-left.avatar__social--github,
+.layout .fa-pull-left.button__icon--discord,
 .layout .fa-pull-left.button__icon--stack,
 .layout .fa-pull-left.button__icon--reddit,
 .layout .fa-pull-left.button__icon--keybase,
@@ -8099,6 +8101,7 @@ video {
 .fab.fa-pull-right,
 .layout .fa-pull-right.avatar__social--twitter,
 .layout .fa-pull-right.avatar__social--github,
+.layout .fa-pull-right.button__icon--discord,
 .layout .fa-pull-right.button__icon--stack,
 .layout .fa-pull-right.button__icon--reddit,
 .layout .fa-pull-right.button__icon--keybase,
@@ -10460,7 +10463,7 @@ readers do not read off random characters that represent icons */
   content: "\F5EB";
 }
 
-.fa-discord:before {
+.fa-discord:before, .layout .button__icon--discord:before {
   content: "\F392";
 }
 
@@ -16260,7 +16263,7 @@ readers do not read off random characters that represent icons */
   src: url("../webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"), url("../webfonts/fa-brands-400.ttf") format("truetype"), url("../webfonts/fa-brands-400.svg#fontawesome") format("svg");
 }
 
-.fab, .layout .avatar__social--twitter, .layout .avatar__social--github, .layout .button__icon--stack, .layout .button__icon--reddit, .layout .button__icon--keybase, .layout .button__icon--linkedin, .layout .button__icon--twitter, .layout .button__icon--github, .layout .button__icon--brand, .link--twitch::before, .link--github::before, .link--twitter::before {
+.fab, .layout .avatar__social--twitter, .layout .avatar__social--github, .layout .button__icon--discord, .layout .button__icon--stack, .layout .button__icon--reddit, .layout .button__icon--keybase, .layout .button__icon--linkedin, .layout .button__icon--twitter, .layout .button__icon--github, .layout .button__icon--brand, .link--twitch::before, .link--github::before, .link--twitter::before {
   font-family: "Font Awesome 5 Brands";
 }
 
@@ -17624,6 +17627,10 @@ p {
 
 .layout .button__icon--stack {
   color: #f48024;
+}
+
+.layout .button__icon--discord {
+  color: #7289da;
 }
 
 .layout .button__icon--google {

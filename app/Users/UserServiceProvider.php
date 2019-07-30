@@ -5,11 +5,13 @@ namespace Ollieread\Users;
 use Exception;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Socialite\Contracts\Factory;
 use Ollieread\Core\Support\Routes;
 use Ollieread\Users\Models\Role;
 use Ollieread\Users\Models\User;
 use Ollieread\Users\Routes\AdminRoutes;
 use Ollieread\Users\Routes\UserRoutes;
+use SocialiteProviders\Discord\Provider;
 
 class UserServiceProvider extends ServiceProvider
 {
@@ -32,6 +34,11 @@ class UserServiceProvider extends ServiceProvider
                     return $this->userRoleCache[$user->id][$role->ident];
                 });
             }
+
+            $socialite = $this->app->make(Factory::class);
+            $socialite->extend('discord', static function () use ($socialite) {
+                return $socialite->buildProvider(Provider::class, config('services.discord'));
+            });
         } catch (Exception $exception) {
             report($exception);
         }

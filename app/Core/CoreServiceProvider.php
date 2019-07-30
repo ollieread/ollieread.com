@@ -2,6 +2,7 @@
 
 namespace Ollieread\Core;
 
+use BotMan\BotMan\BotMan;
 use Illuminate\Auth\SessionGuard;
 use Illuminate\Container\Container;
 use Illuminate\Routing\Router;
@@ -34,6 +35,10 @@ class CoreServiceProvider extends ServiceProvider
 
         $this->app->bind(User::class, function () {
             return $this->app['auth']->guard('user')->user();
+        });
+
+        $this->app->bind(BotMan::class, function () {
+            return $this->app->make('botman');
         });
     }
 

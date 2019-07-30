@@ -33,7 +33,7 @@
 
         <nav class="nav nav--sidebar-inverted">
             @can('admin')
-                <a href="#" class="nav__link">
+                <a href="{{ route('admin:dashboard') }}" class="nav__link">
                     <i class="nav__icon fa-user-crown"></i> Admin
                 </a>
             @endcan

@@ -2,6 +2,7 @@
 
 namespace Ollieread\Core\Providers;
 
+use BotMan\BotMan\BotMan;
 use Illuminate\Auth\SessionGuard;
 use Illuminate\Container\Container;
 use Illuminate\Routing\Router;
