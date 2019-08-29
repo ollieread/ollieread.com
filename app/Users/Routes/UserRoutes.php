@@ -35,6 +35,7 @@ class UserRoutes implements Routes
                 // Social accounts
                 $router->get('/social')->name('social.edit')->uses(Actions\Account\Social::class . '@edit');
                 $router->post('/social')->name('social.update')->uses(Actions\Account\Social::class . '@update');
+                $router->get('/social/{provider}')->name('social.destroy')->uses(Actions\Account\Social::class . '@destroy');
 
                 // Change password
                 $router->get('/password')->name('password.edit')->uses(Actions\Account\Password::class . '@edit');

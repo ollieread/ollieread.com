@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('page.title', 'Articles in ' . ($category->title ?? $category->name))
+
 @section('breadcrumbs')
     <a href="{{ route('site:home') }}" class="breadcrumb">Home</a>
     <a href="{{ route('articles:index') }}" class="breadcrumb">Articles</a>

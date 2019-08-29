@@ -41,14 +41,14 @@
                     <label for="user-email" class="input__label">Email</label>
                     <input type="email" name="email" id="user-email" required class="input__field"
                            placeholder="Enter your email address" value="{{ old('email') }}">
-                    {!! $errors->first('email', '<div class="input_feedback">:message</div>') !!}
+                    {!! $errors->first('email', '<div class="input__feedback">:message</div>') !!}
                 </div>
 
                 <div class="input {{ $errors->has('password') ? 'input--invalid' : '' }}">
                     <label for="user-password" class="input__label">Password</label>
                     <input type="password" name="password" id="user-password" required class="input__field"
                            placeholder="Enter a password">
-                    {!! $errors->first('password', '<div class="input_feedback">:message</div>') !!}
+                    {!! $errors->first('password', '<div class="input__feedback">:message</div>') !!}
                     <div class="field__info"><a href="#" class="link link--subtle">Forgot your password?</a></div>
                 </div>
 

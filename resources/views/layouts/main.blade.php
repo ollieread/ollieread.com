@@ -6,7 +6,7 @@
 
     @include('layouts.partials.meta')
 
-    <title>@yield('Title', '')</title>
+    <title>@yield('page.title', 'PHP & Laravel development') - ollieread.com</title>
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 

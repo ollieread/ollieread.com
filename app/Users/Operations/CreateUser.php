@@ -35,9 +35,15 @@ class CreateUser
         $user          = (new User)->fill(Arr::only($this->input, ['username', 'email', 'password', 'avatar', 'active', 'verified']));
         $user->api_key = Str::random(32);
 
-        if ($user->save()) {
+        $role = (new GetRole)
+            ->setIdent('user')
+            ->perform();
+
+        if ($role && $user->save()) {
+            $user->roles()->save($role);
+
             if ($this->provider && $this->socialUser) {
-                (new CreateUserSocial)
+                (new SaveUserSocial)
                     ->setProvider($this->provider)
                     ->setSocialUser($this->socialUser)
                     ->setUser($user)

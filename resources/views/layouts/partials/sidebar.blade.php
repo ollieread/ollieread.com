@@ -9,17 +9,17 @@
         <h3 class="sidebar__header-subheading">PHP & Laravel Development</h3>
 
         <nav class="nav nav--sidebar-inverted nav--horizontal">
-            <a href="/" class="nav__link" title="Who am I?">
+            {{--<a href="/" class="nav__link" title="Who am I?">
                 <i class="nav__icon fa-question"></i>
-            </a>
+            </a>--}}
 
-            <a href="/" class="nav__link" title="Get in touch">
+            <a href="https://sprocketbox.io/?utm_source=olliereadcom#get-in-touch" class="nav__link" title="Get in touch" data-tippy-content="Get in touch">
                 <i class="nav__icon fa-envelope"></i>
             </a>
 
-            <a href="/" class="nav__link" title="Ideas">
+            {{--<a href="/" class="nav__link" title="Ideas">
                 <i class="nav__icon fa-lightbulb"></i>
-            </a>
+            </a>--}}
         </nav>
     </header>
 
@@ -32,11 +32,11 @@
     <footer class="sidebar__footer">
 
         <nav class="nav nav--sidebar-inverted">
-            @can('admin')
+            @canany(['ADMIN_USERS', 'ADMIN_ARTICLES', 'ADMIN_PACKAGES', 'ADMIN_COURSES', 'ADMIN_SERVICES'])
                 <a href="{{ route('admin:dashboard') }}" class="nav__link">
                     <i class="nav__icon fa-user-crown"></i> Admin
                 </a>
-            @endcan
+            @endcanany
 
             @guest('user')
                 <a href="{{ route('users:sign-in.create') }}"

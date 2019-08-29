@@ -11,27 +11,28 @@
 @import "components/utility";
 
 .layout {
-  @import "components/brand";
-  @import "components/sidebar";
-  @import "components/nav";
-  @import "components/page";
-  @import "components/box";
-  @import "components/form";
-  @import "components/input";
-  @import "components/article";
-  @import "components/categories";
-  @import "components/tags";
-  @import "components/topics";
-  @import "components/versions";
-  @import "components/pagination";
-  @import "components/lists";
-  @import "components/buttons";
-  @import "components/logo";
-  @import "components/avatar";
-  @import "components/comments";
-  @import "components/notices";
-  @import "components/tabs";
-  @import "components/breadcrumbs";
+    @import "components/brand";
+    @import "components/sidebar";
+    @import "components/nav";
+    @import "components/page";
+    @import "components/box";
+    @import "components/form";
+    @import "components/input";
+    @import "components/article";
+    @import "components/categories";
+    @import "components/tags";
+    @import "components/topics";
+    @import "components/versions";
+    @import "components/pagination";
+    @import "components/lists";
+    @import "components/buttons";
+    @import "components/logo";
+    @import "components/avatar";
+    @import "components/comments";
+    @import "components/notices";
+    @import "components/tabs";
+    @import "components/breadcrumbs";
+    @import "components/tippy";
 
-  @import "layouts/single";
+    @import "layouts/single";
 }

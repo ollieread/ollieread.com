@@ -5,10 +5,12 @@ namespace Ollieread\Core;
 use BotMan\BotMan\BotMan;
 use Illuminate\Auth\SessionGuard;
 use Illuminate\Container\Container;
+use Illuminate\Filesystem\FilesystemManager;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
+use Ollieread\Core\Actions\Feeds;
 use Ollieread\Core\Routes\CoreRoutes;
 use Ollieread\Core\Support\Routes;
 use Ollieread\Users\Models\User;
@@ -21,14 +23,6 @@ class CoreServiceProvider extends ServiceProvider
         $routes->addWebRoutes(CoreRoutes::class);
         $this->app->instance(Routes::class, $routes);
 
-        // Register the action handler
-        Router::macro('action', function (string $prefix, string $name, string $actionClass) {
-            return Route::group(['prefix' => $prefix], static function (Router $router) use ($actionClass, $name) {
-                $router->get('/', '\\' . ltrim($actionClass, '\\') . '@get')->name(sprintf('%s.create', $name));
-                $router->post('/', '\\' . ltrim($actionClass, '\\') . '@post')->name(sprintf('%s.store', $name));
-            });
-        });
-
         $this->app->bind(SessionGuard::class, function () {
             return $this->app['auth']->guard('user');
         });
@@ -37,9 +31,11 @@ class CoreServiceProvider extends ServiceProvider
             return $this->app['auth']->guard('user')->user();
         });
 
-        $this->app->bind(BotMan::class, function () {
-            return $this->app->make('botman');
-        });
+        $this->app->when(Feeds::class)
+            ->needs(FilesystemManager::class)
+            ->give(function() {
+                return $this->app->make(FilesystemManager::class);
+            });
     }
 
     public function boot()

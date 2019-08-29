@@ -1,37 +1,39 @@
 .tabs {
-  &--bottom {
+    @apply my-3;
+
+    &--bottom {
+        .tab {
+            @apply pb-2 rounded-t-none rounded-b border border-t-0;
+
+            &--active {
+                margin-bottom : 0;
+                margin-top    : -1px;
+            }
+        }
+    }
+
     .tab {
-      @apply pb-2 rounded-t-none rounded-b border border-t-0;
+        @apply text-blue-500 px-2 py-1 cursor-pointer rounded-t border border-b-0 bg-gray-100 mx-1;
 
-      &--active {
-        margin-bottom: 0;
-        margin-top: -1px;
-      }
+        &--active {
+            @apply font-bold bg-white;
+            margin-bottom : -1px;
+        }
+
+        &__bar {
+            @apply flex;
+        }
+
+        &__content {
+            @apply hidden p-2 border rounded;
+
+            &--active {
+                @apply block;
+            }
+
+            code {
+                @apply m-0;
+            }
+        }
     }
-  }
-
-  .tab {
-    @apply text-blue-500 px-2 py-1 cursor-pointer rounded-t border border-b-0 bg-gray-100 mx-1;
-
-    &--active {
-      @apply font-bold bg-white;
-      margin-bottom: -1px;
-    }
-
-    &__bar {
-      @apply flex;
-    }
-
-    &__content {
-      @apply hidden p-2 border rounded;
-
-      &--active {
-        @apply block;
-      }
-
-      code {
-        @apply m-0;
-      }
-    }
-  }
 }

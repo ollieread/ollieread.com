@@ -4,14 +4,15 @@ namespace Ollieread\Users\Actions;
 
 use Exception;
 use Illuminate\Auth\SessionGuard;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Contracts\Factory;
-use Ollieread\Core\Models\Topic;
 use Ollieread\Core\Support\Action;
 use Ollieread\Core\Support\Alerts;
 use Ollieread\Users\Operations\CreateUser;
-use Ollieread\Users\Operations\CreateUserSocial;
 use Ollieread\Users\Operations\GetUser;
+use Ollieread\Users\Operations\GetUserSocial;
+use Ollieread\Users\Operations\SaveUserSocial;
 
 class Social extends Action
 {
@@ -38,7 +39,7 @@ class Social extends Action
         return $this->socialite->driver($provider)->redirect();
     }
 
-    public function store(string $provider, Request $request)
+    public function store(string $provider, Request $request): RedirectResponse
     {
         try {
             $socialUser = $this->socialite->driver($provider)->user();
@@ -48,20 +49,26 @@ class Social extends Action
         }
 
         if ($socialUser) {
+            // Get the user for the social account
             $user = (new GetUser)
                 ->setProvider($provider)
                 ->setSocialId($socialUser->getId())
                 ->perform();
 
             if (! $user) {
+                // If there isn't one we want to get either the currently identified user or a
+                // user with a matching email address
                 $user = $this->auth->user() ?? (new GetUser)
                         ->setEmail($socialUser->getEmail())
                         ->perform();
 
                 if ($user) {
-                    if (! (new CreateUserSocial)->setUser($user)->setProvider($provider)->setSocialUser($socialUser)->perform()) {
+                    // Now that we've found a user we want to 'save' their social profile though this
+                    // would actually be a create if we've hit this
+                    if (! (new SaveUserSocial)->setUser($user)->setProvider($provider)->setSocialUser($socialUser)->perform()) {
+                        // If we failed we want to error
                         Alerts::error(trans('error.unexpected'));
-                        return $this->response()->redirectToRoute('users:login.create');
+                        return $this->response()->redirectToRoute('users:sign-in.create');
                     }
                 } else {
                     // Now we want to go about creating a new user
@@ -77,6 +84,15 @@ class Social extends Action
                         ->setSocialUser($socialUser)
                         ->perform();
                 }
+            } else {
+                // Since we found a user to start with we're going to want to get the associated social profile
+                $social = (new GetUserSocial)->setUser($user)->setProvider($provider)->perform();
+
+                // Now we want to update that social profile with the updated information, avatar etc
+                if (! $social || ! (new SaveUserSocial)->setSocial($social)->setUser($user)->setProvider($provider)->setSocialUser($socialUser)->perform()) {
+                    Alerts::error(trans('error.unexpected'));
+                    return $this->response()->redirectToRoute('users:sign-in.create');
+                }
             }
 
             if ($user) {
@@ -86,7 +102,7 @@ class Social extends Action
         }
 
         Alerts::error(trans('errors.unexpected'));
-        return $this->response()->redirectToRoute('users:login.create');
+        return $this->response()->redirectToRoute('users:sign-in.create');
     }
 }
 

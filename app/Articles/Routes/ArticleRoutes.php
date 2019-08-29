@@ -14,7 +14,12 @@ class ArticleRoutes implements Routes
         $router->get('/category/{categorySlug}')->name('category')->uses(Actions\Category::class);
         $router->get('/filter/{filterString?}')->name('filter')->uses(Actions\Filter::class);
         $router->get('/series/{seriesSlug}')->name('series')->uses(Actions\Series::class);
-        $router->view('/test-article', 'articles.test');
+        /*$router->view('/test-article', 'articles.test');*/
+        /*$router->group(['prefix' => '/tgfbgfbbgfbbbfgest'], function (Router $router) {
+            $router->get('/', function () use ($router) {
+                dd($router);
+            });
+        });*/
         $router->get('/{articleSlug}/comments')->name('article.comments')->uses(Actions\Comments::class);
         $router->post('/{articleSlug}/comment')->name('article.comments.create')->uses(Actions\Comments\Create::class);
         $router->get('/{articleSlug}')->name('article')->uses(Actions\Article::class);

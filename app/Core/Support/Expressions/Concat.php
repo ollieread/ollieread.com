@@ -13,6 +13,13 @@ class Concat extends Expression
         parent::__construct('');
     }
 
+    public function addColumn(string $column)
+    {
+        $this->parts[] = strpos($column, '.') === 0 ? '`' . $column . '`' : $column;
+
+        return $this;
+    }
+
     public function addExpression(Expression $expression)
     {
         $this->parts[] = $expression;
@@ -27,15 +34,8 @@ class Concat extends Expression
         return $this;
     }
 
-    public function addColumn(string $column)
-    {
-        $this->parts[] = strpos($column, '.') === 0 ? '`' . $column . '`' : $column;
-
-        return $this;
-    }
-
     public function getValue()
     {
-        return 'CONCAT(' . implode(',', $this->parts) .')';
+        return 'CONCAT(' . implode(',', $this->parts) . ')';
     }
 }

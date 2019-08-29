@@ -7498,11 +7498,11 @@ video {
 }
 
 .w-1\/3{
-  width: 33.33333%;
+  width: 33.333333%;
 }
 
 .w-2\/3{
-  width: 66.66667%;
+  width: 66.666667%;
 }
 
 .w-1\/4{
@@ -7534,11 +7534,11 @@ video {
 }
 
 .w-1\/6{
-  width: 16.66667%;
+  width: 16.666667%;
 }
 
 .w-2\/6{
-  width: 33.33333%;
+  width: 33.333333%;
 }
 
 .w-3\/6{
@@ -7546,19 +7546,19 @@ video {
 }
 
 .w-4\/6{
-  width: 66.66667%;
+  width: 66.666667%;
 }
 
 .w-5\/6{
-  width: 83.33333%;
+  width: 83.333333%;
 }
 
 .w-1\/12{
-  width: 8.33333%;
+  width: 8.333333%;
 }
 
 .w-2\/12{
-  width: 16.66667%;
+  width: 16.666667%;
 }
 
 .w-3\/12{
@@ -7566,11 +7566,11 @@ video {
 }
 
 .w-4\/12{
-  width: 33.33333%;
+  width: 33.333333%;
 }
 
 .w-5\/12{
-  width: 41.66667%;
+  width: 41.666667%;
 }
 
 .w-6\/12{
@@ -7578,11 +7578,11 @@ video {
 }
 
 .w-7\/12{
-  width: 58.33333%;
+  width: 58.333333%;
 }
 
 .w-8\/12{
-  width: 66.66667%;
+  width: 66.666667%;
 }
 
 .w-9\/12{
@@ -7590,11 +7590,11 @@ video {
 }
 
 .w-10\/12{
-  width: 83.33333%;
+  width: 83.333333%;
 }
 
 .w-11\/12{
-  width: 91.66667%;
+  width: 91.666667%;
 }
 
 .w-full{
@@ -7900,7 +7900,7 @@ video {
 }
 
 /*!
- * Font Awesome Pro 5.8.2 by @fontawesome - https://fontawesome.com
+ * Font Awesome Pro 5.10.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Commercial License)
  */
 
@@ -7925,7 +7925,9 @@ video {
 .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__icon,
 .layout .nav--sidebar-inverted .nav__link--parent.nav__link--active + .nav--children .nav__icon,
 .fal,
+.fad,
 .fab,
+.layout .avatar__social--discord,
 .layout .avatar__social--twitter,
 .layout .avatar__social--github,
 .layout .button__icon--discord,
@@ -7936,6 +7938,9 @@ video {
 .layout .button__icon--twitter,
 .layout .button__icon--github,
 .layout .button__icon--brand,
+.layout .box--twitter .box__header-icon,
+.layout .box--github .box__header-icon,
+.layout .box--discord .box__header-icon,
 .link--twitch::before,
 .link--github::before,
 .link--twitter::before {
@@ -7966,7 +7971,7 @@ video {
   font-size: 1em;
 }
 
-.fa-2x, .layout .notice:before {
+.fa-2x, .layout .notice:before, .layout .box--twitter .box__header-icon, .layout .box--github .box__header-icon, .layout .box--discord .box__header-icon {
   font-size: 2em;
 }
 
@@ -8002,7 +8007,7 @@ video {
   font-size: 10em;
 }
 
-.fa-fw, .layout .nav__icon {
+.fa-fw, .layout .box--twitter .box__header-icon, .layout .box--github .box__header-icon, .layout .box--discord .box__header-icon, .layout .nav__icon {
   text-align: center;
   width: 1.25em;
 }
@@ -8061,6 +8066,7 @@ video {
 .layout .nav--sidebar-inverted .nav__link--parent.nav__link--active + .nav--children .fa-pull-left.nav__icon,
 .fal.fa-pull-left,
 .fab.fa-pull-left,
+.layout .fa-pull-left.avatar__social--discord,
 .layout .fa-pull-left.avatar__social--twitter,
 .layout .fa-pull-left.avatar__social--github,
 .layout .fa-pull-left.button__icon--discord,
@@ -8071,6 +8077,9 @@ video {
 .layout .fa-pull-left.button__icon--twitter,
 .layout .fa-pull-left.button__icon--github,
 .layout .fa-pull-left.button__icon--brand,
+.layout .box--twitter .fa-pull-left.box__header-icon,
+.layout .box--github .fa-pull-left.box__header-icon,
+.layout .box--discord .fa-pull-left.box__header-icon,
 .fa-pull-left.link--twitch::before,
 .fa-pull-left.link--github::before,
 .fa-pull-left.link--twitter::before {
@@ -8099,6 +8108,7 @@ video {
 .layout .nav--sidebar-inverted .nav__link--parent.nav__link--active + .nav--children .fa-pull-right.nav__icon,
 .fal.fa-pull-right,
 .fab.fa-pull-right,
+.layout .fa-pull-right.avatar__social--discord,
 .layout .fa-pull-right.avatar__social--twitter,
 .layout .fa-pull-right.avatar__social--github,
 .layout .fa-pull-right.button__icon--discord,
@@ -8109,6 +8119,9 @@ video {
 .layout .fa-pull-right.button__icon--twitter,
 .layout .fa-pull-right.button__icon--github,
 .layout .fa-pull-right.button__icon--brand,
+.layout .box--twitter .fa-pull-right.box__header-icon,
+.layout .box--github .fa-pull-right.box__header-icon,
+.layout .box--discord .fa-pull-right.box__header-icon,
 .fa-pull-right.link--twitch::before,
 .fa-pull-right.link--github::before,
 .fa-pull-right.link--twitter::before {
@@ -8127,62 +8140,52 @@ video {
 
 @-webkit-keyframes fa-spin {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes fa-spin {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 .fa-rotate-90 {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .fa-rotate-180 {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .fa-rotate-270 {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 
 .fa-flip-horizontal {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
-  -webkit-transform: scale(-1, 1);
-          transform: scale(-1, 1);
+  transform: scale(-1, 1);
 }
 
 .fa-flip-vertical {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
-  -webkit-transform: scale(1, -1);
-          transform: scale(1, -1);
+  transform: scale(1, -1);
 }
 
 .fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
-  -webkit-transform: scale(-1, -1);
-          transform: scale(-1, -1);
+  transform: scale(-1, -1);
 }
 
 :root .fa-rotate-90,
@@ -8295,6 +8298,18 @@ readers do not read off random characters that represent icons */
   content: "\F34E";
 }
 
+.fa-alarm-exclamation:before {
+  content: "\F843";
+}
+
+.fa-alarm-plus:before {
+  content: "\F844";
+}
+
+.fa-alarm-snooze:before {
+  content: "\F845";
+}
+
 .fa-algolia:before {
   content: "\F36C";
 }
@@ -8317,6 +8332,10 @@ readers do not read off random characters that represent icons */
 
 .fa-align-right:before {
   content: "\F038";
+}
+
+.fa-align-slash:before {
+  content: "\F846";
 }
 
 .fa-alipay:before {
@@ -8751,6 +8770,10 @@ readers do not read off random characters that represent icons */
   content: "\F6B4";
 }
 
+.fa-bags-shopping:before {
+  content: "\F847";
+}
+
 .fa-balance-scale:before {
   content: "\F24E";
 }
@@ -8883,6 +8906,14 @@ readers do not read off random characters that represent icons */
   content: "\F0F3";
 }
 
+.fa-bell-exclamation:before {
+  content: "\F848";
+}
+
+.fa-bell-plus:before {
+  content: "\F849";
+}
+
 .fa-bell-school:before {
   content: "\F5D5";
 }
@@ -8909,6 +8940,14 @@ readers do not read off random characters that represent icons */
 
 .fa-bicycle:before {
   content: "\F206";
+}
+
+.fa-biking:before {
+  content: "\F84A";
+}
+
+.fa-biking-mountain:before {
+  content: "\F84B";
 }
 
 .fa-bimobject:before {
@@ -9067,6 +9106,54 @@ readers do not read off random characters that represent icons */
   content: "\F836";
 }
 
+.fa-border-all:before {
+  content: "\F84C";
+}
+
+.fa-border-bottom:before {
+  content: "\F84D";
+}
+
+.fa-border-center-h:before {
+  content: "\F89C";
+}
+
+.fa-border-center-v:before {
+  content: "\F89D";
+}
+
+.fa-border-inner:before {
+  content: "\F84E";
+}
+
+.fa-border-left:before {
+  content: "\F84F";
+}
+
+.fa-border-none:before {
+  content: "\F850";
+}
+
+.fa-border-outer:before {
+  content: "\F851";
+}
+
+.fa-border-right:before {
+  content: "\F852";
+}
+
+.fa-border-style:before {
+  content: "\F853";
+}
+
+.fa-border-style-alt:before {
+  content: "\F854";
+}
+
+.fa-border-top:before {
+  content: "\F855";
+}
+
 .fa-bow-arrow:before {
   content: "\F6B9";
 }
@@ -9163,6 +9250,14 @@ readers do not read off random characters that represent icons */
   content: "\F469";
 }
 
+.fa-bring-forward:before {
+  content: "\F856";
+}
+
+.fa-bring-front:before {
+  content: "\F857";
+}
+
 .fa-broadcast-tower:before {
   content: "\F519";
 }
@@ -9209,6 +9304,10 @@ readers do not read off random characters that represent icons */
 
 .fa-bullseye-pointer:before {
   content: "\F649";
+}
+
+.fa-burger-soda:before {
+  content: "\F858";
 }
 
 .fa-burn:before {
@@ -9355,8 +9454,16 @@ readers do not read off random characters that represent icons */
   content: "\F5DF";
 }
 
+.fa-car-building:before {
+  content: "\F859";
+}
+
 .fa-car-bump:before {
   content: "\F5E0";
+}
+
+.fa-car-bus:before {
+  content: "\F85A";
 }
 
 .fa-car-crash:before {
@@ -9433,6 +9540,10 @@ readers do not read off random characters that represent icons */
 
 .fa-carrot:before {
   content: "\F787";
+}
+
+.fa-cars:before {
+  content: "\F85B";
 }
 
 .fa-cart-arrow-down:before {
@@ -9943,6 +10054,10 @@ readers do not read off random characters that represent icons */
   content: "\F085";
 }
 
+.fa-coin:before {
+  content: "\F85C";
+}
+
 .fa-coins:before {
   content: "\F51E";
 }
@@ -10111,6 +10226,10 @@ readers do not read off random characters that represent icons */
   content: "\F20E";
 }
 
+.fa-construction:before {
+  content: "\F85D";
+}
+
 .fa-container-storage:before {
   content: "\F4B7";
 }
@@ -10145,6 +10264,10 @@ readers do not read off random characters that represent icons */
 
 .fa-corn:before {
   content: "\F6C7";
+}
+
+.fa-cotton-bureau:before {
+  content: "\F89E";
 }
 
 .fa-couch:before {
@@ -10447,6 +10570,10 @@ readers do not read off random characters that represent icons */
   content: "\F1A6";
 }
 
+.fa-digging:before {
+  content: "\F85E";
+}
+
 .fa-digital-ocean:before {
   content: "\F391";
 }
@@ -10463,7 +10590,7 @@ readers do not read off random characters that represent icons */
   content: "\F5EB";
 }
 
-.fa-discord:before, .layout .button__icon--discord:before {
+.fa-discord:before, .layout .avatar__social--discord:before, .layout .button__icon--discord:before, .layout .box--discord .box__header-icon:before {
   content: "\F392";
 }
 
@@ -10591,6 +10718,14 @@ readers do not read off random characters that represent icons */
   content: "\F397";
 }
 
+.fa-drone:before {
+  content: "\F85F";
+}
+
+.fa-drone-alt:before {
+  content: "\F860";
+}
+
 .fa-dropbox:before {
   content: "\F16B";
 }
@@ -10613,6 +10748,14 @@ readers do not read off random characters that represent icons */
 
 .fa-drupal:before {
   content: "\F1A9";
+}
+
+.fa-dryer:before {
+  content: "\F861";
+}
+
+.fa-dryer-alt:before {
+  content: "\F862";
 }
 
 .fa-duck:before {
@@ -10879,8 +11022,16 @@ readers do not read off random characters that represent icons */
   content: "\F082";
 }
 
+.fa-fan:before {
+  content: "\F863";
+}
+
 .fa-fantasy-flight-games:before {
   content: "\F6DC";
+}
+
+.fa-farm:before {
+  content: "\F864";
 }
 
 .fa-fast-backward:before {
@@ -11033,6 +11184,10 @@ readers do not read off random characters that represent icons */
 
 .fa-file-prescription:before {
   content: "\F572";
+}
+
+.fa-file-search:before {
+  content: "\F865";
 }
 
 .fa-file-signature:before {
@@ -11255,6 +11410,10 @@ readers do not read off random characters that represent icons */
   content: "\F4E6";
 }
 
+.fa-font-case:before {
+  content: "\F866";
+}
+
 .fa-fonticons:before {
   content: "\F280";
 }
@@ -11351,6 +11510,14 @@ readers do not read off random characters that represent icons */
   content: "\F50D";
 }
 
+.fa-game-board:before {
+  content: "\F867";
+}
+
+.fa-game-board-alt:before {
+  content: "\F868";
+}
+
 .fa-gamepad:before {
   content: "\F11B";
 }
@@ -11419,7 +11586,7 @@ readers do not read off random characters that represent icons */
   content: "\F1D2";
 }
 
-.fa-github:before, .layout .avatar__social--github:before, .layout .button__icon--github:before, .link--github:before {
+.fa-github:before, .layout .avatar__social--github:before, .layout .button__icon--github:before, .layout .box--github .box__header-icon:before, .link--github:before {
   content: "\F09B";
 }
 
@@ -11453,6 +11620,10 @@ readers do not read off random characters that represent icons */
 
 .fa-glass-cheers:before {
   content: "\F79F";
+}
+
+.fa-glass-citrus:before {
+  content: "\F869";
 }
 
 .fa-glass-martini:before {
@@ -11691,6 +11862,10 @@ readers do not read off random characters that represent icons */
   content: "\F315";
 }
 
+.fa-h4:before {
+  content: "\F86A";
+}
+
 .fa-hacker-news:before {
   content: "\F1D4";
 }
@@ -11837,6 +12012,10 @@ readers do not read off random characters that represent icons */
 
 .fa-hashtag:before {
   content: "\F292";
+}
+
+.fa-hat-chef:before {
+  content: "\F86B";
 }
 
 .fa-hat-santa:before {
@@ -11999,6 +12178,10 @@ readers do not read off random characters that represent icons */
   content: "\F427";
 }
 
+.fa-horizontal-rule:before {
+  content: "\F86C";
+}
+
 .fa-hornbill:before {
   content: "\F592";
 }
@@ -12109,6 +12292,14 @@ readers do not read off random characters that represent icons */
 
 .fa-icicles:before {
   content: "\F7AD";
+}
+
+.fa-icons:before {
+  content: "\F86D";
+}
+
+.fa-icons-alt:before {
+  content: "\F86E";
 }
 
 .fa-id-badge:before {
@@ -12293,6 +12484,10 @@ readers do not read off random characters that represent icons */
 
 .fa-kaggle:before {
   content: "\F5FA";
+}
+
+.fa-kerning:before {
+  content: "\F86F";
 }
 
 .fa-key:before {
@@ -12517,6 +12712,14 @@ readers do not read off random characters that represent icons */
 
 .fa-line:before {
   content: "\F3C0";
+}
+
+.fa-line-columns:before {
+  content: "\F870";
+}
+
+.fa-line-height:before {
+  content: "\F871";
 }
 
 .fa-link:before {
@@ -12991,6 +13194,14 @@ readers do not read off random characters that represent icons */
   content: "\F53D";
 }
 
+.fa-money-check-edit:before {
+  content: "\F872";
+}
+
+.fa-money-check-edit-alt:before {
+  content: "\F873";
+}
+
 .fa-monitor-heart-rate:before {
   content: "\F611";
 }
@@ -13039,12 +13250,20 @@ readers do not read off random characters that represent icons */
   content: "\F245";
 }
 
+.fa-mug:before {
+  content: "\F874";
+}
+
 .fa-mug-hot:before {
   content: "\F7B6";
 }
 
 .fa-mug-marshmallows:before {
   content: "\F7B7";
+}
+
+.fa-mug-tea:before {
+  content: "\F875";
 }
 
 .fa-music:before {
@@ -13077,10 +13296,6 @@ readers do not read off random characters that represent icons */
 
 .fa-nimblr:before {
   content: "\F5A8";
-}
-
-.fa-nintendo-switch:before {
-  content: "\F418";
 }
 
 .fa-node:before {
@@ -13183,6 +13398,14 @@ readers do not read off random characters that represent icons */
   content: "\F03B";
 }
 
+.fa-overline:before {
+  content: "\F876";
+}
+
+.fa-page-break:before {
+  content: "\F877";
+}
+
 .fa-page4:before {
   content: "\F3D7";
 }
@@ -13237,6 +13460,10 @@ readers do not read off random characters that represent icons */
 
 .fa-paragraph:before {
   content: "\F1DD";
+}
+
+.fa-paragraph-rtl:before {
+  content: "\F878";
 }
 
 .fa-parking:before {
@@ -13403,6 +13630,14 @@ readers do not read off random characters that represent icons */
   content: "\F095";
 }
 
+.fa-phone-alt:before {
+  content: "\F879";
+}
+
+.fa-phone-laptop:before {
+  content: "\F87A";
+}
+
 .fa-phone-office:before {
   content: "\F67D";
 }
@@ -13419,8 +13654,16 @@ readers do not read off random characters that represent icons */
   content: "\F098";
 }
 
+.fa-phone-square-alt:before {
+  content: "\F87B";
+}
+
 .fa-phone-volume:before {
   content: "\F2A0";
+}
+
+.fa-photo-video:before {
+  content: "\F87C";
 }
 
 .fa-php:before {
@@ -13819,6 +14062,10 @@ readers do not read off random characters that represent icons */
   content: "\F25D";
 }
 
+.fa-remove-format:before {
+  content: "\F87D";
+}
+
 .fa-renren:before {
   content: "\F18B";
 }
@@ -14117,6 +14364,14 @@ readers do not read off random characters that represent icons */
 
 .fa-sellsy:before {
   content: "\F213";
+}
+
+.fa-send-back:before {
+  content: "\F87E";
+}
+
+.fa-send-backward:before {
+  content: "\F87F";
 }
 
 .fa-server:before {
@@ -14475,6 +14730,10 @@ readers do not read off random characters that represent icons */
   content: "\F2AD";
 }
 
+.fa-snooze:before {
+  content: "\F880";
+}
+
 .fa-snow-blowing:before {
   content: "\F761";
 }
@@ -14519,16 +14778,36 @@ readers do not read off random characters that represent icons */
   content: "\F15D";
 }
 
+.fa-sort-alpha-down-alt:before {
+  content: "\F881";
+}
+
 .fa-sort-alpha-up:before {
   content: "\F15E";
+}
+
+.fa-sort-alpha-up-alt:before {
+  content: "\F882";
+}
+
+.fa-sort-alt:before {
+  content: "\F883";
 }
 
 .fa-sort-amount-down:before {
   content: "\F160";
 }
 
+.fa-sort-amount-down-alt:before {
+  content: "\F884";
+}
+
 .fa-sort-amount-up:before {
   content: "\F161";
+}
+
+.fa-sort-amount-up-alt:before {
+  content: "\F885";
 }
 
 .fa-sort-down:before {
@@ -14539,8 +14818,48 @@ readers do not read off random characters that represent icons */
   content: "\F162";
 }
 
+.fa-sort-numeric-down-alt:before {
+  content: "\F886";
+}
+
 .fa-sort-numeric-up:before {
   content: "\F163";
+}
+
+.fa-sort-numeric-up-alt:before {
+  content: "\F887";
+}
+
+.fa-sort-shapes-down:before {
+  content: "\F888";
+}
+
+.fa-sort-shapes-down-alt:before {
+  content: "\F889";
+}
+
+.fa-sort-shapes-up:before {
+  content: "\F88A";
+}
+
+.fa-sort-shapes-up-alt:before {
+  content: "\F88B";
+}
+
+.fa-sort-size-down:before {
+  content: "\F88C";
+}
+
+.fa-sort-size-down-alt:before {
+  content: "\F88D";
+}
+
+.fa-sort-size-up:before {
+  content: "\F88E";
+}
+
+.fa-sort-size-up-alt:before {
+  content: "\F88F";
 }
 
 .fa-sort-up:before {
@@ -14571,12 +14890,20 @@ readers do not read off random characters that represent icons */
   content: "\F2F4";
 }
 
+.fa-sparkles:before {
+  content: "\F890";
+}
+
 .fa-speakap:before {
   content: "\F3F3";
 }
 
 .fa-speaker-deck:before {
   content: "\F83C";
+}
+
+.fa-spell-check:before {
+  content: "\F891";
 }
 
 .fa-spider:before {
@@ -14839,6 +15166,10 @@ readers do not read off random characters that represent icons */
   content: "\F765";
 }
 
+.fa-sunglasses:before {
+  content: "\F892";
+}
+
 .fa-sunrise:before {
   content: "\F766";
 }
@@ -15075,8 +15406,16 @@ readers do not read off random characters that represent icons */
   content: "\F120";
 }
 
+.fa-text:before {
+  content: "\F893";
+}
+
 .fa-text-height:before {
   content: "\F034";
+}
+
+.fa-text-size:before {
+  content: "\F894";
 }
 
 .fa-text-width:before {
@@ -15347,6 +15686,14 @@ readers do not read off random characters that represent icons */
   content: "\F82A";
 }
 
+.fa-trash-undo:before {
+  content: "\F895";
+}
+
+.fa-trash-undo-alt:before {
+  content: "\F896";
+}
+
 .fa-treasure-chest:before {
   content: "\F723";
 }
@@ -15471,7 +15818,7 @@ readers do not read off random characters that represent icons */
   content: "\F1E8";
 }
 
-.fa-twitter:before, .layout .avatar__social--twitter:before, .layout .button__icon--twitter:before, .link--twitter:before {
+.fa-twitter:before, .layout .avatar__social--twitter:before, .layout .button__icon--twitter:before, .layout .box--twitter .box__header-icon:before, .link--twitter:before {
   content: "\F099";
 }
 
@@ -15823,6 +16170,10 @@ readers do not read off random characters that represent icons */
   content: "\F40B";
 }
 
+.fa-voicemail:before {
+  content: "\F897";
+}
+
 .fa-volcano:before {
   content: "\F770";
 }
@@ -15899,6 +16250,10 @@ readers do not read off random characters that represent icons */
   content: "\F495";
 }
 
+.fa-washer:before {
+  content: "\F898";
+}
+
 .fa-watch:before {
   content: "\F2E1";
 }
@@ -15919,8 +16274,16 @@ readers do not read off random characters that represent icons */
   content: "\F775";
 }
 
+.fa-wave-sine:before {
+  content: "\F899";
+}
+
 .fa-wave-square:before {
   content: "\F83E";
+}
+
+.fa-wave-triangle:before {
+  content: "\F89A";
 }
 
 .fa-waze:before {
@@ -16005,6 +16368,10 @@ readers do not read off random characters that represent icons */
 
 .fa-wind:before {
   content: "\F72E";
+}
+
+.fa-wind-turbine:before {
+  content: "\F89B";
 }
 
 .fa-wind-warning:before {
@@ -16192,7 +16559,7 @@ readers do not read off random characters that represent icons */
 }
 
 /*!
- * Font Awesome Pro 5.8.2 by @fontawesome - https://fontawesome.com
+ * Font Awesome Pro 5.10.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Commercial License)
  */
 
@@ -16216,7 +16583,7 @@ readers do not read off random characters that represent icons */
 }
 
 /*!
- * Font Awesome Pro 5.8.2 by @fontawesome - https://fontawesome.com
+ * Font Awesome Pro 5.10.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Commercial License)
  */
 
@@ -16245,7 +16612,7 @@ readers do not read off random characters that represent icons */
 }
 
 /*!
- * Font Awesome Pro 5.8.2 by @fontawesome - https://fontawesome.com
+ * Font Awesome Pro 5.10.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Commercial License)
  */
 
@@ -16263,7 +16630,7 @@ readers do not read off random characters that represent icons */
   src: url("../webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"), url("../webfonts/fa-brands-400.ttf") format("truetype"), url("../webfonts/fa-brands-400.svg#fontawesome") format("svg");
 }
 
-.fab, .layout .avatar__social--twitter, .layout .avatar__social--github, .layout .button__icon--discord, .layout .button__icon--stack, .layout .button__icon--reddit, .layout .button__icon--keybase, .layout .button__icon--linkedin, .layout .button__icon--twitter, .layout .button__icon--github, .layout .button__icon--brand, .link--twitch::before, .link--github::before, .link--twitter::before {
+.fab, .layout .avatar__social--discord, .layout .avatar__social--twitter, .layout .avatar__social--github, .layout .button__icon--discord, .layout .button__icon--stack, .layout .button__icon--reddit, .layout .button__icon--keybase, .layout .button__icon--linkedin, .layout .button__icon--twitter, .layout .button__icon--github, .layout .button__icon--brand, .layout .box--twitter .box__header-icon, .layout .box--github .box__header-icon, .layout .box--discord .box__header-icon, .link--twitch::before, .link--github::before, .link--twitter::before {
   font-family: "Font Awesome 5 Brands";
 }
 
@@ -16353,7 +16720,6 @@ p {
   border-radius: 0.25rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   background-color: #1da1f2;
-  -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   -moz-column-break-inside: avoid;
        break-inside: avoid;
@@ -16380,7 +16746,6 @@ p {
   border-radius: 0.25rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   background-color: #333333;
-  -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   -moz-column-break-inside: avoid;
        break-inside: avoid;
@@ -16407,7 +16772,6 @@ p {
   border-radius: 0.25rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   background-color: #6441a5;
-  -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   -moz-column-break-inside: avoid;
        break-inside: avoid;
@@ -16792,6 +17156,12 @@ p {
   border-bottom-left-radius: 0.25rem;
 }
 
+.layout .box--bodyless .box__header {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-width: 1px;
+}
+
 .layout .box--small {
   width: 100%;
   margin-left: auto;
@@ -16800,7 +17170,7 @@ p {
 
 @media (min-width: 1024px) {
   .layout .box--small {
-    width: 66.66667%;
+    width: 66.666667%;
   }
 }
 
@@ -16930,6 +17300,16 @@ p {
   right: 0.5rem;
 }
 
+.layout .box__header-controls {
+  float: right;
+}
+
+.layout .box__header:after {
+  content: "" !important;
+  display: table !important;
+  clear: both !important;
+}
+
 .layout .box__body {
   background-color: #fff;
   border-width: 1px;
@@ -16944,6 +17324,10 @@ p {
   color: #fff;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+}
+
+.layout .box__body .avatar {
+  margin-left: 0;
 }
 
 .layout .box__image {
@@ -16977,6 +17361,104 @@ p {
 
 .layout .box__footer-bar:not(:first-of-type) {
   margin-top: 0.5rem;
+}
+
+.layout .box--social .box__header-title {
+  font-size: 1.25rem;
+}
+
+.layout .box--social .box__header-subtitle {
+  font-size: 0.875rem;
+}
+
+.layout .box--social .box__header-icon {
+  display: inline-block;
+  margin-right: 0.75rem;
+  float: left;
+  margin-top: 0.5rem;
+}
+
+.layout .box--social .box__body {
+  color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+.layout .box--discord .box__header {
+  background-color: #7289da;
+  border-color: #6070bf;
+}
+
+.layout .box--discord .box__header-title {
+  color: #fff;
+}
+
+.layout .box--discord .box__header-subtitle {
+  color: #edf2f7;
+}
+
+.layout .box--discord .box__header-icon {
+  color: #edf2f7;
+}
+
+.layout .box--discord .box__body {
+  background-color: #889ff0;
+  border-color: #6070bf;
+}
+
+.layout .box--github .box__header {
+  background-color: #333333;
+  border-color: #212121;
+}
+
+.layout .box--github .box__header-title {
+  color: #fff;
+}
+
+.layout .box--github .box__header-subtitle {
+  color: #edf2f7;
+}
+
+.layout .box--github .box__header-icon {
+  color: #edf2f7;
+}
+
+.layout .box--github .box__body {
+  background-color: #3f3f3f;
+  border-color: #212121;
+}
+
+.layout .box--twitter .box__header {
+  background-color: #1da1f2;
+  border-color: #1d7dce;
+}
+
+.layout .box--twitter .box__header-title {
+  color: #fff;
+}
+
+.layout .box--twitter .box__header-subtitle {
+  color: #edf2f7;
+}
+
+.layout .box--twitter .box__header-icon {
+  color: #edf2f7;
+}
+
+.layout .box--twitter .box__body {
+  background-color: #1eaaff;
+  border-color: #1d7dce;
+}
+
+.layout .box--google .box__header-icon {
+  width: 40px;
+  height: 32px;
+  background-image: url("/images/google-logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px 32px;
 }
 
 @media (min-width: 1024px) {
@@ -17022,6 +17504,10 @@ p {
 
 .layout .input--invalid .input__field {
   border-color: #f56565;
+}
+
+.layout .input--invalid .input__feedback {
+  color: #f56565;
 }
 
 .layout .input--valid .input__label, .layout .input--valid .input__feedback {
@@ -17084,6 +17570,21 @@ p {
   font-size: 0.875rem;
   text-align: left;
   display: block;
+}
+
+.layout .input--inline {
+  display: inline-block;
+  width: 100%;
+}
+
+.layout .input--inline .input__field {
+  float: right;
+  display: inline-block;
+  width: auto;
+}
+
+.layout .input--light .input__label {
+  color: #fff;
 }
 
 .layout .article {
@@ -17218,9 +17719,8 @@ p {
   font-weight: 600;
   background-color: #63b3ed;
   display: inline-block;
-  -webkit-column-break-inside: avoid;
-     -moz-column-break-inside: avoid;
-          break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 
 .layout .category__badge-icon {
@@ -17256,9 +17756,8 @@ p {
   font-weight: 600;
   background-color: #a0aec0;
   display: inline-block;
-  -webkit-column-break-inside: avoid;
-     -moz-column-break-inside: avoid;
-          break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 
 .layout .tag__badge-icon {
@@ -17294,9 +17793,8 @@ p {
   font-weight: 600;
   background-color: #b794f4;
   display: inline-block;
-  -webkit-column-break-inside: avoid;
-     -moz-column-break-inside: avoid;
-          break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 
 .layout .topic__badge-icon {
@@ -17332,9 +17830,8 @@ p {
   font-weight: 600;
   background-color: #68d391;
   display: inline-block;
-  -webkit-column-break-inside: avoid;
-     -moz-column-break-inside: avoid;
-          break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 
 .layout .version__badge-icon {
@@ -17592,6 +18089,39 @@ p {
   width: 215px;
 }
 
+.layout .button--themed-discord {
+  color: #fff;
+  background-color: #7289da;
+  border-color: #6070bf;
+}
+
+.layout .button--themed-discord:hover {
+  color: #fff;
+  background-color: #8fa6f6;
+}
+
+.layout .button--themed-github {
+  color: #fff;
+  background-color: #333333;
+  border-color: #212121;
+}
+
+.layout .button--themed-github:hover {
+  color: #fff;
+  background-color: #565656;
+}
+
+.layout .button--themed-twitter {
+  color: #fff;
+  background-color: #1da1f2;
+  border-color: #1d7dce;
+}
+
+.layout .button--themed-twitter:hover {
+  color: #fff;
+  background-color: #1daeff;
+}
+
 .layout .button__icon {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17753,6 +18283,7 @@ p {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  overflow: hidden;
   width: 72px !important;
   height: 72px !important;
 }
@@ -17802,6 +18333,10 @@ p {
   background-repeat: no-repeat;
   background-position: center;
   content: "";
+}
+
+.layout .avatar__social--discord {
+  color: #7289da;
 }
 
 .layout .comments {
@@ -18051,6 +18586,19 @@ p {
   color: #48bb78;
 }
 
+.layout .notice p {
+  margin-bottom: 0;
+}
+
+.layout .notice p + p {
+  margin-top: 0.5rem;
+}
+
+.layout .tabs {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 .layout .tabs--bottom .tab {
   padding-bottom: 0.5rem;
   border-top-left-radius: 0;
@@ -18121,9 +18669,8 @@ p {
   position: relative;
   color: #a0aec0;
   display: inline-block;
-  -webkit-column-break-inside: avoid;
-     -moz-column-break-inside: avoid;
-          break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 
 .layout .breadcrumbs .breadcrumb--active {
@@ -18170,6 +18717,21 @@ p {
 
 .layout .breadcrumbs .breadcrumb:last-child:after {
   display: none;
+}
+
+.layout .ollieread-theme.tippy-tooltip {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 0.25rem;
+  background-color: #fff;
+  border-width: 1px;
+  padding: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  color: #4a5568;
+}
+
+.layout .ollieread-theme .tippy-backdrop {
+  background-color: #fff;
 }
 
 .layout--single {
@@ -25012,11 +25574,11 @@ p {
   }
 
   .sm\:w-1\/3{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .sm\:w-2\/3{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .sm\:w-1\/4{
@@ -25048,11 +25610,11 @@ p {
   }
 
   .sm\:w-1\/6{
-    width: 16.66667%;
+    width: 16.666667%;
   }
 
   .sm\:w-2\/6{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .sm\:w-3\/6{
@@ -25060,19 +25622,19 @@ p {
   }
 
   .sm\:w-4\/6{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .sm\:w-5\/6{
-    width: 83.33333%;
+    width: 83.333333%;
   }
 
   .sm\:w-1\/12{
-    width: 8.33333%;
+    width: 8.333333%;
   }
 
   .sm\:w-2\/12{
-    width: 16.66667%;
+    width: 16.666667%;
   }
 
   .sm\:w-3\/12{
@@ -25080,11 +25642,11 @@ p {
   }
 
   .sm\:w-4\/12{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .sm\:w-5\/12{
-    width: 41.66667%;
+    width: 41.666667%;
   }
 
   .sm\:w-6\/12{
@@ -25092,11 +25654,11 @@ p {
   }
 
   .sm\:w-7\/12{
-    width: 58.33333%;
+    width: 58.333333%;
   }
 
   .sm\:w-8\/12{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .sm\:w-9\/12{
@@ -25104,11 +25666,11 @@ p {
   }
 
   .sm\:w-10\/12{
-    width: 83.33333%;
+    width: 83.333333%;
   }
 
   .sm\:w-11\/12{
-    width: 91.66667%;
+    width: 91.666667%;
   }
 
   .sm\:w-full{
@@ -31942,11 +32504,11 @@ p {
   }
 
   .md\:w-1\/3{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .md\:w-2\/3{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .md\:w-1\/4{
@@ -31978,11 +32540,11 @@ p {
   }
 
   .md\:w-1\/6{
-    width: 16.66667%;
+    width: 16.666667%;
   }
 
   .md\:w-2\/6{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .md\:w-3\/6{
@@ -31990,19 +32552,19 @@ p {
   }
 
   .md\:w-4\/6{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .md\:w-5\/6{
-    width: 83.33333%;
+    width: 83.333333%;
   }
 
   .md\:w-1\/12{
-    width: 8.33333%;
+    width: 8.333333%;
   }
 
   .md\:w-2\/12{
-    width: 16.66667%;
+    width: 16.666667%;
   }
 
   .md\:w-3\/12{
@@ -32010,11 +32572,11 @@ p {
   }
 
   .md\:w-4\/12{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .md\:w-5\/12{
-    width: 41.66667%;
+    width: 41.666667%;
   }
 
   .md\:w-6\/12{
@@ -32022,11 +32584,11 @@ p {
   }
 
   .md\:w-7\/12{
-    width: 58.33333%;
+    width: 58.333333%;
   }
 
   .md\:w-8\/12{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .md\:w-9\/12{
@@ -32034,11 +32596,11 @@ p {
   }
 
   .md\:w-10\/12{
-    width: 83.33333%;
+    width: 83.333333%;
   }
 
   .md\:w-11\/12{
-    width: 91.66667%;
+    width: 91.666667%;
   }
 
   .md\:w-full{
@@ -38872,11 +39434,11 @@ p {
   }
 
   .lg\:w-1\/3{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .lg\:w-2\/3{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .lg\:w-1\/4{
@@ -38908,11 +39470,11 @@ p {
   }
 
   .lg\:w-1\/6{
-    width: 16.66667%;
+    width: 16.666667%;
   }
 
   .lg\:w-2\/6{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .lg\:w-3\/6{
@@ -38920,19 +39482,19 @@ p {
   }
 
   .lg\:w-4\/6{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .lg\:w-5\/6{
-    width: 83.33333%;
+    width: 83.333333%;
   }
 
   .lg\:w-1\/12{
-    width: 8.33333%;
+    width: 8.333333%;
   }
 
   .lg\:w-2\/12{
-    width: 16.66667%;
+    width: 16.666667%;
   }
 
   .lg\:w-3\/12{
@@ -38940,11 +39502,11 @@ p {
   }
 
   .lg\:w-4\/12{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .lg\:w-5\/12{
-    width: 41.66667%;
+    width: 41.666667%;
   }
 
   .lg\:w-6\/12{
@@ -38952,11 +39514,11 @@ p {
   }
 
   .lg\:w-7\/12{
-    width: 58.33333%;
+    width: 58.333333%;
   }
 
   .lg\:w-8\/12{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .lg\:w-9\/12{
@@ -38964,11 +39526,11 @@ p {
   }
 
   .lg\:w-10\/12{
-    width: 83.33333%;
+    width: 83.333333%;
   }
 
   .lg\:w-11\/12{
-    width: 91.66667%;
+    width: 91.666667%;
   }
 
   .lg\:w-full{
@@ -45802,11 +46364,11 @@ p {
   }
 
   .xl\:w-1\/3{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .xl\:w-2\/3{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .xl\:w-1\/4{
@@ -45838,11 +46400,11 @@ p {
   }
 
   .xl\:w-1\/6{
-    width: 16.66667%;
+    width: 16.666667%;
   }
 
   .xl\:w-2\/6{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .xl\:w-3\/6{
@@ -45850,19 +46412,19 @@ p {
   }
 
   .xl\:w-4\/6{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .xl\:w-5\/6{
-    width: 83.33333%;
+    width: 83.333333%;
   }
 
   .xl\:w-1\/12{
-    width: 8.33333%;
+    width: 8.333333%;
   }
 
   .xl\:w-2\/12{
-    width: 16.66667%;
+    width: 16.666667%;
   }
 
   .xl\:w-3\/12{
@@ -45870,11 +46432,11 @@ p {
   }
 
   .xl\:w-4\/12{
-    width: 33.33333%;
+    width: 33.333333%;
   }
 
   .xl\:w-5\/12{
-    width: 41.66667%;
+    width: 41.666667%;
   }
 
   .xl\:w-6\/12{
@@ -45882,11 +46444,11 @@ p {
   }
 
   .xl\:w-7\/12{
-    width: 58.33333%;
+    width: 58.333333%;
   }
 
   .xl\:w-8\/12{
-    width: 66.66667%;
+    width: 66.666667%;
   }
 
   .xl\:w-9\/12{
@@ -45894,11 +46456,11 @@ p {
   }
 
   .xl\:w-10\/12{
-    width: 83.33333%;
+    width: 83.333333%;
   }
 
   .xl\:w-11\/12{
-    width: 91.66667%;
+    width: 91.666667%;
   }
 
   .xl\:w-full{

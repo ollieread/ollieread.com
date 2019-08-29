@@ -115,7 +115,7 @@ return [
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'The :attribute format is invalid.',
     'uuid'                 => 'The :attribute must be a valid UUID.',
-    'user_password'        => 'Your must provide your current password',
+    'user_password'        => 'The provided password does not match your current password',
 
     /*
     |--------------------------------------------------------------------------

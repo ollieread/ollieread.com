@@ -25,6 +25,7 @@ abstract class Validator
 
         return $validator;
     }
+
     /**
      * @var null|\Illuminate\Database\Eloquent\Model
      */

@@ -9,6 +9,11 @@ use Ollieread\Users\Models\User;
 
 class Mail
 {
+    public static function welcome(User $user): void
+    {
+        self::mailer()->send(new Welcome($user));
+    }
+
     protected static function mailer(): Mailer
     {
         try {
@@ -16,10 +21,5 @@ class Mail
         } catch (BindingResolutionException $e) {
             report($e);
         }
-    }
-
-    public static function welcome(User $user): void
-    {
-        self::mailer()->send(new Welcome($user));
     }
 }

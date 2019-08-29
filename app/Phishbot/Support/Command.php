@@ -2,50 +2,49 @@
 
 namespace Ollieread\Phishbot\Support;
 
-use Ollieread\Phishbot\Contracts\BotCommand;
+use CharlotteDunois\Yasmin\Interfaces\TextChannelInterface;
+use CharlotteDunois\Yasmin\Models\GuildMember;
+use Ollieread\Phishbot\Contracts\Command as Contract;
+use Ollieread\Phishbot\Phishbot;
 
-class Command implements BotCommand
+abstract class Command implements Contract
 {
-    /**
-     * @var array
-     */
-    protected $listensFor = [];
-
-    /**
-     * @var array
-     */
-    protected $requires = [];
-
-    /**
-     * @var string
-     */
+    protected $command     = '';
     protected $description = '';
+    protected $types       = 0;
 
     /**
-     * @var array
+     * @var Phishbot
      */
-    protected $in = [];
+    protected $phishbot;
 
-    public function getDescription(): string
+    public function command(): string
+    {
+        return $this->command;
+    }
+
+    public function description(): string
     {
         return $this->description;
     }
 
-    public function in(): array
+    public function phishbot(): Phishbot
     {
-        return $this->in;
+        return $this->phishbot;
     }
 
-    /**
-     * @return string|array
-     */
-    public function listensFor(): array
+    public function setPhishbot(Phishbot $phishbot)
     {
-        return is_array($this->listensFor) ? $this->listensFor : [$this->listensFor];
+        $this->phishbot = $phishbot;
     }
 
-    public function needPermissions(): array
+    public function type(int $type): bool
     {
-        return $this->requires;
+        return $this->types === 0 ? true : $this->types & $type;
+    }
+
+    public function authorised(GuildMember $user, ?TextChannelInterface $channel = null): bool
+    {
+        return true;
     }
 }

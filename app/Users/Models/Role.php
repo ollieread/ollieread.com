@@ -15,6 +15,7 @@ class Role extends Model
         'description',
         'active',
         'level',
+        'permissions',
     ];
 
     protected $casts = [

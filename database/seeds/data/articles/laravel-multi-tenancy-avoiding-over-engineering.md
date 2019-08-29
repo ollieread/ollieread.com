@@ -1,3 +1,7 @@
+<div class="notice notice--info">
+<p>I'm currently working on a <a href="https://multitenancy.dev" target="_blank">Multitenancy with Laravel</a> course and package that includes the topics covered in this article, and more.</p>
+</div>
+
 For those of you that follow my posts, packages or ramblings on Twitter, you'd have noticed that I am a big fan of a multi-tenant systems, specifically those that use subdomains. You may even be aware that I had a package for this very purpose. The package itself has been dormant for a while and has as of yesterday, been abandoned. The primary reason for this is that the layer of abstraction that it added, although simple, was barely worth it.
 
 In this article I'm going to go through the ins and outs of creating a multi-tenant system with Laravel, to show that it really isn't that big a deal.

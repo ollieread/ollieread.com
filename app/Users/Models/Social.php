@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon      $created_at
  * @property \Carbon\Carbon      $updated_at
  *
+ * @property string              $username
+ *
  * @package Ollieread\Users\Models
  */
 class Social extends Model
@@ -46,6 +48,15 @@ class Social extends Model
     protected $dates = [
         'expires_at',
     ];
+
+    public function getUsernameAttribute(): string
+    {
+        if ($this->provider === 'discord') {
+            return $this->metadata['username'] . '#' . $this->metadata['discriminator'];
+        }
+
+        return $this->metadata['username'];
+    }
 
     public function user()
     {

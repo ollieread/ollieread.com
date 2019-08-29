@@ -8,7 +8,7 @@ interface Routes
 {
     public function __invoke(Router $router);
 
-    public function prefix(): ?string;
-
     public function name(): ?string;
+
+    public function prefix(): ?string;
 }

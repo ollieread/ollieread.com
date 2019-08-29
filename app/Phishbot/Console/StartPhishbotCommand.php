@@ -3,8 +3,9 @@
 namespace Ollieread\Phishbot\Console;
 
 use Illuminate\Console\Command;
-use Ollieread\Phishbot\Commands\Site;
-use Ollieread\Phishbot\Support\Phishbot;
+use Ollieread\Phishbot\Commands\HelpCommand;
+use Ollieread\Phishbot\Commands\LinkCommand;
+use Ollieread\Phishbot\Phishbot;
 
 class StartPhishbotCommand extends Command
 {
@@ -13,12 +14,13 @@ class StartPhishbotCommand extends Command
     protected $description = 'Starts the phishbot';
 
     /**
-     * @var \Ollieread\Phishbot\Support\Phishbot
+     * @var \Ollieread\Phishbot\Phishbot
      */
     private $phishbot;
 
     private $commands = [
-        Site::class,
+        LinkCommand::class,
+        HelpCommand::class,
     ];
 
     public function __construct(Phishbot $phishbot)
@@ -30,7 +32,7 @@ class StartPhishbotCommand extends Command
     public function handle(): void
     {
         array_walk($this->commands, function (string $commandClass) {
-            $this->phishbot->mapCommand($this->getLaravel()->make($commandClass));
+            $this->phishbot->addCommand($this->getLaravel()->make($commandClass));
         });
 
         $this->phishbot->start();

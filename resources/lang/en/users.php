@@ -16,4 +16,12 @@ return [
         'inactive'     => 'Your account is inactive',
         'verification' => 'You haven\'t verified your email address',
     ],
+
+    'details' => [
+        'success' => 'Your account details have successfully been updated',
+    ],
+
+    'password' => [
+        'success' => 'Your account password has successfully been updated',
+    ],
 ];

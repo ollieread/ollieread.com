@@ -7,31 +7,32 @@ use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Socialite\Contracts\Factory;
 use Ollieread\Core\Support\Routes;
-use Ollieread\Users\Models\Role;
 use Ollieread\Users\Models\User;
+use Ollieread\Users\Operations\GetUserPermissions;
 use Ollieread\Users\Routes\AdminRoutes;
 use Ollieread\Users\Routes\UserRoutes;
+use Ollieread\Users\Support\Permissions;
 use SocialiteProviders\Discord\Provider;
 
 class UserServiceProvider extends ServiceProvider
 {
-    private $userRoleCache = [];
+    private $userPermissionCache = [];
 
     public function boot(): void
     {
         try {
-            $gate  = $this->app->make(Gate::class);
-            $roles = Role::all();
+            $gate = $this->app->make(Gate::class);
 
-            foreach ($roles as $role) {
-                $gate->define($role->ident, function (User $user) use ($role) {
-                    if (isset($this->userRoleCache[$user->id][$role->ident])) {
-                        return $this->userRoleCache[$user->id][$role->ident];
+            foreach (Permissions::ALL as $key => $value) {
+                $gate->define($key, function (User $user) use ($value) {
+                    if (! isset($this->userPermissionCache[$user->getKey()])) {
+                        $this->userPermissionCache[$user->getKey()] = (new GetUserPermissions)
+                            ->setUser($user)
+                            ->perform();
                     }
 
-                    $this->userRoleCache[$user->id][$role->ident] = $user->roles()->where('ident', '=', $role->ident)->first() !== null;
-
-                    return $this->userRoleCache[$user->id][$role->ident];
+                    return (bool)($this->userPermissionCache[$user->getKey()] & Permissions::ADMIN_MASTER)
+                        || (bool)($this->userPermissionCache[$user->getKey()] & $value);
                 });
             }
 

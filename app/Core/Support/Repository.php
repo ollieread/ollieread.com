@@ -18,22 +18,6 @@ abstract class Repository
 
     private $filter;
 
-    public function setFilter($filter)
-    {
-        $this->filter = $filter;
-        return $this;
-    }
-
-    public function getFilter()
-    {
-        return $this->filter;
-    }
-
-    protected function filter(Builder $query): void
-    {
-
-    }
-
     /**
      * @return \Illuminate\Database\Eloquent\Collection
      */
@@ -50,13 +34,18 @@ abstract class Repository
      */
     protected function conditionalQuery(array $conditions, ...$select): Builder
     {
-        $query  = $this->query($select ?: '*');
+        $query = $this->query($select ?: '*');
 
         foreach ($conditions as $column => $value) {
             $query->where($column, '=', $value);
         }
 
         return $query;
+    }
+
+    protected function filter(Builder $query): void
+    {
+
     }
 
     /**
@@ -82,6 +71,17 @@ abstract class Repository
     public function findOneBy(array $conditions)
     {
         return $this->conditionalQuery($conditions)->first();
+    }
+
+    public function getFilter()
+    {
+        return $this->filter;
+    }
+
+    public function setFilter($filter)
+    {
+        $this->filter = $filter;
+        return $this;
     }
 
     /**

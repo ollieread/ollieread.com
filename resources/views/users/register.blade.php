@@ -55,7 +55,7 @@
                     <label for="user-username" class="input__label">Username</label>
                     <input type="text" name="username" id="user-username" required class="input__field"
                            placeholder="Enter your username" value="{{ old('username') }}">
-                    {!! $errors->first('username', '<div class="input_feedback">:message</div>') !!}
+                    {!! $errors->first('username', '<div class="input__feedback">:message</div>') !!}
                     <div class="input__info">
                         Your unique display name
                     </div>
@@ -65,7 +65,7 @@
                     <label for="user-email" class="input__label">Email</label>
                     <input type="email" name="email" id="user-email" required class="input__field"
                            placeholder="Enter your email address" value="{{ old('email') }}">
-                    {!! $errors->first('email', '<div class="input_feedback">:message</div>') !!}
+                    {!! $errors->first('email', '<div class="input__feedback">:message</div>') !!}
                     <div class="input__info">
                         For verification and occasional contact
                     </div>
@@ -79,8 +79,8 @@
                     <label for="user-password_confirmation" class="input__label--sronly">Confirm Password</label>
                     <input type="password" name="password_confirmation" id="user-password_confirmation" required
                            class="input__field" placeholder="Confirm your password">
-                    {!! $errors->first('password', '<div class="input_feedback">:message</div>') !!}
-                    {!! $errors->first('password_confirmation', '<div class="input_feedback">:message</div>') !!}
+                    {!! $errors->first('password', '<div class="input__feedback">:message</div>') !!}
+                    {!! $errors->first('password_confirmation', '<div class="input__feedback">:message</div>') !!}
                     <div class="input__info">
                         Passwords must be at least 8 characters
                     </div>

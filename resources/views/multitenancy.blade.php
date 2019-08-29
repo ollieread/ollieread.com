@@ -16,7 +16,7 @@
         <div class="container">
             <header class="header">
                 <div class="header__logo">
-                    <img src="{{ asset('images/multitenancy.svg') }}" alt="">
+                    @include('svgs/multitenancy.svg')
                 </div>
                 <div class="header__branding">
                     <h1 class="header__branding-title">Multitenancy with <span class="text--laravel">Laravel</span></h1>
@@ -110,7 +110,6 @@
             <div class="section__content">
                 <div class="flex flex-wrap">
                     <div class="w-1/3 mb-6">
-                        <img src="{{ asset('images/package.svg') }}" alt="">
                         <h2 class="section__heading">Introduction</h2>
 
                         <ul>
@@ -121,7 +120,6 @@
                         </ul>
                     </div>
                     <div class="w-1/3 mb-6">
-                        <img src="{{ asset('images/package.svg') }}" alt="">
                         <h2 class="section__heading">Tenant Identification</h2>
 
                         <ul>
@@ -133,7 +131,6 @@
                         </ul>
                     </div>
                     <div class="w-1/3 mb-6">
-                        <img src="{{ asset('images/package.svg') }}" alt="">
                         <h2 class="section__heading">Databases</h2>
 
                         <ul>
@@ -147,7 +144,6 @@
                         </ul>
                     </div>
                     <div class="w-1/3 mb-6">
-                        <img src="{{ asset('images/package.svg') }}" alt="">
                         <h2 class="section__heading">Overriding the Core</h2>
 
                         <ul>
@@ -160,7 +156,6 @@
                         </ul>
                     </div>
                     <div class="w-1/3 mb-6">
-                        <img src="{{ asset('images/package.svg') }}" alt="">
                         <h2 class="section__heading">Users</h2>
 
                         <ul>
@@ -170,7 +165,6 @@
                         </ul>
                     </div>
                     <div class="w-1/3 mb-6">
-                        <img src="{{ asset('images/package.svg') }}" alt="">
                         <h2 class="section__heading">Configuration</h2>
 
                         <ul>
@@ -180,7 +174,6 @@
                         </ul>
                     </div>
                     <div class="w-1/3 mb-6">
-                        <img src="{{ asset('images/package.svg') }}" alt="">
                         <h2 class="section__heading">Templating/Views</h2>
 
                         <ul>
@@ -192,7 +185,6 @@
                         </ul>
                     </div>
                     <div class="w-1/3 mb-6">
-                        <img src="{{ asset('images/package.svg') }}" alt="">
                         <h2 class="section__heading">Assets</h2>
 
                         <ul>
@@ -203,7 +195,6 @@
                         </ul>
                     </div>
                     <div class="w-1/3 mb-6">
-                        <img src="{{ asset('images/package.svg') }}" alt="">
                         <h2 class="section__heading">Features/modules</h2>
 
                         <ul>
@@ -212,7 +203,6 @@
                         </ul>
                     </div>
                     <div class="w-1/3 mb-6">
-                        <img src="{{ asset('images/package.svg') }}" alt="">
                         <h2 class="section__heading">Misc</h2>
 
                         <ul>

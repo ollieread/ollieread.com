@@ -7,6 +7,7 @@ use Ollieread\Articles\Operations\GetCategoryBySlug;
 use Ollieread\Articles\Operations\GetOrCreateTagsByName;
 use Ollieread\Articles\Operations\GetTopics;
 use Ollieread\Articles\Operations\GetVersions;
+use Ollieread\Core\Services\Redirects;
 
 class ArticleSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class ArticleSeeder extends Seeder
 
         foreach ($data as $row) {
             $article = (Article::query()->where('slug', '=', $row['slug'])->first() ?? new Article)
-                ->fill(Arr::except($row, ['category', 'topics', 'versions', 'tags']));
+                ->fill(Arr::except($row, ['category', 'topics', 'versions', 'tags', 'redirects']));
 
             if ($row['category']) {
                 $category = (new GetCategoryBySlug)->setSlug($row['category'])->perform();
@@ -44,6 +45,12 @@ class ArticleSeeder extends Seeder
                 if ($row['tags']) {
                     $tags = (new GetOrCreateTagsByName)->setNames($row['tags'])->perform();
                     $article->tags()->sync($tags->pluck('id'));
+                }
+
+                if ($row['redirects']) {
+                    foreach ($row['redirects'] as $redirect) {
+                        Redirects::create($redirect, route('articles:article', $article->slug));
+                    }
                 }
 
                 $this->command->info(sprintf('Article %s added/updated', $article->name));

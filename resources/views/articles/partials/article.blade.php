@@ -60,7 +60,7 @@
                     <strong class="article__topics-title">Topics:</strong>
                     <div class="article__topics-list">
                         @foreach($article->topics as $topic)
-                            <a href="#" class="topic__badge">
+                            <a href="#" class="topic__badge" data-tippy-content="{{ $topic->description }}">
                                 <i class="topic__badge-icon"></i>
                                 {{ $topic->name }}
                             </a>

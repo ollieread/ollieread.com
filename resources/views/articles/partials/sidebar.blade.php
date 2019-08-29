@@ -10,7 +10,7 @@
         <i class="nav__icon fa-newspaper"></i> Articles
     </a>
 
-    <a href="/" class="nav__link">
+    {{--<a href="/" class="nav__link">
         <i class="nav__icon fa-chalkboard-teacher"></i> Courses
     </a>
 
@@ -20,7 +20,7 @@
 
     <a href="/" class="nav__link">
         <i class="nav__icon fa-code"></i> Services
-    </a>
+    </a>--}}
 
 </nav>
 

@@ -20,7 +20,7 @@ class UsersPassword implements Rule
 
     public function __construct(?User $user, Hasher $hasher)
     {
-        $this->user = $user;
+        $this->user   = $user;
         $this->hasher = $hasher;
     }
 
@@ -45,7 +45,7 @@ class UsersPassword implements Rule
     public function passes($attribute, $value): bool
     {
         if ($this->user) {
-            return $this->hasher->check($value, $this->user->password);
+            return $this->user->password === null || $this->hasher->check($value, $this->user->password);
         }
 
         return false;

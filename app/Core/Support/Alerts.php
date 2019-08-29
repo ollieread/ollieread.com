@@ -20,7 +20,7 @@ class Alerts
     /**
      *
      */
-    public const ERROR   = 'error';
+    public const ERROR = 'error';
 
     /**
      *

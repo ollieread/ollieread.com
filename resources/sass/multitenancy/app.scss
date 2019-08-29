@@ -5,105 +5,144 @@
 @import "fonts";
 
 body {
-  @apply min-h-screen;
-  background-color : #f7fafc;
-  font-family      : "Montserrat", serif;
-  color            : #307dc6;
-
-  .container {
-    @apply mx-auto;
-  }
-
-  .header {
-    @apply flex;
-
-    &__logo, &__branding {
-      @apply w-1/2 inline-block p-8;
-    }
-
-    &__logo {
-      @apply pr-2 text-right;
-    }
-
-    &__branding {
-      @apply text-xl flex flex-col justify-center pl-2;
-
-      &-title {
-        @apply font-normal pr-16;
-        font-size : 3rem;
-      }
-    }
-  }
-
-  .text {
-    &--laravel {
-      font-family : "Miriam Libre", serif;
-    }
-
-    &--center {
-      @apply text-center;
-    }
-  }
-
-  .section {
-    @apply py-8;
+    @apply min-h-screen;
+    background-color : #f7fafc;
+    font-family      : "Montserrat", serif;
+    color            : #307dc6;
 
     .container {
-      @apply flex;
+        @apply mx-auto;
     }
 
-    &--alternative {
-      //background-color : #307dc6;
-      color            : #f7fafc;
-      background-color : #307dc6;
-      background-image : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23f7fafc' fill-opacity='0.04' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    .header {
+        @apply flex;
 
-      p {
-        @apply px-16;
-      }
+        &__logo, &__branding {
+            @apply w-1/2 inline-block p-8;
+        }
+
+        &__logo {
+            @apply pr-2 text-right;
+        }
+
+        &__branding {
+            @apply text-xl flex flex-col justify-center pl-2;
+
+            &-title {
+                @apply font-normal pr-16;
+                font-size : 3rem;
+            }
+        }
     }
 
-    &__heading {
-      @apply text-3xl mb-6 font-bold;
+    .text {
+        &--laravel {
+            font-family : "Miriam Libre", serif;
+        }
+
+        &--center {
+            @apply text-center;
+        }
+
+        &--small {
+            @apply py-3 text-sm;
+        }
     }
 
-    &__image {
-      @apply p-6 flex flex-col justify-center;
-      width     : 330px;
-      min-width : 330px;
+    .section {
+        @apply py-8 text-lg ;
+
+        .container {
+            @apply flex;
+        }
+
+        &--alternative {
+            //background-color : #307dc6;
+            color            : #f7fafc;
+            background-color : #307dc6;
+            background-image : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23f7fafc' fill-opacity='0.04' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            p {
+                @apply px-16;
+            }
+        }
+
+        &__heading {
+            @apply text-3xl mb-6 font-bold;
+        }
+
+        &__image {
+            @apply p-6 flex flex-col justify-center;
+            width     : 330px;
+            min-width : 330px;
+        }
+
+        &__content {
+            @apply p-6 w-full;
+        }
+
+        p {
+            @apply mb-4 leading-relaxed;
+        }
+
+        &--course {
+            @apply pb-0;
+
+            .section__content {
+                @apply pr-16;
+            }
+        }
+
+        &--package {
+            @apply pt-0;
+
+            .section__content {
+                @apply pl-16 text-right;
+            }
+        }
+
+        &--details {
+            .list {
+                @apply text-lg;
+                columns : 2;
+
+                &__item {
+                    @apply mb-6;
+                    break-inside : avoid-column;
+
+                    &-title {
+                        @apply text-2xl font-bold p-2;
+                    }
+
+                    &-icon {
+                        @apply mr-1;
+                        @extend .fad;
+                        @extend .fa-fw;
+                    }
+                }
+
+                &__children {
+                    @apply text-lg font-normal;
+                    break-inside : avoid-column;
+
+                    &-item {
+                        @apply p-2 pl-4;
+
+                        &:nth-of-type(odd) {
+                            background-color : #dcedff;
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    &__content {
-      @apply p-6 w-full;
+    .grid {
+        @apply flex flex-wrap justify-start w-full flex-grow flex-shrink-0;
+
+        &--column {
+            @apply w-1/4 p-3 flex-shrink-0;
+        }
     }
-
-    p {
-      @apply text-lg mb-4 leading-relaxed;
-    }
-
-    &--course {
-      @apply pb-0;
-
-      .section__content {
-        @apply pr-16;
-      }
-    }
-
-    &--package {
-      @apply pt-0;
-
-      .section__content {
-        @apply pl-16 text-right;
-      }
-    }
-  }
-
-  .grid {
-    @apply flex flex-wrap justify-start w-full flex-grow flex-shrink-0;
-
-    &--column {
-      @apply w-1/4 p-3 flex-shrink-0;
-    }
-  }
 
 }

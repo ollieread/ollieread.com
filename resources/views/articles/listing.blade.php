@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('page.title', 'Articles')
+
 @section('breadcrumbs')
         <a href="{{ route('site:home') }}" class="breadcrumb">Home</a>
         <span class="breadcrumb breadcrumb--active">Articles</span>

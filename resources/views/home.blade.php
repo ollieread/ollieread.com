@@ -14,17 +14,17 @@
             <i class="nav__icon fa-newspaper"></i> Articles
         </a>
 
-        <a href="/" class="nav__link">
-            <i class="nav__icon fa-chalkboard-teacher"></i> Courses
-        </a>
+        {{--<a href="/" class="nav__link">
+        <i class="nav__icon fa-chalkboard-teacher"></i> Courses
+    </a>
 
-        <a href="/" class="nav__link">
-            <i class="nav__icon fa-box"></i> Packages
-        </a>
+    <a href="/" class="nav__link">
+        <i class="nav__icon fa-box"></i> Packages
+    </a>
 
-        <a href="/" class="nav__link">
-            <i class="nav__icon fa-code"></i> Services
-        </a>
+    <a href="/" class="nav__link">
+        <i class="nav__icon fa-code"></i> Services
+    </a>--}}
 
     </nav>
 
@@ -39,30 +39,31 @@
         </p>
 
         <p class="page__header-text">
-            I've had the privilege of working on some interesting projects for the likes of Miniclip, Cancer
-            Research
-            UK, The Open University, Domino's and even the president of Nigeria (yes really).
+            I've had the privilege of working on some interesting projects for the likes of <strong>Miniclip</strong>, <strong>Cancer
+                Research UK</strong>, <strong>The Open University</strong>, <strong>Domino's</strong> and even <strong>the president of Nigeria</strong>
+            (yes really).
         </p>
 
         <p class="page__header-text">
             I'm a prolific writer of code and I like to share both my creations and my knowledge, be it by way of an
-            <a href="/" class="link">article</a>, <a href="#" class="link">course</a>, <a href="#" class="link">package</a>
+            <a href="{{ route('articles:index') }}" class="link">article</a>, course, package
             or just answering questions on <a href="https://stackoverflow.com/users/3104359/ollieread" class="link">StackOverflow</a>.
         </p>
 
         <p class="page__header-text">
-            I'm currently working on a <a href="#" class="link">multi-tenancy with Laravel</a> course and <a href="#" class="link">Porter</a>
-            a premium laravel multi-tenancy package.
+            I'm currently working on a <a href="https://multitenancy.dev" target="_blank" rel="noopener" class="link">multitenancy
+                with Laravel</a> course and Porter,
+            a premium laravel multitenancy package.
         </p>
 
         <p class="page__header-text">
             As well as offering bespoke builds for clients through <a href="https://sprocketbox.io" class="link">Sprocketbox</a>,
-            I also offer a number of other <a href="#" class="link">services</a> such as 1 on 1 mentoring, code
+            I also offer a number of other services such as 1 on 1 mentoring, code
             reviews, and/or regular
             Google hangout meetings to help advise and guide.
         </p>
 
-        <p class="page__header-text"><a href="#" class="link">Read more...</a></p>
+        {{--<p class="page__header-text"><a href="#" class="link">Read more...</a></p>--}}
 
         <div class="button__bar button__bar--flexible button__bar--slim button__bar--centered">
             <a href="https://github.com/ollieread" class="button button--icon" target="_blank">

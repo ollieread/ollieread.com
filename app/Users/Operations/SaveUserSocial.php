@@ -3,16 +3,22 @@
 namespace Ollieread\Users\Operations;
 
 use Carbon\Carbon;
+use Illuminate\Support\Arr;
 use Laravel\Socialite\One\User as UserOne;
 use Ollieread\Users\Models\Social;
 use Ollieread\Users\Models\User;
 
-class CreateUserSocial
+class SaveUserSocial
 {
     /**
      * @var \Ollieread\Users\Models\User
      */
     private $user;
+
+    /**
+     * @var \Ollieread\Users\Models\Social|null
+     */
+    private $social;
 
     /**
      * @var string
@@ -26,25 +32,15 @@ class CreateUserSocial
 
     private function getMetadata(): array
     {
-        $metadata = [];
-
-        if ($this->provider === 'discord') {
-            $metadata = [
-                'discriminator' => $this->socialUser->offsetGet('discriminator'),
-                'mfa_enabled'   => $this->socialUser->offsetGet('mfa_enabled'),
-                'verified'      => $this->socialUser->offsetGet('verified'),
-                'locale'        => $this->socialUser->offsetGet('locale'),
-                'flags'         => $this->socialUser->offsetGet('flags'),
-                'premium_type'  => $this->socialUser->offsetGet('premium_type'),
-            ];
-        }
+        $metadata             = Arr::except($this->socialUser->getRaw(), ['email']);
+        $metadata['username'] = $this->socialUser->getNickname();
 
         return $metadata;
     }
 
     public function perform(): ?Social
     {
-        $social = (new Social)->fill([
+        $social = ($this->social ?? new Social)->fill([
             'provider'  => $this->provider,
             'social_id' => $this->socialUser->getId(),
             'metadata'  => $this->getMetadata(),
@@ -95,6 +91,17 @@ class CreateUserSocial
     public function setProvider(string $provider): self
     {
         $this->provider = $provider;
+        return $this;
+    }
+
+    /**
+     * @param \Ollieread\Users\Models\Social|null $social
+     *
+     * @return $this
+     */
+    public function setSocial(?Social $social): self
+    {
+        $this->social = $social;
         return $this;
     }
 

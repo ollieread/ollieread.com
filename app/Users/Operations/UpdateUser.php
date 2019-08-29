@@ -3,6 +3,7 @@
 namespace Ollieread\Users\Operations;
 
 use Ollieread\Users\Models\User;
+use Ollieread\Users\Validators\UpdateUserValidator;
 
 class UpdateUser
 {
@@ -17,9 +18,17 @@ class UpdateUser
      */
     private $input;
 
-    public function perform(): void
+    public function perform(): bool
     {
+        UpdateUserValidator::validate($this->input, $this->user);
 
+        $this->user->fill($this->input);
+
+        if ($this->user->save()) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

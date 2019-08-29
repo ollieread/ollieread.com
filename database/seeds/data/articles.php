@@ -22,6 +22,9 @@ return [
         'tags'            => [
 
         ],
+        'redirects'       => [
+
+        ],
     ],*/
 
     [
@@ -54,6 +57,9 @@ return [
             'Validation',
             'Laravel Validation',
         ],
+        'redirects'       => [
+            '/blog/2016/03/26/a-streamlined-approach-to-laravel-validation',
+        ],
     ],
     [
         'id'              => 3,
@@ -81,6 +87,9 @@ return [
             'Freelance',
             'Freelancing',
             'Self-Employed',
+        ],
+        'redirects'       => [
+            '/blog/2017/10/11/freelance-php-developer-return',
         ],
     ],
     [
@@ -119,6 +128,9 @@ return [
             'Laravel',
             'Eloquent',
             'Eloquent Alternative',
+        ],
+        'redirects'       => [
+            '/blog/2018/04/17/an-alternative-to-eloquent-articulate',
         ],
     ],
     [
@@ -161,6 +173,9 @@ return [
             'Repositories',
             'Repository Design Pattern',
         ],
+        'redirects'       => [
+            '/blog/2018/04/06/using-repositories-with-laravel',
+        ],
     ],
     [
         'id'              => 6,
@@ -170,7 +185,7 @@ return [
         'heading'         => null,
         'seo_description' => null,
         'slug'            => 'treating-apis-like-any-other-data-source',
-        'excerpt'         => "APIs are, after all, another data source, so why not treat them like one?",
+        'excerpt'         => 'APIs are, after all, another data source, so why not treat them like one?',
         'image'           => null,
         'active'          => true,
         'status'          => Ollieread\Core\Support\Status::PUBLIC,
@@ -189,6 +204,9 @@ return [
         'tags'            => [
             'APIs',
             'Databases',
+        ],
+        'redirects'       => [
+            '/blog/2018/07/19/treating-apis-like-any-other-data-source',
         ],
     ],
     [
@@ -225,6 +243,9 @@ return [
             'Laravel',
             'Multi-tenancy',
             'Laravel Multi-tenancy',
+        ],
+        'redirects'       => [
+            '/blog/2018/08/06/laravel-multi-tenancy-avoiding-over-engineering',
         ],
     ],
     [
@@ -264,6 +285,9 @@ return [
             'Eloquent',
             'Eloquent Alternative',
         ],
+        'redirects'       => [
+            '/blog/2018/08/07/how-i-accidentally-created-an-orm-to-avoid-using-eloquent',
+        ],
     ],
     [
         'id'              => 11,
@@ -302,6 +326,9 @@ return [
             'RBAC',
             'Role Based Access Control',
         ],
+        'redirects'       => [
+            '/blog/2018/08/16/laravel-rbac-role-based-access-control-without-over-engineering',
+        ],
     ],
     [
         'id'              => 13,
@@ -330,6 +357,9 @@ return [
             'MVC',
             'MVC Framework',
             'Framework',
+        ],
+        'redirects'       => [
+            '/blog/2018/09/09/creating-a-modern-day-php-framework',
         ],
     ],
 
