@@ -14,6 +14,11 @@ class Mail
         self::mailer()->send(new Welcome($user));
     }
 
+    public static function forgotPassword(User $user, string $token): void
+    {
+        self::mailer()->send(new ForgotPassword($user, $token));
+    }
+
     protected static function mailer(): Mailer
     {
         try {

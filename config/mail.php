@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => null,//env('MAIL_ENCRYPTION', 'tls'),
 
     /*
     |--------------------------------------------------------------------------

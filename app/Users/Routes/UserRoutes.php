@@ -21,6 +21,11 @@ class UserRoutes implements Routes
             $router->get('/sign-in')->name('sign-in.create')->uses(Actions\SignIn::class . '@create');
             $router->post('/sign-in')->name('sign-in.store')->uses(Actions\SignIn::class . '@store');
 
+            $router->get('/forgot-password')->name('password.forgot.create')->uses(Actions\Password\Forgot::class . '@create');
+            $router->post('/forgot-password')->name('password.forgot.store')->uses(Actions\Password\Forgot::class . '@store');
+            $router->get('/reset-password/{token}')->name('password.reset.create')->uses(Actions\Password\Reset::class . '@create');
+            $router->post('/reset-password')->name('password.reset.store')->uses(Actions\Password\Reset::class . '@store');
+
             $router->get('/verify/{user}')->name('verify')->uses(Actions\Verify::class)->middleware('signed');
         });
 

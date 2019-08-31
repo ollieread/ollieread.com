@@ -49,7 +49,8 @@
                     <input type="password" name="password" id="user-password" required class="input__field"
                            placeholder="Enter a password">
                     {!! $errors->first('password', '<div class="input__feedback">:message</div>') !!}
-                    <div class="field__info"><a href="#" class="link link--subtle">Forgot your password?</a></div>
+                    <div class="field__info"><a href="{{ route('users:password.forgot.create') }}"
+                                                class="link link--subtle">Forgot your password?</a></div>
                 </div>
 
                 <div class="button__bar button__bar--centered">
@@ -59,7 +60,8 @@
                     </button>
                 </div>
 
-                <p><a href="{{ route('users:register.create') }}" class="link link--subtle">Don't have an account?</a></p>
+                <p><a href="{{ route('users:register.create') }}" class="link link--subtle">Don't have an account?</a>
+                </p>
             </div>
 
         </section>

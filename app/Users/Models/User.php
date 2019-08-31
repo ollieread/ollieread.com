@@ -2,10 +2,13 @@
 
 namespace Ollieread\Users\Models;
 
+use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as BaseUser;
+use Illuminate\Notifications\Notifiable;
+use Ollieread\Users\Mail\Mail;
 
 /**
  * Class User
@@ -29,7 +32,7 @@ use Illuminate\Foundation\Auth\User as BaseUser;
  */
 class User extends BaseUser
 {
-    use SoftDeletes;
+    use SoftDeletes, Notifiable;
 
     protected $table = 'users';
 
@@ -62,5 +65,10 @@ class User extends BaseUser
     public function social(): HasMany
     {
         return $this->hasMany(Social::class, 'user_id');
+    }
+
+    public function sendPasswordResetNotification($token): void
+    {
+        Mail::forgotPassword($this, $token);
     }
 }

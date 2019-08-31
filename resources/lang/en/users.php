@@ -23,5 +23,18 @@ return [
 
     'password' => [
         'success' => 'Your account password has successfully been updated',
+
+        'forgot' => [
+            'unknown'    => 'No user was found for the email address you provided',
+            'inactive'   => 'That user account appears to be inactive',
+            'unverified' => 'That user account hasn\'t been verified',
+            'success'    => 'An email containing instructions has been sent to the email address provided',
+        ],
+
+        'reset' => [
+            'token'   => 'This password reset has expired',
+            'user'    => 'No user was found for the email address you provided',
+            'success' => 'Your password was successfully reset, you may now login',
+        ],
     ],
 ];
