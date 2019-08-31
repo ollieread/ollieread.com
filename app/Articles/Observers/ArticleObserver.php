@@ -3,34 +3,60 @@
 namespace Ollieread\Articles\Observers;
 
 use Ollieread\Articles\Models\Article;
+use Ollieread\Core\Services\Feeds;
 use Ollieread\Core\Services\Ids;
 use Ollieread\Core\Services\Redirects;
 
 class ArticleObserver
 {
     /**
-     * Handle the post "created" event.
-     *
-     * @param \Ollieread\Articles\Models\Article $post
-     *
-     * @return void
+     * @var \Ollieread\Core\Services\Feeds
      */
-    public function created(Article $post): void
+    private $feeds;
+
+    public function __construct(Feeds $feeds)
     {
-        Redirects::create('/p/' . Ids::encodePosts($post->id), route('articles:article', $post->slug));
+        $this->feeds = $feeds;
     }
 
     /**
-     * Handle the post "update" event.
+     * Handle the article "created" event.
      *
-     * @param \Ollieread\Articles\Models\Article $post
+     * @param \Ollieread\Articles\Models\Article $article
      *
      * @return void
      */
-    public function updating(Article $post): void
+    public function created(Article $article): void
     {
-        if ($post->slug !== $post->getOriginal('slug')) {
-            Redirects::create(route('articles:article', $post->getOriginal('slug')), route('articles:article', $post->slug));
+        Redirects::create('/p/' . Ids::encodePosts($article->id), route('articles:article', $article->slug));
+
+        $this->feeds->invalidateRss();
+        $this->feeds->invalidateSitemap();
+    }
+
+    /**
+     * Handle the article "update" event.
+     *
+     * @param \Ollieread\Articles\Models\Article $article
+     *
+     * @return void
+     */
+    public function updating(Article $article): void
+    {
+        if ($article->slug !== $article->getOriginal('slug')) {
+            Redirects::create(route('articles:article', $article->getOriginal('slug')), route('articles:article', $article->slug));
         }
+    }
+
+    public function updated()
+    {
+        $this->feeds->invalidateRss();
+        $this->feeds->invalidateSitemap();
+    }
+
+    public function deleted()
+    {
+        $this->feeds->invalidateRss();
+        $this->feeds->invalidateSitemap();
     }
 }
