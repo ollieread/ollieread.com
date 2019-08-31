@@ -67,7 +67,6 @@
 
         <footer class="box__footer box__footer--secondary">
             <button type="submit" class="button button--primary">Update</button>
-            <a href="#" class="button button--text">Cancel</a>
         </footer>
 
     </form>
