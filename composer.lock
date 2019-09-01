@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85c00972ca0f176869808cd50be027a9",
+    "content-hash": "0353c8b2faf798e4bc91ce642d469e4f",
     "packages": [
         {
             "name": "botman/botman",
@@ -6059,6 +6059,46 @@
             "time": "2019-08-27T17:00:38+00:00"
         },
         {
+            "name": "wildbit/swiftmailer-postmark",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wildbit/swiftmailer-postmark.git",
+                "reference": "f3932a6eedf04e7f43f8005ff43e103258ed1661"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wildbit/swiftmailer-postmark/zipball/f3932a6eedf04e7f43f8005ff43e103258ed1661",
+                "reference": "f3932a6eedf04e7f43f8005ff43e103258ed1661",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0.0",
+                "swiftmailer/swiftmailer": "^6.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Postmark\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Postmark",
+                    "email": "support@postmarkapp.com"
+                }
+            ],
+            "description": "A Swiftmailer Transport for Postmark.",
+            "time": "2019-07-07T18:41:29+00:00"
+        },
+        {
             "name": "wyrihaximus/cpu-core-detector",
             "version": "1.0.2",
             "source": {
@@ -8853,7 +8893,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^7.1.3",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-xmlwriter": "*"
     },
     "platform-dev": []
 }

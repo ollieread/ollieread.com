@@ -47,4 +47,7 @@ return [
         'redirect'      => env('APP_URL') . '/social/discord/response',
     ],
 
+    'postmark' => [
+        'token' => env('POSTMARK_TOKEN'),
+    ],
 ];
