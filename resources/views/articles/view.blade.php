@@ -18,7 +18,7 @@
 
     <article-comments route="{{ route('articles:article', $article->slug) }}"
                       :authed="{{ auth('user')->user() !== null ? 'true' : 'false' }}"
-                      avatar="{{ auth('user')->user() ? auth('user')->user()->avatar : '' }}"></article-comments>
+                      avatar="{{ auth('user')->user() ? auth('user')->user()->avatar ?? auth('user')->user()->gravatar : '' }}"></article-comments>
 
 @endsection
 

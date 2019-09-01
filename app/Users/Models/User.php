@@ -2,7 +2,6 @@
 
 namespace Ollieread\Users\Models;
 
-use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -25,6 +24,8 @@ use Ollieread\Users\Mail\Mail;
  * @property bool                                     $verified
  * @property \Carbon\Carbon                           $created_at
  * @property \Carbon\Carbon                           $updated_at
+ *
+ * @property string                                   $gravatar
  *
  * @property \Illuminate\Database\Eloquent\Collection $social
  *
@@ -52,9 +53,25 @@ class User extends BaseUser
         'verified' => 'bool',
     ];
 
+    public function getGravatarAttribute(): string
+    {
+        return 'https://www.gravatar.com/avatar/'
+            . md5(strtolower(trim($this->email)))
+            . '?' . http_build_query([
+                's' => 72,
+                'd' => 'robohash',
+                'r' => 'g',
+            ]);
+    }
+
     public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class, 'user_roles', 'user_id', 'role_id');
+    }
+
+    public function sendPasswordResetNotification($token): void
+    {
+        Mail::forgotPassword($this, $token);
     }
 
     public function setPasswordAttribute(string $value): void
@@ -65,10 +82,5 @@ class User extends BaseUser
     public function social(): HasMany
     {
         return $this->hasMany(Social::class, 'user_id');
-    }
-
-    public function sendPasswordResetNotification($token): void
-    {
-        Mail::forgotPassword($this, $token);
     }
 }
