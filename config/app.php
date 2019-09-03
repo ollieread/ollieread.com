@@ -170,7 +170,7 @@ return [
         Ollieread\Courses\CourseServiceProvider::class,
         Ollieread\Packages\PackageServiceProvider::class,
         Ollieread\Users\UserServiceProvider::class,
-        Ollieread\Phishbot\PhishbotServiceProvider::class,
+        //Ollieread\Phishbot\PhishbotServiceProvider::class,
 
         /*
          * Application Service Providers...
