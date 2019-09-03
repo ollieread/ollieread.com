@@ -1,3 +1,7 @@
+.toppy-popper {
+    z-index: 99999;
+}
+
 .ollieread-theme {
     &.tippy-tooltip {
         @apply shadow-md rounded bg-white border p-4 py-3 text-gray-700;

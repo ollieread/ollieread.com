@@ -1,6 +1,6 @@
 .version {
   &__badge {
-    @apply rounded-full uppercase text-white py-1 pl-2 pr-3 text-xs font-semibold bg-green-400 inline-block;
+    @apply rounded-full uppercase text-white py-1 pl-2 pr-3 text-xs font-semibold bg-green-400 inline-block my-1;
     break-inside: avoid;
 
     &-icon {

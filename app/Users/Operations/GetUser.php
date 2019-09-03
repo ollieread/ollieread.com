@@ -36,6 +36,11 @@ class GetUser
      */
     private $activeOnly = false;
 
+    /**
+     * @var int|null
+     */
+    private $id;
+
     public function perform(): ?User
     {
         $query = User::query();
@@ -68,6 +73,10 @@ class GetUser
             $query->where('active', '=', 1);
         }
 
+        if ($this->id) {
+            $query->where('id', '=', $this->id);
+        }
+
         return $query->first();
     }
 
@@ -90,6 +99,17 @@ class GetUser
     public function setEmail(string $email): self
     {
         $this->email = $email;
+        return $this;
+    }
+
+    /**
+     * @param int|null $id
+     *
+     * @return $this
+     */
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
         return $this;
     }
 

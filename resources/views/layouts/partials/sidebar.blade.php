@@ -13,7 +13,12 @@
                 <i class="nav__icon fa-question"></i>
             </a>--}}
 
-            <a href="https://sprocketbox.io/?utm_source=olliereadcom#get-in-touch" class="nav__link" title="Get in touch" data-tippy-content="Get in touch">
+            <a href="{{ route('site:home') }}"
+               class="nav__link {{ request()->routeIs('site:home') ? 'nav__link--active' : '' }}">
+                <i class="nav__icon fa-home"></i>
+            </a>
+
+            <a href="https://sprocketbox.io/?utm_source=olliereadcom#get-in-touch" class="nav__link" data-tippy-content="Get in touch">
                 <i class="nav__icon fa-envelope"></i>
             </a>
 

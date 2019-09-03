@@ -67,6 +67,11 @@ class GetArticles
      */
     private $series;
 
+    /**
+     * @var bool
+     */
+    private $paginate = false;
+
     public function perform()
     {
         $query = Article::query()->where('post_at', '<', Carbon::now());
@@ -99,10 +104,6 @@ class GetArticles
                     }
                 });
             }
-        }
-
-        if ($this->limit) {
-            $query->limit($this->limit);
         }
 
         if ($this->category) {
@@ -157,6 +158,14 @@ class GetArticles
             })->orderBy('post_at');
         } else {
             $query->orderBy('post_at', 'desc');
+        }
+
+        if ($this->paginate) {
+            return $query->paginate($this->limit ?? 20);
+        }
+
+        if ($this->limit) {
+            $query->limit($this->limit);
         }
 
         return $query->get();
@@ -236,6 +245,17 @@ class GetArticles
     public function setLimit(?int $limit): self
     {
         $this->limit = $limit;
+        return $this;
+    }
+
+    /**
+     * @param bool $paginate
+     *
+     * @return $this
+     */
+    public function setPaginate(bool $paginate): self
+    {
+        $this->paginate = $paginate;
         return $this;
     }
 

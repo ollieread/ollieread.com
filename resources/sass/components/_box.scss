@@ -149,6 +149,10 @@
         .avatar {
             @apply ml-0;
         }
+
+        &--flush {
+            @apply p-0;
+        }
     }
 
     &__image {

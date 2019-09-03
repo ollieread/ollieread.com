@@ -1,53 +1,83 @@
 .pagination {
-  @apply block w-full flex justify-center;
+    @apply block w-full flex justify-center py-2;
 
-  &__previous, &__next {
-    @apply shadow my-4 border bg-white px-4 py-2 text-gray-500;
+    &__link {
+        @apply px-4 text-lg border bg-white border-r-0;
 
-    &:hover {
-      @apply shadow-none text-gray-700;
+        &:last-child {
+            @apply border-r rounded-r;
+        }
 
-      .pagination__icon {
-        @apply text-gray-700;
-      }
+        &:first-child {
+            @apply rounded-l;
+        }
+
+        &--disabled {
+            @apply bg-gray-100 text-gray-400 shadow-none;
+            cursor: not-allowed;
+
+            &:hover {
+                @apply text-gray-400;
+
+                .pagination__icon {
+                    @apply text-gray-500;
+                }
+            }
+        }
+
+        &--active {
+            @apply font-bold border-r rounded;
+            transform: scale(1.25);
+        }
     }
 
-    &--disabled {
-      @apply bg-gray-100 text-gray-400 shadow-none;
+    &__previous, &__next {
+        @apply shadow my-4 border bg-white px-4 py-2 text-gray-500;
 
-      &:hover {
-        @apply text-gray-400;
+        &:hover {
+            @apply shadow-none text-gray-700;
+
+            .pagination__icon {
+                @apply text-gray-700;
+            }
+        }
+
+        &--disabled {
+            @apply bg-gray-100 text-gray-400 shadow-none;
+
+            &:hover {
+                @apply text-gray-400;
+
+                .pagination__icon {
+                    @apply text-gray-500;
+                }
+            }
+
+            .pagination__icon {
+                @apply text-gray-500;
+            }
+        }
+    }
+
+    &__previous {
+        @apply rounded-l border-r-0;
 
         .pagination__icon {
-          @apply text-gray-500;
+            @apply mr-2;
         }
-      }
-
-      .pagination__icon {
-        @apply text-gray-500;
-      }
     }
-  }
 
-  &__previous {
-    @apply rounded-l border-r-0;
+    &__next {
+        @apply rounded-r;
 
-    .pagination__icon {
-      @apply mr-2;
+        .pagination__icon {
+            @apply ml-2;
+        }
     }
-  }
 
-  &__next {
-    @apply rounded-r;
-
-    .pagination__icon {
-      @apply ml-2;
+    &__icon {
+        @include fa-icon();
+        @extend .far;
+        @apply mx-1 text-gray-600;
     }
-  }
-
-  &__icon {
-    @include fa-icon();
-    @extend .far;
-    @apply mx-1 text-gray-600;
-  }
 }

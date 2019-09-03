@@ -1,6 +1,12 @@
 @extends('layouts.main')
 
 @section('page.title', 'Article - ' . ($article->title ?? $article->name))
+@section('page.meta.description', $article->excerpt)
+@section('page.meta.keywords', $article->keywords)
+
+@push('page.header')
+    {!! $article->metadata !!}
+@endpush
 
 @section('breadcrumbs')
     <a href="{{ route('site:home') }}" class="breadcrumb">Home</a>

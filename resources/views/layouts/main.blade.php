@@ -26,17 +26,23 @@
         <h3 class="brand__subheading">PHP & Laravel Development</h3>
 
         <nav class="nav nav--sidebar-inverted nav--horizontal">
-            <a href="/" class="nav__link" title="Who am I?">
+            {{--<a href="/" class="nav__link" title="Who am I?">
                 <i class="nav__icon fa-question"></i>
+            </a>--}}
+
+            <a href="{{ route('site:home') }}"
+               class="nav__link {{ request()->routeIs('site:home') ? 'nav__link--active' : '' }}">
+                <i class="nav__icon fa-home"></i>
             </a>
 
-            <a href="/" class="nav__link" title="Get in touch">
+            <a href="https://sprocketbox.io/?utm_source=olliereadcom#get-in-touch" class="nav__link"
+               data-tippy-content="Get in touch">
                 <i class="nav__icon fa-envelope"></i>
             </a>
 
-            <a href="/" class="nav__link" title="Ideas">
+            {{--<a href="/" class="nav__link" title="Ideas">
                 <i class="nav__icon fa-lightbulb"></i>
-            </a>
+            </a>--}}
         </nav>
     </header>
 
