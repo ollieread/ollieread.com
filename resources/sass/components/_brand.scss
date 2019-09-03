@@ -1,0 +1,24 @@
+.brand {
+  @apply p-4 flex flex-col items-center content-center justify-center bg-blue-700;
+
+  @media (min-width : #{map-get($breakpoints, 'sm') + 1px}) {
+    @apply hidden;
+  }
+
+  &__heading {
+    @apply text-white text-3xl;
+  }
+
+  &__subheading {
+    @apply text-base text-blue-200;
+  }
+
+  &__menu-link {
+    @apply absolute bg-blue-600 text-white text-center rounded-full flex justify-center content-center items-center;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    top: 1rem;
+    right: 1rem;
+  }
+}

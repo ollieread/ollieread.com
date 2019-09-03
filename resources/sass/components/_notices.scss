@@ -1,0 +1,57 @@
+.notice {
+    @apply rounded border-l-8 p-4 mb-2 shadow pl-16 relative bg-white;
+
+    &:before {
+        @apply absolute;
+        @include fa-icon();
+        @extend .fa;
+        @extend .fa-2x;
+        left : 1rem;
+        top  : .8rem;
+    }
+
+    &--warning {
+        @apply border-orange-400;
+
+        &:before {
+            @apply text-orange-500;
+            @extend .fa-exclamation-circle;
+        }
+    }
+
+    &--error {
+        @apply border-red-400;
+
+        &:before {
+            @apply text-red-500;
+            @extend .fa-exclamation-triangle;
+        }
+    }
+
+    &--info {
+        @apply border-blue-400;
+
+        &:before {
+            @apply text-blue-500;
+            @extend .fa-info-circle;
+        }
+    }
+
+    &--success {
+        @apply border-green-400;
+
+        &:before {
+            @apply text-green-500;
+            @extend .fa-check-circle;
+        }
+    }
+
+    p {
+        @apply mb-0;
+
+        & + p {
+            @apply mt-2;
+        }
+    }
+
+}

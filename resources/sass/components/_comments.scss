@@ -1,0 +1,137 @@
+.comments {
+  @apply mt-3;
+
+  &__title {
+    @apply text-xl text-blue-500 block;
+  }
+
+  &__subtitle {
+    @apply text-lg text-blue-400 block;
+  }
+
+  .comment {
+    @apply py-4 flex;
+
+    &__toggle {
+      @apply bg-gray-300 shadow-inner rounded-lg p-3 text-center text-sm block mb-4;
+      margin-left : 104px;
+    }
+
+    &__thread {
+      @apply ml-10;
+    }
+
+    &__author {
+      @apply mr-3;
+    }
+
+    &__expand {
+      @apply text-center p-2 -mb-4;
+    }
+
+    &__message {
+      @apply flex flex-col ml-6 rounded-lg border shadow relative w-full;
+
+      &:before, &:after {
+        @apply absolute;
+        top     : 1.5rem;
+        content : '';
+      }
+
+      &:before {
+        @apply bg-gray-300;
+        width  : 2rem;
+        height : 2.2rem;
+      }
+
+      &:after {
+        @apply bg-white;
+        top    : 1.6rem;
+        width  : 1.9rem;
+        height : 2rem;
+      }
+
+      &:before, &:after {
+        -webkit-clip-path : polygon(100% 2%, 0 50%, 100% 100%);
+        clip-path         : polygon(100% 2%, 0 50%, 100% 100%);
+        left              : -2rem;
+      }
+
+      &:after {
+        left : -1.9rem;
+      }
+
+      &-header {
+        @apply bg-white px-6 py-2 rounded-t-lg bg-gray-100;
+      }
+
+      &-input {
+        @apply w-full outline-none h-full;
+      }
+
+      &-body {
+        @apply bg-white p-6 text-sm border-t relative overflow-auto;
+
+        &--headerless {
+          @apply rounded-t-lg border-t-0;
+        }
+
+        &--footerless {
+          @apply rounded-b-lg;
+        }
+
+        &--truncated {
+          @apply overflow-hidden;
+          max-height : 260px;
+
+          .comment__expand {
+            @apply absolute left-0 right-0 bottom-0 w-full text-center p-2 mb-0;
+            background-image : linear-gradient(to bottom, transparent, white);
+          }
+        }
+      }
+
+      &-footer {
+        @apply bg-gray-100 border-t px-6 py-2 text-sm rounded-b-lg;
+
+        * {
+          @apply mr-2;
+        }
+      }
+    }
+
+    /*&:nth-child(odd) {
+      .comment__message {
+        @apply ml-6;
+
+        &:before, &:after {
+          -webkit-clip-path: polygon(100% 2%, 0 50%, 100% 100%);
+          clip-path: polygon(100% 2%, 0 50%, 100% 100%);
+          left: -2rem;
+        }
+
+        &:after {
+          left: -1.9rem;
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      @apply flex-row-reverse;
+
+      .comment__message {
+        @apply mr-6;
+
+        &:before, &:after {
+          -webkit-clip-path: polygon(0 0, 0 100%, 99% 50%);
+          clip-path: polygon(0 0, 0 100%, 99% 50%);
+          right: -2rem;
+        }
+
+        &:after {
+          right: -1.9rem;
+        }
+      }
+    }*/
+  }
+}

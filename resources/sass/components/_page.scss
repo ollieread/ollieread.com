@@ -1,0 +1,46 @@
+.page {
+  @apply flex flex-col justify-start h-full min-h-screen p-6;
+  margin-left: 20rem;
+
+  @media (max-width: #{map-get($breakpoints, 'sm')}) {
+    margin-left: 0;
+  }
+
+  &__heading {
+    @apply text-3xl text-blue-500 block mb-2;
+
+    &-icon {
+      @include fa-icon();
+      @extend .far;
+      @apply mr-1;
+    }
+  }
+
+  &__header {
+    @apply flex flex-col justify-start mb-4;
+
+    &--small-screens {
+      @apply w-full;
+
+      @media (min-width: #{map-get($breakpoints, 'sm') + 1px}) {
+        @apply hidden;
+      }
+    }
+
+    &-heading {
+      @apply text-4xl text-blue-500 border-b;
+    }
+
+    &-subheading {
+      @apply text-blue-400 text-lg;
+    }
+
+    &-text {
+      @apply mt-3;
+    }
+  }
+
+  &__description {
+    @apply mb-4;
+  }
+}

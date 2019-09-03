@@ -1,0 +1,1 @@
+This is a series regarding multitenancy with Laravel.

@@ -1,0 +1,46 @@
+.breadcrumbs {
+  @apply flex justify-start w-full mb-2 -mt-2;
+
+  .breadcrumb {
+    @apply px-4 relative text-gray-500 inline-block;
+    break-inside     : avoid;
+
+    &--active {
+      @apply text-blue-400;
+      white-space      : nowrap;
+      overflow         : hidden;
+      text-overflow    : ellipsis;
+      -o-text-overflow : ellipsis;
+    }
+
+    @include responsiveMax('sm') {
+      @apply hidden;
+    }
+
+    &:after {
+      @apply inline-block absolute text-blue-300;
+      @extend .fa;
+      @include fa-icon();
+      right   : -6px;
+      top     : 5px;
+      content : fa-content($fa-var-angle-double-right);
+    }
+
+    &:hover {
+      @apply font-bold;
+    }
+
+    &:first-child {
+      @apply pl-2;
+    }
+
+    &:last-child {
+      @apply pr-2;
+
+      &:after {
+        @apply hidden;
+      }
+    }
+  }
+
+}
