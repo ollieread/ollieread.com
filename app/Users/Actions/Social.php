@@ -74,7 +74,7 @@ class Social extends Action
                     // Now we want to go about creating a new user
                     $user = (new CreateUser)
                         ->setInput([
-                            'username' => $socialUser->getNickname(),
+                            'username' => $socialUser->getNickname() ?? str_replace(' ', '_', strtolower($socialUser->getName())),
                             'email'    => $socialUser->getEmail(),
                             'avatar'   => $socialUser->getAvatar(),
                             'active'   => true,
