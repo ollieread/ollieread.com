@@ -42,8 +42,7 @@ class CreateArticlesTable extends Migration
             $table->dateTime('post_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
-
-            $table->foreign('series_id')->references('id')->on('series');
+            
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('parent_id')->references('id')->on('articles');
         });
