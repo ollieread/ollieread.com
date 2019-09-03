@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Ollieread\Articles\Support\ArticleMetadata;
 use Ollieread\Core\Models\Tag;
 use Ollieread\Core\Models\Topic;
 use Ollieread\Core\Models\Version;
@@ -72,6 +73,20 @@ class Article extends Model
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class, 'article_id');
+    }
+
+    public function getKeywordsAttribute()
+    {
+        return $this->tags
+            ->merge($this->topics)
+            ->merge($this->versions)
+            ->pluck('name')
+            ->implode(', ');
+    }
+
+    public function getMetadataAttribute(): string
+    {
+        return new ArticleMetadata($this);
     }
 
     public function getReadingTimeAttribute(): string

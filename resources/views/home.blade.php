@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@push('page.header')
+    @include('partials.main-meta')
+@endpush
+
 @section('sidebar')
 
     <nav class="nav nav--sidebar">
@@ -39,8 +43,10 @@
         </p>
 
         <p class="page__header-text">
-            I've had the privilege of working on some interesting projects for the likes of <strong>Miniclip</strong>, <strong>Cancer
-                Research UK</strong>, <strong>The Open University</strong>, <strong>Domino's</strong> and even <strong>the president of Nigeria</strong>
+            I've had the privilege of working on some interesting projects for the likes of <strong>Miniclip</strong>,
+            <strong>Cancer
+                Research UK</strong>, <strong>The Open University</strong>, <strong>Domino's</strong> and even <strong>the
+                president of Nigeria</strong>
             (yes really).
         </p>
 

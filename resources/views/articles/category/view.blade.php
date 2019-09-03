@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@push('page.header')
+    @include('partials.main-meta')
+@endpush
+
 @section('content')
 
     <h1 class="page__heading">
