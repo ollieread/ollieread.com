@@ -32,8 +32,13 @@ class SaveUserSocial
 
     private function getMetadata(): array
     {
-        $metadata             = Arr::except($this->socialUser->getRaw(), ['email']);
-        $metadata['username'] = $this->socialUser->getNickname();
+        $metadata = Arr::except($this->socialUser->getRaw(), ['email']);
+
+        if ($this->provider === 'google') {
+            $metadata['username'] = $this->socialUser->getName();
+        } else {
+            $metadata['username'] = $this->socialUser->getNickname();
+        }
 
         return $metadata;
     }
@@ -55,6 +60,8 @@ class SaveUserSocial
 
         if (! $this->user->avatar || $this->user->avatar === $this->socialUser->getAvatar()) {
             $social->use_avatar = true;
+            $this->user->avatar = $this->socialUser->getAvatar();
+            $this->user->save();
         }
 
         if ($this->user->social()->save($social)) {
