@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "~highlightjs/styles/darcula.css";
-
 @import "fonts";
 @import "variables";
 @import "mixins";
 @import "components/generic";
 @import "components/utility";
+
+@import "~highlightjs/styles/darcula.css";
 
 .layout {
     @import "components/brand";
@@ -33,6 +33,9 @@
     @import "components/tabs";
     @import "components/breadcrumbs";
     @import "components/tippy";
+    @import "components/table";
+    @import "components/choices";
+    @import "components/grid";
 
     @import "layouts/single";
 }

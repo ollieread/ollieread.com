@@ -1,15 +1,15 @@
 .sr-only {
-  border            : 0 !important;
-  clip              : rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  -webkit-clip-path : inset(50%) !important;
-  clip-path         : inset(50%) !important; /* 2 */
-  height            : 1px !important;
-  margin            : -1px !important;
-  overflow          : hidden !important;
-  padding           : 0 !important;
-  position          : absolute !important;
-  width             : 1px !important;
-  white-space       : nowrap !important; /* 3 */
+    border            : 0 !important;
+    clip              : rect(1px, 1px, 1px, 1px) !important; /* 1 */
+    -webkit-clip-path : inset(50%) !important;
+    clip-path         : inset(50%) !important; /* 2 */
+    height            : 1px !important;
+    margin            : -1px !important;
+    overflow          : hidden !important;
+    padding           : 0 !important;
+    position          : absolute !important;
+    width             : 1px !important;
+    white-space       : nowrap !important; /* 3 */
 }
 
 /*
@@ -23,83 +23,101 @@
 */
 .sr-only-focusable:focus,
 .sr-only-focusable:active {
-  clip              : auto !important;
-  -webkit-clip-path : none !important;
-  clip-path         : none !important;
-  height            : auto !important;
-  margin            : auto !important;
-  overflow          : visible !important;
-  width             : auto !important;
-  white-space       : normal !important;
+    clip              : auto !important;
+    -webkit-clip-path : none !important;
+    clip-path         : none !important;
+    height            : auto !important;
+    margin            : auto !important;
+    overflow          : visible !important;
+    width             : auto !important;
+    white-space       : normal !important;
 }
 
 .link {
-  @apply underline text-blue-500;
+    @apply underline text-blue-500;
 
-  &--subtle {
-    @apply text-sm;
-  }
-
-  &--white {
-    @apply text-white;
-  }
-
-  &--circle {
-    @apply rounded-full;
-  }
-
-  &--twitter {
-    @apply text-white no-underline py-1 px-2 rounded shadow;
-    background-color            : #1da1f2;
-    -webkit-column-break-inside : avoid;
-    page-break-inside           : avoid;
-    break-inside                : avoid;
-
-    &::before {
-      @include fa-icon();
-      @extend .fab;
-      @extend .fa-twitter;
-      @apply mr-2;
+    &--subtle {
+        @apply text-sm;
     }
-  }
 
-  &--github {
-    @apply text-white no-underline py-1 px-2 rounded shadow;
-    background-color            : #333333;
-    -webkit-column-break-inside : avoid;
-    page-break-inside           : avoid;
-    break-inside                : avoid;
-
-    &::before {
-      @include fa-icon();
-      @extend .fab;
-      @extend .fa-github;
-      @apply mr-2;
+    &--white {
+        @apply text-white;
     }
-  }
 
-  &--twitch {
-    @apply text-white no-underline py-1 px-2 rounded shadow;
-    background-color            : #6441a5;
-    -webkit-column-break-inside : avoid;
-    page-break-inside           : avoid;
-    break-inside                : avoid;
-
-    &::before {
-      @include fa-icon();
-      @extend .fab;
-      @extend .fa-twitch;
-      @apply mr-2;
+    &--circle {
+        @apply rounded-full;
     }
-  }
+
+    &--twitter {
+        @apply text-white no-underline py-1 px-2 rounded shadow;
+        background-color            : #1da1f2;
+        -webkit-column-break-inside : avoid;
+        page-break-inside           : avoid;
+        break-inside                : avoid;
+
+        &::before {
+            @include fa-icon();
+            @extend .fab;
+            @extend .fa-twitter;
+            @apply mr-2;
+        }
+    }
+
+    &--github {
+        @apply text-white no-underline py-1 px-2 rounded shadow;
+        background-color            : #333333;
+        -webkit-column-break-inside : avoid;
+        page-break-inside           : avoid;
+        break-inside                : avoid;
+
+        &::before {
+            @include fa-icon();
+            @extend .fab;
+            @extend .fa-github;
+            @apply mr-2;
+        }
+    }
+
+    &--twitch {
+        @apply text-white no-underline py-1 px-2 rounded shadow;
+        background-color            : #6441a5;
+        -webkit-column-break-inside : avoid;
+        page-break-inside           : avoid;
+        break-inside                : avoid;
+
+        &::before {
+            @include fa-icon();
+            @extend .fab;
+            @extend .fa-twitch;
+            @apply mr-2;
+        }
+    }
 }
 
 .text {
-  &--center {
-    @apply text-center;
-  }
+    &--center {
+        @apply text-center;
+    }
 
-  &--spaced {
-    @apply mb-6 leading-loose;
-  }
+    &--spaced {
+        @apply mb-6 leading-loose;
+    }
+
+    &--success {
+        @apply text-green-500;
+    }
+
+    &--error {
+        @apply text-red-500;
+    }
+
+    &--secondary {
+        @apply text-gray-500 text-sm;
+    }
+
+    &--block {
+        @apply block;
+        break-inside : avoid !important;
+        white-space: nowrap;
+    }
 }

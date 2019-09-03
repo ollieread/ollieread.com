@@ -1,0 +1,11 @@
+$choices-border-radius : 4px;
+$choices-bg-color      : rgb(247, 250, 252);
+
+@import "~choices.js/src/styles/choices";
+
+.choices {
+    &__inner {
+        border-color : #e2e8f0;
+        min-height   : auto;
+    }
+}
