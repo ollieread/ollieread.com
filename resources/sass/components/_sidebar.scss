@@ -20,7 +20,7 @@
   }
 
   &__content {
-    @apply p-4 bg-blue-600 flex-grow overflow-y-scroll;
+    @apply p-4 bg-blue-600 flex-grow overflow-y-auto;
   }
 
   &__footer {
