@@ -10,14 +10,9 @@ class CoreRoutes implements Routes
 {
     public function __invoke(Router $router)
     {
-        $router->get('/sitemap.xml', Actions\Feeds::class . '@sitemap');
-        $router->get('/feed.rss', Actions\Feeds::class . '@rss');
         $router->view('/', 'home')->name('home');
+        $this->fileResourceRoutes($router);
         $router->fallback(Actions\Fallback::class)->name('fallback');
-        /*$router->get('/mail', static function () {
-            $user = User::find(1);
-            return new Welcome($user);
-        });*/
         $router->view('multitenancy', 'multitenancy.index');
     }
 
@@ -29,5 +24,17 @@ class CoreRoutes implements Routes
     public function prefix(): ?string
     {
         return null;
+    }
+
+    private function fileResourceRoutes(Router $router): void
+    {
+        $router->get('/sitemap.xml', Actions\Feeds::class . '@sitemap');
+        $router->get('/feed.rss', Actions\Feeds::class . '@rss');
+
+        if (config('app.env', 'development') !== 'production') {
+            $router->get('/robots.txt', static function () {
+                return "User-agent: *\n'Disallow: /";
+            });
+        }
     }
 }
