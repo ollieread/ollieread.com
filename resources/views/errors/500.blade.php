@@ -1,5 +1,19 @@
-@extends('errors::minimal')
+@extends('layouts.single')
 
-@section('title', __('Server Error'))
-@section('code', '500')
-@section('message', __('Server Error'))
+@section('title', __('Not Found'))
+@section('content')
+
+    <article class="box box--small box--footerless">
+        <header class="box__header">
+            <h1 class="box__header-title">Server Error</h1>
+        </header>
+
+        <main class="box__body text-center">
+            <p class="text--spaced">
+                My bad, seems like I broke something.
+            </p>
+        </main>
+
+    </article>
+
+@endsection
