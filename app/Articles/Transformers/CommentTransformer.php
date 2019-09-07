@@ -6,6 +6,7 @@ use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 use League\Fractal\TransformerAbstract;
 use Ollieread\Articles\Models\Comment;
+use Ollieread\Articles\Support\Markdown;
 use Ollieread\Users\Transformers\UserTransformer;
 
 class CommentTransformer extends TransformerAbstract
@@ -29,7 +30,7 @@ class CommentTransformer extends TransformerAbstract
     {
         return [
             'id'          => $comment->id,
-            'comment'     => $comment->comment,
+            'comment'     => Markdown::parseComment($comment->comment),
             'reply_count' => $comment->reply_count ?? 0,
             'created_at'  => $comment->created_at->format('H:ia \o\n jS F Y'),
         ];

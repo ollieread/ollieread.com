@@ -36,11 +36,6 @@ class AppServiceProvider extends ServiceProvider
 
         //$viewFactory = app(Factory::class);
         //$viewFactory->composer('article.partials.sidebar.categories', CategoryMenuComposer::class);
-
-        $blade = Container::getInstance()->make(BladeCompiler::class);
-        $blade->directive('markdown', static function (string $content) {
-            return "<?php echo (new \League\CommonMark\CommonMarkConverter)->convertToHtml({$content}); ?>";
-        });
     }
 
     /**
