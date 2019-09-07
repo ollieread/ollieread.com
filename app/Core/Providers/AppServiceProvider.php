@@ -29,11 +29,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Category::observe(CategoryObserver::class);
-        Article::observe(ArticleObserver::class);
-        Project::observe(ProjectObserver::class);
-        Series::observe(SeriesObserver::class);
-
         //$viewFactory = app(Factory::class);
         //$viewFactory->composer('article.partials.sidebar.categories', CategoryMenuComposer::class);
     }
