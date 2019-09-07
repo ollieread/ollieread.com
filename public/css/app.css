@@ -19265,6 +19265,7 @@ p {
 .layout .grid {
   display: flex;
   flex-wrap: wrap;
+  margin: -0.5rem;
 }
 
 .layout .grid--2 .column {
@@ -19285,6 +19286,10 @@ p {
 
 .layout .grid--6 .column {
   width: 16.666667%;
+}
+
+.layout .grid .column {
+  padding: 0.5rem;
 }
 
 .layout--single {

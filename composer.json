@@ -12,6 +12,7 @@
         "ext-json": "*",
         "ext-xmlwriter": "*",
         "doctrine/dbal": "^2.9",
+        "drewm/mailchimp-api": "^2.5",
         "fideloper/proxy": "^4.0",
         "hashids/hashids": "^4.0",
         "laravel/framework": "5.8.*",

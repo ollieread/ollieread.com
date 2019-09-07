@@ -20,6 +20,7 @@ use Ollieread\Users\Mail\Mail;
  * @property string|null                              $password
  * @property string|null                              $remember_token
  * @property string|null                              $avatar
+ * @property array                                    $interests
  * @property bool                                     $active
  * @property bool                                     $verified
  * @property \Carbon\Carbon                           $created_at
@@ -44,13 +45,15 @@ class User extends BaseUser
         'password',
         'remember_token',
         'avatar',
+        'interests',
         'active',
         'verified',
     ];
 
     protected $casts = [
-        'active'   => 'bool',
-        'verified' => 'bool',
+        'active'    => 'bool',
+        'verified'  => 'bool',
+        'interests' => 'array',
     ];
 
     public function getGravatarAttribute(): string

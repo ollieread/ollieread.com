@@ -3,8 +3,8 @@
 namespace Ollieread\Users\Observers;
 
 use Illuminate\Contracts\Mail\Mailer;
-use Ollieread\Users\Mail\Welcome;
 use Ollieread\Users\Models\User;
+use Ollieread\Users\Support\Mailchimp;
 
 class UserObserver
 {
@@ -13,68 +13,44 @@ class UserObserver
      */
     private $mailer;
 
-    public function __construct(Mailer $mailer)
+    /**
+     * @var \Ollieread\Users\Support\Mailchimp
+     */
+    private $mailchimp;
+
+    public function __construct(Mailer $mailer, Mailchimp $mailchimp)
     {
-        $this->mailer = $mailer;
+        $this->mailer    = $mailer;
+        $this->mailchimp = $mailchimp;
     }
 
     /**
-     * Handle the user "created" event.
+     * Handle the user "updating" event.
      *
      * @param \Ollieread\Users\Models\User $user
      *
      * @return void
      */
-    public function created(User $user): void
+    public function updating(User $user): void
     {
-        $this->mailer->send(new Welcome($user));
-    }
+        $onChanges = ['email', 'username', 'interests'];
+        $changed   = true;
 
-    /**
-     * Handle the user "deleted" event.
-     *
-     * @param \Ollieread\Users\Models\User $user
-     *
-     * @return void
-     */
-    public function deleted(User $user)
-    {
-        //
-    }
+        foreach ($onChanges as $attribute) {
+            if ($user->getAttributeValue($attribute) !== $user->getOriginal($attribute)) {
+                $changed = true;
+                break;
+            }
+        }
 
-    /**
-     * Handle the user "force deleted" event.
-     *
-     * @param \Ollieread\Users\Models\User $user
-     *
-     * @return void
-     */
-    public function forceDeleted(User $user)
-    {
-        //
-    }
+        if ($changed) {
+            $interests = [];
 
-    /**
-     * Handle the user "restored" event.
-     *
-     * @param \Ollieread\Users\Models\User $user
-     *
-     * @return void
-     */
-    public function restored(User $user)
-    {
-        //
-    }
+            foreach (Mailchimp::INTERESTS as $interest => $id) {
+                $interests[$id] = in_array($interest, $user->interests, true);
+            }
 
-    /**
-     * Handle the user "updated" event.
-     *
-     * @param \Ollieread\Users\Models\User $user
-     *
-     * @return void
-     */
-    public function updated(User $user)
-    {
-        //
+            $this->mailchimp->subscribe($user->email, $user->username, $interests);
+        }
     }
 }

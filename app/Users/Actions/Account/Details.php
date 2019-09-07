@@ -36,6 +36,7 @@ class Details extends Action
             'name',
             'email',
             'current_password',
+            'interests',
         ]);
 
         if ((new UpdateUser)->setUser($user)->setInput($input)->perform()) {
