@@ -3,6 +3,7 @@
 namespace Ollieread\Users\Routes;
 
 use Illuminate\Routing\Router;
+use Ollieread\Core\Middleware\CheckHoneypot;
 use Ollieread\Core\Support\Contracts\Routes;
 use Ollieread\Users\Actions;
 
@@ -16,7 +17,7 @@ class UserRoutes implements Routes
 
         $router->middleware('guest')->group(static function (Router $router) {
             $router->get('/register')->name('register.create')->uses(Actions\Register::class . '@create');
-            $router->post('/register')->name('register.store')->uses(Actions\Register::class . '@store');
+            $router->post('/register')->name('register.store')->uses(Actions\Register::class . '@store')->middleware(CheckHoneypot::class);
 
             $router->get('/sign-in')->name('sign-in.create')->uses(Actions\SignIn::class . '@create');
             $router->post('/sign-in')->name('sign-in.store')->uses(Actions\SignIn::class . '@store');
