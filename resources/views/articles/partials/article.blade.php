@@ -34,7 +34,7 @@
 
                 <p><a href="{{ route('articles:article', $article->slug) }}">Read More</a></p>
             @else
-                @markdown($article->content)
+                {!! $article->content_parsed !!}
             @endif
         </div>
     </main>

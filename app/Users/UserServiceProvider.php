@@ -8,6 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Socialite\Contracts\Factory;
 use Ollieread\Core\Support\Routes;
 use Ollieread\Users\Models\User;
+use Ollieread\Users\Observers\UserObserver;
 use Ollieread\Users\Operations\GetUserPermissions;
 use Ollieread\Users\Routes\AdminRoutes;
 use Ollieread\Users\Routes\UserRoutes;
@@ -43,6 +44,8 @@ class UserServiceProvider extends ServiceProvider
         } catch (Exception $exception) {
             report($exception);
         }
+
+        User::observe(UserObserver::class);
     }
 
     public function register(): void

@@ -11,7 +11,7 @@
             <div class="comment__message">
                 <main class="comment__message-body comment__message-body--headerless"
                       :class="{'comment__message-body--truncated':shouldTruncate && truncated}" ref="comment">
-                    {{ comment.comment }}
+                    <div v-html="comment.comment" v-highlightjs></div>
                     <div class="comment__expand" v-if="shouldTruncate">
                         <a href="#" @click.prevent="toggleContent" class="button button--small">
                             <template v-if="truncated">Show More</template>

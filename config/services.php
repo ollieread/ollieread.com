@@ -50,4 +50,9 @@ return [
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
+
+    'mailchimp' => [
+        'key'  => env('MAILCHIMP_KEY'),
+        'list' => '3344c7d684',
+    ],
 ];
