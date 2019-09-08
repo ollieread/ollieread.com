@@ -4,6 +4,7 @@
 
     <form action="{{ route('users:register.store') }}" method="post" class="box box--split">
         @csrf
+        @honeypot
 
         <section class="box__body box__body--cta">
 

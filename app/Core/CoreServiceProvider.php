@@ -2,21 +2,37 @@
 
 namespace Ollieread\Core;
 
-use BotMan\BotMan\BotMan;
 use Illuminate\Auth\SessionGuard;
-use Illuminate\Container\Container;
 use Illuminate\Filesystem\FilesystemManager;
-use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 use Ollieread\Core\Actions\Feeds;
 use Ollieread\Core\Routes\CoreRoutes;
+use Ollieread\Core\Services\Honeypot;
 use Ollieread\Core\Support\Routes;
 use Ollieread\Users\Models\User;
 
 class CoreServiceProvider extends ServiceProvider
 {
+    public function boot()
+    {
+        $blade = $this->app->make(BladeCompiler::class);
+
+        $blade->directive('markdown', static function (string $content) {
+            return "<?php echo (new \League\CommonMark\CommonMarkConverter)->convertToHtml({$content}); ?>";
+        });
+
+        $blade->directive('honeypot', function () {
+            $honeypot = $this->app->make(Honeypot::class);
+            $fields   = $honeypot->getFieldNames();
+
+            return '<div style="display:none">'
+                . '<input type="text" name="' . $fields['honeypot'] . '" value="">'
+                . '<input type="text" name="' . $fields['time'] . '" value="' . $honeypot->getTime() . '" autocomplete="off">'
+                . '</div>';
+        });
+    }
+
     public function register()
     {
         $routes = new Routes;
@@ -32,17 +48,9 @@ class CoreServiceProvider extends ServiceProvider
         });
 
         $this->app->when(Feeds::class)
-            ->needs(FilesystemManager::class)
-            ->give(function() {
-                return $this->app->make(FilesystemManager::class);
-            });
-    }
-
-    public function boot()
-    {
-        $blade = Container::getInstance()->make(BladeCompiler::class);
-        $blade->directive('markdown', static function (string $content) {
-            return "<?php echo (new \League\CommonMark\CommonMarkConverter)->convertToHtml({$content}); ?>";
-        });
+                  ->needs(FilesystemManager::class)
+                  ->give(function () {
+                      return $this->app->make(FilesystemManager::class);
+                  });
     }
 }
