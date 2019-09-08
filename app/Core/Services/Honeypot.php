@@ -46,17 +46,39 @@ class Honeypot
     {
         $fields = $this->session->pull('honeypot', []);
 
-        if ($fields) {
-            if (isset($fields['honeypot']) && ! empty($request->input($fields['honeypot']))) {
+        if (! $fields) {
+            return false;
+        }
+
+        if (isset($fields['honeypot']) && (! $request->has($fields['honeypot']) || ! empty($request->input($fields['honeypot'])))) {
+            return false;
+        }
+
+        if (isset($fields['time'])) {
+            if (! $request->has($fields['time'])) {
                 return false;
             }
 
-            if (isset($fields['time'])) {
-                $time = $this->encrypter->decrypt($request->input($fields['time']));
+            $time = $this->encrypter->decrypt($request->input($fields['time']));
 
-                if (! is_numeric($time) || time() < ($time + 5)) {
-                    return false;
-                }
+            if (! is_numeric($time)) {
+                return false;
+            }
+
+            if ($time > time()) {
+                return false;
+            }
+
+            if ($time < time() + 3) {
+                return false;
+            }
+
+            if ($time < 0) {
+                return false;
+            }
+
+            if ($time >= PHP_INT_MAX) {
+                return false;
             }
         }
 

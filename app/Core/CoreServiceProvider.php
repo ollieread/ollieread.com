@@ -26,9 +26,9 @@ class CoreServiceProvider extends ServiceProvider
             $honeypot = $this->app->make(Honeypot::class);
             $fields   = $honeypot->getFieldNames();
 
-            return '<div style="display:none">'
-                . '<input type="text" name="' . $fields['honeypot'] . '" value="">'
-                . '<input type="text" name="' . $fields['time'] . '" value="' . $honeypot->getTime() . '" autocomplete="off">'
+            return '<div id="wrapper_' . $fields['honeypot'] . '" style="display:none">'
+                . '<input type="text" name="' . $fields['honeypot'] . '" value="" id="' . $fields['honeypot'] . '">'
+                . '<input type="text" name="' . $fields['time'] . '" value="' . $honeypot->getTime() . '"  id="' . $fields['time'] . '">'
                 . '</div>';
         });
     }
