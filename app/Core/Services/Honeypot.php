@@ -44,7 +44,7 @@ class Honeypot
 
     public function validate(Request $request): bool
     {
-        $fields = $this->session->pull('honeypot', []);
+        $fields = $this->session->get('honeypot', []);
 
         if (! $fields) {
             return false;
@@ -69,7 +69,7 @@ class Honeypot
                 return false;
             }
 
-            if ($time < time() + 3) {
+            if (time() < $time) {
                 return false;
             }
 
@@ -82,6 +82,7 @@ class Honeypot
             }
         }
 
+        $this->session->forget('honeypot');
         return true;
     }
 }

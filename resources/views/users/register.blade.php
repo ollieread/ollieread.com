@@ -4,7 +4,7 @@
 
     <form action="{{ route('users:register.store') }}" method="post" class="box box--split">
         @csrf
-        @honeypot
+        @include('partials.honeypot')
 
         <section class="box__body box__body--cta">
 
@@ -94,7 +94,8 @@
                     </button>
                 </div>
 
-                <p><a href="{{ route('users:sign-in.create') }}" class="link link--subtle">Already have an account?</a></p>
+                <p><a href="{{ route('users:sign-in.create') }}" class="link link--subtle">Already have an account?</a>
+                </p>
             </div>
 
         </section>

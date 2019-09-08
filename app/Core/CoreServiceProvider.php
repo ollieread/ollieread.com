@@ -6,9 +6,10 @@ use Illuminate\Auth\SessionGuard;
 use Illuminate\Filesystem\FilesystemManager;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
+use Illuminate\View\Factory;
 use Ollieread\Core\Actions\Feeds;
+use Ollieread\Core\Composers\HoneypotComposer;
 use Ollieread\Core\Routes\CoreRoutes;
-use Ollieread\Core\Services\Honeypot;
 use Ollieread\Core\Support\Routes;
 use Ollieread\Users\Models\User;
 
@@ -22,15 +23,8 @@ class CoreServiceProvider extends ServiceProvider
             return "<?php echo (new \League\CommonMark\CommonMarkConverter)->convertToHtml({$content}); ?>";
         });
 
-        $blade->directive('honeypot', function () {
-            $honeypot = $this->app->make(Honeypot::class);
-            $fields   = $honeypot->getFieldNames();
-
-            return '<div id="wrapper_' . $fields['honeypot'] . '" style="display:none">'
-                . '<input type="text" name="' . $fields['honeypot'] . '" value="" id="' . $fields['honeypot'] . '">'
-                . '<input type="text" name="' . $fields['time'] . '" value="' . $honeypot->getTime() . '"  id="' . $fields['time'] . '">'
-                . '</div>';
-        });
+        $view = $this->app->make(Factory::class);
+        $view->composer('partials.honeypot', HoneypotComposer::class);
     }
 
     public function register()
