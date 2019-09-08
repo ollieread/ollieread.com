@@ -18,7 +18,7 @@ class CommentObserver
     {
         $parent = $comment->parent;
 
-        if ($parent) {
+        if ($parent && $parent->author_id !== $comment->author_id) {
             $parent->author->notify(new CommentResponse($comment));
         }
     }

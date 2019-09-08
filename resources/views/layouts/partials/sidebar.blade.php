@@ -44,7 +44,7 @@
             @endcanany
 
             @guest('user')
-                <a href="{{ route('users:sign-in.create') }}"
+                <a href="{{ route('users:sign-in.create', ['redirect_to' => request()->getRequestUri()]) }}"
                    class="nav__link {{ request()->routeIs('user:sign-in.create') ? 'nav__link--active' : '' }}">
                     <i class="nav__icon fa-sign-in"></i> Sign In
                 </a>
