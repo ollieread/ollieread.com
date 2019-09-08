@@ -8,7 +8,8 @@
 
         <div v-else class="box box--footerless box--headerless">
             <main class="box__body text--center">
-                You must <a href="/sign-in" class="link">sign in</a> to post a comment
+                You must <a :href="'/sign-in?redirect_to=' + location" class="link">sign in</a> to post a
+                comment
             </main>
         </div>
 
@@ -21,6 +22,7 @@
         <article-comment v-show="! loading && comments.length > 0" v-for="comment in comments" :key="comment.id"
                          :comment="comment" :avatar="avatar" :authed="authed"
                          :route="route" :loading="loading"
+                         :scroll-to="scrollTo"
                          :author="comment.author.data" :replies="comment.replies.data"></article-comment>
 
         <div class="box box--headerless box--footerless" v-if="! loading && comments.length < 1">
@@ -55,24 +57,33 @@
 
         data: () => {
             return {
+                location: window.location,
                 comments: [],
-                scrolledToComments: false,
+                scrolledToComments: true,
                 loading: true,
+                scrollTo: null,
             };
         },
 
         created() {
-            window.addEventListener('scroll', () => {
-                this.scrolledToComments = this.hasScrolledEnough();
+            /*window.addEventListener('scroll', () => {
+             this.scrolledToComments = this.hasScrolledEnough();
+             });*/
+
+            window.addEventListener('hashchange', () => {
+                this.loadFocusedComment();
             });
+
+            this.loadFocusedComment();
+            this.loadComments();
         },
 
         watch: {
-            scrolledToComments(scrolledToComments) {
-                if (scrolledToComments) {
-                    this.loadComments();
-                }
-            },
+            /*scrolledToComments(scrolledToComments) {
+             if (scrolledToComments) {
+             this.loadComments();
+             }
+             },*/
         },
 
         methods: {
@@ -98,7 +109,14 @@
             },
 
             newComment(comment) {
-                this.comments = this.comments.concat([comment]);
+                this.comments        = this.comments.concat([comment]);
+                window.location.hash = '#comment-' + comment.id;
+            },
+
+            loadFocusedComment() {
+                if (window.location.hash && window.location.hash.split("#")[1].startsWith('comment-')) {
+                    this.scrollTo = Number(window.location.hash.substr(9));
+                }
             },
 
         },

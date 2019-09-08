@@ -23,7 +23,7 @@ class CommentResponse extends Notification
      */
     public function __construct(Comment $comment)
     {
-        $this->comment  = $comment;
+        $this->comment = $comment;
     }
 
     /**
@@ -50,7 +50,7 @@ class CommentResponse extends Notification
         return (new MailMessage)
             ->subject(trans('mail.comment-response.subject'))
             ->line(sprintf('There has been a response to your comment on %s by %s.', $this->comment->article->name, $this->comment->author->username))
-            ->action('View Response', url('/'));
+            ->action('View Response', route('articles:article', $this->comment->article->slug) . '#comment-' . $this->comment->id);
     }
 
     /**

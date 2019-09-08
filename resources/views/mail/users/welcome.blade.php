@@ -9,6 +9,8 @@ Now all you need to do is verify your email address.
 Verify My Email
 @endcomponent
 
+If you didn't sign up at ollieread.com please ignore this email.
+
 Thanks,<br>
 Ollie
 @endcomponent

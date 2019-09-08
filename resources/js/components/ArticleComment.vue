@@ -1,6 +1,6 @@
 <template>
     <div>
-        <article class="comment" :id="'comment-' + comment.id">
+        <article class="comment" :id="'comment-' + comment.id" ref="comment">
             <div class="comment__author">
                 <div class="avatar">
                     <img :src="author.avatar" alt=""
@@ -8,7 +8,7 @@
                 </div>
             </div>
 
-            <div class="comment__message">
+            <div class="comment__message" :class="{'comment__message--focused':isFocused()}">
                 <main class="comment__message-body comment__message-body--headerless"
                       :class="{'comment__message-body--truncated':shouldTruncate && truncated}" ref="comment">
                     <div v-html="comment.comment" v-highlightjs></div>
@@ -41,6 +41,7 @@
                 <article-comment v-for="response in startingReplies" :key="response.id" :comment="response"
                                  :avatar="avatar" :authed="authed"
                                  :route="route" :loading="loading"
+                                 :scroll-to="scrollTo"
                                  :author="response.author.data" :replies="response.replies.data"></article-comment>
 
                 <a href="#" class="comment__toggle" v-if="shouldHide && hidden" @click.prevent="showMoreReplies">
@@ -51,6 +52,7 @@
                                  v-if="! hidden"
                                  :avatar="avatar" :authed="authed"
                                  :route="route" :loading="loading"
+                                 :scroll-to="scrollTo"
                                  :author="response.author.data" :replies="response.replies.data"></article-comment>
             </template>
 
@@ -92,6 +94,11 @@
                 type: Boolean,
                 required: true,
             },
+            scrollTo: {
+                type: Number,
+                required: false,
+                default: null,
+            },
         },
 
         data: () => {
@@ -107,19 +114,14 @@
         },
 
         mounted() {
-            if (this.replies && this.replies.length > 2) {
-                this.shouldHide      = true;
-                this.startingReplies = this.replies.slice(0, 1);
-                this.restOfReplies   = this.replies.splice(2);
-            } else {
-                this.startingReplies = this.replies;
-            }
+            this.startingReplies = this.replies;
         },
 
         watch: {
             loading(value) {
                 if (!value) {
                     this.checkIfShouldTruncate();
+                    this.checkIfShouldScrollTo();
                 }
             },
         },
@@ -131,6 +133,17 @@
 
             checkIfShouldTruncate() {
                 this.shouldTruncate = this.$refs.comment.offsetHeight > 300 && this.$refs.comment.offsetHeight > 325;
+            },
+
+            checkIfShouldScrollTo() {
+                if (this.isFocused()) {
+                    let position     = this.$refs.comment.getBoundingClientRect();
+                    let bodyPosition = document.body.getBoundingClientRect();
+                    window.scrollTo({
+                        behavior: 'smooth',
+                        top: position.top - bodyPosition.top,
+                    });
+                }
             },
 
             toggleContent() {
@@ -146,6 +159,11 @@
 
                 this.showMoreReplies();
                 this.responding = false;
+                window.location.hash = '#comment-' + comment.id;
+            },
+
+            isFocused() {
+                return this.scrollTo === Number(this.comment.id);
             },
         },
     };
