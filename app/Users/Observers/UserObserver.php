@@ -43,7 +43,7 @@ class UserObserver
             }
         }
 
-        if ($changed) {
+        if ($changed && is_array($user->interests)) {
             $interests = [];
 
             foreach (Mailchimp::INTERESTS as $interest => $id) {
