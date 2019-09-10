@@ -16815,6 +16815,14 @@ p {
   white-space: nowrap;
 }
 
+.text--right {
+  text-align: right;
+}
+
+.text--number {
+  font-variant: tabular-nums;
+}
+
 .layout {
   /*===============================
   =            Choices            =

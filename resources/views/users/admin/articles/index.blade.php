@@ -11,113 +11,71 @@
         <h2 class="page__header-heading">Articles</h2>
     </header>
 
-    @foreach ($articles as $article)
-        <article class="column box article">
-            <header class="box__header">
-
-                @if ($article->category)
-                    <div class="box__header-bump">
-                        <a href="{{ route('articles:category', $article->category->slug) }}"
-                           class="category__badge">
-                            <i class="category__badge-icon fa-{{ $article->category->icon }}"></i>
-                            {{ $article->category->name }}
-                        </a>
-                    </div>
-                @endif
-
-                <a href="{{ route('articles:article', $article->slug) }}"
-                   class="box__header-title">{{ $article->heading ?? $article->name }}</a>
-                @if ($article->series)
-                    <a href="#" class="box__header-subtitle">
-                        <strong>Series:</strong>
-                        {{ $article->series->name }}
-                    </a>
-                @endif
-                <time class="article__date">{{ $article->post_at->format('jS F Y') }}</time>
-                {{--<time class="article__reading-time">Read Time: {{ $article->reading_time }}</time>--}}
-            </header>
-
-            @if ($article->image)
-                <img src="{{ $article->image }}" alt="" class="box__image">
-            @endif
-
-            <main class="box__body">
-                <div class="article__content">
-                    <p>{{ $article->excerpt }}</p>
-                </div>
-            </main>
-
-            <footer class="box__footer box__footer--secondary">
-
-                {{--@if ($article->versions && $article->versions->isNotEmpty())
-                    <div class="article__versions">
-                        <strong class="article__versions-title">Versions:</strong>
-                        <div class="article__versions-list">
-                            @foreach($article->versions as $version)
-                                <a href="#" class="version__badge">
-                                    <i class="version__badge-icon"></i>
-                                    {{ $version->name }}
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
-
-                @if ($article->topics && $article->topics->isNotEmpty())
-                    <div class="article__topics">
-                        <strong class="article__topics-title">Topics:</strong>
-                        <div class="article__topics-list">
-                            @foreach($article->topics as $topic)
-                                <a href="#" class="topic__badge" data-tippy-content="{{ $topic->description }}">
-                                    <i class="topic__badge-icon"></i>
-                                    {{ $topic->name }}
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
-
-                @if (! $excerpt)
-                    @if ($article->tags && $article->tags->isNotEmpty())
-                        @foreach($article->tags as $tag)
-                            <a href="#" class="tag__badge">
-                                <i class="tag__badge-icon"></i>
-                                {{ $tag->name }}
+    <section class="box box--headerless {{ ! $articles->hasPages() ? 'box--footerless' : '' }}">
+        <main class="box__body box__body--flush">
+            <table class="table">
+                <thead class="table__header">
+                <tr class="table__row">
+                    <th class="table__cell">Name</th>
+                    <th class="table__cell">Post At</th>
+                    <th class="table__cell table__cell--actions"></th>
+                </tr>
+                </thead>
+                <tbody class="table__body">
+                @foreach ($articles as $article)
+                    <tr class="table__row">
+                        <td class="table__cell">
+                            {{ $article->name }}
+                            @if ($article->active)
+                                <i class="fa fa-check text--success" data-tippy-content="Article is active"></i>
+                            @else
+                                <i class="fa fa-times text--error" data-tippy-content="Article is inactive"></i>
+                            @endif
+                            @if ($article->private)
+                                <i class="fa fa-lock text--success" data-tippy-content="Article is private"></i>
+                            @endif
+                        </td>
+                        <td class="table__cell table__cell--center text--number text--secondary">
+                            {{ $article->post_at ? $article->post_at->format('d/m/Y H:i') : '--' }}
+                        </td>
+                        <td class="table__cell table__cell--center">
+                            <a href="{{ route('articles:article', $article->slug, false) }}"
+                               class="button button--icon button--small" data-tippy-content="View article"
+                               target="_blank">
+                                <i class="button__icon fa-eye"></i>
                             </a>
-                        @endforeach
-                    @endif
-                @endif--}}
-
-                <div class="button__bar button__bar--slim">
-                    <a href="#" class="button button--primary button--small">
-                        <i class="button__icon fa-edit"></i> Edit
-                    </a>
-                    <a href="#" class="button button--primary button--small">
-                        @if ($article->active)
-                            <i class="button__icon fa-toggle-off"></i> Disable
-                        @else
-                            <i class="button__icon fa-toggle-on"></i> Enable
-                        @endif
-                    </a>
-                    @if ($article->status !== Ollieread\Core\Support\Status::PRIVATE)
-                        <a href="#" class="button button--primary button--small">
-                            <i class="button__icon fa-lock"></i> Set Private
-                        </a>
-                    @endif
-                    @if ($article->status !== Ollieread\Core\Support\Status::PUBLIC)
-                        <a href="#" class="button button--primary button--small">
-                            <i class="button__icon fa-unlock"></i> Set Public
-                        </a>
-                    @endif
-                    <a href="#" class="button button--primary button--small">
-                        <i class="button__icon fa-trash"></i> Delete
-                    </a>
-                </div>
-
+                            <a href="{{ '#' ?? route('admin:article.edit', $article->id) }}"
+                               class="button button--icon button--small" data-tippy-content="Edit article">
+                                <span class="sr-only">Edit</span>
+                                <i class="button__icon fa-edit"></i>
+                            </a>
+                            <a href="{{ '#' ?? route('admin:article.toggle', $article->id) }}"
+                               class="button button--icon button--small"
+                               data-tippy-content="{{ $article->active ? 'Disable' : 'Enable' }} article">
+                                @if ($article->active)
+                                    <span class="sr-only">Disable</span>
+                                    <i class="button__icon fa-toggle-off"></i>
+                                @else
+                                    <span class="sr-only">Enable</span>
+                                    <i class="button__icon fa-toggle-on"></i>
+                                @endif
+                            </a>
+                            <a href="#" class="button button--icon button--small" data-tippy-content="Delete article">
+                                <span class="sr-only">Delete</span>
+                                <i class="button__icon fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </main>
+        @if ($articles->hasPages())
+            <footer class="box__footer box__footer--secondary">
+                {!! $articles->links() !!}
             </footer>
-
-        </article>
-    @endforeach
+        @endif
+    </section>
 
     {!! $articles->links('partials.pagination') !!}
 
