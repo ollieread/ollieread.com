@@ -27,7 +27,7 @@
     @apply p-4 bg-blue-700;
   }
 
-  @media (max-width: #{map-get($breakpoints, 'sm')}) {
+  @media (max-width: 900px) {
     @apply w-full;
     left: -100vw;
   }
@@ -44,7 +44,7 @@
     top: 1rem;
     right: 1rem;
 
-    @media (min-width : #{map-get($breakpoints, 'sm') + 1px}) {
+    @media (min-width : 901px) {
       @apply hidden;
     }
   }

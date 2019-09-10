@@ -1,7 +1,7 @@
 .brand {
   @apply p-4 flex flex-col items-center content-center justify-center bg-blue-700;
 
-  @media (min-width : #{map-get($breakpoints, 'sm') + 1px}) {
+  @media (min-width : 901px) {
     @apply hidden;
   }
 

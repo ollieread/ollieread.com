@@ -2,7 +2,7 @@
   @apply flex flex-col justify-start h-full min-h-screen p-6;
   margin-left: 20rem;
 
-  @media (max-width: #{map-get($breakpoints, 'sm')}) {
+  @media (max-width: 900px) {
     margin-left: 0;
   }
 
@@ -22,7 +22,7 @@
     &--small-screens {
       @apply w-full;
 
-      @media (min-width: #{map-get($breakpoints, 'sm') + 1px}) {
+      @media (min-width: 901px) {
         @apply hidden;
       }
     }
