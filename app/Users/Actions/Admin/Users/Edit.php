@@ -43,7 +43,7 @@ class Edit extends Action
             ]);
 
             if ((new UpdateUser)->setUser($user)->setInput($input)->setAdmin(true)->perform()) {
-                Alerts::success(trans('users.admin.edit.success'), 'admin.users');
+                Alerts::success(trans('users.admin.edit.success', ['entity' => trans_choice('entities.user', 1)]), 'admin.users');
                 return $this->response()->redirectToRoute('admin:user.index');
             }
 

@@ -1,6 +1,6 @@
 <div class="input {{ $errors->has('name') ? 'input--invalid' : '' }}">
     <label for="user-name" class="input__label">Name</label>
-    <input type="text" name="name" id="user-username" required class="input__field"
+    <input type="text" name="name" id="user-username" class="input__field"
            placeholder="Enter your name" value="{{ old('name', $user->name) }}">
     {!! $errors->first('name', '<div class="input__feedback">:message</div>') !!}
     <div class="input__info">

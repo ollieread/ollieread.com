@@ -1,46 +1,50 @@
 .page {
-  @apply flex flex-col justify-start h-full min-h-screen p-6;
-  margin-left: 20rem;
+    @apply flex flex-col justify-start h-full min-h-screen p-6;
+    margin-left: 20rem;
 
-  @media (max-width: 900px) {
-    margin-left: 0;
-  }
-
-  &__heading {
-    @apply text-3xl text-blue-500 block mb-2;
-
-    &-icon {
-      @include fa-icon();
-      @extend .far;
-      @apply mr-1;
-    }
-  }
-
-  &__header {
-    @apply flex flex-col justify-start mb-4;
-
-    &--small-screens {
-      @apply w-full;
-
-      @media (min-width: 901px) {
-        @apply hidden;
-      }
+    @media (max-width: 900px) {
+        margin-left: 0;
     }
 
-    &-heading {
-      @apply text-4xl text-blue-500 border-b;
+    &__heading {
+        @apply text-3xl text-blue-500 block mb-2;
+
+        &-icon {
+            @include fa-icon();
+            @extend .far;
+            @apply mr-1;
+        }
     }
 
-    &-subheading {
-      @apply text-blue-400 text-lg;
+    &__header {
+        @apply mb-4;
+
+        &--small-screens {
+            @apply w-full;
+
+            @media (min-width: 901px) {
+                @apply hidden;
+            }
+        }
+
+        &-heading {
+            @apply text-4xl text-blue-500 border-b;
+        }
+
+        &-subheading {
+            @apply text-blue-400 text-lg;
+        }
+
+        &-text {
+            @apply mt-3;
+        }
+
+        &-controls {
+            @apply float-right mt-4;
+        }
     }
 
-    &-text {
-      @apply mt-3;
+    &__description {
+        @apply mb-4;
     }
-  }
-
-  &__description {
-    @apply mb-4;
-  }
 }

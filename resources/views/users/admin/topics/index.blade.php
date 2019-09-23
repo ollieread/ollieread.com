@@ -8,8 +8,13 @@
 @section('content')
 
     <header class="page__header">
+        <div class="page__header-controls">
+            <a href="{{ route('admin:topic.create') }}" class="button button--primary button--small">Add new Topic</a>
+        </div>
         <h2 class="page__header-heading">Topics</h2>
     </header>
+
+    @include('components.alerts', ['context' => 'admin.topics'])
 
     <section class="box box--headerless {{ ! $topics->hasPages() ? 'box--footerless' : '' }}">
         <main class="box__body box__body--flush">
@@ -31,11 +36,11 @@
                             {{ $topic->description }}
                         </td>
                         <td class="table__cell table__cell--center">
-                            <a href="#" class="button button--icon button--small" data-tippy-content="Edit topic">
+                            <a href="{{ route('admin:topic.edit', $topic->id) }}" class="button button--icon button--small" data-tippy-content="Edit topic">
                                 <span class="sr-only">Edit</span>
                                 <i class="button__icon fa-edit"></i>
                             </a>
-                            <a href="#" class="button button--icon button--small" data-tippy-content="Delete topic">
+                            <a href="{{ route('admin:topic.delete', $topic->id) }}" class="button button--icon button--small" data-tippy-content="Delete topic">
                                 <span class="sr-only">Delete</span>
                                 <i class="button__icon fa-trash"></i>
                             </a>

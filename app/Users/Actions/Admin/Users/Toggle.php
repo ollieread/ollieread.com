@@ -19,7 +19,7 @@ class Toggle extends Action
             $user->active = ! $user->active;
 
             if ($user->save()) {
-                Alerts::success(trans('users.admin.toggle.success', ['action' => $user->active ? 'enabled' : 'disabled']), 'admin.users');
+                Alerts::success(trans('users.admin.toggle.success', ['action' => $user->active ? 'enabled' : 'disabled', 'entity' => trans_choice('entities.user', 1)]), 'admin.users');
                 return $this->back();
             }
 

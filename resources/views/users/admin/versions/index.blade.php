@@ -8,8 +8,13 @@
 @section('content')
 
     <header class="page__header">
+        <div class="page__header-controls">
+            <a href="{{ route('admin:version.create') }}" class="button button--primary button--small">Add new Version</a>
+        </div>
         <h2 class="page__header-heading">Versions</h2>
     </header>
+
+    @include('components.alerts', ['context' => 'admin.versions'])
 
     <section class="box box--headerless {{ ! $versions->hasPages() ? 'box--footerless' : '' }}">
         <main class="box__body box__body--flush">
@@ -47,11 +52,11 @@
                             @endif
                         </td>
                         <td class="table__cell table__cell--center">
-                            <a href="#" class="button button--icon button--small" data-tippy-content="Edit version">
+                            <a href="{{ route('admin:version.edit', $version->id) }}" class="button button--icon button--small" data-tippy-content="Edit version">
                                 <span class="sr-only">Edit</span>
                                 <i class="button__icon fa-edit"></i>
                             </a>
-                            <a href="#" class="button button--icon button--small" data-tippy-content="Delete version">
+                            <a href="{{ route('admin:version.delete', $version->id) }}" class="button button--icon button--small" data-tippy-content="Delete version">
                                 <span class="sr-only">Delete</span>
                                 <i class="button__icon fa-trash"></i>
                             </a>

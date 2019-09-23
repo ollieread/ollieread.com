@@ -61,6 +61,11 @@
                                     <span class="sr-only">Verify User</span>
                                     <i class="button__icon fa-user-check"></i>
                                 </a>
+                                <a href="{{ route('admin:user.resend', $user->id) }}" class="button button--icon button--small"
+                                   data-tippy-content="Resend user verification email">
+                                    <span class="sr-only">Resend User Verification</span>
+                                    <i class="button__icon fa-envelope"></i>
+                                </a>
                             @endif
                             <a href="{{ route('admin:user.toggle', $user->id) }}" class="button button--icon button--small"
                                data-tippy-content="{{ $user->active ? 'Disable' : 'Enable' }} user">

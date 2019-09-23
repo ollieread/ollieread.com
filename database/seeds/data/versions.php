@@ -35,7 +35,7 @@ return [
     ],
 
     [
-        'name'         => 'Laravel 5.5',
+        'name'         => 'Laravel 5.5 (LTS)',
         'slug'         => 'laravel-5.5',
         'description'  => 'Laravel is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller (MVC) architectural pattern and based on Symfony.',
         'docs'         => 'https://laravel.com/docs/5.5',
@@ -65,6 +65,14 @@ return [
         'description'  => 'Laravel is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller (MVC) architectural pattern and based on Symfony.',
         'docs'         => 'https://laravel.com/docs/5.8',
         'release_date' => Carbon\Carbon::createFromDate(2019, 2, 26),
+    ],
+
+    [
+        'name'         => 'Laravel 6.0 (LTS)',
+        'slug'         => 'laravel-6.0',
+        'description'  => 'Laravel is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller (MVC) architectural pattern and based on Symfony.',
+        'docs'         => 'https://laravel.com/docs/6.0',
+        'release_date' => Carbon\Carbon::createFromDate(2019, 9, 3),
     ],
 
     [

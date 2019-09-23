@@ -9,9 +9,14 @@ use Ollieread\Core\Support\Status;
 class GetArticle
 {
     /**
-     * @var string
+     * @var string|null
      */
     private $slug;
+
+    /**
+     * @var int|null
+     */
+    private $id;
 
     /**
      * @var bool
@@ -35,7 +40,15 @@ class GetArticle
 
     public function perform(): ?Article
     {
-        $query = Article::query()->where('slug', '=', $this->slug);
+        $query = Article::query();
+
+        if ($this->slug) {
+            $query->where('slug', '=', $this->slug);
+        }
+
+        if ($this->id) {
+            $query->where('id', '=', $this->id);
+        }
 
         if ($this->activeOnly) {
             $query->where('active', '=', 1);
@@ -71,6 +84,18 @@ class GetArticle
     }
 
     /**
+     * @param int|null $id
+     *
+     * @return $this
+     */
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
      * @param bool $activeOnly
      *
      * @return $this
@@ -78,6 +103,7 @@ class GetArticle
     public function setActiveOnly(bool $activeOnly): self
     {
         $this->activeOnly = $activeOnly;
+
         return $this;
     }
 
@@ -89,6 +115,7 @@ class GetArticle
     public function setIncludeDraft(bool $includeDraft): self
     {
         $this->includeDraft = $includeDraft;
+
         return $this;
     }
 
@@ -100,6 +127,7 @@ class GetArticle
     public function setIncludePrivate(bool $includePrivate): self
     {
         $this->includePrivate = $includePrivate;
+
         return $this;
     }
 
@@ -111,6 +139,7 @@ class GetArticle
     public function setIncludeReviewing(bool $includeReviewing): self
     {
         $this->includeReviewing = $includeReviewing;
+
         return $this;
     }
 
@@ -122,6 +151,7 @@ class GetArticle
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
         return $this;
     }
 }

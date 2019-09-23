@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "@fortawesome/fontawesome-pro": "^5.10.1",
+        "autosize": "^4.0.2",
         "axios": "^0.18",
         "choices.js": "^7.0.0",
         "cross-env": "^5.1",
@@ -22,6 +23,7 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
+        "simplemde": "^1.11.2",
         "tailwindcss": "^1.0.2",
         "tippy.js": "^4.3.5",
         "vue": "^2.5.17",

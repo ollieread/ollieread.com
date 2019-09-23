@@ -44,7 +44,7 @@
                                target="_blank">
                                 <i class="button__icon fa-eye"></i>
                             </a>
-                            <a href="{{ '#' ?? route('admin:article.edit', $article->id) }}"
+                            <a href="{{ route('admin:article.edit', $article->id) }}"
                                class="button button--icon button--small" data-tippy-content="Edit article">
                                 <span class="sr-only">Edit</span>
                                 <i class="button__icon fa-edit"></i>
