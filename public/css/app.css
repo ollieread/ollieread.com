@@ -18432,7 +18432,7 @@ p {
   font-weight: 700;
 }
 
-.layout .article__content code {
+.layout .article__content p > code {
   background-color: #f7fafc;
   box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   border-radius: 0.25rem;
@@ -18442,10 +18442,11 @@ p {
   overflow-wrap: break-word;
 }
 
-.layout .article__content pre code {
+.layout .article__content pre > code {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  overflow-x: scroll;
+  border-radius: 0.25rem;
+  overflow-x: auto;
   padding: 1rem;
   background-color: #2b2b2b;
 }
@@ -19343,6 +19344,58 @@ p {
   background-image: linear-gradient(to bottom, transparent, white);
 }
 
+.layout .comments .comment__message-body blockquote {
+  color: #718096;
+  font-style: italic;
+  margin: 1rem;
+  margin-right: 0;
+  font-size: 1.125rem;
+}
+
+.layout .comments .comment__message-body a {
+  color: #4299e1;
+  text-decoration: underline;
+}
+
+.layout .comments .comment__message-body a:hover {
+  color: #2b6cb0;
+}
+
+.layout .comments .comment__message-body p > code {
+  background-color: #f7fafc;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 0.25rem;
+  border-width: 1px;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  overflow-wrap: break-word;
+}
+
+.layout .comments .comment__message-body pre > code {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+  padding: 1rem;
+  background-color: #2b2b2b;
+}
+
+.layout .comments .comment__message-body ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.75rem;
+}
+
+.layout .comments .comment__message-body ul li {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.layout .comments .comment__message-body ul li > ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .layout .comments .comment__message-footer {
   background-color: #f7fafc;
   border-top-width: 1px;
@@ -19357,6 +19410,25 @@ p {
 
 .layout .comments .comment__message-footer * {
   margin-right: 0.5rem;
+}
+
+.layout .comments .comment__styling-header {
+  color: #4299e1;
+  display: block;
+  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.layout .comments .comment__styling-header--1 {
+  font-size: 1.25rem;
+}
+
+.layout .comments .comment__styling-header--2 {
+  font-size: 1.125rem;
+}
+
+.layout .comments .comment__styling-header--3, .layout .comments .comment__styling-header--4, .layout .comments .comment__styling-header--5, .layout .comments .comment__styling-header--6 {
+  font-size: 1rem;
 }
 
 .layout .notice {
