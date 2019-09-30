@@ -1,5 +1,7 @@
 <?php
 
+use Ollieread\Users\AdminServiceProvider;
+
 return [
 
     /*
@@ -170,6 +172,7 @@ return [
         Ollieread\Courses\CourseServiceProvider::class,
         Ollieread\Packages\PackageServiceProvider::class,
         Ollieread\Users\UserServiceProvider::class,
+        Ollieread\Admin\AdminServiceProvider::class,
         //Ollieread\Phishbot\PhishbotServiceProvider::class,
 
         /*

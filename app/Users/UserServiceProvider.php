@@ -10,7 +10,6 @@ use Ollieread\Core\Support\Routes;
 use Ollieread\Users\Models\User;
 use Ollieread\Users\Observers\UserObserver;
 use Ollieread\Users\Operations\GetUserPermissions;
-use Ollieread\Users\Routes\AdminRoutes;
 use Ollieread\Users\Routes\UserRoutes;
 use Ollieread\Users\Support\Permissions;
 use SocialiteProviders\Discord\Provider;
@@ -32,8 +31,8 @@ class UserServiceProvider extends ServiceProvider
                             ->perform();
                     }
 
-                    return (bool)($this->userPermissionCache[$user->getKey()] & Permissions::ADMIN_MASTER)
-                        || (bool)($this->userPermissionCache[$user->getKey()] & $value);
+                    return (bool) ($this->userPermissionCache[$user->getKey()] & Permissions::ADMIN_MASTER)
+                        || (bool) ($this->userPermissionCache[$user->getKey()] & $value);
                 });
             }
 
@@ -53,8 +52,7 @@ class UserServiceProvider extends ServiceProvider
         $routes = $this->app->make(Routes::class);
 
         if ($routes) {
-            $routes->addWebRoutes(UserRoutes::class)
-                   ->addWebRoutes(AdminRoutes::class);
+            $routes->addWebRoutes(UserRoutes::class);
         }
     }
 }

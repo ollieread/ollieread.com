@@ -19,7 +19,7 @@ class ArticleMetadata implements Arrayable
 
     public function __toString(): string
     {
-        return ' <script type="application/ld+json">' . json_encode($this->toArray(), JSON_UNESCAPED_SLASHES) . '</script>';
+        return '<script type="application/ld+json">' . json_encode($this->toArray(), JSON_UNESCAPED_SLASHES) . '</script>';
     }
 
     /**

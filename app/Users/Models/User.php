@@ -4,9 +4,9 @@ namespace Ollieread\Users\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as BaseUser;
 use Illuminate\Notifications\Notifiable;
+use Ollieread\Articles\Models\Comment;
 use Ollieread\Users\Mail\Mail;
 
 /**
@@ -34,9 +34,9 @@ use Ollieread\Users\Mail\Mail;
  */
 class User extends BaseUser
 {
-    use SoftDeletes, Notifiable;
+    use Notifiable;
 
-    protected $table = 'users';
+    protected $table    = 'users';
 
     protected $fillable = [
         'name',
@@ -50,7 +50,7 @@ class User extends BaseUser
         'verified',
     ];
 
-    protected $casts = [
+    protected $casts    = [
         'active'    => 'bool',
         'verified'  => 'bool',
         'interests' => 'array',
@@ -70,7 +70,7 @@ class User extends BaseUser
     public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class, 'user_roles', 'user_id', 'role_id')
-                    ->withTimestamps();
+            ->withTimestamps();
     }
 
     public function sendPasswordResetNotification($token): void
@@ -86,5 +86,10 @@ class User extends BaseUser
     public function social(): HasMany
     {
         return $this->hasMany(Social::class, 'user_id');
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'author_id');
     }
 }
