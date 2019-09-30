@@ -54671,7 +54671,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.directive('highlightjs', {
   deep: true,
   bind: function bind(el, binding) {
     // on first bind, highlight all targets
-    var targets = el.querySelectorAll('code');
+    var targets = el.querySelectorAll('pre > code');
     targets.forEach(function (target) {
       // if a value is directly assigned to the directive, use this
       // instead of the element content.
@@ -54684,7 +54684,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.directive('highlightjs', {
   },
   componentUpdated: function componentUpdated(el, binding) {
     // after an update, re-fill the content and then highlight
-    var targets = el.querySelectorAll('code');
+    var targets = el.querySelectorAll('pre > code');
     targets.forEach(function (target) {
       if (binding.value) {
         target.textContent = binding.value;
