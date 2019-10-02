@@ -63,7 +63,7 @@ final class Permissions
         $parsedPermissions = [];
 
         foreach (self::$permissions as $permission => $value) {
-            $parsedPermissions[$value] = (bool)($permissions & ($permission ** 2));
+            $parsedPermissions[$value] = (bool) ($permissions & ($permission ** 2));
         }
 
         return $parsedPermissions;

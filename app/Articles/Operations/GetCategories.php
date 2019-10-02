@@ -39,6 +39,7 @@ class GetCategories
     public function setLimit(?int $limit): self
     {
         $this->limit = $limit;
+
         return $this;
     }
 
@@ -50,6 +51,7 @@ class GetCategories
     public function setSlugs(array $slugs): self
     {
         $this->slugs = $slugs;
+
         return $this;
     }
 }

@@ -9,7 +9,9 @@ use Ollieread\Phishbot\Support\Command;
 class LinkCommand extends Command
 {
     protected $command     = '!link {type}';
+
     protected $description = 'Returns a corresponding link';
+
     protected $links       = [
         'site'         => 'https://ollieread.com',
         'multitenancy' => 'https://multitenancy.dev',

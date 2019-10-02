@@ -64,6 +64,7 @@ class CreateUser
     public function setInput(array $input): self
     {
         $this->input = $input;
+
         return $this;
     }
 
@@ -75,6 +76,7 @@ class CreateUser
     public function setProvider(string $provider): self
     {
         $this->provider = $provider;
+
         return $this;
     }
 
@@ -86,6 +88,7 @@ class CreateUser
     public function setSocialUser($socialUser): self
     {
         $this->socialUser = $socialUser;
+
         return $this;
     }
 }

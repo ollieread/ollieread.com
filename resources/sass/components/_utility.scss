@@ -118,6 +118,14 @@
     &--block {
         @apply block;
         break-inside : avoid !important;
-        white-space: nowrap;
+        white-space  : nowrap;
+    }
+
+    &--right {
+        @apply text-right;
+    }
+
+    &--number {
+        font-variant : tabular-nums;
     }
 }

@@ -106,14 +106,14 @@
                     }
                 }
 
-                code {
+                p > code {
                     @apply bg-gray-100 shadow-inner rounded border px-1;
                     overflow-wrap : break-word;
                 }
 
                 pre {
-                    code {
-                        @apply my-2 overflow-x-scroll p-4;
+                    & > code {
+                        @apply my-2 rounded overflow-x-auto p-4;
                         background-color : #2b2b2b;
                     }
                 }

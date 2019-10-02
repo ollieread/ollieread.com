@@ -42,7 +42,7 @@ class Article extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'articles';
+    protected $table    = 'articles';
 
     protected $fillable = [
         'name',
@@ -57,12 +57,12 @@ class Article extends Model
         'post_at',
     ];
 
-    protected $casts = [
+    protected $casts    = [
         'active' => 'bool',
         'status' => 'int',
     ];
 
-    protected $dates = [
+    protected $dates    = [
         'post_at',
     ];
 

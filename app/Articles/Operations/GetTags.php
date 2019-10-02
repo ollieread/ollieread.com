@@ -27,6 +27,7 @@ class GetTags
     public function setSlugs(array $slugs): self
     {
         $this->slugs = $slugs;
+
         return $this;
     }
 }

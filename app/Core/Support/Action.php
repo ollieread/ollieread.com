@@ -23,7 +23,7 @@ abstract class Action
         return $this->response()->redirectTo($this->url()->previous());
     }
 
-    protected function handleRedirectAfter(Request $request)
+    protected function handleRedirectAfter(Request $request): void
     {
         if (! $request->session()->has('url.intended')) {
             $redirect = $request->query('redirect_to') ?? $this->url()->previous();
@@ -47,6 +47,16 @@ abstract class Action
         }
 
         return $this->responseFactory;
+    }
+
+    /**
+     * @param string $route
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function redirect(string $route): RedirectResponse
+    {
+        return $this->response()->redirectToIntended($this->url()->route($route));
     }
 
     /**

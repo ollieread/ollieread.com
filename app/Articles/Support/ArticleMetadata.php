@@ -19,7 +19,7 @@ class ArticleMetadata implements Arrayable
 
     public function __toString(): string
     {
-        return ' <script type="application/ld+json">' . json_encode($this->toArray(), JSON_UNESCAPED_SLASHES) . '</script>';
+        return '<script type="application/ld+json">' . json_encode($this->toArray(), JSON_UNESCAPED_SLASHES) . '</script>';
     }
 
     /**
@@ -62,10 +62,10 @@ class ArticleMetadata implements Arrayable
                 '@type' => 'WebPage',
                 '@id'   => 'https://ollieread.com/',
             ],
-            'image' => [
+            'image'            => [
                 '@type' => 'ImageObject',
                 'url'   => $this->article->image ?? asset('images/small-me-icon.png', true),
-            ]
+            ],
         ];
 
         if ($this->article->heading) {

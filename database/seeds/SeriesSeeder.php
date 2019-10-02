@@ -3,8 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 use Ollieread\Articles\Models\Series;
-use Ollieread\Articles\Operations\GetCategoryBySlug;
-use Ollieread\Articles\Operations\GetOrCreateTagsByName;
+use Ollieread\Articles\Operations\GetCategory;
+use Ollieread\Articles\Operations\GetOrCreateTags;
 use Ollieread\Articles\Operations\GetTopics;
 use Ollieread\Articles\Operations\GetVersions;
 
@@ -24,7 +24,7 @@ class SeriesSeeder extends Seeder
                 ->fill(Arr::except($row, ['category', 'topics', 'versions', 'tags']));
 
             if ($row['category']) {
-                $category = (new GetCategoryBySlug)->setSlug($row['category'])->perform();
+                $category = (new GetCategory)->setSlug($row['category'])->perform();
                 $series->category()->associate($category);
             }
 
@@ -42,7 +42,7 @@ class SeriesSeeder extends Seeder
                 }
 
                 if ($row['tags']) {
-                    $tags = (new GetOrCreateTagsByName)->setNames($row['tags'])->perform();
+                    $tags = (new GetOrCreateTags)->setNames($row['tags'])->perform();
                     $series->tags()->sync($tags->pluck('id'));
                 }
 

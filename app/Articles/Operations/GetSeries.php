@@ -59,8 +59,8 @@ class GetSeries
     public function perform()
     {
         $query = Series::query()
-                       ->orderBy('post_at', 'desc')
-                       ->where('post_at', '<', Carbon::now());
+            ->orderBy('post_at', 'desc')
+            ->where('post_at', '<', Carbon::now());
 
         if (! $this->activeOnly) {
             $query->where('active', '=', 1);
@@ -143,6 +143,7 @@ class GetSeries
     public function setActiveOnly(bool $activeOnly): self
     {
         $this->activeOnly = $activeOnly;
+
         return $this;
     }
 
@@ -154,6 +155,7 @@ class GetSeries
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
         return $this;
     }
 
@@ -165,6 +167,7 @@ class GetSeries
     public function setIncludeDraft(bool $includeDraft): self
     {
         $this->includeDraft = $includeDraft;
+
         return $this;
     }
 
@@ -176,6 +179,7 @@ class GetSeries
     public function setIncludePrivate(bool $includePrivate): self
     {
         $this->includePrivate = $includePrivate;
+
         return $this;
     }
 
@@ -187,6 +191,7 @@ class GetSeries
     public function setIncludeReviewing(bool $includeReviewing): self
     {
         $this->includeReviewing = $includeReviewing;
+
         return $this;
     }
 
@@ -198,6 +203,7 @@ class GetSeries
     public function setLimit(?int $limit): self
     {
         $this->limit = $limit;
+
         return $this;
     }
 
@@ -209,6 +215,7 @@ class GetSeries
     public function setTags(?Collection $tags): self
     {
         $this->tags = $tags;
+
         return $this;
     }
 
@@ -220,6 +227,7 @@ class GetSeries
     public function setTopics(?Collection $topics): self
     {
         $this->topics = $topics;
+
         return $this;
     }
 
@@ -231,6 +239,7 @@ class GetSeries
     public function setVersions(?Collection $versions): self
     {
         $this->versions = $versions;
+
         return $this;
     }
 }

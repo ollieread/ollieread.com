@@ -22,7 +22,7 @@ class Coalesce extends Expression
         $value = '';
 
         foreach ($this->values as $values) {
-            $value .= (string)$values . ',';
+            $value .= (string) $values . ',';
         }
 
         return 'COALESCE(' . substr($value, 0, -1) . ')';

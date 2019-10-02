@@ -31,11 +31,11 @@ class Welcome extends Mailable
     public function build(): self
     {
         return $this->markdown('mail.users.welcome')
-                    ->to($this->user->email, $this->user->name ?? $this->user->username)
-                    ->subject(trans('mail.welcome.subject'))
-                    ->with([
-                        'user' => $this->user,
-                        'link' => URL::signedRoute('users:verify', [$this->user->username]),
-                    ]);
+            ->to($this->user->email, $this->user->name ?? $this->user->username)
+            ->subject(trans('mail.welcome.subject'))
+            ->with([
+                'user' => $this->user,
+                'link' => URL::signedRoute('users:verify', [$this->user->username]),
+            ]);
     }
 }

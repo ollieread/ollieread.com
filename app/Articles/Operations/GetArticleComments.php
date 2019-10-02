@@ -32,7 +32,7 @@ class GetArticleComments
                     $carry                += $comment->reply_count;
                 }
 
-                return (int)$carry;
+                return (int) $carry;
             };
 
             $comments = $comments->keyBy('id')->each(static function (Comment $comment) {
@@ -66,6 +66,7 @@ class GetArticleComments
     public function setArticle(Article $article): self
     {
         $this->article = $article;
+
         return $this;
     }
 
@@ -77,6 +78,7 @@ class GetArticleComments
     public function setHierarchy(bool $hierarchy): self
     {
         $this->hierarchy = $hierarchy;
+
         return $this;
     }
 }

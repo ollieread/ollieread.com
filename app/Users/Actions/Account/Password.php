@@ -41,10 +41,12 @@ class Password extends Action
         if ((new UpdateUserPassword)->setUser($user)->setInput($input)->perform()) {
             // Todo: Email based on password change
             Alerts::success(trans('users.password.success'), 'account');
+
             return $this->response()->redirectToRoute('users:account.password.edit');
         }
 
         Alerts::error(trans('errors.unexpected'), 'account');
+
         return $this->back();
     }
 }

@@ -54,6 +54,7 @@ class UseUserSocialAvatar
     public function setProvider(string $provider): self
     {
         $this->provider = $provider;
+
         return $this;
     }
 
@@ -65,6 +66,7 @@ class UseUserSocialAvatar
     public function setUser(User $user): self
     {
         $this->user = $user;
+
         return $this;
     }
 }

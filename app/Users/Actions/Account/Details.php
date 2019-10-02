@@ -42,10 +42,12 @@ class Details extends Action
         if ((new UpdateUser)->setUser($user)->setInput($input)->perform()) {
             // Todo: Implement handling of email change
             Alerts::success(trans('users.details.success'), 'account');
+
             return $this->response()->redirectToRoute('users:account.details.edit');
         }
 
         Alerts::error(trans('errors.unexpected'), 'account');
+
         return $this->back();
     }
 }

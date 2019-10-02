@@ -30,10 +30,12 @@ class Social extends Action
 
         if ((new DeleteUserSocial)->setUser($user)->setProvider($provider)->perform()) {
             Alerts::success(trans('users.social.delete.success', ['provider' => trans('users.provider.' . $provider)]), 'account');
+
             return $this->response()->redirectToRoute('users:account.social.edit');
         }
 
         Alerts::error(trans('errors.unexpected'), 'account');
+
         return $this->back();
     }
 
@@ -53,10 +55,12 @@ class Social extends Action
         if ((new UseUserSocialAvatar)->setUser($user)->setProvider($useAvatar)->perform()) {
             // Todo: Email based on password change
             Alerts::success(trans('users.social.avatar.success', ['provider' => trans('users.provider.' . $useAvatar)]), 'account');
+
             return $this->response()->redirectToRoute('users:account.social.edit');
         }
 
         Alerts::error(trans('errors.unexpected'), 'account');
+
         return $this->back();
     }
 }

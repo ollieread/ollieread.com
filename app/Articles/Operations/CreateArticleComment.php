@@ -60,6 +60,7 @@ class CreateArticleComment
     public function setArticle(Article $article): self
     {
         $this->article = $article;
+
         return $this;
     }
 
@@ -71,6 +72,7 @@ class CreateArticleComment
     public function setAuthor(User $author): self
     {
         $this->author = $author;
+
         return $this;
     }
 
@@ -82,6 +84,7 @@ class CreateArticleComment
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
+
         return $this;
     }
 
@@ -93,6 +96,7 @@ class CreateArticleComment
     public function setParent(?Comment $parent): self
     {
         $this->parent = $parent;
+
         return $this;
     }
 }

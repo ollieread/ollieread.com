@@ -12,8 +12,9 @@ use XMLWriter;
 
 class Feeds
 {
-    private const SITEMAP = 'feeds/sitemap.xml';
     private const RSS     = 'feeds/feed.rss';
+
+    private const SITEMAP = 'feeds/sitemap.xml';
 
     /**
      * @var \Illuminate\Contracts\Filesystem\Filesystem
@@ -25,24 +26,36 @@ class Feeds
         $this->filesystem = $filesystemManager->drive('local');
     }
 
-    private function buildArticles(Closure $transformer): array
+    public function getRss(): string
     {
-        return (new GetArticles)
-            ->setActiveOnly(true)
-            ->setIncludePrivate(false)
-            ->setIncludeDraft(false)
-            ->setIncludeReviewing(false)
-            ->perform()
-            ->map($transformer)
-            ->toArray();
+        if ($this->filesystem->exists(self::RSS)) {
+            return $this->filesystem->get(self::RSS);
+        }
+
+        return $this->buildRss();
     }
 
-    private function buildCategories(Closure $transformer): array
+    public function getSitemap(): string
     {
-        return (new GetCategories())
-            ->perform()
-            ->map($transformer)
-            ->toArray();
+        if ($this->filesystem->exists(self::SITEMAP)) {
+            return $this->filesystem->get(self::SITEMAP);
+        }
+
+        return $this->buildSitemap();
+    }
+
+    public function invalidateRss(): void
+    {
+        if ($this->filesystem->exists(self::RSS)) {
+            $this->filesystem->delete(self::RSS);
+        }
+    }
+
+    public function invalidateSitemap(): void
+    {
+        if ($this->filesystem->exists(self::SITEMAP)) {
+            $this->filesystem->delete(self::SITEMAP);
+        }
     }
 
     protected function buildRss()
@@ -130,35 +143,23 @@ class Feeds
         return $sitemap;
     }
 
-    public function getRss(): string
+    private function buildArticles(Closure $transformer): array
     {
-        if ($this->filesystem->exists(self::RSS)) {
-            return $this->filesystem->get(self::RSS);
-        }
-
-        return $this->buildRss();
+        return (new GetArticles)
+            ->setActiveOnly(true)
+            ->setIncludePrivate(false)
+            ->setIncludeDraft(false)
+            ->setIncludeReviewing(false)
+            ->perform()
+            ->map($transformer)
+            ->toArray();
     }
 
-    public function getSitemap(): string
+    private function buildCategories(Closure $transformer): array
     {
-        if ($this->filesystem->exists(self::SITEMAP)) {
-            return $this->filesystem->get(self::SITEMAP);
-        }
-
-        return $this->buildSitemap();
-    }
-
-    public function invalidateRss(): void
-    {
-        if ($this->filesystem->exists(self::RSS)) {
-            $this->filesystem->delete(self::RSS);
-        }
-    }
-
-    public function invalidateSitemap(): void
-    {
-        if ($this->filesystem->exists(self::SITEMAP)) {
-            $this->filesystem->delete(self::SITEMAP);
-        }
+        return (new GetCategories())
+            ->perform()
+            ->map($transformer)
+            ->toArray();
     }
 }

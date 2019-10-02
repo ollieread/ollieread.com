@@ -51,7 +51,7 @@ class GetUser
              */
             $socialClause = function ($query) {
                 $query->where('provider', '=', $this->provider)
-                      ->where('social_id', '=', $this->socialId);
+                    ->where('social_id', '=', $this->socialId);
             };
 
             $query->with(['social' => $socialClause])->whereHas('social', $socialClause);
@@ -88,6 +88,7 @@ class GetUser
     public function setActiveOnly(bool $activeOnly): self
     {
         $this->activeOnly = $activeOnly;
+
         return $this;
     }
 
@@ -99,6 +100,7 @@ class GetUser
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
         return $this;
     }
 
@@ -110,6 +112,7 @@ class GetUser
     public function setId(?int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -121,6 +124,7 @@ class GetUser
     public function setProvider(string $provider): self
     {
         $this->provider = $provider;
+
         return $this;
     }
 
@@ -132,6 +136,7 @@ class GetUser
     public function setSocialId(string $socialId): self
     {
         $this->socialId = $socialId;
+
         return $this;
     }
 
@@ -143,6 +148,7 @@ class GetUser
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
         return $this;
     }
 
@@ -154,6 +160,7 @@ class GetUser
     public function setVerifiedOnly(bool $verifiedOnly): self
     {
         $this->verifiedOnly = $verifiedOnly;
+
         return $this;
     }
 }

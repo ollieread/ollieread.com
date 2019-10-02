@@ -10,7 +10,9 @@ use Ollieread\Phishbot\Phishbot;
 abstract class Command implements Contract
 {
     protected $command     = '';
+
     protected $description = '';
+
     protected $types       = 0;
 
     /**

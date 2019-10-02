@@ -12,7 +12,7 @@ class Comment extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'article_comments';
+    protected $table    = 'article_comments';
 
     protected $fillable = [
         'comment',
@@ -22,7 +22,7 @@ class Comment extends Model
         'deleted_reason',
     ];
 
-    protected $casts = [
+    protected $casts    = [
         'private' => 'bool',
         'active'  => 'bool',
     ];
@@ -34,7 +34,7 @@ class Comment extends Model
 
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return $this->belongsTo(User::class, 'author_id')->withDefault();
     }
 
     public function parent(): BelongsTo
