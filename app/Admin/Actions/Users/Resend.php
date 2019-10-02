@@ -20,6 +20,7 @@ class Resend extends Action
             Mail::welcome($user);
 
             Alerts::success(trans('admin.resend.success', ['entity' => trans_choice('entities.user', 1), 'mail' => 'verification email']), 'admin.users');
+
             return $this->back();
         }
 

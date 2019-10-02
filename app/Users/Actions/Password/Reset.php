@@ -46,10 +46,11 @@ class Reset extends Action
 
         if ($result === PasswordBroker::PASSWORD_RESET) {
             Alerts::success(trans('users.password.reset.success'), 'sign-in');
+
             return $this->response()->redirectToRoute('users:sign-in.create');
         }
 
-        switch($result) {
+        switch ($result) {
             case PasswordBroker::INVALID_TOKEN:
                 $message = trans('users.password.reset.token');
                 break;
@@ -62,6 +63,7 @@ class Reset extends Action
         }
 
         Alerts::error($message, 'password');
+
         return $this->response()->redirectToRoute('users:password.reset.create', $input['token']);
     }
 }

@@ -32,8 +32,13 @@ class AdminRoutes implements Routes
     private function articleRoutes(Router $router): void
     {
         $router->get('/articles')->name('article.index')->uses(Actions\Articles\Index::class);
+        $router->get('/article/create')->name('article.create')->uses(Actions\Articles\Create::class . '@create');
+        $router->post('/article/create')->name('article.store')->uses(Actions\Articles\Create::class . '@store');
         $router->get('/article/{article}/edit')->name('article.edit')->uses(Actions\Articles\Edit::class . '@edit');
         $router->post('/article/{article}/edit')->name('article.update')->uses(Actions\Articles\Edit::class . '@update');
+        $router->get('/article/{article}/toggle')->name('article.toggle')->uses(Actions\Articles\Toggle::class);
+        $router->get('/article/{article}/delete')->name('article.delete')->uses(Actions\Articles\Delete::class . '@delete');
+        $router->post('/article/{article}/delete')->name('article.destroy')->uses(Actions\Articles\Delete::class . '@destroy');
     }
 
     private function topicRoutes(Router $router): void

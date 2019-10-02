@@ -62,10 +62,10 @@ class ArticleMetadata implements Arrayable
                 '@type' => 'WebPage',
                 '@id'   => 'https://ollieread.com/',
             ],
-            'image' => [
+            'image'            => [
                 '@type' => 'ImageObject',
                 'url'   => $this->article->image ?? asset('images/small-me-icon.png', true),
-            ]
+            ],
         ];
 
         if ($this->article->heading) {

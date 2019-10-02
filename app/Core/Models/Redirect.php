@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Redirect extends Model
 {
-    protected $table = 'redirects';
+    protected $table    = 'redirects';
 
     protected $fillable = [
         'from',
@@ -26,7 +26,7 @@ class Redirect extends Model
         'expires_at',
     ];
 
-    protected $dates = [
+    protected $dates    = [
         'expires_at',
     ];
 }

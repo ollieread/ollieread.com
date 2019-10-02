@@ -61,6 +61,28 @@
             @apply shadow-inner;
         }
 
+        &--select {
+            @apply relative;
+            select {
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                appearance: none;
+
+                &::-ms-expand {
+                    display: none;
+                }
+            }
+
+            &:after {
+                @apply absolute;
+                @extend .fas;
+                @include fa-icon();
+                content: fa-content($fa-var-chevron-down);
+                right: .75rem;
+                top: .8rem;
+            }
+        }
+
         /*&:invalid {
           @apply border-red-500;
         }

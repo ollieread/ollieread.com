@@ -20,10 +20,12 @@ class Verify extends Action
 
             if ($user->save()) {
                 Alerts::success(trans('admin.verify.success'), 'admin.users');
+
                 return $this->back();
             }
 
             Alerts::error(trans('error.unexpected'), 'admin.users');
+
             return $this->response()->redirectToRoute('admin:user.index');
         }
 

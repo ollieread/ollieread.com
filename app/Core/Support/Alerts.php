@@ -8,15 +8,11 @@ use Illuminate\Session\Store;
 
 /**
  * Class Alerts
+ *
  * @package Ollieread\Support
  */
 class Alerts
 {
-    /**
-     *
-     */
-    public const SUCCESS = 'success';
-
     /**
      *
      */
@@ -25,12 +21,17 @@ class Alerts
     /**
      *
      */
-    public const WARNING = 'warning';
+    public const INFO = 'info';
 
     /**
      *
      */
-    public const INFO = 'info';
+    public const SUCCESS = 'success';
+
+    /**
+     *
+     */
+    public const WARNING = 'warning';
 
     /**
      * @param string|null $type

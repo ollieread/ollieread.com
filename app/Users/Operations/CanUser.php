@@ -34,6 +34,7 @@ class CanUser
     public function setPermissions(int ...$permissions): self
     {
         $this->permissions = $permissions;
+
         return $this;
     }
 
@@ -45,6 +46,7 @@ class CanUser
     public function setUser(User $user): self
     {
         $this->user = $user;
+
         return $this;
     }
 }

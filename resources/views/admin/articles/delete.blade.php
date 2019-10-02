@@ -12,6 +12,8 @@
         <h2 class="page__header-heading">Delete {{ $article->name }}</h2>
     </header>
 
+    @include('components.alerts', ['context' => 'admin.articles'])
+
     <form action="{{ route('admin:article.destroy', $article->id) }}" method="post" class="box box--headerless">
         @csrf
 
@@ -21,7 +23,7 @@
                 <p>This is a permanent action, it cannot be reversed</p>
             </div>
 
-            <p>Deleting a article will remove it from all other content. Are you sure you want to delete this article?</p>
+            <p>Deleting an article will remove it from all other content. Are you sure you want to delete this article?</p>
 
             <div class="input {{ $errors->has('password') ? 'input--invalid' : '' }}">
                 <label for="article-password" class="input__label">Enter your password</label>

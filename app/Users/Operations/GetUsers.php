@@ -30,6 +30,7 @@ class GetUsers
     public function setLimit(?int $limit): self
     {
         $this->limit = $limit;
+
         return $this;
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Ollieread\Core\Models\Tag;
 
-class GetOrCreateTagsByName
+class GetOrCreateTags
 {
     /**
      * @var array
@@ -35,6 +35,7 @@ class GetOrCreateTagsByName
     public function setNames(array $names): self
     {
         $this->names = $names;
+
         return $this;
     }
 }

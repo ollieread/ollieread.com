@@ -29,10 +29,12 @@ class Reset extends Action
         if ($user) {
             if ($this->password->sendResetLink(['email' => $user->email]) === PasswordBroker::RESET_LINK_SENT) {
                 Alerts::success(trans('admin.user.reset.success'), 'admin.users');
+
                 return $this->back();
             }
 
             Alerts::error(trans('error.unexpected'), 'admin.users');
+
             return $this->response()->redirectToRoute('admin:user.index');
         }
 

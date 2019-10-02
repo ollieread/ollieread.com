@@ -6,7 +6,11 @@ use DrewM\MailChimp\MailChimp as MailchimpAPI;
 
 class Mailchimp
 {
-    public const INTERESTS = [
+    const        API_LIST_SUBSCRIBER  = '/lists/{list_id}/members/{subscriber_hash}';
+
+    const        API_LIST_SUBSCRIBERS = '/lists/{list_id}/members';
+
+    public const INTERESTS            = [
         'mwl'     => 'da9bfe9006',
         'ksa'     => '9749ac74ae',
         'porter'  => 'eb01032502',
@@ -14,8 +18,6 @@ class Mailchimp
         'monthly' => '74918694cc',
     ];
 
-    const API_LIST_SUBSCRIBERS = '/lists/{list_id}/members';
-    const API_LIST_SUBSCRIBER  = '/lists/{list_id}/members/{subscriber_hash}';
     /**
      * @var \GuzzleHttp\Client
      */
@@ -23,30 +25,12 @@ class Mailchimp
 
     /**
      * Mailchimp constructor.
+     *
      * @throws \Exception
      */
     public function __construct()
     {
         $this->mailchimp = new MailchimpAPI(config('services.mailchimp.key'));
-    }
-
-    protected function createSubscription(string $email, string $username, array $interests = [], ?string $firstName = null, ?string $lastName = null): array
-    {
-        return $this->request(
-            'POST',
-            str_replace('{list_id}', config('services.mailchimp.list'), self::API_LIST_SUBSCRIBERS),
-            [
-                'email_address' => $email,
-                'email_type'    => 'html',
-                'status'        => 'subscribed',
-                'merge_fields'  => [
-                    'LNAME'    => $lastName ?? '',
-                    'FNAME'    => $firstName ?? '',
-                    'USERNAME' => $username,
-                ],
-                'interests'     => $interests,
-            ]
-        );
     }
 
     public function isSubscribed(string $email): bool
@@ -57,17 +41,6 @@ class Mailchimp
         );
 
         return ! empty($response);
-    }
-
-    private function request(string $verb, string $url, array $data = [])
-    {
-        $response = $this->mailchimp->{$verb}($url, $data);
-
-        if ($this->mailchimp->success()) {
-            return $response;
-        }
-
-        return [];
     }
 
     public function subscribe(string $email, string $username, array $interests = [], ?string $firstName = null, ?string $lastName = null): bool
@@ -98,6 +71,25 @@ class Mailchimp
         return true;
     }
 
+    protected function createSubscription(string $email, string $username, array $interests = [], ?string $firstName = null, ?string $lastName = null): array
+    {
+        return $this->request(
+            'POST',
+            str_replace('{list_id}', config('services.mailchimp.list'), self::API_LIST_SUBSCRIBERS),
+            [
+                'email_address' => $email,
+                'email_type'    => 'html',
+                'status'        => 'subscribed',
+                'merge_fields'  => [
+                    'LNAME'    => $lastName ?? '',
+                    'FNAME'    => $firstName ?? '',
+                    'USERNAME' => $username,
+                ],
+                'interests'     => $interests,
+            ]
+        );
+    }
+
     protected function updateSubscription(string $email, string $username, array $interests = [], ?string $firstName = null, ?string $lastName = null): array
     {
         return $this->request(
@@ -115,5 +107,16 @@ class Mailchimp
                 'interests'     => $interests,
             ]
         );
+    }
+
+    private function request(string $verb, string $url, array $data = [])
+    {
+        $response = $this->mailchimp->{$verb}($url, $data);
+
+        if ($this->mailchimp->success()) {
+            return $response;
+        }
+
+        return [];
     }
 }

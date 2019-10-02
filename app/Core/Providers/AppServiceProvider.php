@@ -4,14 +4,9 @@ namespace Ollieread\Core\Providers;
 
 use BotMan\BotMan\BotMan;
 use Illuminate\Auth\SessionGuard;
-use Illuminate\Container\Container;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\Compilers\BladeCompiler;
-use Ollieread\Articles\Models\Article;
-use Ollieread\Articles\Models\Category;
-use Ollieread\Articles\Observers\ArticleObserver;
 use Ollieread\Articles\Observers\CategoryObserver;
 use Ollieread\Models\Project;
 use Ollieread\Models\Series;

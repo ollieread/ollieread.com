@@ -41,10 +41,12 @@ class Register extends Action
         if ($user) {
             Mail::welcome($user);
             Alerts::success(trans('users.registration.success'), 'sign-in');
+
             return $this->response()->redirectToRoute('users:sign-in.create');
         }
 
         Alerts::error(trans('errors.unexpected'), 'register');
+
         return $this->back();
     }
 }

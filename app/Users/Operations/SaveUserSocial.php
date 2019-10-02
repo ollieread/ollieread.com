@@ -30,19 +30,6 @@ class SaveUserSocial
      */
     private $socialUser;
 
-    private function getMetadata(): array
-    {
-        $metadata = Arr::except($this->socialUser->getRaw(), ['email']);
-
-        if ($this->provider === 'google') {
-            $metadata['username'] = $this->socialUser->getName();
-        } else {
-            $metadata['username'] = $this->socialUser->getNickname();
-        }
-
-        return $metadata;
-    }
-
     public function perform(): ?Social
     {
         $social = ($this->social ?? new Social)->fill([
@@ -71,6 +58,67 @@ class SaveUserSocial
         return null;
     }
 
+    /**
+     * @param string $provider
+     *
+     * @return $this
+     */
+    public function setProvider(string $provider): self
+    {
+        $this->provider = $provider;
+
+        return $this;
+    }
+
+    /**
+     * @param \Ollieread\Users\Models\Social|null $social
+     *
+     * @return $this
+     */
+    public function setSocial(?Social $social): self
+    {
+        $this->social = $social;
+
+        return $this;
+    }
+
+    /**
+     * @param \Laravel\Socialite\Contracts\User|\Laravel\Socialite\One\User|\Laravel\Socialite\Two\User $socialUser
+     *
+     * @return $this
+     */
+    public function setSocialUser($socialUser): self
+    {
+        $this->socialUser = $socialUser;
+
+        return $this;
+    }
+
+    /**
+     * @param \Ollieread\Users\Models\User $user
+     *
+     * @return $this
+     */
+    public function setUser(User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    private function getMetadata(): array
+    {
+        $metadata = Arr::except($this->socialUser->getRaw(), ['email']);
+
+        if ($this->provider === 'google') {
+            $metadata['username'] = $this->socialUser->getName();
+        } else {
+            $metadata['username'] = $this->socialUser->getNickname();
+        }
+
+        return $metadata;
+    }
+
     private function populateForUserOne(Social $social): void
     {
         $social->token  = $this->socialUser->token;
@@ -88,49 +136,5 @@ class SaveUserSocial
         if ($this->socialUser->expiresIn) {
             $social->expires_at = Carbon::now()->addSeconds($this->socialUser->expiresIn);
         }
-    }
-
-    /**
-     * @param string $provider
-     *
-     * @return $this
-     */
-    public function setProvider(string $provider): self
-    {
-        $this->provider = $provider;
-        return $this;
-    }
-
-    /**
-     * @param \Ollieread\Users\Models\Social|null $social
-     *
-     * @return $this
-     */
-    public function setSocial(?Social $social): self
-    {
-        $this->social = $social;
-        return $this;
-    }
-
-    /**
-     * @param \Laravel\Socialite\Contracts\User|\Laravel\Socialite\One\User|\Laravel\Socialite\Two\User $socialUser
-     *
-     * @return $this
-     */
-    public function setSocialUser($socialUser): self
-    {
-        $this->socialUser = $socialUser;
-        return $this;
-    }
-
-    /**
-     * @param \Ollieread\Users\Models\User $user
-     *
-     * @return $this
-     */
-    public function setUser(User $user): self
-    {
-        $this->user = $user;
-        return $this;
     }
 }

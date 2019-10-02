@@ -14,6 +14,7 @@ class VerifyUser
     public function perform(): bool
     {
         $this->user->verified = true;
+
         return $this->user->save();
     }
 
@@ -25,6 +26,7 @@ class VerifyUser
     public function setUser(User $user): self
     {
         $this->user = $user;
+
         return $this;
     }
 }

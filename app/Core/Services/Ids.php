@@ -131,6 +131,7 @@ class Ids
     {
         if (method_exists(self::class, $type)) {
             $ids = self::{$type}()->decode($id);
+
             return array_shift($ids);
         }
 

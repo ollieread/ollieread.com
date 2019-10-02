@@ -4,20 +4,17 @@ namespace Ollieread\Users\Support;
 
 class Permissions
 {
-    public const CREATE_COMMENT = 1;
-    public const UNUSED_1       = 2;
-    public const UNUSED_2       = 4;
-    public const UNUSED_3       = 8;
-    public const UNUSED_4       = 16;
-    public const UNUSED_5       = 32;
-    public const UNUSED_6       = 64;
-    public const UNUSED_7       = 128;
-    public const ADMIN_USERS    = 256;
     public const ADMIN_ARTICLES = 512;
-    public const ADMIN_PACKAGES = 1024;
+
     public const ADMIN_COURSES  = 2048;
-    public const ADMIN_SERVICES = 4096;
+
     public const ADMIN_MASTER   = 8192;
+
+    public const ADMIN_PACKAGES = 1024;
+
+    public const ADMIN_SERVICES = 4096;
+
+    public const ADMIN_USERS    = 256;
 
     public const ALL            = [
         'CREATE_COMMENT' => self::CREATE_COMMENT,
@@ -36,6 +33,22 @@ class Permissions
         'ADMIN_MASTER'   => self::ADMIN_MASTER,
     ];
 
+    public const CREATE_COMMENT = 1;
+
+    public const UNUSED_1       = 2;
+
+    public const UNUSED_2       = 4;
+
+    public const UNUSED_3       = 8;
+
+    public const UNUSED_4       = 16;
+
+    public const UNUSED_5       = 32;
+
+    public const UNUSED_6       = 64;
+
+    public const UNUSED_7       = 128;
+
     public static function get(string $key): int
     {
         return self::ALL[$key] ?? 0;
@@ -44,7 +57,7 @@ class Permissions
     public static function toInt(string ...$permissions): int
     {
         return array_reduce($permissions, static function ($carry, $item) {
-            return (int)$carry | self::get($item);
+            return (int) $carry | self::get($item);
         });
     }
 
@@ -53,7 +66,7 @@ class Permissions
         $parsedPermissions = [];
 
         foreach (self::ALL as $key => $value) {
-            $parsedPermissions[$key] = (bool)($permissions & $value);
+            $parsedPermissions[$key] = (bool) ($permissions & $value);
         }
 
         return $parsedPermissions;

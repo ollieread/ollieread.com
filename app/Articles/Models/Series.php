@@ -12,7 +12,7 @@ use Ollieread\Core\Models\Version;
 
 class Series extends Model
 {
-    protected $table = 'series';
+    protected $table    = 'series';
 
     protected $fillable = [
         'name',
@@ -27,12 +27,12 @@ class Series extends Model
         'post_at',
     ];
 
-    protected $casts = [
+    protected $casts    = [
         'active' => 'bool',
         'status' => 'int',
     ];
 
-    protected $dates = [
+    protected $dates    = [
         'post_at',
     ];
 

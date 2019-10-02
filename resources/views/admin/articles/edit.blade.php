@@ -12,6 +12,8 @@
         <h2 class="page__header-heading">Edit {{ $article->name }}</h2>
     </header>
 
+    @include('components.alerts', ['context' => 'admin.articles'])
+
     <form action="{{ route('admin:article.update', $article->id) }}" method="post" class="box box--headerless">
         @csrf
 

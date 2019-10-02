@@ -3,8 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 use Ollieread\Articles\Models\Article;
-use Ollieread\Articles\Operations\GetCategoryBySlug;
-use Ollieread\Articles\Operations\GetOrCreateTagsByName;
+use Ollieread\Articles\Operations\GetCategory;
+use Ollieread\Articles\Operations\GetOrCreateTags;
 use Ollieread\Articles\Operations\GetTopics;
 use Ollieread\Articles\Operations\GetVersions;
 use Ollieread\Core\Services\Redirects;
@@ -25,7 +25,7 @@ class ArticleSeeder extends Seeder
                 ->fill(Arr::except($row, ['category', 'topics', 'versions', 'tags', 'redirects']));
 
             if ($row['category']) {
-                $category = (new GetCategoryBySlug)->setSlug($row['category'])->perform();
+                $category = (new GetCategory)->setSlug($row['category'])->perform();
                 $article->category()->associate($category);
             }
 
@@ -43,7 +43,7 @@ class ArticleSeeder extends Seeder
                 }
 
                 if ($row['tags']) {
-                    $tags = (new GetOrCreateTagsByName)->setNames($row['tags'])->perform();
+                    $tags = (new GetOrCreateTags)->setNames($row['tags'])->perform();
                     $article->tags()->sync($tags->pluck('id'));
                 }
 

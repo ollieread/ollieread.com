@@ -54,6 +54,7 @@ class UpdateUser
     public function setAdmin(bool $admin): self
     {
         $this->admin = $admin;
+
         return $this;
     }
 
@@ -65,6 +66,7 @@ class UpdateUser
     public function setInput(array $input): self
     {
         $this->input = $input;
+
         return $this;
     }
 
@@ -76,6 +78,7 @@ class UpdateUser
     public function setUser(User $user): self
     {
         $this->user = $user;
+
         return $this;
     }
 }

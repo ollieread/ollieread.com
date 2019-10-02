@@ -12,6 +12,11 @@ class GetVersions
     private $slugs;
 
     /**
+     * @var array
+     */
+    private $ids;
+
+    /**
      * @var int|null
      */
     private $limit;
@@ -22,6 +27,18 @@ class GetVersions
     private $paginate = false;
 
     /**
+     * @param array $ids
+     *
+     * @return $this
+     */
+    public function setIds(array $ids): self
+    {
+        $this->ids = $ids;
+
+        return $this;
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function perform()
@@ -30,6 +47,10 @@ class GetVersions
 
         if ($this->slugs) {
             $query->whereIn('slug', $this->slugs);
+        }
+
+        if ($this->ids) {
+            $query->whereIn('id', $this->ids);
         }
 
         if ($this->paginate) {
@@ -51,6 +72,7 @@ class GetVersions
     public function setLimit(?int $limit): self
     {
         $this->limit = $limit;
+
         return $this;
     }
 
@@ -62,6 +84,7 @@ class GetVersions
     public function setPaginate(bool $paginate): self
     {
         $this->paginate = $paginate;
+
         return $this;
     }
 
@@ -73,6 +96,7 @@ class GetVersions
     public function setSlugs(array $slugs): self
     {
         $this->slugs = $slugs;
+
         return $this;
     }
 }

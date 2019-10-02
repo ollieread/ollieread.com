@@ -17,10 +17,10 @@ class GetUserSocials
     public function perform(): Collection
     {
         return Social::query()
-                     ->whereHas('user', function (Builder $query) {
-                         $query->where('id', '=', $this->user->getKey());
-                     })
-                     ->get();
+            ->whereHas('user', function (Builder $query) {
+                $query->where('id', '=', $this->user->getKey());
+            })
+            ->get();
     }
 
     /**
@@ -31,6 +31,7 @@ class GetUserSocials
     public function setUser(User $user): self
     {
         $this->user = $user;
+
         return $this;
     }
 }

@@ -8,8 +8,13 @@
 @section('content')
 
     <header class="page__header">
+        <div class="page__header-controls">
+            <a href="{{ route('admin:article.create') }}" class="button button--primary button--small">Add new Article</a>
+        </div>
         <h2 class="page__header-heading">Articles</h2>
     </header>
+
+    @include('components.alerts', ['context' => 'admin.articles'])
 
     <section class="box box--headerless {{ ! $articles->hasPages() ? 'box--footerless' : '' }}">
         <main class="box__body box__body--flush">
@@ -49,7 +54,7 @@
                                 <span class="sr-only">Edit</span>
                                 <i class="button__icon fa-edit"></i>
                             </a>
-                            <a href="{{ '#' ?? route('admin:article.toggle', $article->id) }}"
+                            <a href="{{ route('admin:article.toggle', $article->id) }}"
                                class="button button--icon button--small"
                                data-tippy-content="{{ $article->active ? 'Disable' : 'Enable' }} article">
                                 @if ($article->active)

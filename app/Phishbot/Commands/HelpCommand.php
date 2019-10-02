@@ -10,6 +10,7 @@ use Ollieread\Phishbot\Support\Command;
 class HelpCommand extends Command
 {
     protected $command     = '!help';
+
     protected $description = 'Returns this help menu';
 
     public function handle(Message $message, TextChannelInterface $channel, array $arugments = []): void

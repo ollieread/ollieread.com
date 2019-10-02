@@ -19,6 +19,7 @@ class TranslationServiceProvider extends BaseTranslationServiceProvider
 
         if ($this->app->environment() !== 'local') {
             parent::register();
+
             return;
         }
 

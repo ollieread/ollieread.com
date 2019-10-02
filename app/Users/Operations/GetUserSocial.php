@@ -21,11 +21,11 @@ class GetUserSocial
     public function perform(): ?Social
     {
         return Social::query()
-                     ->whereHas('user', function (Builder $query) {
-                         $query->where('id', '=', $this->user->getKey());
-                     })
-                     ->where('provider', '=', $this->provider)
-                     ->first();
+            ->whereHas('user', function (Builder $query) {
+                $query->where('id', '=', $this->user->getKey());
+            })
+            ->where('provider', '=', $this->provider)
+            ->first();
     }
 
     /**
@@ -36,6 +36,7 @@ class GetUserSocial
     public function setProvider(string $provider): self
     {
         $this->provider = $provider;
+
         return $this;
     }
 
@@ -47,6 +48,7 @@ class GetUserSocial
     public function setUser(User $user): self
     {
         $this->user = $user;
+
         return $this;
     }
 }

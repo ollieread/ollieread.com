@@ -4,7 +4,6 @@ namespace Ollieread\Articles\Operations;
 
 use Illuminate\Database\Eloquent\Builder;
 use Ollieread\Articles\Models\Article;
-use Ollieread\Core\Support\Status;
 
 class GetArticle
 {
@@ -21,22 +20,12 @@ class GetArticle
     /**
      * @var bool
      */
-    private $activeOnly = true;
+    private $activeOnly = false;
 
     /**
-     * @var bool
+     * @var array<int>
      */
-    private $includePrivate = false;
-
-    /**
-     * @var bool
-     */
-    private $includeDraft = false;
-
-    /**
-     * @var bool
-     */
-    private $includeReviewing = false;
+    private $statuses = [];
 
     public function perform(): ?Article
     {
@@ -54,26 +43,12 @@ class GetArticle
             $query->where('active', '=', 1);
         }
 
-        $statuses = [];
-
-        if (! $this->includePrivate) {
-            $statuses[] = Status::PUBLIC;
-        }
-
-        if ($this->includeDraft) {
-            $statuses[] = Status::DRAFT;
-        }
-
-        if ($this->includeReviewing) {
-            $statuses[] = Status::REVIEWING;
-        }
-
-        if ($statuses) {
-            if (count($statuses) === 1) {
-                $query->where('status', '=', $statuses[0]);
+        if ($this->statuses) {
+            if (count($this->statuses) === 1) {
+                $query->where('status', '=', $this->statuses[0]);
             } else {
-                $query->where(static function (Builder $query) use ($statuses) {
-                    foreach ($statuses as $status) {
+                $query->where(static function (Builder $query) {
+                    foreach ($this->statuses as $status) {
                         $query->orWhere('status', '=', $status);
                     }
                 });
@@ -108,37 +83,13 @@ class GetArticle
     }
 
     /**
-     * @param bool $includeDraft
+     * @param array<int> $statuses
      *
      * @return $this
      */
-    public function setIncludeDraft(bool $includeDraft): self
+    public function setStatuses(int ...$statuses): self
     {
-        $this->includeDraft = $includeDraft;
-
-        return $this;
-    }
-
-    /**
-     * @param bool $includePrivate
-     *
-     * @return $this
-     */
-    public function setIncludePrivate(bool $includePrivate): self
-    {
-        $this->includePrivate = $includePrivate;
-
-        return $this;
-    }
-
-    /**
-     * @param bool $includeReviewing
-     *
-     * @return $this
-     */
-    public function setIncludeReviewing(bool $includeReviewing): self
-    {
-        $this->includeReviewing = $includeReviewing;
+        $this->statuses = $statuses;
 
         return $this;
     }

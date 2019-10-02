@@ -3,7 +3,9 @@
 namespace Ollieread\Admin\Actions\Articles;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Ollieread\Articles\Operations\GetArticle;
+use Ollieread\Articles\Operations\GetCategories;
 use Ollieread\Articles\Operations\GetTopics;
 use Ollieread\Articles\Operations\GetVersions;
 use Ollieread\Articles\Operations\UpdateArticle;
@@ -20,12 +22,13 @@ class Edit extends Action
             ->perform();
 
         if ($article) {
+            $categories      = (new GetCategories)->perform();
             $versions        = (new GetVersions)->perform();
             $topics          = (new GetTopics)->perform();
             $articleVersions = $article->versions;
             $articleTopics   = $article->topics;
 
-            return $this->response()->view('admin.articles.edit', compact('article', 'versions', 'topics', 'articleVersions', 'articleTopics'));
+            return $this->response()->view('admin.articles.edit', compact('article', 'categories', 'versions', 'topics', 'articleVersions', 'articleTopics'));
         }
 
         throw new NotFoundHttpException;
@@ -40,10 +43,25 @@ class Edit extends Action
         if ($article) {
             $input = $request->only([
                 'name',
+                'title',
+                'heading',
+                'seo_description',
                 'slug',
-                'description',
+                'excerpt',
                 'content',
+                'active',
+                'status',
+                'post_at',
+                'category',
+                'parent',
+                'series',
+                'tags',
+                'topics',
+                'versions',
             ]);
+
+            $input['slug']   = $input['slug'] ?? Str::slug($input['name']);
+            $input['active'] = (bool) $input['active'];
 
             if ((new UpdateArticle)->setArticle($article)->setInput($input)->perform()) {
                 Alerts::success(trans('admin.edit.success', ['entity' => trans_choice('entities.article', 1)]), 'admin.articles');

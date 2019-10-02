@@ -2,15 +2,32 @@
 
 namespace Ollieread\Articles\Actions;
 
+use Illuminate\Auth\SessionGuard;
 use Ollieread\Articles\Operations\GetArticle;
 use Ollieread\Articles\Operations\GetSeriesBySlug;
 use Ollieread\Core\Support\Action;
+use Ollieread\Core\Support\Status;
+use Ollieread\Users\Support\Permissions;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Article extends Action
 {
+    /**
+     * @var \Illuminate\Auth\SessionGuard
+     */
+    private $auth;
+
+    public function __construct(SessionGuard $auth)
+    {
+        $this->auth = $auth;
+    }
+
     public function __invoke(string $slug, ?string $articleSlug = null)
     {
+        /**
+         * @var null|\Ollieread\Users\Models\User
+         */
+        $user   = $this->auth->user();
         $series = null;
 
         if ($articleSlug) {
@@ -23,10 +40,18 @@ class Article extends Action
             }
         }
 
-        $article = (new GetArticle)
-            ->setSlug($articleSlug ?? $slug)
-            ->setActiveOnly(true)
-            ->setIncludePrivate(false)
+        $statuses  = [Status::PUBLIC];
+        $operation = (new GetArticle)
+            ->setSlug($articleSlug ?? $slug);
+
+        if ($user && $user->can(Permissions::ADMIN_ARTICLES)) {
+            $statuses = [Status::DRAFT, Status::PRIVATE, Status::REVIEWING];
+        } else {
+            $operation->setActiveOnly(true);
+        }
+
+        $article = $operation
+            ->setStatuses(...$statuses)
             ->perform();
 
         if ($article) {

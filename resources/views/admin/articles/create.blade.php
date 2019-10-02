@@ -12,6 +12,8 @@
         <h2 class="page__header-heading">Create article</h2>
     </header>
 
+    @include('components.alerts', ['context' => 'admin.articles'])
+
     <form action="{{ route('admin:article.store') }}" method="post" class="box box--headerless">
         @csrf
 

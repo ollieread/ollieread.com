@@ -5,6 +5,7 @@ namespace Ollieread\Articles\Actions;
 use Illuminate\Http\Request;
 use Ollieread\Articles\Operations\GetArticles;
 use Ollieread\Core\Support\Action;
+use Ollieread\Core\Support\Status;
 
 class Listing extends Action
 {
@@ -12,7 +13,7 @@ class Listing extends Action
     {
         $articles = (new GetArticles)
             ->setActiveOnly(true)
-            ->setIncludePrivate(false)
+            ->setStatuses(Status::PUBLIC)
             ->perform();
 
         return $this->response()->view('articles.listing', compact('articles'));

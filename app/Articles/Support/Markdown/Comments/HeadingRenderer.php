@@ -2,11 +2,13 @@
 
 namespace Ollieread\Articles\Support\Markdown\Comments;
 
+use InvalidArgumentException;
 use League\CommonMark\Block\Element\AbstractBlock;
 use League\CommonMark\Block\Element\Heading;
 use League\CommonMark\Block\Renderer\BlockRendererInterface;
 use League\CommonMark\ElementRendererInterface;
 use League\CommonMark\HtmlElement;
+use function get_class;
 
 class HeadingRenderer implements BlockRendererInterface
 {
@@ -20,7 +22,7 @@ class HeadingRenderer implements BlockRendererInterface
     public function render(AbstractBlock $block, ElementRendererInterface $htmlRenderer, bool $inTightList = false)
     {
         if (! ($block instanceof Heading)) {
-            throw new \InvalidArgumentException('Incompatible block type: ' . \get_class($block));
+            throw new InvalidArgumentException('Incompatible block type: ' . get_class($block));
         }
 
         $tag = 'span';
