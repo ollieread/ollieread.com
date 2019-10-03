@@ -73249,6 +73249,8 @@ __webpack_require__(/*! ./features/choices */ "./resources/js/features/choices.j
 
 __webpack_require__(/*! ./features/markdown-editor */ "./resources/js/features/markdown-editor.js");
 
+__webpack_require__(/*! ./features/toc */ "./resources/js/features/toc.js");
+
 (function () {// This is where document ready stuff would go... IF I HAD ANY
 })();
 
@@ -73675,6 +73677,29 @@ __webpack_require__.r(__webpack_exports__);
   Object(tippy_js__WEBPACK_IMPORTED_MODULE_0__["default"])(document.querySelectorAll('[data-tippy-content]'), {
     boundary: 'viewport',
     theme: 'ollieread'
+  });
+})();
+
+/***/ }),
+
+/***/ "./resources/js/features/toc.js":
+/*!**************************************!*\
+  !*** ./resources/js/features/toc.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  document.querySelectorAll('.toc__header').forEach(function (element) {
+    element.addEventListener('click', function (event) {
+      if (element.parentElement.classList.contains('toc--expanded')) {
+        element.parentElement.classList.remove('toc--expanded');
+        element.parentElement.classList.add('toc--collapsed');
+      } else {
+        element.parentElement.classList.remove('toc--collapsed');
+        element.parentElement.classList.add('toc--expanded');
+      }
+    });
   });
 })();
 

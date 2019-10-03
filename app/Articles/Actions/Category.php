@@ -5,6 +5,7 @@ namespace Ollieread\Articles\Actions;
 use Ollieread\Articles\Operations\GetArticles;
 use Ollieread\Articles\Operations\GetCategory;
 use Ollieread\Core\Support\Action;
+use Ollieread\Core\Support\Status;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Category extends Action
@@ -17,7 +18,7 @@ class Category extends Action
             $articles = (new GetArticles)
                 ->setCategory($category)
                 ->setActiveOnly(true)
-                ->setIncludePrivate(false)
+                ->setStatuses(Status::PUBLIC)
                 ->perform();
 
             return $this->response()->view('articles.category', compact('category', 'articles'));

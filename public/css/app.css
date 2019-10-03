@@ -8637,13 +8637,15 @@ video {
  * License - https://fontawesome.com/license (Commercial License)
  */
 
-.fa, .layout .breadcrumbs .breadcrumb:after, .layout .notice:before, .layout .nav--sidebar-inverted .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link:hover .nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .nav__icon, .layout .nav--sidebar .nav__link--active .nav__icon, .layout .nav--sidebar-inverted .nav__link--active .nav__icon,
+.fa, .layout .breadcrumbs .breadcrumb:after, .layout .notice:before, .layout .nav--sidebar-inverted .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link:hover .nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .nav__icon, .layout .nav--sidebar .nav__link--active .nav__icon, .layout .nav--sidebar-inverted .nav__link--active .nav__icon, .link--anchor:before, .link--external:after,
 .fas,
 .layout .version__badge:hover .version__badge-icon,
 .layout .topic__badge:hover .topic__badge-icon,
 .layout .tag__badge:hover .tag__badge-icon,
 .layout .category__badge:hover .category__badge-icon,
 .layout .input__field--select:after,
+.toc__control:before,
+.toc__header:after,
 .far,
 .layout .button__icon,
 .layout .list__item::before,
@@ -8693,7 +8695,7 @@ video {
   vertical-align: -0.0667em;
 }
 
-.fa-xs {
+.fa-xs, .link--external:after {
   font-size: 0.75em;
 }
 
@@ -8778,13 +8780,15 @@ video {
   float: right;
 }
 
-.fa.fa-pull-left, .layout .breadcrumbs .fa-pull-left.breadcrumb:after, .layout .fa-pull-left.notice:before, .layout .nav--sidebar .nav__link:hover .fa-pull-left.nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .fa-pull-left.nav__icon, .layout .nav--sidebar .nav__link--active .fa-pull-left.nav__icon, .layout .nav--sidebar-inverted .nav__link--active .fa-pull-left.nav__icon,
+.fa.fa-pull-left, .layout .breadcrumbs .fa-pull-left.breadcrumb:after, .layout .fa-pull-left.notice:before, .layout .nav--sidebar .nav__link:hover .fa-pull-left.nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .fa-pull-left.nav__icon, .layout .nav--sidebar .nav__link--active .fa-pull-left.nav__icon, .layout .nav--sidebar-inverted .nav__link--active .fa-pull-left.nav__icon, .fa-pull-left.link--anchor:before, .fa-pull-left.link--external:after,
 .fas.fa-pull-left,
 .layout .version__badge:hover .fa-pull-left.version__badge-icon,
 .layout .topic__badge:hover .fa-pull-left.topic__badge-icon,
 .layout .tag__badge:hover .fa-pull-left.tag__badge-icon,
 .layout .category__badge:hover .fa-pull-left.category__badge-icon,
 .layout .fa-pull-left.input__field--select:after,
+.fa-pull-left.toc__control:before,
+.fa-pull-left.toc__header:after,
 .far.fa-pull-left,
 .layout .fa-pull-left.button__icon,
 .layout .fa-pull-left.list__item::before,
@@ -8821,13 +8825,15 @@ video {
   margin-right: 0.3em;
 }
 
-.fa.fa-pull-right, .layout .breadcrumbs .fa-pull-right.breadcrumb:after, .layout .fa-pull-right.notice:before, .layout .nav--sidebar .nav__link:hover .fa-pull-right.nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .fa-pull-right.nav__icon, .layout .nav--sidebar .nav__link--active .fa-pull-right.nav__icon, .layout .nav--sidebar-inverted .nav__link--active .fa-pull-right.nav__icon,
+.fa.fa-pull-right, .layout .breadcrumbs .fa-pull-right.breadcrumb:after, .layout .fa-pull-right.notice:before, .layout .nav--sidebar .nav__link:hover .fa-pull-right.nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .fa-pull-right.nav__icon, .layout .nav--sidebar .nav__link--active .fa-pull-right.nav__icon, .layout .nav--sidebar-inverted .nav__link--active .fa-pull-right.nav__icon, .fa-pull-right.link--anchor:before, .fa-pull-right.link--external:after,
 .fas.fa-pull-right,
 .layout .version__badge:hover .fa-pull-right.version__badge-icon,
 .layout .topic__badge:hover .fa-pull-right.topic__badge-icon,
 .layout .tag__badge:hover .fa-pull-right.tag__badge-icon,
 .layout .category__badge:hover .fa-pull-right.category__badge-icon,
 .layout .fa-pull-right.input__field--select:after,
+.fa-pull-right.toc__control:before,
+.fa-pull-right.toc__header:after,
 .far.fa-pull-right,
 .layout .fa-pull-right.button__icon,
 .layout .fa-pull-right.list__item::before,
@@ -17337,13 +17343,15 @@ readers do not read off random characters that represent icons */
   src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg");
 }
 
-.fa, .layout .breadcrumbs .breadcrumb:after, .layout .notice:before, .layout .nav--sidebar-inverted .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link:hover .nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .nav__icon, .layout .nav--sidebar .nav__link--active .nav__icon, .layout .nav--sidebar-inverted .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon,
+.fa, .layout .breadcrumbs .breadcrumb:after, .layout .notice:before, .layout .nav--sidebar-inverted .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link:hover .nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .nav__icon, .layout .nav--sidebar .nav__link--active .nav__icon, .layout .nav--sidebar-inverted .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .link--anchor:before, .link--external:after,
 .fas,
 .layout .version__badge:hover .version__badge-icon,
 .layout .topic__badge:hover .topic__badge-icon,
 .layout .tag__badge:hover .tag__badge-icon,
 .layout .category__badge:hover .category__badge-icon,
-.layout .input__field--select:after {
+.layout .input__field--select:after,
+.toc__control:before,
+.toc__header:after {
   font-family: "Font Awesome 5 Pro";
   font-weight: 900;
 }
@@ -17431,6 +17439,44 @@ p {
 .link {
   text-decoration: underline;
   color: #4299e1;
+}
+
+.link--external {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.link--external:after {
+  position: absolute;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  content: "\F08E";
+  right: -1rem;
+  top: 0;
+}
+
+.link--anchor {
+  position: absolute;
+  display: none;
+  left: -0.3rem;
+  bottom: 0.15rem;
+}
+
+.link--anchor:before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  content: "\F0C1";
+  font-size: 0.75rem !important;
 }
 
 .link--subtle {
@@ -17558,6 +17604,127 @@ p {
 
 .text--number {
   font-variant: tabular-nums;
+}
+
+.toc {
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border-width: 1px;
+  background-color: #fff;
+  margin-bottom: 1rem;
+}
+
+.toc__header {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: #a0aec0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  border-bottom-width: 1px;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  content: "Table of Contents";
+  cursor: pointer;
+}
+
+.toc__header:after {
+  margin-left: 0.5rem;
+  position: absolute;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-weight: 900;
+  content: "";
+  right: 1rem;
+  top: 0.75rem;
+}
+
+.toc__control {
+  position: absolute;
+  color: #a0aec0;
+  display: inline-block;
+  top: 0.25rem;
+  left: 11.75rem;
+}
+
+.toc__control:before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-weight: 900;
+  content: "";
+}
+
+.toc--expanded .toc__header:after {
+  content: "\F0D8";
+}
+
+.toc--expanded .toc__body {
+  display: block;
+}
+
+.toc--collapsed .toc__header {
+  border-bottom-width: 0;
+  margin-bottom: 0;
+}
+
+.toc--collapsed .toc__header:after {
+  content: "\F0D7";
+}
+
+.toc--collapsed .toc__body {
+  display: none;
+}
+
+.toc__item {
+  display: block;
+  font-size: 1.125rem;
+  padding-bottom: 0.25rem;
+  padding-left: 1rem;
+  text-decoration: none !important;
+  color: #718096 !important;
+}
+
+.toc__item--2 {
+  padding-left: 0.75rem;
+  font-size: 1rem;
+}
+
+.toc__item--3 {
+  padding-left: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.toc__item--4 {
+  padding-left: 2rem;
+  font-size: 0.875rem;
+}
+
+.toc__item--5 {
+  padding-left: 2rem;
+  font-size: 0.875rem;
+}
+
+.toc__item--6 {
+  padding-left: 2rem;
+  font-size: 0.875rem;
 }
 
 .layout {
@@ -18415,6 +18582,11 @@ p {
   display: block;
 }
 
+.layout .article__content {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .layout .article__content blockquote {
   color: #718096;
   font-style: italic;
@@ -18435,6 +18607,13 @@ p {
 .layout .article__content h1, .layout .article__content h2, .layout .article__content h3, .layout .article__content h4, .layout .article__content h5, .layout .article__content h6 {
   margin-bottom: 0.5rem;
   margin-top: 0.75rem;
+  position: relative;
+  margin-left: -0.5rem;
+  padding-left: 0.5rem;
+}
+
+.layout .article__content h1:hover .link--anchor, .layout .article__content h2:hover .link--anchor, .layout .article__content h3:hover .link--anchor, .layout .article__content h4:hover .link--anchor, .layout .article__content h5:hover .link--anchor, .layout .article__content h6:hover .link--anchor {
+  display: block;
 }
 
 .layout .article__content h1 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ollieread\Articles\Support\Markdown\Comments;
+namespace Ollieread\Articles\Support\Markdown\Comments\Renderer;
 
 use InvalidArgumentException;
 use League\CommonMark\Block\Element\AbstractBlock;

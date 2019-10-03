@@ -1,15 +1,15 @@
 .sr-only {
-    border            : 0 !important;
-    clip              : rect(1px, 1px, 1px, 1px) !important; /* 1 */
-    -webkit-clip-path : inset(50%) !important;
-    clip-path         : inset(50%) !important; /* 2 */
-    height            : 1px !important;
-    margin            : -1px !important;
-    overflow          : hidden !important;
-    padding           : 0 !important;
-    position          : absolute !important;
-    width             : 1px !important;
-    white-space       : nowrap !important; /* 3 */
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important; /* 2 */
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important; /* 3 */
 }
 
 /*
@@ -23,18 +23,45 @@
 */
 .sr-only-focusable:focus,
 .sr-only-focusable:active {
-    clip              : auto !important;
-    -webkit-clip-path : none !important;
-    clip-path         : none !important;
-    height            : auto !important;
-    margin            : auto !important;
-    overflow          : visible !important;
-    width             : auto !important;
-    white-space       : normal !important;
+    clip: auto !important;
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+    height: auto !important;
+    margin: auto !important;
+    overflow: visible !important;
+    width: auto !important;
+    white-space: normal !important;
 }
 
 .link {
     @apply underline text-blue-500;
+
+    &--external {
+        @apply relative mr-4;
+
+        &:after {
+            @apply absolute;
+            @extend .fa;
+            @extend .fa-xs;
+            @include fa-icon();
+            content: fa-content($fa-var-external-link);
+            right: -1rem;
+            top: 0;
+        }
+    }
+
+    &--anchor {
+        @apply absolute hidden;
+        left: -.3rem;
+        bottom: .15rem;
+
+        &:before {
+            @extend .fa;
+            @include fa-icon();
+            content: fa-content($fa-var-link);
+            font-size: .75rem !important;
+        }
+    }
 
     &--subtle {
         @apply text-sm;
@@ -50,10 +77,10 @@
 
     &--twitter {
         @apply text-white no-underline py-1 px-2 rounded shadow;
-        background-color            : #1da1f2;
-        -webkit-column-break-inside : avoid;
-        page-break-inside           : avoid;
-        break-inside                : avoid;
+        background-color: #1da1f2;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
 
         &::before {
             @include fa-icon();
@@ -65,10 +92,10 @@
 
     &--github {
         @apply text-white no-underline py-1 px-2 rounded shadow;
-        background-color            : #333333;
-        -webkit-column-break-inside : avoid;
-        page-break-inside           : avoid;
-        break-inside                : avoid;
+        background-color: #333333;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
 
         &::before {
             @include fa-icon();
@@ -80,10 +107,10 @@
 
     &--twitch {
         @apply text-white no-underline py-1 px-2 rounded shadow;
-        background-color            : #6441a5;
-        -webkit-column-break-inside : avoid;
-        page-break-inside           : avoid;
-        break-inside                : avoid;
+        background-color: #6441a5;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
 
         &::before {
             @include fa-icon();
@@ -117,8 +144,8 @@
 
     &--block {
         @apply block;
-        break-inside : avoid !important;
-        white-space  : nowrap;
+        break-inside: avoid !important;
+        white-space: nowrap;
     }
 
     &--right {
@@ -126,6 +153,89 @@
     }
 
     &--number {
-        font-variant : tabular-nums;
+        font-variant: tabular-nums;
+    }
+}
+
+.toc {
+    @apply block my-2 relative rounded shadow border bg-white mb-4;
+
+    &__header {
+        @apply block uppercase text-sm tracking-wider font-bold text-gray-500 py-2 w-full border-b pl-4 mb-2 relative;
+        content: 'Table of Contents';
+        cursor: pointer;
+
+        &:after {
+            @apply ml-2 absolute;
+            @include fa-icon();
+            @extend .fas;
+            font-weight: 900;
+            content: '';
+            right: 1rem;
+            top: .75rem;
+        }
+    }
+
+    &__control {
+        @apply absolute text-gray-500 inline-block;
+        top: .25rem;
+        left: 11.75rem;
+
+        &:before {
+            @include fa-icon();
+            @extend .fas;
+            font-weight: 900;
+            content: '';
+        }
+    }
+
+    &--expanded {
+        & .toc__header:after {
+            content: fa-content($fa-var-caret-up);
+        }
+
+        .toc__body {
+            @apply block;
+        }
+    }
+
+    &--collapsed {
+        & .toc__header {
+            @apply border-b-0 mb-0;
+
+            &:after {
+                content: fa-content($fa-var-caret-down);
+            }
+        }
+
+        .toc__body {
+            @apply hidden;
+        }
+    }
+
+    &__item {
+        @apply block text-lg pb-1 pl-4;
+        text-decoration: none !important;
+        color: #718096 !important;
+
+        &--2 {
+            @apply pl-3 text-base;
+        }
+
+        &--3 {
+            @apply pl-6 text-sm;
+        }
+
+        &--4 {
+            @apply pl-8 text-sm;
+        }
+
+        &--5 {
+            @apply pl-8 text-sm;
+        }
+
+        &--6 {
+            @apply pl-8 text-sm;
+        }
     }
 }

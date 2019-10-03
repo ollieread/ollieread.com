@@ -2,6 +2,7 @@
 
 namespace Ollieread\Admin\Actions\Articles;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Ollieread\Articles\Operations\CreateArticle;
@@ -43,6 +44,7 @@ class Create extends Action
             'versions',
         ]);
 
+        $input['post_at'] = $input['post_at'] ? Carbon::createFromFormat('Y-m-d\TH:i', $input['post_at']) : null;
         $input['active'] = (bool) $input['active'];
 
         if (empty($input['slug'])) {

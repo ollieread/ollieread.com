@@ -2,6 +2,7 @@
 
 namespace Ollieread\Admin\Actions\Articles;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Ollieread\Articles\Operations\GetArticle;
@@ -60,8 +61,9 @@ class Edit extends Action
                 'versions',
             ]);
 
-            $input['slug']   = $input['slug'] ?? Str::slug($input['name']);
-            $input['active'] = (bool) $input['active'];
+            $input['post_at'] = $input['post_at'] ? Carbon::createFromFormat('Y-m-d\TH:i', $input['post_at']) : null;
+            $input['slug']    = $input['slug'] ?? Str::slug($input['name']);
+            $input['active']  = (bool) $input['active'];
 
             if ((new UpdateArticle)->setArticle($article)->setInput($input)->perform()) {
                 Alerts::success(trans('admin.edit.success', ['entity' => trans_choice('entities.article', 1)]), 'admin.articles');
