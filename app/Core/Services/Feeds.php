@@ -8,6 +8,7 @@ use Ollieread\Articles\Models\Article;
 use Ollieread\Articles\Models\Category;
 use Ollieread\Articles\Operations\GetArticles;
 use Ollieread\Articles\Operations\GetCategories;
+use Ollieread\Core\Support\Status;
 use XMLWriter;
 
 class Feeds
@@ -147,9 +148,7 @@ class Feeds
     {
         return (new GetArticles)
             ->setActiveOnly(true)
-            ->setIncludePrivate(false)
-            ->setIncludeDraft(false)
-            ->setIncludeReviewing(false)
+            ->setStatuses(Status::PUBLIC)
             ->perform()
             ->map($transformer)
             ->toArray();

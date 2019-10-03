@@ -5,6 +5,7 @@ namespace Ollieread\Articles\Actions;
 use Ollieread\Articles\Operations\GetArticles;
 use Ollieread\Articles\Operations\GetSeriesBySlug;
 use Ollieread\Core\Support\Action;
+use Ollieread\Core\Support\Status;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Series extends Action
@@ -18,7 +19,7 @@ class Series extends Action
         if ($series) {
             $articles = (new GetArticles)
                 ->setActiveOnly(true)
-                ->setIncludePrivate(false)
+                ->setStatuses(Status::PUBLIC)
                 ->setSeries($series)
                 ->perform();
 
