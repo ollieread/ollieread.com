@@ -6,7 +6,7 @@
         "ollieread"
     ],
     "license": "MIT",
-    "version": "1.5.5",
+    "version": "1.5.7",
     "require": {
         "php": "^7.3",
         "ext-json": "*",
