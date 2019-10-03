@@ -7,7 +7,6 @@ use Ollieread\Articles\Operations\GetArticle;
 use Ollieread\Articles\Operations\GetSeriesBySlug;
 use Ollieread\Core\Support\Action;
 use Ollieread\Core\Support\Status;
-use Ollieread\Users\Support\Permissions;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Article extends Action
@@ -40,19 +39,15 @@ class Article extends Action
             }
         }
 
-        $statuses  = [Status::PUBLIC];
-        $operation = (new GetArticle)
-            ->setSlug($articleSlug ?? $slug);
+        $operation = (new GetArticle)->setSlug($articleSlug ?? $slug);
 
-        if ($user && $user->can('ADMIN_ARTICLES')) {
-            $statuses = [Status::DRAFT, Status::PRIVATE, Status::REVIEWING];
-        } else {
-            $operation->setActiveOnly(true);
+        if (! $user || ! $user->can('ADMIN_ARTICLES')) {
+            $operation
+                ->setActiveOnly(true)
+                ->setStatuses(Status::PUBLIC);
         }
 
-        $article = $operation
-            ->setStatuses(...$statuses)
-            ->perform();
+        $article = $operation->perform();
 
         if ($article) {
             if ($article->series && ! $series && ! $article->series->is($series)) {
