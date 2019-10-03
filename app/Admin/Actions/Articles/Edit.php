@@ -42,7 +42,7 @@ class Edit extends Action
             ->perform();
 
         if ($article) {
-            $input = $request->only([
+            $input = $request->all([
                 'name',
                 'title',
                 'heading',
