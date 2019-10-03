@@ -22,6 +22,7 @@ class UpdateArticleValidator extends Validator
             'heading'         => [],
             'seo_description' => [],
             'slug'            => ['required', Rule::unique((new Article)->getTable(), 'slug')->ignoreModel($this->model)],
+            'image'           => ['sometimes:image', 'sometimes:dimensions:min_width:1952,min_height:600'],
             'excerpt'         => [Rules::live($this->data()), 'max:500'],
             'content'         => ['required'],
             'active'          => ['bool'],

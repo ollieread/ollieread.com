@@ -54,6 +54,14 @@ class CreateArticle
             }
         }
 
+        if ($this->input['image']) {
+            $image = (new CreateArticleImage)->setUpload($this->input['image'])->perform();
+
+            if ($image) {
+                $article->setAttribute('image', $image);
+            }
+        }
+
         return $article->save();
     }
 

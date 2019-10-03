@@ -26,6 +26,13 @@
     {!! $errors->first('slug', '<div class="input__feedback">:message</div>') !!}
 </div>
 
+<div class="input {{ $errors->has('image') ? 'input--invalid' : '' }}">
+    <label for="article-slug" class="input__label">Image</label>
+    <input type="file" name="image" id="article-image" class="input__field"
+           placeholder="The article image">
+    {!! $errors->first('image', '<div class="input__feedback">:message</div>') !!}
+</div>
+
 <div class="input {{ $errors->has('seo_description') ? 'input--invalid' : '' }}">
     <label for="article-seo_description" class="input__label">SEO Description</label>
     <textarea name="seo_description" id="article-seo_description" class="input__field" rows="8"

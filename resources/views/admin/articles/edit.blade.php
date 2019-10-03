@@ -14,7 +14,7 @@
 
     @include('components.alerts', ['context' => 'admin.articles'])
 
-    <form action="{{ route('admin:article.update', $article->id) }}" method="post" class="box box--headerless">
+    <form action="{{ route('admin:article.update', $article->id) }}" method="post" class="box box--headerless" enctype="multipart/form-data">
         @csrf
 
         <main class="box__body">
