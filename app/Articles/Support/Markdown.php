@@ -14,7 +14,9 @@ class Markdown
     public static function parseComment(string $comment): string
     {
         $environment = Environment::createCommonMarkEnvironment();
-        $environment->addBlockRenderer(Blocks\Heading::class, new Comments\Renderer\HeadingRenderer);
+        $environment
+            ->addExtension(new CommonMarkExtrasExtension)
+            ->addBlockRenderer(Blocks\Heading::class, new Comments\Renderer\HeadingRenderer);
 
         return (new CommonMarkConverter([
             'html_input' => 'escape',
