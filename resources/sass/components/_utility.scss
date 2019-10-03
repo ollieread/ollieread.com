@@ -90,6 +90,21 @@
         }
     }
 
+    &--facebook {
+        @apply text-white no-underline py-1 px-2 rounded shadow;
+        background-color: #3b5998;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+
+        &::before {
+            @include fa-icon();
+            @extend .fab;
+            @extend .fa-facebook;
+            @apply mr-2;
+        }
+    }
+
     &--github {
         @apply text-white no-underline py-1 px-2 rounded shadow;
         background-color: #333333;

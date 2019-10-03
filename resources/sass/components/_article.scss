@@ -87,4 +87,13 @@
         &-list {
         }
     }
+
+    .share {
+        @apply flex justify-start items-center content-center pl-2 border-t mt-4;
+
+        &__text {
+            @apply text-blue-500 flex-shrink-0 pr-4;
+            break-inside: avoid;
+        }
+    }
 }

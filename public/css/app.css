@@ -8671,6 +8671,7 @@ video {
 .layout .button__icon--reddit,
 .layout .button__icon--keybase,
 .layout .button__icon--linkedin,
+.layout .button__icon--facebook,
 .layout .button__icon--twitter,
 .layout .button__icon--github,
 .layout .button__icon--brand,
@@ -8679,6 +8680,7 @@ video {
 .layout .box--discord .box__header-icon,
 .link--twitch::before,
 .link--github::before,
+.link--facebook::before,
 .link--twitter::before {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -8813,6 +8815,7 @@ video {
 .layout .fa-pull-left.button__icon--reddit,
 .layout .fa-pull-left.button__icon--keybase,
 .layout .fa-pull-left.button__icon--linkedin,
+.layout .fa-pull-left.button__icon--facebook,
 .layout .fa-pull-left.button__icon--twitter,
 .layout .fa-pull-left.button__icon--github,
 .layout .fa-pull-left.button__icon--brand,
@@ -8821,6 +8824,7 @@ video {
 .layout .box--discord .fa-pull-left.box__header-icon,
 .fa-pull-left.link--twitch::before,
 .fa-pull-left.link--github::before,
+.fa-pull-left.link--facebook::before,
 .fa-pull-left.link--twitter::before {
   margin-right: 0.3em;
 }
@@ -8858,6 +8862,7 @@ video {
 .layout .fa-pull-right.button__icon--reddit,
 .layout .fa-pull-right.button__icon--keybase,
 .layout .fa-pull-right.button__icon--linkedin,
+.layout .fa-pull-right.button__icon--facebook,
 .layout .fa-pull-right.button__icon--twitter,
 .layout .fa-pull-right.button__icon--github,
 .layout .fa-pull-right.button__icon--brand,
@@ -8866,6 +8871,7 @@ video {
 .layout .box--discord .fa-pull-right.box__header-icon,
 .fa-pull-right.link--twitch::before,
 .fa-pull-right.link--github::before,
+.fa-pull-right.link--facebook::before,
 .fa-pull-right.link--twitter::before {
   margin-left: 0.3em;
 }
@@ -11748,11 +11754,11 @@ readers do not read off random characters that represent icons */
   content: "\F070";
 }
 
-.fa-facebook:before {
+.fa-facebook:before, .link--facebook:before {
   content: "\F09A";
 }
 
-.fa-facebook-f:before {
+.fa-facebook-f:before, .layout .button__icon--facebook:before {
   content: "\F39E";
 }
 
@@ -17375,7 +17381,7 @@ readers do not read off random characters that represent icons */
   src: url("../webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"), url("../webfonts/fa-brands-400.ttf") format("truetype"), url("../webfonts/fa-brands-400.svg#fontawesome") format("svg");
 }
 
-.fab, .layout .avatar__social--discord, .layout .avatar__social--twitter, .layout .avatar__social--github, .layout .button__icon--discord, .layout .button__icon--stack, .layout .button__icon--reddit, .layout .button__icon--keybase, .layout .button__icon--linkedin, .layout .button__icon--twitter, .layout .button__icon--github, .layout .button__icon--brand, .layout .box--twitter .box__header-icon, .layout .box--github .box__header-icon, .layout .box--discord .box__header-icon, .link--twitch::before, .link--github::before, .link--twitter::before {
+.fab, .layout .avatar__social--discord, .layout .avatar__social--twitter, .layout .avatar__social--github, .layout .button__icon--discord, .layout .button__icon--stack, .layout .button__icon--reddit, .layout .button__icon--keybase, .layout .button__icon--linkedin, .layout .button__icon--facebook, .layout .button__icon--twitter, .layout .button__icon--github, .layout .button__icon--brand, .layout .box--twitter .box__header-icon, .layout .box--github .box__header-icon, .layout .box--discord .box__header-icon, .link--twitch::before, .link--github::before, .link--facebook::before, .link--twitter::before {
   font-family: "Font Awesome 5 Brands";
 }
 
@@ -17507,6 +17513,32 @@ p {
 }
 
 .link--twitter::before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  margin-right: 0.5rem;
+}
+
+.link--facebook {
+  color: #fff;
+  text-decoration: none;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background-color: #3b5998;
+  page-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+}
+
+.link--facebook::before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -18696,6 +18728,24 @@ p {
   flex: none;
 }
 
+.layout .article .share {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  padding-left: 0.5rem;
+  border-top-width: 1px;
+  margin-top: 1rem;
+}
+
+.layout .article .share__text {
+  color: #4299e1;
+  flex-shrink: 0;
+  padding-right: 1rem;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+}
+
 .layout .category__badge {
   border-radius: 9999px;
   text-transform: uppercase;
@@ -19151,6 +19201,17 @@ p {
   background-color: #1daeff;
 }
 
+.layout .button--themed-facebook {
+  color: #fff;
+  background-color: #3b5998;
+  border-color: #3b4c8b;
+}
+
+.layout .button--themed-facebook:hover {
+  color: #fff;
+  background-color: #3b72b1;
+}
+
 .layout .button__icon {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19170,6 +19231,10 @@ p {
 
 .layout .button__icon--twitter {
   color: #1da1f2;
+}
+
+.layout .button__icon--facebook {
+  color: #3b5998;
 }
 
 .layout .button__icon--linkedin {
@@ -19198,6 +19263,10 @@ p {
   background-image: url("/images/google-logo.svg");
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.layout .button__icon--plain {
+  color: #fff;
 }
 
 .layout .button--disabled {

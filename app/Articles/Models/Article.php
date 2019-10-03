@@ -12,6 +12,7 @@ use Ollieread\Articles\Support\Markdown;
 use Ollieread\Core\Models\Tag;
 use Ollieread\Core\Models\Topic;
 use Ollieread\Core\Models\Version;
+use Ollieread\Core\Services\Ids;
 
 /**
  * Class Article
@@ -35,6 +36,12 @@ use Ollieread\Core\Models\Version;
  *
  * @property \Ollieread\Articles\Models\Article  $parent
  * @property \Ollieread\Articles\Models\Category $category
+ *
+ * @property string                              $encoded_id
+ * @property string                              $keywords
+ * @property string                              $contented_parsed
+ * @property ArticleMetadata                     $metadata
+ * @property string                              $reading_time
  *
  * @package Ollieread\Articles\Models
  */
@@ -101,6 +108,11 @@ class Article extends Model
         $minutes = ceil($word / 200);
 
         return $minutes . ' minute' . ($minutes > 1 ? 's' : '');
+    }
+
+    public function getEncodedIdAttribute(): string
+    {
+        return Ids::encodePosts($this->getKey());
     }
 
     public function parent(): BelongsTo

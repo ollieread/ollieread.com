@@ -28,7 +28,7 @@ class ArticleObserver
      */
     public function created(Article $article): void
     {
-        Redirects::create('/p/' . Ids::encodePosts($article->id), route('articles:article', $article->slug));
+        Redirects::create('/p/' . $article->encoded_id, route('articles:article', $article->slug));
 
         $this->feeds->invalidateRss();
         $this->feeds->invalidateSitemap();

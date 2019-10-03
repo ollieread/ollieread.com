@@ -112,6 +112,17 @@
             }
         }
 
+        &-facebook {
+            @apply text-white;
+            background-color : #3b5998;
+            border-color     : #3b4c8b;
+
+            &:hover {
+                @apply text-white;
+                background-color : #3b72b1;
+            }
+        }
+
         &-google {
         }
     }
@@ -135,6 +146,12 @@
             @extend .fab;
             @extend .fa-twitter;
             color : #1da1f2;
+        }
+
+        &--facebook {
+            @extend .fab;
+            @extend .fa-facebook-f;
+            color : #3b5998;
         }
 
         &--linkedin {
@@ -173,6 +190,10 @@
             background-image    : url('/images/google-logo.svg');
             background-repeat   : no-repeat;
             background-position : center;
+        }
+
+        &--plain {
+            @apply text-white;
         }
     }
 

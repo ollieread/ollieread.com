@@ -37,6 +37,8 @@
                 {!! $article->content_parsed !!}
             @endif
         </div>
+
+        @include('articles.partials.social')
     </main>
     @if (($article->tags && $article->tags->isNotEmpty()) || ($article->versions && $article->versions->isNotEmpty()) || ($article->topics && $article->topics->isNotEmpty()))
         <footer class="box__footer box__footer--secondary">
@@ -69,16 +71,16 @@
                 </div>
             @endif
 
-                {{--@if (! $excerpt)
-                    @if ($article->tags && $article->tags->isNotEmpty())
-                        @foreach($article->tags as $tag)
-                            <a href="#" class="tag__badge">
-                                <i class="tag__badge-icon"></i>
-                                {{ $tag->name }}
-                            </a>
-                        @endforeach
-                    @endif
-                @endif--}}
+            {{--@if (! $excerpt)
+                @if ($article->tags && $article->tags->isNotEmpty())
+                    @foreach($article->tags as $tag)
+                        <a href="#" class="tag__badge">
+                            <i class="tag__badge-icon"></i>
+                            {{ $tag->name }}
+                        </a>
+                    @endforeach
+                @endif
+            @endif--}}
 
         </footer>
     @endif
