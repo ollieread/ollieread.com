@@ -4,7 +4,7 @@ namespace Ollieread\Admin\Actions\Versions;
 
 use Illuminate\Http\Request;
 use Ollieread\Articles\Operations\GetVersion;
-use Ollieread\Articles\Operations\UpdateArticle;
+use Ollieread\Articles\Operations\UpdateVersion;
 use Ollieread\Core\Support\Action;
 use Ollieread\Core\Support\Alerts;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -39,7 +39,7 @@ class Edit extends Action
                 'release_date',
             ]);
 
-            if ((new UpdateArticle)->setArticle($version)->setInput($input)->perform()) {
+            if ((new UpdateVersion())->setVersion($version)->setInput($input)->perform()) {
                 Alerts::success(trans('admin.edit.success', ['entity' => trans_choice('entities.version', 1)]), 'admin.versions');
 
                 return $this->response()->redirectToRoute('admin:version.index');
