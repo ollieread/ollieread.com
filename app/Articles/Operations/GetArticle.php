@@ -47,7 +47,7 @@ class GetArticle
             if (count($this->statuses) === 1) {
                 $query->where('status', '=', $this->statuses[0]);
             } else {
-                $query->where(static function (Builder $query) {
+                $query->where(function (Builder $query) {
                     foreach ($this->statuses as $status) {
                         $query->orWhere('status', '=', $status);
                     }

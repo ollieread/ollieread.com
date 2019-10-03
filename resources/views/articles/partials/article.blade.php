@@ -1,4 +1,4 @@
-<article class="box article">
+<article class="box article {{ ! (($article->tags && $article->tags->isNotEmpty()) || ($article->versions && $article->versions->isNotEmpty()) || ($article->topics && $article->topics->isNotEmpty())) ? 'box--footerless' : '' }}">
 
     <header class="box__header">
 
@@ -19,7 +19,7 @@
                 {{ $article->series->name }}
             </a>
         @endif
-        <time class="article__date">{{ $article->post_at->format('jS F Y') }}</time>
+        <time class="article__date">{{ $article->post_at ? $article->post_at->format('jS F Y') : '12th Never 9999' }}</time>
         {{--<time class="article__reading-time">Read Time: {{ $article->reading_time }}</time>--}}
     </header>
 
