@@ -44,7 +44,7 @@ class Article extends Action
         $operation = (new GetArticle)
             ->setSlug($articleSlug ?? $slug);
 
-        if ($user && $user->can(Permissions::ADMIN_ARTICLES)) {
+        if ($user && $user->can('ADMIN_ARTICLES')) {
             $statuses = [Status::DRAFT, Status::PRIVATE, Status::REVIEWING];
         } else {
             $operation->setActiveOnly(true);

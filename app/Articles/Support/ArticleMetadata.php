@@ -55,7 +55,7 @@ class ArticleMetadata implements Arrayable
             ],
             'headline'         => $this->article->heading ?? $this->article->name,
             'url'              => route('articles:article', $this->article->slug, true),
-            'datePublished'    => $this->article->post_at->toW3cString(),
+            'datePublished'    => $this->article->post_at ? $this->article->post_at->toW3cString() : null,
             'dateModified'     => $this->article->updated_at->toW3cString(),
             'keywords'         => str_replace(',', '', $this->article->keywords),
             'description'      => $this->article->excerpt,
