@@ -8,6 +8,7 @@ use Ollieread\Articles\Operations\GetArticle;
 use Ollieread\Articles\Operations\GetArticleComment;
 use Ollieread\Articles\Transformers\CommentTransformer;
 use Ollieread\Core\Support\Action;
+use Ollieread\Core\Support\Status;
 use Ollieread\Users\Models\User;
 
 class Create extends Action
@@ -16,7 +17,7 @@ class Create extends Action
     {
         $article = (new GetArticle)
             ->setSlug($articleSlug)
-            ->setIncludePrivate(false)
+            ->setStatuses(Status::PUBLIC)
             ->setActiveOnly(true)
             ->perform();
 
