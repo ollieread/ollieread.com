@@ -5,6 +5,7 @@ namespace Ollieread\Articles\Support;
 use League\CommonMark\Block\Element as Blocks;
 use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\Environment;
+use League\CommonMark\Extras\CommonMarkExtrasExtension;
 use League\CommonMark\Inline\Element as Inlines;
 use Ollieread\Articles\Support\Markdown\Comments;
 
@@ -23,6 +24,7 @@ class Markdown
     public static function parse(string $comment): string
     {
         $environment = Environment::createCommonMarkEnvironment()
+            ->addExtension(new CommonMarkExtrasExtension)
             ->addBlockParser(new Markdown\Parsers\HeadingTOCParser, 100)
             ->addBlockParser(new Markdown\Parsers\TOCParser)
             ->addBlockParser(new Markdown\Parsers\NoticeParser)
