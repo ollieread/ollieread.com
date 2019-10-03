@@ -234,23 +234,28 @@
         color: #718096 !important;
 
         &--2 {
-            @apply pl-3 text-base;
+            @apply text-base;
+            padding-left: 2rem;
         }
 
         &--3 {
-            @apply pl-6 text-sm;
+            @apply text-sm;
+            padding-left: 3rem;
         }
 
         &--4 {
-            @apply pl-8 text-sm;
+            @apply text-sm;
+            padding-left: 4rem;
         }
 
         &--5 {
-            @apply pl-8 text-sm;
+            @apply text-sm;
+            padding-left: 5rem;
         }
 
         &--6 {
-            @apply pl-8 text-sm;
+            @apply text-sm;
+            padding-left: 6rem;
         }
     }
 }
