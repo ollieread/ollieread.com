@@ -38,7 +38,9 @@
             @endif
         </div>
 
-        @include('articles.partials.social')
+        @if (! $excerpt)
+            @include('articles.partials.social')
+        @endif
     </main>
     @if (($article->tags && $article->tags->isNotEmpty()) || ($article->versions && $article->versions->isNotEmpty()) || ($article->topics && $article->topics->isNotEmpty()))
         <footer class="box__footer box__footer--secondary">
