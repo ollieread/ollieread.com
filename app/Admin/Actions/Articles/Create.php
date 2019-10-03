@@ -31,6 +31,7 @@ class Create extends Action
             'heading',
             'seo_description',
             'slug',
+            'image',
             'excerpt',
             'content',
             'active',
@@ -44,6 +45,7 @@ class Create extends Action
             'versions',
         ]);
 
+        $input['image']   = $request->file('image');
         $input['post_at'] = $input['post_at'] ? Carbon::createFromFormat('Y-m-d\TH:i', $input['post_at']) : null;
         $input['active'] = (bool) $input['active'];
 

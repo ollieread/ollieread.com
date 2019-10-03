@@ -61,6 +61,7 @@ class Edit extends Action
                 'versions',
             ]);
 
+            $input['image']   = $request->file('image');
             $input['post_at'] = $input['post_at'] ? Carbon::createFromFormat('Y-m-d\TH:i', $input['post_at']) : null;
             $input['slug']    = $input['slug'] ?? Str::slug($input['name']);
             $input['active']  = (bool) $input['active'];

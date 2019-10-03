@@ -24,7 +24,13 @@
     </header>
 
     @if ($article->image)
-        <img src="{{ $article->image }}" alt="" class="box__image">
+        <picture>
+            <img
+                src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url('images/banner_' . $article->image) }}"
+                srcset="{{ \Illuminate\Support\Facades\Storage::disk('public')->url('images/banner_' . $article->image) }},
+{{ \Illuminate\Support\Facades\Storage::disk('public')->url('images/banner_2x_' . $article->image) }} 2x"
+                class="box__image">
+        </picture>
     @endif
 
     <main class="box__body">

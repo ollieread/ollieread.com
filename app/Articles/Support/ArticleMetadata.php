@@ -3,6 +3,7 @@
 namespace Ollieread\Articles\Support;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Facades\Storage;
 use Ollieread\Articles\Models\Article;
 
 class ArticleMetadata implements Arrayable
@@ -64,7 +65,9 @@ class ArticleMetadata implements Arrayable
             ],
             'image'            => [
                 '@type' => 'ImageObject',
-                'url'   => $this->article->image ?? asset('images/small-me-icon.png', true),
+                'url'   => $this->article->image ?
+                    Storage::disk('public')->url('images/banner_' . $this->article->image) :
+                    asset('images/small-me-icon.png', true),
             ],
         ];
 
