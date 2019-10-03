@@ -1,12 +1,12 @@
 {
-    "name": "laravel/laravel",
+    "name": "ollieread/ollieread.com",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "The ollieread.com website.",
     "keywords": [
-        "framework",
-        "laravel"
+        "ollieread"
     ],
     "license": "MIT",
+    "version": "1.5.0",
     "require": {
         "php": "^7.3",
         "ext-json": "*",
@@ -73,10 +73,10 @@
             "@php artisan key:generate --ansi"
         ]
     },
-    "repositories": {
-        "nova": {
-            "type": "composer",
-            "url": "https://nova.laravel.com"
+    "authors": [
+        {
+            "name": "Ollie Read",
+            "email": "me@ollieread.com"
         }
-    }
+    ]
 }
