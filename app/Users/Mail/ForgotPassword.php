@@ -3,7 +3,6 @@
 namespace Ollieread\Users\Mail;
 
 use Illuminate\Mail\Mailable;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
 use Ollieread\Users\Models\User;
 
@@ -39,14 +38,14 @@ class ForgotPassword extends Mailable
     public function build(): self
     {
         return $this->markdown('mail.users.password.forgot')
-                    ->to($this->user->email, $this->user->name ?? $this->user->username)
-                    ->subject(trans('mail.password.forgot.subject'))
-                    ->with([
-                        'user' => $this->user,
-                        'link' => URL::signedRoute('users:password.reset.create', [
-                            'token' => $this->token,
-                            'email' => $this->user->email,
-                        ]),
-                    ]);
+            ->to($this->user->email, $this->user->name ?? $this->user->username)
+            ->subject(trans('mail.password.forgot.subject'))
+            ->with([
+                'user' => $this->user,
+                'link' => URL::signedRoute('users:password.reset.create', [
+                    'token' => $this->token,
+                    'email' => $this->user->email,
+                ]),
+            ]);
     }
 }

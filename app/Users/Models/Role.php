@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Role extends Model
 {
-    protected $table = 'roles';
+    protected $table    = 'roles';
 
     protected $fillable = [
         'name',
@@ -18,7 +18,7 @@ class Role extends Model
         'permissions',
     ];
 
-    protected $casts = [
+    protected $casts    = [
         'active' => 'bool',
         'level'  => 'int',
     ];

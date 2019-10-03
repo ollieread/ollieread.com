@@ -46,19 +46,6 @@ class UserRoutes implements Routes
                 // Change password
                 $router->get('/password')->name('password.edit')->uses(Actions\Account\Password::class . '@edit');
                 $router->post('/password')->name('password.update')->uses(Actions\Account\Password::class . '@update');
-
-                // API controls
-                $router->get('/api')->name('api.edit')->uses(Actions\Account\API::class . '@edit');
-                $router->post('/api/view')->name('api.view')->uses(Actions\Account\API::class . '@view');
-                $router->post('/api/reset')->name('api.reset')->uses(Actions\Account\API::class . '@reset');
-
-                // Billing controls
-                $router->get('/billing')->name('billing.edit')->uses(Actions\Account\Billing::class . '@edit');
-                $router->post('/billing')->name('billing.update')->uses(Actions\Account\Billing::class . '@update');
-
-                // User purchases
-                $router->get('/purchases')->name('purchase.index')->uses(Actions\Account\Purchases::class . '@index');
-                $router->get('/purchase/{purchase}')->name('purchase.view')->uses(Actions\Account\Purchases::class . '@view');
             });
         });
     }

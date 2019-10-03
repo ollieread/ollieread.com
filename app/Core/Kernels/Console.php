@@ -20,9 +20,9 @@ class Console extends ConsoleKernel
         if (! $this->app->environment('production')) {
             $this->command('translation:missing', function () {
                 $files        = Finder::create()
-                                      ->files()
-                                      ->name('translations-*.log')
-                                      ->in(storage_path());
+                    ->files()
+                    ->name('translations-*.log')
+                    ->in(storage_path());
                 $translations = [];
 
                 foreach ($files as $file) {

@@ -50,12 +50,14 @@ class SignIn extends Action
                     Alerts::error(trans('users.sign-in.verification'), 'sign-in');
                 } else {
                     $this->auth->login($user);
-                    return $this->response()->redirectToRoute('site:home');
+
+                    return $this->response()->redirectToIntended($this->url()->route('site:home'));
                 }
             }
         }
 
         Alerts::error(trans('users.sign-in.failure'), 'sign-in');
+
         return $this->response()->redirectToRoute('users:sign-in.create');
     }
 }

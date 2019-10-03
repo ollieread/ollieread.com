@@ -8,29 +8,18 @@ use Illuminate\Support\Collection;
 use Ollieread\Articles\Models\Article;
 use Ollieread\Articles\Models\Category;
 use Ollieread\Articles\Models\Series;
-use Ollieread\Core\Support\Status;
 
 class GetArticles
 {
     /**
      * @var bool
      */
-    private $activeOnly = true;
+    private $activeOnly = false;
 
     /**
-     * @var bool
+     * @var array<int>
      */
-    private $includePrivate = false;
-
-    /**
-     * @var bool
-     */
-    private $includeDraft = false;
-
-    /**
-     * @var bool
-     */
-    private $includeReviewing = false;
+    private $statuses = [];
 
     /**
      * @var null|int
@@ -72,34 +61,53 @@ class GetArticles
      */
     private $paginate = false;
 
+    /**
+     * @var bool
+     */
+    private $liveOnly;
+
+    /**
+     * @param bool $liveOnly
+     *
+     * @return $this
+     */
+    public function setLiveOnly(bool $liveOnly): self
+    {
+        $this->liveOnly = $liveOnly;
+
+        return $this;
+    }
+
+    /**
+     * @param array<int> $statuses
+     *
+     * @return $this
+     */
+    public function setStatuses(int ...$statuses): self
+    {
+        $this->statuses = $statuses;
+
+        return $this;
+    }
+
     public function perform()
     {
-        $query = Article::query()->where('post_at', '<', Carbon::now());
+        $query = Article::query();
 
-        if (! $this->activeOnly) {
+        if ($this->liveOnly) {
+            $query->where('post_at', '<', Carbon::now());
+        }
+
+        if ($this->activeOnly) {
             $query->where('active', '=', 1);
         }
 
-        $statuses = [];
-
-        if (! $this->includePrivate) {
-            $statuses[] = Status::PUBLIC;
-        }
-
-        if ($this->includeDraft) {
-            $statuses[] = Status::DRAFT;
-        }
-
-        if ($this->includeReviewing) {
-            $statuses[] = Status::REVIEWING;
-        }
-
-        if ($statuses) {
-            if (count($statuses) === 1) {
-                $query->where('status', '=', $statuses[0]);
+        if ($this->statuses) {
+            if (count($this->statuses) === 1) {
+                $query->where('status', '=', $this->statuses[0]);
             } else {
-                $query->where(static function (Builder $query) use ($statuses) {
-                    foreach ($statuses as $status) {
+                $query->where(static function (Builder $query) {
+                    foreach ($this->statuses as $status) {
                         $query->orWhere('status', '=', $status);
                     }
                 });
@@ -179,6 +187,7 @@ class GetArticles
     public function setActiveOnly(bool $activeOnly): self
     {
         $this->activeOnly = $activeOnly;
+
         return $this;
     }
 
@@ -190,6 +199,7 @@ class GetArticles
     public function setCategories(?Collection $categories): self
     {
         $this->categories = $categories;
+
         return $this;
     }
 
@@ -201,39 +211,7 @@ class GetArticles
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
-        return $this;
-    }
 
-    /**
-     * @param bool $includeDraft
-     *
-     * @return $this
-     */
-    public function setIncludeDraft(bool $includeDraft): self
-    {
-        $this->includeDraft = $includeDraft;
-        return $this;
-    }
-
-    /**
-     * @param bool $includePrivate
-     *
-     * @return $this
-     */
-    public function setIncludePrivate(bool $includePrivate): self
-    {
-        $this->includePrivate = $includePrivate;
-        return $this;
-    }
-
-    /**
-     * @param bool $includeReviewing
-     *
-     * @return $this
-     */
-    public function setIncludeReviewing(bool $includeReviewing): self
-    {
-        $this->includeReviewing = $includeReviewing;
         return $this;
     }
 
@@ -245,6 +223,7 @@ class GetArticles
     public function setLimit(?int $limit): self
     {
         $this->limit = $limit;
+
         return $this;
     }
 
@@ -256,6 +235,7 @@ class GetArticles
     public function setPaginate(bool $paginate): self
     {
         $this->paginate = $paginate;
+
         return $this;
     }
 
@@ -267,6 +247,7 @@ class GetArticles
     public function setSeries(?Series $series): self
     {
         $this->series = $series;
+
         return $this;
     }
 
@@ -278,6 +259,7 @@ class GetArticles
     public function setTags(?Collection $tags): self
     {
         $this->tags = $tags;
+
         return $this;
     }
 
@@ -289,6 +271,7 @@ class GetArticles
     public function setTopics(?Collection $topics): self
     {
         $this->topics = $topics;
+
         return $this;
     }
 
@@ -300,6 +283,7 @@ class GetArticles
     public function setVersions(?Collection $versions): self
     {
         $this->versions = $versions;
+
         return $this;
     }
 }

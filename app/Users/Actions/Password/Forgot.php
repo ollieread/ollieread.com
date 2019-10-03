@@ -42,25 +42,30 @@ class Forgot extends Action
 
         if (! $user) {
             Alerts::error(trans('users.password.forgot.unknown'), 'password');
+
             return $this->response()->redirectToRoute('users:password.forgot.create');
         }
 
         if (! $user->active) {
             Alerts::error(trans('users.password.forgot.inactive'), 'password');
+
             return $this->response()->redirectToRoute('users:password.forgot.create');
         }
 
         if (! $user->verified) {
             Alerts::error(trans('users.password.forgot.unverified'), 'password');
+
             return $this->response()->redirectToRoute('users:password.forgot.create');
         }
 
         if ($this->password->sendResetLink($input) === PasswordBroker::RESET_LINK_SENT) {
             Alerts::success(trans('users.password.forgot.success'), 'password');
+
             return $this->response()->redirectToRoute('users:password.forgot.create');
         }
 
         Alerts::error(trans('error.unexpected'), 'password');
+
         return $this->response()->redirectToRoute('users:password.forgot.create');
     }
 }

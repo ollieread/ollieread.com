@@ -19,8 +19,8 @@ class DeleteUserSocial
     public function perform(): bool
     {
         return $this->user->social()
-                          ->where('provider', '=', $this->provider)
-                          ->delete() > 0;
+                ->where('provider', '=', $this->provider)
+                ->delete() > 0;
     }
 
     /**
@@ -31,6 +31,7 @@ class DeleteUserSocial
     public function setProvider(string $provider): self
     {
         $this->provider = $provider;
+
         return $this;
     }
 
@@ -42,6 +43,7 @@ class DeleteUserSocial
     public function setUser(User $user): self
     {
         $this->user = $user;
+
         return $this;
     }
 }

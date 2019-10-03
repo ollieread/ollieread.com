@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Social extends Model
 {
-    protected $table = 'user_social';
+    protected $table    = 'user_social';
 
     protected $fillable = [
         'provider',
@@ -40,12 +40,12 @@ class Social extends Model
         'use_avatar',
     ];
 
-    protected $casts = [
+    protected $casts    = [
         'metadata'   => 'json',
         'use_avatar' => 'bool',
     ];
 
-    protected $dates = [
+    protected $dates    = [
         'expires_at',
     ];
 

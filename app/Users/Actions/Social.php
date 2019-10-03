@@ -45,6 +45,7 @@ class Social extends Action
             $socialUser = $this->socialite->driver($provider)->user();
         } catch (Exception $exception) {
             Alerts::error(trans('errors.unexpected'));
+
             return $this->response()->redirectToRoute('users:register.create');
         }
 
@@ -68,6 +69,7 @@ class Social extends Action
                     if (! (new SaveUserSocial)->setUser($user)->setProvider($provider)->setSocialUser($socialUser)->perform()) {
                         // If we failed we want to error
                         Alerts::error(trans('error.unexpected'));
+
                         return $this->response()->redirectToRoute('users:sign-in.create');
                     }
                 } else {
@@ -91,17 +93,20 @@ class Social extends Action
                 // Now we want to update that social profile with the updated information, avatar etc
                 if (! $social || ! (new SaveUserSocial)->setSocial($social)->setUser($user)->setProvider($provider)->setSocialUser($socialUser)->perform()) {
                     Alerts::error(trans('error.unexpected'));
+
                     return $this->response()->redirectToRoute('users:sign-in.create');
                 }
             }
 
             if ($user) {
                 $this->auth->login($user);
+
                 return $this->response()->redirectToIntended($this->url()->route('site:home'));
             }
         }
 
         Alerts::error(trans('errors.unexpected'));
+
         return $this->response()->redirectToRoute('users:sign-in.create');
     }
 }

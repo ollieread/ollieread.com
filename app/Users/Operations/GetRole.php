@@ -19,6 +19,7 @@ class GetRole
     public function setIdent(string $ident): self
     {
         $this->ident = $ident;
+
         return $this;
     }
 

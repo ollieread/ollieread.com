@@ -15,7 +15,7 @@ use Ollieread\Users\Models\User;
 
 class CoreServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $blade = $this->app->make(BladeCompiler::class);
 
@@ -27,7 +27,7 @@ class CoreServiceProvider extends ServiceProvider
         $view->composer('partials.honeypot', HoneypotComposer::class);
     }
 
-    public function register()
+    public function register(): void
     {
         $routes = new Routes;
         $routes->addWebRoutes(CoreRoutes::class);
@@ -42,9 +42,9 @@ class CoreServiceProvider extends ServiceProvider
         });
 
         $this->app->when(Feeds::class)
-                  ->needs(FilesystemManager::class)
-                  ->give(function () {
-                      return $this->app->make(FilesystemManager::class);
-                  });
+            ->needs(FilesystemManager::class)
+            ->give(function () {
+                return $this->app->make(FilesystemManager::class);
+            });
     }
 }

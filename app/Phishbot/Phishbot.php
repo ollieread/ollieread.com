@@ -72,6 +72,12 @@ class Phishbot
         return $this->commands;
     }
 
+    public function start(): void
+    {
+        $this->botman->listen();
+        $this->loop->run();
+    }
+
     private function handleCommand(BotMan $botMan, Command $command, array $arguments)
     {
         /**
@@ -94,11 +100,5 @@ class Phishbot
         }
 
         $command->handle($message, $channel, $arguments);
-    }
-
-    public function start(): void
-    {
-        $this->botman->listen();
-        $this->loop->run();
     }
 }

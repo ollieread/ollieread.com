@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Ollieread\Articles\Operations\GetArticles;
 use Ollieread\Articles\Operations\GetCategories;
-use Ollieread\Articles\Operations\GetOrCreateTagsByName;
+use Ollieread\Articles\Operations\GetOrCreateTags;
 use Ollieread\Articles\Operations\GetTopics;
 use Ollieread\Articles\Operations\GetVersions;
 use Ollieread\Core\Support\Action;
@@ -93,7 +93,7 @@ class Filter extends Action
         }
 
         if (isset($filterParsed['tags'])) {
-            $tags = (new GetOrCreateTagsByName)->setNames($filterParsed['tags'])->perform();
+            $tags = (new GetOrCreateTags)->setNames($filterParsed['tags'])->perform();
         }
 
         $articles = (new GetArticles)

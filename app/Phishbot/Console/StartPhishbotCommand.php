@@ -9,7 +9,7 @@ use Ollieread\Phishbot\Phishbot;
 
 class StartPhishbotCommand extends Command
 {
-    protected $signature = 'phishbot:start';
+    protected $signature   = 'phishbot:start';
 
     protected $description = 'Starts the phishbot';
 

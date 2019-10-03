@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-    protected $table = 'accounts';
+    protected $table    = 'accounts';
 
     protected $fillable = [
         'stripe_id',
@@ -17,6 +17,6 @@ class Account extends Model
     public function users()
     {
         return $this->belongsToMany(User::class, 'account_users', 'account_id', 'user_id')
-                    ->withPivot('permissions');
+            ->withPivot('permissions');
     }
 }

@@ -19,6 +19,7 @@ class MultiTable extends Expression
     public function addTable($table)
     {
         $this->tables[] = $table;
+
         return $this;
     }
 
@@ -27,7 +28,7 @@ class MultiTable extends Expression
         $value = '';
 
         foreach ($this->tables as $table) {
-            $value .= (string)$table . ', ';
+            $value .= (string) $table . ', ';
         }
 
         return substr($value, 0, -2);

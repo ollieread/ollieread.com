@@ -78,6 +78,7 @@ class GetSeriesBySlug
     public function setActiveOnly(bool $activeOnly): self
     {
         $this->activeOnly = $activeOnly;
+
         return $this;
     }
 
@@ -89,6 +90,7 @@ class GetSeriesBySlug
     public function setIncludeDraft(bool $includeDraft): self
     {
         $this->includeDraft = $includeDraft;
+
         return $this;
     }
 
@@ -100,6 +102,7 @@ class GetSeriesBySlug
     public function setIncludePrivate(bool $includePrivate): self
     {
         $this->includePrivate = $includePrivate;
+
         return $this;
     }
 
@@ -111,6 +114,7 @@ class GetSeriesBySlug
     public function setIncludeReviewing(bool $includeReviewing): self
     {
         $this->includeReviewing = $includeReviewing;
+
         return $this;
     }
 
@@ -122,6 +126,7 @@ class GetSeriesBySlug
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
         return $this;
     }
 }

@@ -17,8 +17,8 @@ class Redirects
     public static function alreadyPresent(string $from, string $to): bool
     {
         return Redirect::query()
-                       ->where('from', '=', $from)
-                       ->count() === 0;
+                ->where('from', '=', $from)
+                ->count() === 0;
     }
 
     public static function updateExisting(string $from, string $to): void

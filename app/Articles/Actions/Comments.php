@@ -6,6 +6,7 @@ use Ollieread\Articles\Operations\GetArticle;
 use Ollieread\Articles\Operations\GetArticleComments;
 use Ollieread\Articles\Transformers\CommentTransformer;
 use Ollieread\Core\Support\Action;
+use Ollieread\Core\Support\Status;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Comments extends Action
@@ -15,7 +16,7 @@ class Comments extends Action
         $article = (new GetArticle)
             ->setSlug($slug)
             ->setActiveOnly(true)
-            ->setIncludePrivate(false)
+            ->setStatuses(Status::PUBLIC)
             ->perform();
 
         if ($article) {

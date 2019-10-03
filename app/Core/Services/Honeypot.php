@@ -83,6 +83,7 @@ class Honeypot
         }
 
         $this->session->forget('honeypot');
+
         return true;
     }
 }

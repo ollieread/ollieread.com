@@ -1,5 +1,7 @@
 <?php
 
+use Ollieread\Users\AdminServiceProvider;
+
 return [
 
     /*
@@ -14,6 +16,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+
+    'domain' => env('APP_DOMAIN', 'ollieread.test'),
 
     /*
     |--------------------------------------------------------------------------
@@ -170,6 +174,7 @@ return [
         Ollieread\Courses\CourseServiceProvider::class,
         Ollieread\Packages\PackageServiceProvider::class,
         Ollieread\Users\UserServiceProvider::class,
+        Ollieread\Admin\AdminServiceProvider::class,
         //Ollieread\Phishbot\PhishbotServiceProvider::class,
 
         /*

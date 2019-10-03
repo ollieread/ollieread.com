@@ -11,6 +11,38 @@ use Illuminate\Validation\ValidationException;
 abstract class Validator
 {
     /**
+     * @var null|\Illuminate\Database\Eloquent\Model
+     */
+    protected $model;
+
+    /**
+     * @var array
+     */
+    protected $data;
+
+    /**
+     * @var array
+     */
+    protected $extra = [];
+
+    /**
+     * @var \Illuminate\Contracts\Validation\Validator
+     */
+    protected $validator;
+
+    /**
+     * BaseValidator constructor.
+     *
+     * @param array                                    $data
+     * @param \Illuminate\Database\Eloquent\Model|null $entity
+     */
+    private function __construct(array $data = [], ?Model $entity = null)
+    {
+        $this->data  = $data;
+        $this->model = $entity;
+    }
+
+    /**
      * @param array                                    $data
      * @param \Illuminate\Database\Eloquent\Model|null $entity
      * @param array                                    $extra
@@ -27,32 +59,13 @@ abstract class Validator
     }
 
     /**
-     * @var null|\Illuminate\Database\Eloquent\Model
+     * @return array
      */
-    protected $model;
-    /**
-     * @var array
-     */
-    protected $data;
-    /**
-     * @var array
-     */
-    protected $extra = [];
-    /**
-     * @var \Illuminate\Contracts\Validation\Validator
-     */
-    protected $validator;
+    abstract public function rules(): array;
 
-    /**
-     * BaseValidator constructor.
-     *
-     * @param array                                    $data
-     * @param \Illuminate\Database\Eloquent\Model|null $entity
-     */
-    private function __construct(array $data = [], ?Model $entity = null)
+    public function setExtra(array $extra): void
     {
-        $this->data  = $data;
-        $this->model = $entity;
+        $this->extra = $extra;
     }
 
     /**
@@ -117,16 +130,6 @@ abstract class Validator
 
     protected function preValidation(): void
     {
-    }
-
-    /**
-     * @return array
-     */
-    abstract public function rules(): array;
-
-    public function setExtra(array $extra): void
-    {
-        $this->extra = $extra;
     }
 
     /**
