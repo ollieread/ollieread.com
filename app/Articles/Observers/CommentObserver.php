@@ -32,7 +32,7 @@ class CommentObserver
                 // ...even if for some reason I'm inactive or unverified
                 ->setVerifiedOnly(false)
                 ->perform()
-                ->notify(new CommentResponseOllie);
+                ->notify(new CommentResponseOllie($comment));
         }
     }
 }
