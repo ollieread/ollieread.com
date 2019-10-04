@@ -124,8 +124,8 @@
 
         &-bump {
             @apply absolute;
-            top   : -.8rem;
             right : .5rem;
+            top   : -.8rem;
         }
 
         &-controls {
@@ -133,9 +133,9 @@
         }
 
         &:after {
+            clear   : both !important;
             content : "" !important;
             display : table !important;
-            clear   : both !important;
         }
     }
 
@@ -282,12 +282,12 @@
     &--google {
         .box__header {
             &-icon {
-                width               : 40px;
-                height              : 32px;
                 background-image    : url('/images/google-logo.svg');
-                background-repeat   : no-repeat;
                 background-position : center;
+                background-repeat   : no-repeat;
                 background-size     : 32px 32px;
+                height              : 32px;
+                width               : 40px;
             }
         }
     }

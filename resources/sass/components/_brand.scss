@@ -1,24 +1,24 @@
 .brand {
-  @apply p-4 flex flex-col items-center content-center justify-center bg-blue-700;
+    @apply p-4 flex flex-col items-center content-center justify-center bg-blue-700;
 
-  @media (min-width : 901px) {
-    @apply hidden;
-  }
+    @media (min-width : 901px) {
+        @apply hidden;
+    }
 
-  &__heading {
-    @apply text-white text-3xl;
-  }
+    &__heading {
+        @apply text-white text-3xl;
+    }
 
-  &__subheading {
-    @apply text-base text-blue-200;
-  }
+    &__subheading {
+        @apply text-base text-blue-200;
+    }
 
-  &__menu-link {
-    @apply absolute bg-blue-600 text-white text-center rounded-full flex justify-center content-center items-center;
-    cursor: pointer;
-    width: 36px;
-    height: 36px;
-    top: 1rem;
-    right: 1rem;
-  }
+    &__menu-link {
+        @apply absolute bg-blue-600 text-white text-center rounded-full flex justify-center content-center items-center;
+        cursor : pointer;
+        height : 36px;
+        right  : 1rem;
+        top    : 1rem;
+        width  : 36px;
+    }
 }

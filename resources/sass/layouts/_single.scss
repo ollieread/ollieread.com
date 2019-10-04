@@ -1,41 +1,41 @@
 &--single {
-  @apply bg-blue-700;
+    @apply bg-blue-700;
 
-  .container {
-    @apply mx-auto ;
-  }
-
-  .page {
-    justify-content : center !important;
-    margin-left     : 0 !important;
-
-    &__header {
-      @apply mb-6 text-center;
-
-      &-heading {
-        @apply text-white text-4xl border-0;
-      }
-
-      &-subheading {
-        @apply text-blue-200 text-lg;
-      }
+    .container {
+        @apply mx-auto ;
     }
 
-    &__intro {
-      @apply mb-12;
+    .page {
+        justify-content : center !important;
+        margin-left     : 0 !important;
 
-      p {
-        @apply text-center text-white mx-auto leading-loose;
-      }
+        &__header {
+            @apply mb-6 text-center;
+
+            &-heading {
+                @apply text-white text-4xl border-0;
+            }
+
+            &-subheading {
+                @apply text-blue-200 text-lg;
+            }
+        }
+
+        &__intro {
+            @apply mb-12;
+
+            p {
+                @apply text-center text-white mx-auto leading-loose;
+            }
+        }
     }
-  }
 
-  .box {
-    &__header {
-      @apply text-center;
+    .box {
+        &__header {
+            @apply text-center;
 
-      &-title {
-      }
+            &-title {
+            }
+        }
     }
-  }
 }

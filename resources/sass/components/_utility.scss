@@ -1,15 +1,15 @@
 .sr-only {
-    border: 0 !important;
-    clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-    -webkit-clip-path: inset(50%) !important;
-    clip-path: inset(50%) !important; /* 2 */
-    height: 1px !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-    position: absolute !important;
-    width: 1px !important;
-    white-space: nowrap !important; /* 3 */
+    border            : 0 !important;
+    clip              : rect(1px, 1px, 1px, 1px) !important; /* 1 */
+    -webkit-clip-path : inset(50%) !important;
+    clip-path         : inset(50%) !important; /* 2 */
+    height            : 1px !important;
+    margin            : -1px !important;
+    overflow          : hidden !important;
+    padding           : 0 !important;
+    position          : absolute !important;
+    white-space       : nowrap !important; /* 3 */
+    width             : 1px !important;
 }
 
 /*
@@ -23,14 +23,14 @@
 */
 .sr-only-focusable:focus,
 .sr-only-focusable:active {
-    clip: auto !important;
-    -webkit-clip-path: none !important;
-    clip-path: none !important;
-    height: auto !important;
-    margin: auto !important;
-    overflow: visible !important;
-    width: auto !important;
-    white-space: normal !important;
+    clip              : auto !important;
+    -webkit-clip-path : none !important;
+    clip-path         : none !important;
+    height            : auto !important;
+    margin            : auto !important;
+    overflow          : visible !important;
+    white-space       : normal !important;
+    width             : auto !important;
 }
 
 .link {
@@ -44,22 +44,22 @@
             @extend .fa;
             @extend .fa-xs;
             @include fa-icon();
-            content: fa-content($fa-var-external-link);
-            right: -1rem;
-            top: 0;
+            content : fa-content($fa-var-external-link);
+            right   : -1rem;
+            top     : 0;
         }
     }
 
     &--anchor {
         @apply absolute hidden;
-        left: -.3rem;
-        bottom: .15rem;
+        bottom : .15rem;
+        left   : -.3rem;
 
         &:before {
             @extend .fa;
             @include fa-icon();
-            content: fa-content($fa-var-link);
-            font-size: .75rem !important;
+            content   : fa-content($fa-var-link);
+            font-size : .75rem !important;
         }
     }
 
@@ -77,10 +77,10 @@
 
     &--twitter {
         @apply text-white no-underline py-1 px-2 rounded shadow;
-        background-color: #1da1f2;
-        -webkit-column-break-inside: avoid;
-        page-break-inside: avoid;
-        break-inside: avoid;
+        background-color            : #1da1f2;
+        break-inside                : avoid;
+        -webkit-column-break-inside : avoid;
+        page-break-inside           : avoid;
 
         &::before {
             @include fa-icon();
@@ -92,10 +92,10 @@
 
     &--facebook {
         @apply text-white no-underline py-1 px-2 rounded shadow;
-        background-color: #3b5998;
-        -webkit-column-break-inside: avoid;
-        page-break-inside: avoid;
-        break-inside: avoid;
+        background-color            : #3b5998;
+        break-inside                : avoid;
+        -webkit-column-break-inside : avoid;
+        page-break-inside           : avoid;
 
         &::before {
             @include fa-icon();
@@ -107,10 +107,10 @@
 
     &--github {
         @apply text-white no-underline py-1 px-2 rounded shadow;
-        background-color: #333333;
-        -webkit-column-break-inside: avoid;
-        page-break-inside: avoid;
-        break-inside: avoid;
+        background-color            : #333333;
+        break-inside                : avoid;
+        -webkit-column-break-inside : avoid;
+        page-break-inside           : avoid;
 
         &::before {
             @include fa-icon();
@@ -122,10 +122,10 @@
 
     &--twitch {
         @apply text-white no-underline py-1 px-2 rounded shadow;
-        background-color: #6441a5;
-        -webkit-column-break-inside: avoid;
-        page-break-inside: avoid;
-        break-inside: avoid;
+        background-color            : #6441a5;
+        break-inside                : avoid;
+        -webkit-column-break-inside : avoid;
+        page-break-inside           : avoid;
 
         &::before {
             @include fa-icon();
@@ -159,8 +159,8 @@
 
     &--block {
         @apply block;
-        break-inside: avoid !important;
-        white-space: nowrap;
+        break-inside : avoid !important;
+        white-space  : nowrap;
     }
 
     &--right {
@@ -168,7 +168,7 @@
     }
 
     &--number {
-        font-variant: tabular-nums;
+        font-variant : tabular-nums;
     }
 }
 
@@ -177,36 +177,36 @@
 
     &__header {
         @apply block uppercase text-sm tracking-wider font-bold text-gray-500 py-2 w-full border-b pl-4 mb-2 relative;
-        content: 'Table of Contents';
-        cursor: pointer;
+        content : 'Table of Contents';
+        cursor  : pointer;
 
         &:after {
             @apply ml-2 absolute;
             @include fa-icon();
             @extend .fas;
-            font-weight: 900;
-            content: '';
-            right: 1rem;
-            top: .75rem;
+            content     : '';
+            font-weight : 900;
+            right       : 1rem;
+            top         : .75rem;
         }
     }
 
     &__control {
         @apply absolute text-gray-500 inline-block;
-        top: .25rem;
-        left: 11.75rem;
+        left : 11.75rem;
+        top  : .25rem;
 
         &:before {
             @include fa-icon();
             @extend .fas;
-            font-weight: 900;
-            content: '';
+            content     : '';
+            font-weight : 900;
         }
     }
 
     &--expanded {
         & .toc__header:after {
-            content: fa-content($fa-var-caret-up);
+            content : fa-content($fa-var-caret-up);
         }
 
         .toc__body {
@@ -219,7 +219,7 @@
             @apply border-b-0 mb-0;
 
             &:after {
-                content: fa-content($fa-var-caret-down);
+                content : fa-content($fa-var-caret-down);
             }
         }
 
@@ -230,32 +230,32 @@
 
     &__item {
         @apply block text-lg pb-1 pl-4;
-        text-decoration: none !important;
-        color: #718096 !important;
+        color           : #718096 !important;
+        text-decoration : none !important;
 
         &--2 {
             @apply text-base;
-            padding-left: 2rem;
+            padding-left : 2rem;
         }
 
         &--3 {
             @apply text-sm;
-            padding-left: 3rem;
+            padding-left : 3rem;
         }
 
         &--4 {
             @apply text-sm;
-            padding-left: 4rem;
+            padding-left : 4rem;
         }
 
         &--5 {
             @apply text-sm;
-            padding-left: 5rem;
+            padding-left : 5rem;
         }
 
         &--6 {
             @apply text-sm;
-            padding-left: 6rem;
+            padding-left : 6rem;
         }
     }
 }

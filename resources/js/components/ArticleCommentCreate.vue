@@ -14,7 +14,7 @@
                     {{ message }}
                 </div>
                 <textarea rows="10" class="comment__message-input input__field" v-model="comment"
-                          v-show="! succeeded"></textarea>
+                          v-show="! succeeded" ref="response" @input="adjustSize"></textarea>
             </main>
 
             <footer class="comment__message-footer">
@@ -44,6 +44,9 @@
                 type: Object,
                 required: false,
             },
+            responding: {
+                type: Boolean,
+            }
         },
 
         data: () => {
@@ -58,6 +61,20 @@
             canComment() {
                 return this.comment && this.comment.length > 10;
             },
+        },
+
+        watch: {
+            responding(value) {
+                if (value) {
+                    this.$refs.response.focus();
+                    let position = this.$refs.response.getBoundingClientRect();
+                    let bodyPosition = document.body.getBoundingClientRect();
+                    window.scrollTo({
+                        behavior: 'smooth',
+                        top: position.top - bodyPosition.top,
+                    });
+                }
+            }
         },
 
         methods: {
@@ -77,7 +94,7 @@
                                 this.comment = '';
                                 this.$emit('commented', response.data.data);
                                 setTimeout(() => {
-                                    this.message   = '';
+                                    this.message = '';
                                     this.succeeded = false;
                                 }, 5000);
                             }
@@ -99,6 +116,10 @@
                         });
                 }
             },
+
+            adjustSize() {
+                this.$refs.response.style.height = this.$refs.response.scrollHeight + 'px';
+            }
         },
     };
 </script>

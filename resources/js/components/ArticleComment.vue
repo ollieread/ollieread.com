@@ -23,7 +23,7 @@
                 <footer class="comment__message-footer">
                     <strong>{{ author.username }}</strong>
                     <em class="comment__date">{{ comment.created_at }}</em>
-                    <button class="button button--small" @click.prevent="responding = ! responding">
+                    <button class="button button--small" @click.prevent="toggleResponding" v-if="authed">
                         <i class="button__icon fa-comments"></i> Respond
                     </button>
                 </footer>
@@ -33,6 +33,7 @@
         <div class="comment__thread" :id="'thread-' + comment.id">
 
             <article-comment-create :avatar="avatar" v-if="authed" v-show="responding"
+                                    :responding="responding"
                                     :route="route"
                                     @commented="newComment"
                                     :parent="comment"></article-comment-create>
@@ -132,12 +133,16 @@
             },
 
             checkIfShouldTruncate() {
-                this.shouldTruncate = this.$refs.comment.offsetHeight > 300 && this.$refs.comment.offsetHeight > 325;
+                if (this.isFocused()) {
+                    this.shouldTruncate = false;
+                } else {
+                    this.shouldTruncate = this.$refs.comment.offsetHeight > 300 && this.$refs.comment.offsetHeight > 325;
+                }
             },
 
             checkIfShouldScrollTo() {
                 if (this.isFocused()) {
-                    let position     = this.$refs.comment.getBoundingClientRect();
+                    let position = this.$refs.comment.getBoundingClientRect();
                     let bodyPosition = document.body.getBoundingClientRect();
                     window.scrollTo({
                         behavior: 'smooth',
@@ -165,8 +170,12 @@
             isFocused() {
                 return this.scrollTo === Number(this.comment.id);
             },
-        },
-    };
+
+            toggleResponding() {
+                this.responding = !this.responding;
+            }
+        }
+    }
 </script>
 
 <style scoped>

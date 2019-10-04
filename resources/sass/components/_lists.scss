@@ -1,20 +1,20 @@
 .list {
-  @apply my-6;
+    @apply my-6;
 
-  &--light {
-    .list__item::before {
-      @apply text-blue-200;
+    &--light {
+        .list__item::before {
+            @apply text-blue-200;
+        }
     }
-  }
 
-  &__item {
-    @apply mb-3;
+    &__item {
+        @apply mb-3;
 
-    &::before {
-      @include fa-icon();
-      @extend .far;
-      @extend .fa-hand-point-right;
-      @apply mx-2 text-blue-600;
+        &::before {
+            @include fa-icon();
+            @extend .far;
+            @extend .fa-hand-point-right;
+            @apply mx-2 text-blue-600;
+        }
     }
-  }
 }

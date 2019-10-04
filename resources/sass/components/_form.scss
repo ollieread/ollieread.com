@@ -1,11 +1,11 @@
 .form {
-  &--inset {
-    @include responsiveMin('md') {
-      @apply mx-6;
-    }
+    &--inset {
+        @include responsiveMin('md') {
+            @apply mx-6;
+        }
 
-    @include responsiveMin('lg') {
-      @apply mx-10;
+        @include responsiveMin('lg') {
+            @apply mx-10;
+        }
     }
-  }
 }

@@ -1,23 +1,23 @@
 .avatar {
     @apply bg-gray-200 rounded-full mx-auto shadow-md flex-grow-0 flex-shrink-0 relative inline-block object-cover object-center overflow-hidden;
-    width  : 72px !important;
     height : 72px !important;
+    width  : 72px !important;
 
     &--spaced {
         @apply mx-3;
     }
 
     &__image {
-        min-width  : 72px;
         min-height : 72px;
+        min-width  : 72px;
     }
 
     &__social {
         @apply bg-white rounded-full mx-auto shadow-md flex-grow-0 flex-shrink-0 text-center flex justify-center content-center items-center absolute;
-        width  : 30px;
-        height : 30px;
         bottom : -5px;
+        height : 30px;
         left   : -5px;
+        width  : 30px;
 
         &--github {
             @extend .fab;
@@ -33,12 +33,12 @@
 
         &--google {
             &:before {
-                width               : 16px;
-                height              : 16px;
                 background-image    : url('/images/google-logo.svg');
-                background-repeat   : no-repeat;
                 background-position : center;
+                background-repeat   : no-repeat;
                 content             : '';
+                height              : 16px;
+                width               : 16px;
             }
         }
 
