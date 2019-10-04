@@ -2031,6 +2031,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                               setTimeout(function () {
                                 _this.message = '';
                                 _this.succeeded = false;
+                                _this.$refs.response.style = {};
                               }, 5000);
                             }
 
@@ -2097,7 +2098,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return postComment;
     }(),
     adjustSize: function adjustSize() {
-      this.$refs.response.style.height = this.$refs.response.scrollHeight + 'px';
+      var scrollHeight = this.$refs.response.scrollHeight;
+
+      if (scrollHeight > 226) {
+        this.$refs.response.style.height = scrollHeight + 'px';
+      }
     }
   }
 });

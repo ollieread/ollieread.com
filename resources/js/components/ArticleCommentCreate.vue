@@ -96,6 +96,7 @@
                                 setTimeout(() => {
                                     this.message = '';
                                     this.succeeded = false;
+                                    this.$refs.response.style = {};
                                 }, 5000);
                             }
                         })
@@ -118,7 +119,11 @@
             },
 
             adjustSize() {
-                this.$refs.response.style.height = this.$refs.response.scrollHeight + 'px';
+                let scrollHeight = this.$refs.response.scrollHeight;
+
+                if (scrollHeight > 226) {
+                    this.$refs.response.style.height = scrollHeight + 'px';
+                }
             }
         },
     };
