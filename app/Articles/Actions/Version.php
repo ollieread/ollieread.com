@@ -20,6 +20,8 @@ class Version extends Action
                 ->setVersions(new Collection([$version]))
                 ->setActiveOnly(true)
                 ->setStatuses(Status::PUBLIC)
+                ->setPaginate(true)
+                ->setLimit(20)
                 ->perform();
 
             return $this->response()->view('articles.version', compact('version', 'articles'));
