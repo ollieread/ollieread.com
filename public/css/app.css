@@ -8639,6 +8639,7 @@ video {
 
 .fa, .layout .breadcrumbs .breadcrumb:after, .layout .notice:before, .layout .nav--sidebar-inverted .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link:hover .nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .nav__icon, .layout .nav--sidebar .nav__link--active .nav__icon, .layout .nav--sidebar-inverted .nav__link--active .nav__icon, .link--anchor:before, .link--external:after,
 .fas,
+.layout .badge:hover .badge__icon,
 .layout .version__badge:hover .version__badge-icon,
 .layout .topic__badge:hover .topic__badge-icon,
 .layout .tag__badge:hover .tag__badge-icon,
@@ -8647,6 +8648,7 @@ video {
 .toc__control:before,
 .toc__header:after,
 .far,
+.layout .badge__icon,
 .layout .button__icon,
 .layout .list__item::before,
 .layout .pagination__icon,
@@ -8792,6 +8794,7 @@ video {
 
 .fa.fa-pull-left, .layout .breadcrumbs .fa-pull-left.breadcrumb:after, .layout .fa-pull-left.notice:before, .layout .nav--sidebar .nav__link:hover .fa-pull-left.nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .fa-pull-left.nav__icon, .layout .nav--sidebar .nav__link--active .fa-pull-left.nav__icon, .layout .nav--sidebar-inverted .nav__link--active .fa-pull-left.nav__icon, .fa-pull-left.link--anchor:before, .fa-pull-left.link--external:after,
 .fas.fa-pull-left,
+.layout .badge:hover .fa-pull-left.badge__icon,
 .layout .version__badge:hover .fa-pull-left.version__badge-icon,
 .layout .topic__badge:hover .fa-pull-left.topic__badge-icon,
 .layout .tag__badge:hover .fa-pull-left.tag__badge-icon,
@@ -8800,6 +8803,7 @@ video {
 .fa-pull-left.toc__control:before,
 .fa-pull-left.toc__header:after,
 .far.fa-pull-left,
+.layout .fa-pull-left.badge__icon,
 .layout .fa-pull-left.button__icon,
 .layout .fa-pull-left.list__item::before,
 .layout .fa-pull-left.pagination__icon,
@@ -8847,6 +8851,7 @@ video {
 
 .fa.fa-pull-right, .layout .breadcrumbs .fa-pull-right.breadcrumb:after, .layout .fa-pull-right.notice:before, .layout .nav--sidebar .nav__link:hover .fa-pull-right.nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .fa-pull-right.nav__icon, .layout .nav--sidebar .nav__link--active .fa-pull-right.nav__icon, .layout .nav--sidebar-inverted .nav__link--active .fa-pull-right.nav__icon, .fa-pull-right.link--anchor:before, .fa-pull-right.link--external:after,
 .fas.fa-pull-right,
+.layout .badge:hover .fa-pull-right.badge__icon,
 .layout .version__badge:hover .fa-pull-right.version__badge-icon,
 .layout .topic__badge:hover .fa-pull-right.topic__badge-icon,
 .layout .tag__badge:hover .fa-pull-right.tag__badge-icon,
@@ -8855,6 +8860,7 @@ video {
 .fa-pull-right.toc__control:before,
 .fa-pull-right.toc__header:after,
 .far.fa-pull-right,
+.layout .fa-pull-right.badge__icon,
 .layout .fa-pull-right.button__icon,
 .layout .fa-pull-right.list__item::before,
 .layout .fa-pull-right.pagination__icon,
@@ -17349,7 +17355,7 @@ readers do not read off random characters that represent icons */
   src: url("../webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.woff") format("woff"), url("../webfonts/fa-regular-400.ttf") format("truetype"), url("../webfonts/fa-regular-400.svg#fontawesome") format("svg");
 }
 
-.far, .layout .button__icon, .layout .list__item::before, .layout .pagination__icon, .layout .version__badge-icon, .layout .topic__badge-icon, .layout .tag__badge-icon, .layout .category__badge-icon, .layout .page__heading-icon, .layout .nav__icon, .layout .nav--sidebar .nav__icon, .layout .nav--sidebar-inverted .nav__icon, .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__icon, .layout .nav--sidebar-inverted .nav__link--parent.nav__link--active + .nav--children .nav__icon {
+.far, .layout .badge__icon, .layout .button__icon, .layout .list__item::before, .layout .pagination__icon, .layout .version__badge-icon, .layout .topic__badge-icon, .layout .tag__badge-icon, .layout .category__badge-icon, .layout .page__heading-icon, .layout .nav__icon, .layout .nav--sidebar .nav__icon, .layout .nav--sidebar-inverted .nav__icon, .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__icon, .layout .nav--sidebar-inverted .nav__link--parent.nav__link--active + .nav--children .nav__icon {
   font-family: "Font Awesome 5 Pro";
   font-weight: 400;
 }
@@ -17375,6 +17381,7 @@ readers do not read off random characters that represent icons */
 
 .fa, .layout .breadcrumbs .breadcrumb:after, .layout .notice:before, .layout .nav--sidebar-inverted .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link:hover .nav__icon, .layout .nav--sidebar-inverted .nav__link:hover .nav__icon, .layout .nav--sidebar .nav__link--active .nav__icon, .layout .nav--sidebar-inverted .nav__link--active .nav__icon, .layout .nav--sidebar .nav__link--parent.nav__link--active + .nav--children .nav__link--active .nav__icon, .link--anchor:before, .link--external:after,
 .fas,
+.layout .badge:hover .badge__icon,
 .layout .version__badge:hover .version__badge-icon,
 .layout .topic__badge:hover .topic__badge-icon,
 .layout .tag__badge:hover .tag__badge-icon,
@@ -20438,6 +20445,52 @@ p {
 
 .layout .grid .column {
   padding: 0.5rem;
+}
+
+.layout .badge {
+  border-radius: 9999px;
+  text-transform: uppercase;
+  color: #fff;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: #63b3ed;
+  display: inline-block;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+}
+
+.layout .badge__icon {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.layout .badge:hover {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background-color: #2b6cb0;
+}
+
+.layout .badge:hover .badge__icon {
+  font-weight: 900;
+}
+
+.layout .badge--number {
+  padding: 0.25rem;
+  text-align: center;
+  height: 27px;
+  min-width: 27px;
 }
 
 .layout--single {

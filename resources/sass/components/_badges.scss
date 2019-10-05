@@ -1,0 +1,25 @@
+.badge {
+    @apply rounded-full uppercase text-white py-1 pl-2 pr-3 text-xs font-semibold bg-blue-400 inline-block my-1;
+    break-inside : avoid;
+
+    &__icon {
+        @include fa-icon();
+        @extend .far;
+        @apply mx-1;
+    }
+
+    &:hover {
+        @apply shadow bg-blue-700;
+
+        .badge__icon {
+            @extend .fas;
+            font-weight : 900;
+        }
+    }
+
+    &--number {
+        @apply p-1 text-center;
+        height: 27px;
+        min-width: 27px;
+    }
+}

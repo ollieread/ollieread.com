@@ -27,6 +27,11 @@ class GetTopics
     private $paginate = false;
 
     /**
+     * @var bool
+     */
+    private $articleCount;
+
+    /**
      * @param array $ids
      *
      * @return $this
@@ -51,6 +56,10 @@ class GetTopics
 
         if ($this->ids) {
             $query->whereIn('id', $this->ids);
+        }
+
+        if ($this->articleCount) {
+            $query->withCount('articles');
         }
 
         if ($this->paginate) {
@@ -96,6 +105,13 @@ class GetTopics
     public function setSlugs(array $slugs): self
     {
         $this->slugs = $slugs;
+
+        return $this;
+    }
+
+    public function setWithArticleCount(bool $articleCount): self
+    {
+        $this->articleCount = $articleCount;
 
         return $this;
     }

@@ -5,3 +5,5 @@
 @else
     @include('articles.partials.none')
 @endif
+
+{!! $articles->links('partials.pagination') !!}
