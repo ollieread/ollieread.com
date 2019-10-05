@@ -20,7 +20,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $e)
     {
         if ($e instanceof NotFoundHttpException) {
-            $redirect = (new GetRedirect)->setUri($request->getRequestUri())->perform();
+            $redirect = (new GetRedirect)->setFrom($request->getRequestUri())->perform();
 
             if ($redirect) {
                 return response()->redirectTo($redirect->to);

@@ -4,7 +4,6 @@ namespace Ollieread\Articles\Observers;
 
 use Ollieread\Articles\Models\Article;
 use Ollieread\Core\Services\Feeds;
-use Ollieread\Core\Services\Ids;
 use Ollieread\Core\Services\Redirects;
 
 class ArticleObserver
@@ -29,7 +28,6 @@ class ArticleObserver
     public function created(Article $article): void
     {
         Redirects::create('/p/' . $article->encoded_id, route('articles:article', $article->slug, false));
-
         $this->feeds->invalidateRss();
         $this->feeds->invalidateSitemap();
     }
@@ -44,7 +42,7 @@ class ArticleObserver
     public function updating(Article $article): void
     {
         if ($article->slug !== $article->getOriginal('slug')) {
-            Redirects::create(route('articles:article', $article->getOriginal('slug')), route('articles:article', $article->slug));
+            Redirects::create(route('articles:article', $article->getOriginal('slug'), false), route('articles:article', $article->slug, false));
         }
     }
 
@@ -54,9 +52,10 @@ class ArticleObserver
         $this->feeds->invalidateSitemap();
     }
 
-    public function deleted()
+    public function deleted(Article $article)
     {
         $this->feeds->invalidateRss();
         $this->feeds->invalidateSitemap();
+        Redirects::delete(route('articles:article', $article->slug, false));
     }
 }

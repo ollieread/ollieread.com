@@ -9,24 +9,49 @@ class GetRedirect
     /**
      * @var string
      */
-    private $uri;
+    private $from;
 
     /**
-     * @param string $uri
+     * @var string
+     */
+    private $to;
+
+    /**
+     * @param string|null $from
      *
      * @return $this
      */
-    public function setUri(string $uri): self
+    public function setFrom(?string $from): self
     {
-        $this->uri = $uri;
+        $this->from = $from;
 
         return $this;
     }
 
-    public function perform()
+    /**
+     * @param string|null $to
+     *
+     * @return $this
+     */
+    public function setTo(?string $to): self
     {
-        return Redirect::query()
-            ->where('from', '=', $this->uri)
-            ->first();
+        $this->to = $to;
+
+        return $this;
+    }
+
+    public function perform(): ?Redirect
+    {
+        $query = Redirect::query();
+
+        if ($this->to) {
+            $query->where('to', '=', $this->to);
+        }
+
+        if ($this->from) {
+            $query->where('from', '=', $this->from);
+        }
+
+        return $query->first();
     }
 }

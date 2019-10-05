@@ -1,0 +1,49 @@
+<?php
+
+namespace Ollieread\Core\Operations;
+
+use Ollieread\Core\Models\Redirect;
+
+class UpdateRedirect
+{
+    /**
+     * @var \Ollieread\Core\Models\Redirect
+     */
+    private $redirect;
+
+    /**
+     * @var array
+     */
+    private $input;
+
+    /**
+     * @param \Ollieread\Core\Models\Redirect $redirect
+     *
+     * @return $this
+     */
+    public function setRedirect(Redirect $redirect): self
+    {
+        $this->redirect = $redirect;
+
+        return $this;
+    }
+
+    /**
+     * @param array $input
+     *
+     * @return $this
+     */
+    public function setInput(array $input): self
+    {
+        $this->input = $input;
+
+        return $this;
+    }
+
+    public function perform(): bool
+    {
+        $this->redirect->fill($this->input);
+
+        return $this->redirect->save();
+    }
+}
