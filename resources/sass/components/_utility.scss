@@ -172,6 +172,12 @@
     }
 }
 
+.site__version {
+    @apply bg-blue-600 text-xs text-blue-700 px-1 rounded-full absolute no-underline;
+    left: 1rem;
+    top: 1rem;
+}
+
 .toc {
     @apply block my-2 relative rounded shadow border bg-white mb-4;
 

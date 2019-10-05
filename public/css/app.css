@@ -17662,6 +17662,19 @@ p {
   font-variant: tabular-nums;
 }
 
+.site__version {
+  background-color: #3182ce;
+  font-size: 0.75rem;
+  color: #2b6cb0;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  border-radius: 9999px;
+  position: absolute;
+  text-decoration: none;
+  left: 1rem;
+  top: 1rem;
+}
+
 .toc {
   display: block;
   margin-top: 0.5rem;

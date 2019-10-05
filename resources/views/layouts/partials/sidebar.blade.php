@@ -4,8 +4,11 @@
     </span>
 
     <header class="sidebar__header">
+        {!! \Ollieread\Core\Services\Codebase::version() !!}
         <a href="/" class="logo"></a>
-        <h2 class="sidebar__header-heading">Ollie Read</h2>
+        <h2 class="sidebar__header-heading">
+            Ollie Read
+        </h2>
         <h3 class="sidebar__header-subheading">PHP & Laravel Development</h3>
 
         <nav class="nav nav--sidebar-inverted nav--horizontal">

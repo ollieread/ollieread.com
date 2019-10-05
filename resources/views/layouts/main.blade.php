@@ -17,6 +17,7 @@
 <div class="container" id="app">
 
     <header class="brand">
+        {!! \Ollieread\Core\Services\Codebase::version() !!}
         <span class="brand__menu-link" id="sidebar__open">
             <i class="fa fa-fw fa-bars"></i>
         </span>
