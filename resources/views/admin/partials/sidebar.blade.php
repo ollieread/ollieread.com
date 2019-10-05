@@ -31,12 +31,8 @@
         <i class="nav__icon fa-laptop-code"></i> Versions
     </a>
 
-    <a href="#" class="nav__link">
-        <i class="nav__icon fa-chalkboard-teacher"></i> Courses
-    </a>
-
-    <a href="#" class="nav__link">
-        <i class="nav__icon fa-box"></i> Packages
+    <a href="{{ route('admin:redirect.index') }}" class="nav__link {{ request()->routeIs('admin:redirect.*') ? 'nav__link--active' : '' }}">
+        <i class="nav__icon fa-route"></i> Redirects
     </a>
 
 </nav>

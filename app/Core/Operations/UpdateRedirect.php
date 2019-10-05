@@ -3,6 +3,7 @@
 namespace Ollieread\Core\Operations;
 
 use Ollieread\Core\Models\Redirect;
+use Ollieread\Core\Validators\UpdateRedirectValidator;
 
 class UpdateRedirect
 {
@@ -42,6 +43,8 @@ class UpdateRedirect
 
     public function perform(): bool
     {
+        UpdateRedirectValidator::validate($this->input, $this->redirect);
+
         $this->redirect->fill($this->input);
 
         return $this->redirect->save();

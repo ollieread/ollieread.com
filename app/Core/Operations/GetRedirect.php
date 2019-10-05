@@ -7,14 +7,31 @@ use Ollieread\Core\Models\Redirect;
 class GetRedirect
 {
     /**
-     * @var string
+     * @var string|null
      */
     private $from;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $to;
+
+    /**
+     * @var int|null
+     */
+    private $id;
+
+    /**
+     * @param int $id
+     *
+     * @return $this
+     */
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     /**
      * @param string|null $from
@@ -50,6 +67,10 @@ class GetRedirect
 
         if ($this->from) {
             $query->where('from', '=', $this->from);
+        }
+
+        if ($this->id) {
+            $query->where('id','=', $this->id);
         }
 
         return $query->first();
