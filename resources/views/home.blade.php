@@ -47,7 +47,7 @@
 
         {{--<p class="page__header-text"><a href="#" class="link">Read more...</a></p>--}}
 
-        <div class="button__bar button__bar--flexible button__bar--slim button__bar--centered">
+        <div class="button__bar button__bar--slim">
             <a href="https://github.com/ollieread" class="button button--icon" target="_blank">
                 <i class="button__icon button__icon--github"></i>
             </a>
