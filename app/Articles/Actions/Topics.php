@@ -12,6 +12,7 @@ class Topics extends Action
     {
         $topics = (new GetTopics)
             ->setWithArticleCount(true)
+            ->setUsedOnly(true)
             ->setPaginate(true)
             ->setLimit(20)
             ->perform();

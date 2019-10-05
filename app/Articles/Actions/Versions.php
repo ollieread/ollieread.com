@@ -14,6 +14,7 @@ class Versions extends Action
     {
         $versions = (new GetVersions)
             ->setWithArticleCount(true)
+            ->setUsedOnly(true)
             ->setPaginate(true)
             ->setLimit(20)
             ->perform();

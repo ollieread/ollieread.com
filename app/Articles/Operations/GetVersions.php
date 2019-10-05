@@ -32,6 +32,11 @@ class GetVersions
     private $articleCount;
 
     /**
+     * @var bool
+     */
+    private $usedOnly;
+
+    /**
      * @param array $ids
      *
      * @return $this
@@ -56,6 +61,10 @@ class GetVersions
 
         if ($this->ids) {
             $query->whereIn('id', $this->ids);
+        }
+
+        if ($this->usedOnly) {
+            $query->has('articles');
         }
 
         if ($this->articleCount) {
@@ -113,6 +122,12 @@ class GetVersions
     {
         $this->articleCount = $articleCount;
 
+        return $this;
+    }
+
+    public function setUsedOnly(bool $usedOnly): self
+    {
+        $this->usedOnly = $usedOnly;
         return $this;
     }
 }
