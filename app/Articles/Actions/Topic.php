@@ -20,6 +20,8 @@ class Topic extends Action
                 ->setTopics(new Collection([$topic]))
                 ->setActiveOnly(true)
                 ->setStatuses(Status::PUBLIC)
+                ->setPaginate(true)
+                ->setLimit(20)
                 ->perform();
 
             return $this->response()->view('articles.topic', compact('topic', 'articles'));
