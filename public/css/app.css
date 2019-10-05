@@ -18315,7 +18315,7 @@ p {
 .layout .box__header-bump {
   position: absolute;
   right: 0.5rem;
-  top: -0.8rem;
+  top: -1rem;
 }
 
 .layout .box__header-controls {
@@ -18643,6 +18643,7 @@ p {
 
 .layout .article {
   margin-top: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .layout .article__reading-time {
