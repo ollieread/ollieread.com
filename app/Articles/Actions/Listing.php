@@ -14,6 +14,8 @@ class Listing extends Action
         $articles = (new GetArticles)
             ->setActiveOnly(true)
             ->setStatuses(Status::PUBLIC)
+            ->setPaginate(true)
+            ->setLimit(20)
             ->perform();
 
         return $this->response()->view('articles.listing', compact('articles'));
