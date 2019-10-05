@@ -56,7 +56,7 @@
                     <strong class="article__versions-title">Versions:</strong>
                     <div class="article__versions-list">
                         @foreach($article->versions as $version)
-                            <a href="#" class="version__badge">
+                            <a href="{{ route('articles:version', $version->slug) }}" class="version__badge">
                                 <i class="version__badge-icon"></i>
                                 {{ $version->name }}
                             </a>
@@ -70,7 +70,7 @@
                     <strong class="article__topics-title">Topics:</strong>
                     <div class="article__topics-list">
                         @foreach($article->topics as $topic)
-                            <a href="#" class="topic__badge" data-tippy-content="{{ $topic->description }}">
+                            <a href="{{ route('articles:topic', $topic->slug) }}" class="topic__badge" data-tippy-content="{{ $topic->description }}">
                                 <i class="topic__badge-icon"></i>
                                 {{ $topic->name }}
                             </a>
