@@ -1,22 +1,22 @@
 .tag {
-  &__badge {
-    @apply rounded-full uppercase text-white py-1 pl-2 pr-3 text-xs font-semibold bg-gray-500 inline-block;
-    break-inside: avoid;
+    &__badge {
+        @apply rounded-full uppercase text-white py-1 pl-2 pr-3 text-xs font-semibold bg-gray-500 inline-block;
+        break-inside : avoid;
 
-    &-icon {
-      @include fa-icon();
-      @extend .far;
-      @extend .fa-tag;
-      @apply mx-1;
+        &-icon {
+            @include fa-icon();
+            @extend .far;
+            @extend .fa-tag;
+            @apply mx-1;
+        }
+
+        &:hover {
+            @apply shadow bg-gray-700;
+
+            .tag__badge-icon {
+                @extend .fas;
+                font-weight : 900;
+            }
+        }
     }
-
-    &:hover {
-      @apply shadow bg-gray-700;
-
-      .tag__badge-icon {
-        @extend .fas;
-        font-weight : 900;
-      }
-    }
-  }
 }

@@ -4,8 +4,11 @@
     </span>
 
     <header class="sidebar__header">
+        {!! \Ollieread\Core\Services\Codebase::version() !!}
         <a href="/" class="logo"></a>
-        <h2 class="sidebar__header-heading">Ollie Read</h2>
+        <h2 class="sidebar__header-heading">
+            Ollie Read
+        </h2>
         <h3 class="sidebar__header-subheading">PHP & Laravel Development</h3>
 
         <nav class="nav nav--sidebar-inverted nav--horizontal">
@@ -13,13 +16,16 @@
                 <i class="nav__icon fa-question"></i>
             </a>--}}
 
-            <a href="{{ route('site:home') }}"
-               class="nav__link {{ request()->routeIs('site:home') ? 'nav__link--active' : '' }}">
-                <i class="nav__icon fa-home"></i>
+            <a href="https://sprocketbox.io/?utm_source=olliereadcom#get-in-touch" class="nav__link"
+               data-tippy-content="Get in touch" title="Get in touch">
+                <span class="sr-only">Get in touch</span>
+                <i class="nav__icon fa-envelope"></i>
             </a>
 
-            <a href="https://sprocketbox.io/?utm_source=olliereadcom#get-in-touch" class="nav__link" data-tippy-content="Get in touch">
-                <i class="nav__icon fa-envelope"></i>
+            <a href="https://ollieread.com/out?url=https%3A%2F%2Fdiscordapp.com%2Finvite%2Fk7yUccq" class="nav__link"
+               data-tippy-content="ollieread.com discord" title="ollieread.com discord">
+                <span class="sr-only">ollieread.com discord</span>
+                <i class="nav__icon nav__icon--brand fa-discord"></i>
             </a>
 
             {{--<a href="/" class="nav__link" title="Ideas">

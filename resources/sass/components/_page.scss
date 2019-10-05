@@ -1,9 +1,9 @@
 .page {
-    @apply flex flex-col justify-start h-full min-h-screen p-6;
-    margin-left: 20rem;
+    @apply flex flex-col justify-between h-full min-h-screen p-4;
+    margin-left : 20rem;
 
-    @media (max-width: 900px) {
-        margin-left: 0;
+    @media (max-width : 900px) {
+        margin-left : 0;
     }
 
     &__heading {
@@ -22,7 +22,7 @@
         &--small-screens {
             @apply w-full;
 
-            @media (min-width: 901px) {
+            @media (min-width : 901px) {
                 @apply hidden;
             }
         }
@@ -46,5 +46,21 @@
 
     &__description {
         @apply mb-4;
+    }
+
+    &__body {
+        @apply flex-grow w-full;
+    }
+
+    &__footer {
+        @apply block w-full text-gray-500 border-t text-sm -mb-6 mt-3;
+
+        .button {
+            @apply text-gray-500;
+
+            &:hover {
+                @apply text-gray-600;
+            }
+        }
     }
 }

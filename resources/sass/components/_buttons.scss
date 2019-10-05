@@ -185,11 +185,11 @@
         }
 
         &--google {
-            width               : 16px;
-            height              : 16px;
             background-image    : url('/images/google-logo.svg');
-            background-repeat   : no-repeat;
             background-position : center;
+            background-repeat   : no-repeat;
+            height              : 16px;
+            width               : 16px;
         }
 
         &--plain {

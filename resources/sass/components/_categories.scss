@@ -1,23 +1,23 @@
 .category {
 
-  &__badge {
-    @apply rounded-full uppercase text-white py-1 px-2 text-sm font-semibold bg-blue-400 inline-block;
-    break-inside: avoid;
+    &__badge {
+        @apply rounded-full uppercase text-white py-1 px-2 text-sm font-semibold bg-blue-400 inline-block;
+        break-inside : avoid;
 
-    &-icon {
-      @include fa-icon();
-      @extend .far;
-      @apply mx-1;
+        &-icon {
+            @include fa-icon();
+            @extend .far;
+            @apply mx-1;
+        }
+
+        &:hover {
+            @apply shadow bg-blue-700;
+
+            .category__badge-icon {
+                @extend .fas;
+                font-weight : 900;
+            }
+        }
     }
-
-    &:hover {
-      @apply shadow bg-blue-700;
-
-      .category__badge-icon {
-        @extend .fas;
-        font-weight: 900;
-      }
-    }
-  }
 
 }

@@ -18,7 +18,7 @@
         }
 
         &__thread {
-            @apply ml-10;
+            @apply pl-10;
         }
 
         &__author {
@@ -38,21 +38,21 @@
 
             &:before, &:after {
                 @apply absolute;
-                top     : 1.5rem;
                 content : '';
+                top     : 1.5rem;
             }
 
             &:before {
                 @apply bg-gray-300;
-                width  : 2rem;
                 height : 2.2rem;
+                width  : 2rem;
             }
 
             &:after {
                 @apply bg-white;
+                height : 2rem;
                 top    : 1.6rem;
                 width  : 1.9rem;
-                height : 2rem;
             }
 
             &:before, &:after {
@@ -70,11 +70,12 @@
             }
 
             &-input {
-                @apply w-full outline-none h-full;
+                @apply w-full outline-none h-full overflow-hidden;
+                resize: none;
             }
 
             &-body {
-                @apply bg-white p-6 text-sm border-t relative overflow-auto;
+                @apply bg-white p-6 text-sm border-t relative;
 
                 &--headerless {
                     @apply rounded-t-lg border-t-0;
@@ -158,38 +159,22 @@
             }
         }
 
-        /*&:nth-child(odd) {
-          .comment__message {
-            @apply ml-6;
-
-            &:before, &:after {
-              -webkit-clip-path: polygon(100% 2%, 0 50%, 100% 100%);
-              clip-path: polygon(100% 2%, 0 50%, 100% 100%);
-              left: -2rem;
+        @include responsiveMax('sm') {
+            &__thread {
+                @apply pl-2;
             }
 
-            &:after {
-              left: -1.9rem;
+            &__message {
+                @apply ml-0 shadow-none;
+
+                &:before, &:after {
+                    @apply hidden;
+                }
             }
-          }
+
+            &__author {
+                @apply hidden;
+            }
         }
-
-        &:nth-child(even) {
-          @apply flex-row-reverse;
-
-          .comment__message {
-            @apply mr-6;
-
-            &:before, &:after {
-              -webkit-clip-path: polygon(0 0, 0 100%, 99% 50%);
-              clip-path: polygon(0 0, 0 100%, 99% 50%);
-              right: -2rem;
-            }
-
-            &:after {
-              right: -1.9rem;
-            }
-          }
-        }*/
     }
 }

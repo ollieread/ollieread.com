@@ -42,13 +42,13 @@ class CreateArticleImage
         // Create & store the article banner
         $storage->put(
             'images/banner_2x_' . $filename,
-            $image->fit(1952, 600)->encode('png', 100)->getEncoded()
+            $image->fit(1984, 600)->encode('png', 100)->getEncoded()
         );
 
         // Create & store the article banner
         $storage->put(
             'images/banner_' . $filename,
-            $image->fit(976, 300)->encode('png', 100)->getEncoded()
+            $image->fit(992, 300)->encode('png', 100)->getEncoded()
         );
 
         // Create & store the article thumbnail

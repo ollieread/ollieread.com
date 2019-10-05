@@ -14,7 +14,7 @@
 
         &--disabled {
             @apply bg-gray-100 text-gray-400 shadow-none;
-            cursor: not-allowed;
+            cursor : not-allowed;
 
             &:hover {
                 @apply text-gray-400;
@@ -27,7 +27,7 @@
 
         &--active {
             @apply font-bold border-r rounded;
-            transform: scale(1.25);
+            transform : scale(1.25);
         }
     }
 

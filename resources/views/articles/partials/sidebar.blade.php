@@ -10,6 +10,16 @@
         <i class="nav__icon fa-newspaper"></i> Articles
     </a>
 
+    <a href="{{ route('articles:versions') }}"
+       class="nav__link {{ request()->routeIs('articles:versions') ? 'nav__link--active' : '' }}">
+        <i class="nav__icon fa-laptop-code"></i> Versions
+    </a>
+
+    <a href="{{ route('articles:topics') }}"
+       class="nav__link {{ request()->routeIs('articles:topics') ? 'nav__link--active' : '' }}">
+        <i class="nav__icon fa-file-certificate"></i> Topics
+    </a>
+
     {{--<a href="/" class="nav__link">
         <i class="nav__icon fa-chalkboard-teacher"></i> Courses
     </a>

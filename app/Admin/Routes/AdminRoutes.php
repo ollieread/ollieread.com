@@ -16,6 +16,7 @@ class AdminRoutes implements Routes
             $this->topicRoutes($router);
             $this->versionRoutes($router);
             $this->articleRoutes($router);
+            $this->redirectRoutes($router);
         });
     }
 
@@ -74,5 +75,16 @@ class AdminRoutes implements Routes
         $router->post('/version/{version}/edit')->name('version.update')->uses(Actions\Versions\Edit::class . '@update');
         $router->get('/version/{version}/delete')->name('version.delete')->uses(Actions\Versions\Delete::class . '@delete');
         $router->post('/version/{version}/delete')->name('version.destroy')->uses(Actions\Versions\Delete::class . '@destroy');
+    }
+
+    private function redirectRoutes(Router $router): void
+    {
+        $router->get('/redirect')->name('redirect.index')->uses(Actions\Redirects\Index::class);
+        $router->get('/redirect/create')->name('redirect.create')->uses(Actions\Redirects\Create::class . '@create');
+        $router->post('/redirect/create')->name('redirect.store')->uses(Actions\Redirects\Create::class . '@store');
+        $router->get('/redirect/{redirect}/edit')->name('redirect.edit')->uses(Actions\Redirects\Edit::class . '@edit');
+        $router->post('/redirect/{redirect}/edit')->name('redirect.update')->uses(Actions\Redirects\Edit::class . '@update');
+        $router->get('/redirect/{redirect}/delete')->name('redirect.delete')->uses(Actions\Redirects\Delete::class . '@delete');
+        $router->post('/redirect/{redirect}/delete')->name('redirect.destroy')->uses(Actions\Redirects\Delete::class . '@destroy');
     }
 }

@@ -27,6 +27,16 @@ class GetTopics
     private $paginate = false;
 
     /**
+     * @var bool
+     */
+    private $articleCount;
+
+    /**
+     * @var bool
+     */
+    private $usedOnly;
+
+    /**
      * @param array $ids
      *
      * @return $this
@@ -51,6 +61,14 @@ class GetTopics
 
         if ($this->ids) {
             $query->whereIn('id', $this->ids);
+        }
+
+        if ($this->usedOnly) {
+            $query->has('articles');
+        }
+
+        if ($this->articleCount) {
+            $query->withCount('articles');
         }
 
         if ($this->paginate) {
@@ -97,6 +115,19 @@ class GetTopics
     {
         $this->slugs = $slugs;
 
+        return $this;
+    }
+
+    public function setWithArticleCount(bool $articleCount): self
+    {
+        $this->articleCount = $articleCount;
+
+        return $this;
+    }
+
+    public function setUsedOnly(bool $usedOnly): self
+    {
+        $this->usedOnly = $usedOnly;
         return $this;
     }
 }

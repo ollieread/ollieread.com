@@ -1,32 +1,32 @@
 .logo {
-  @apply bg-gray-200 rounded-full mx-auto shadow-md flex-grow-0 flex-shrink-0;
-  width                 : 96px !important;
-  height                : 96px !important;
-  background-image      : url('/images/small-me-head.png');
-  background-repeat     : no-repeat;
-  background-size       : 192px * 3 32px * 3;
-  image-rendering       : pixelated;
-  background-position-y : center;
-  background-position-x : 0;
+    @apply bg-gray-200 rounded-full mx-auto shadow-md flex-grow-0 flex-shrink-0;
+    background-image      : url('/images/small-me-head.png');
+    background-position-x : 0;
+    background-position-y : center;
+    background-repeat     : no-repeat;
+    background-size       : 192px * 3 32px * 3;
+    height                : 96px !important;
+    image-rendering       : pixelated;
+    width                 : 96px !important;
 
-  &:hover {
-    animation                 : animate-logo 1s infinite;
-    animation-timing-function : step-start;
-  }
-
-  &--horizontal {
-    @apply mx-3;
-  }
-
-  @keyframes animate-logo {
-    @for $i from 0 through 6 {
-      #{$i * 12}% {
-        @if $i == 6 or $i == 0 {
-          background-position-x : 0;
-        } @else {
-          background-position-x : -($i * 6rem);
-        }
-      }
+    &:hover {
+        animation                 : animate-logo 1s infinite;
+        animation-timing-function : step-start;
     }
-  }
+
+    &--horizontal {
+        @apply mx-3;
+    }
+
+    @keyframes animate-logo {
+        @for $i from 0 through 6 {
+            #{$i * 12}% {
+                @if $i == 6 or $i == 0 {
+                    background-position-x : 0;
+                } @else {
+                    background-position-x : -($i * 6rem);
+                }
+            }
+        }
+    }
 }

@@ -17,6 +17,7 @@
 <div class="container" id="app">
 
     <header class="brand">
+        {!! \Ollieread\Core\Services\Codebase::version() !!}
         <span class="brand__menu-link" id="sidebar__open">
             <i class="fa fa-fw fa-bars"></i>
         </span>
@@ -30,14 +31,16 @@
                 <i class="nav__icon fa-question"></i>
             </a>--}}
 
-            <a href="{{ route('site:home') }}"
-               class="nav__link {{ request()->routeIs('site:home') ? 'nav__link--active' : '' }}">
-                <i class="nav__icon fa-home"></i>
+            <a href="https://sprocketbox.io/?utm_source=olliereadcom#get-in-touch" class="nav__link"
+               data-tippy-content="Get in touch" title="Get in touch">
+                <span class="sr-only">Get in touch</span>
+                <i class="nav__icon fa-envelope"></i>
             </a>
 
-            <a href="https://sprocketbox.io/?utm_source=olliereadcom#get-in-touch" class="nav__link"
-               data-tippy-content="Get in touch">
-                <i class="nav__icon fa-envelope"></i>
+            <a href="https://ollieread.com/out?url=https%3A%2F%2Fdiscordapp.com%2Finvite%2Fk7yUccq" class="nav__link"
+               data-tippy-content="ollieread.com discord" title="ollieread.com discord">
+                <span class="sr-only">ollieread.com discord</span>
+                <i class="nav__icon nav__icon--brand fa-discord"></i>
             </a>
 
             {{--<a href="/" class="nav__link" title="Ideas">
@@ -56,7 +59,11 @@
 
         @yield('header')
 
-        @yield('content')
+        <main class="page__body">
+            @yield('content')
+        </main>
+
+        @include('layouts.partials.footer')
 
     </main>
 
@@ -64,5 +71,6 @@
 
 <script src="{{ mix('js/app.js') }}"></script>
 @stack('page.footer')
+
 </body>
 </html>

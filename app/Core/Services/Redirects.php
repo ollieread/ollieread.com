@@ -2,7 +2,12 @@
 
 namespace Ollieread\Core\Services;
 
+use Illuminate\Validation\ValidationException;
 use Ollieread\Core\Models\Redirect;
+use Ollieread\Core\Operations\CreateRedirect;
+use Ollieread\Core\Operations\DeleteRedirect;
+use Ollieread\Core\Operations\GetRedirect;
+use Ollieread\Core\Operations\UpdateRedirect;
 
 class Redirects
 {
@@ -16,23 +21,43 @@ class Redirects
 
     public static function alreadyPresent(string $from, string $to): bool
     {
-        return Redirect::query()
-                ->where('from', '=', $from)
-                ->count() === 0;
+        return (new GetRedirect)->setFrom($from)->perform() !== null;
     }
 
-    public static function updateExisting(string $from, string $to): void
+    public static function updateExisting(string $from, string $to): bool
     {
-        Redirect::query()->where('to', '=', $from)->update(['to' => $to]);
+        try {
+            return (new UpdateRedirect)
+                ->setRedirect((new GetRedirect)
+                    ->setTo($from)
+                    ->perform())
+                ->setInput(compact('to'))
+                ->perform();
+        } catch (ValidationException $exception) {
+            report($exception);
+        }
+
+        return false;
     }
 
-    public static function createNew(string $from, string $to)
+    public static function createNew(string $from, string $to): ?Redirect
     {
-        (new Redirect)->fill(compact('from', 'to'))->save();
+        try {
+            return (new CreateRedirect)->setInput(compact('from', 'to'))->perform();
+        } catch (ValidationException $exception) {
+            report($exception);
+        }
+
+        return null;
     }
 
-    public static function getRedirect(string $uri)
+    public static function getRedirect(string $uri): ?Redirect
     {
-        return Redirect::query()->where('from', '=', $uri)->first();
+        return (new GetRedirect)->setFrom($uri)->perform();
+    }
+
+    public static function delete(string $uri): bool
+    {
+        return (new DeleteRedirect)->setUri($uri)->perform();
     }
 }

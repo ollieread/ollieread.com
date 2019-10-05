@@ -65,7 +65,7 @@
                                     <i class="button__icon fa-toggle-on"></i>
                                 @endif
                             </a>
-                            <a href="#" class="button button--icon button--small" data-tippy-content="Delete article">
+                            <a href="{{ route('admin:article.delete', $article->id) }}" class="button button--icon button--small" data-tippy-content="Delete article">
                                 <span class="sr-only">Delete</span>
                                 <i class="button__icon fa-trash"></i>
                             </a>
