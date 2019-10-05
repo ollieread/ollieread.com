@@ -19,6 +19,8 @@ class Category extends Action
                 ->setCategory($category)
                 ->setActiveOnly(true)
                 ->setStatuses(Status::PUBLIC)
+                ->setPaginate(true)
+                ->setLimit(20)
                 ->perform();
 
             return $this->response()->view('articles.category', compact('category', 'articles'));
