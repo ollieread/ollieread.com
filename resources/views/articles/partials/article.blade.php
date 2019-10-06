@@ -14,6 +14,7 @@
 
         <a href="{{ route('articles:article', $article->slug) }}"
            class="box__header-title">{{ $article->heading ?? $article->name }}</a>
+
         @if ($article->series)
             <a href="#" class="box__header-subtitle">
                 <strong>Series:</strong>

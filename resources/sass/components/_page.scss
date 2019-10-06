@@ -49,11 +49,11 @@
     }
 
     &__body {
-        @apply flex-grow w-full;
+        @apply flex-grow w-full pb-3;
     }
 
     &__footer {
-        @apply block w-full text-gray-500 border-t text-sm -mb-6 mt-3;
+        @apply block w-full text-gray-500 border-t text-sm -mb-6;
 
         .button {
             @apply text-gray-500;

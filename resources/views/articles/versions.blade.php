@@ -4,6 +4,7 @@
 
 @section('breadcrumbs')
     <a href="{{ route('site:home') }}" class="breadcrumb">Home</a>
+    <a href="{{ route('articles:index') }}" class="breadcrumb">Articles</a>
     <span class="breadcrumb breadcrumb--active">Versions</span>
 @endsection
 

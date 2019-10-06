@@ -2,6 +2,7 @@
 
 namespace Ollieread\Articles\Operations;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Ollieread\Articles\Models\Article;
 
@@ -27,6 +28,11 @@ class GetArticle
      */
     private $statuses = [];
 
+    /**
+     * @var bool
+     */
+    private $liveOnly;
+
     public function perform(): ?Article
     {
         $query = Article::query();
@@ -41,6 +47,10 @@ class GetArticle
 
         if ($this->activeOnly) {
             $query->where('active', '=', 1);
+        }
+
+        if ($this->liveOnly) {
+            $query->where('post_at', '<=', Carbon::now());
         }
 
         if ($this->statuses) {
@@ -102,6 +112,18 @@ class GetArticle
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $liveOnly
+     *
+     * @return $this
+     */
+    public function setLiveOnly(bool $liveOnly): self
+    {
+        $this->liveOnly = $liveOnly;
 
         return $this;
     }

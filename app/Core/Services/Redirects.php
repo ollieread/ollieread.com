@@ -2,7 +2,7 @@
 
 namespace Ollieread\Core\Services;
 
-use Illuminate\Validation\ValidationException;
+use Exception;
 use Ollieread\Core\Models\Redirect;
 use Ollieread\Core\Operations\CreateRedirect;
 use Ollieread\Core\Operations\DeleteRedirect;
@@ -27,13 +27,15 @@ class Redirects
     public static function updateExisting(string $from, string $to): bool
     {
         try {
-            return (new UpdateRedirect)
-                ->setRedirect((new GetRedirect)
-                    ->setTo($from)
-                    ->perform())
-                ->setInput(compact('to'))
-                ->perform();
-        } catch (ValidationException $exception) {
+            $redirect = (new GetRedirect)->setTo($from)->perform();
+
+            if ($redirect) {
+                return (new UpdateRedirect)
+                    ->setRedirect($redirect)
+                    ->setInput(compact('to'))
+                    ->perform();
+            }
+        } catch (Exception $exception) {
             report($exception);
         }
 
@@ -44,7 +46,7 @@ class Redirects
     {
         try {
             return (new CreateRedirect)->setInput(compact('from', 'to'))->perform();
-        } catch (ValidationException $exception) {
+        } catch (Exception $exception) {
             report($exception);
         }
 

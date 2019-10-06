@@ -10,6 +10,11 @@
         <i class="nav__icon fa-newspaper"></i> Articles
     </a>
 
+    <a href="{{ route('articles:upcoming') }}"
+       class="nav__link {{ request()->routeIs('articles:upcoming') ? 'nav__link--active' : '' }}">
+        <i class="nav__icon fa-calendar-alt"></i> Upcoming
+    </a>
+
     <a href="{{ route('articles:versions') }}"
        class="nav__link {{ request()->routeIs('articles:versions') ? 'nav__link--active' : '' }}">
         <i class="nav__icon fa-laptop-code"></i> Versions

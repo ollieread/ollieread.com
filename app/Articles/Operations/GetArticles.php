@@ -67,28 +67,9 @@ class GetArticles
     private $liveOnly;
 
     /**
-     * @param bool $liveOnly
-     *
-     * @return $this
+     * @var bool
      */
-    public function setLiveOnly(bool $liveOnly): self
-    {
-        $this->liveOnly = $liveOnly;
-
-        return $this;
-    }
-
-    /**
-     * @param array<int> $statuses
-     *
-     * @return $this
-     */
-    public function setStatuses(int ...$statuses): self
-    {
-        $this->statuses = $statuses;
-
-        return $this;
-    }
+    private $notReleased;
 
     public function perform()
     {
@@ -96,6 +77,11 @@ class GetArticles
 
         if ($this->liveOnly) {
             $query->where('post_at', '<', Carbon::now());
+        } else if ($this->notReleased) {
+            $query->where(static function (Builder $query) {
+                $query->where('post_at', '>', Carbon::now())
+                    ->orWhereNull('post_at');
+            });
         }
 
         if ($this->activeOnly) {
@@ -106,11 +92,7 @@ class GetArticles
             if (count($this->statuses) === 1) {
                 $query->where('status', '=', $this->statuses[0]);
             } else {
-                $query->where(static function (Builder $query) {
-                    foreach ($this->statuses as $status) {
-                        $query->orWhere('status', '=', $status);
-                    }
-                });
+                $query->whereIn('status', $this->statuses);
             }
         }
 
@@ -283,6 +265,42 @@ class GetArticles
     public function setVersions(?Collection $versions): self
     {
         $this->versions = $versions;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $liveOnly
+     *
+     * @return $this
+     */
+    public function setLiveOnly(bool $liveOnly): self
+    {
+        $this->liveOnly = $liveOnly;
+
+        return $this;
+    }
+
+    /**
+     * @param array<int> $statuses
+     *
+     * @return $this
+     */
+    public function setStatuses(int ...$statuses): self
+    {
+        $this->statuses = $statuses;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $notReleased
+     *
+     * @return $this
+     */
+    public function setNotReleased(bool $notReleased): self
+    {
+        $this->notReleased = $notReleased;
 
         return $this;
     }
