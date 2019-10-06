@@ -44,6 +44,7 @@ class Article extends Action
         if (! $user || ! $user->can('ADMIN_ARTICLES')) {
             $operation
                 ->setActiveOnly(true)
+                ->setLiveOnly(true)
                 ->setStatuses(Status::PUBLIC);
         }
 

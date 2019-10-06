@@ -149,6 +149,7 @@ class Feeds
         return (new GetArticles)
             ->setActiveOnly(true)
             ->setStatuses(Status::PUBLIC)
+            ->setLiveOnly(true)
             ->perform()
             ->map($transformer)
             ->toArray();
