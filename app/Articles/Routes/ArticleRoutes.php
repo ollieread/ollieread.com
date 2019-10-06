@@ -11,7 +11,7 @@ class ArticleRoutes implements Routes
     public function __invoke(Router $router)
     {
         $router->get('/')->name('index')->uses(Actions\Listing::class);
-        $router->get('/schedule')->name('schedule')->uses(Actions\Schedule::class);
+        $router->get('/upcoming')->name('upcoming')->uses(Actions\Upcoming::class);
         $router->get('/versions')->name('versions')->uses(Actions\Versions::class);
         $router->get('/topics')->name('topics')->uses(Actions\Topics::class);
         $router->get('/category/{categorySlug}')->name('category')->uses(Actions\Category::class);

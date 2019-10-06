@@ -27,12 +27,14 @@ class Redirects
     public static function updateExisting(string $from, string $to): bool
     {
         try {
-            return (new UpdateRedirect)
-                ->setRedirect((new GetRedirect)
-                    ->setTo($from)
-                    ->perform())
-                ->setInput(compact('to'))
-                ->perform();
+            $redirect = (new GetRedirect)->setTo($from)->perform();
+
+            if ($redirect) {
+                return (new UpdateRedirect)
+                    ->setRedirect($redirect)
+                    ->setInput(compact('to'))
+                    ->perform();
+            }
         } catch (Exception $exception) {
             report($exception);
         }

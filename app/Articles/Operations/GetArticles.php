@@ -78,7 +78,10 @@ class GetArticles
         if ($this->liveOnly) {
             $query->where('post_at', '<', Carbon::now());
         } else if ($this->notReleased) {
-            $query->where('post_at', '>', Carbon::now());
+            $query->where(static function (Builder $query) {
+                $query->where('post_at', '>', Carbon::now())
+                    ->orWhereNull('post_at');
+            });
         }
 
         if ($this->activeOnly) {
@@ -89,11 +92,7 @@ class GetArticles
             if (count($this->statuses) === 1) {
                 $query->where('status', '=', $this->statuses[0]);
             } else {
-                $query->where(static function (Builder $query) {
-                    foreach ($this->statuses as $status) {
-                        $query->orWhere('status', '=', $status);
-                    }
-                });
+                $query->whereIn('status', $this->statuses);
             }
         }
 

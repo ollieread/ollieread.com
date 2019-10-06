@@ -10,8 +10,8 @@
         <i class="nav__icon fa-newspaper"></i> Articles
     </a>
 
-    <a href="{{ route('articles:schedule') }}"
-       class="nav__link {{ request()->routeIs('articles:schedule') ? 'nav__link--active' : '' }}">
+    <a href="{{ route('articles:upcoming') }}"
+       class="nav__link {{ request()->routeIs('articles:upcoming') ? 'nav__link--active' : '' }}">
         <i class="nav__icon fa-calendar-alt"></i> Upcoming
     </a>
 

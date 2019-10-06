@@ -18127,6 +18127,7 @@ p {
 .layout .page__body {
   flex-grow: 1;
   width: 100%;
+  padding-bottom: 0.75rem;
 }
 
 .layout .page__footer {
@@ -18136,7 +18137,6 @@ p {
   border-top-width: 1px;
   font-size: 0.875rem;
   margin-bottom: -1.5rem;
-  margin-top: 0.75rem;
 }
 
 .layout .page__footer .button {
