@@ -2,7 +2,10 @@
 
 namespace Ollieread\Articles\Operations;
 
+use Carbon\Carbon;
+use Illuminate\Database\Query\Builder;
 use Ollieread\Core\Models\Topic;
+use Ollieread\Core\Support\Status;
 
 class GetTopics
 {
@@ -68,7 +71,13 @@ class GetTopics
         }
 
         if ($this->articleCount) {
-            $query->withCount('articles');
+            $query->withCount([
+                'articles' => static function (Builder $query) {
+                    $query->where('active', '=', 1)
+                        ->where('status', '=', Status::PUBLIC)
+                        ->where('post_at', '<=', Carbon::now());
+                },
+            ]);
         }
 
         if ($this->paginate) {
@@ -128,6 +137,7 @@ class GetTopics
     public function setUsedOnly(bool $usedOnly): self
     {
         $this->usedOnly = $usedOnly;
+
         return $this;
     }
 }

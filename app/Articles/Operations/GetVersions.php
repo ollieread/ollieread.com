@@ -2,7 +2,10 @@
 
 namespace Ollieread\Articles\Operations;
 
+use Carbon\Carbon;
+use Illuminate\Database\Query\Builder;
 use Ollieread\Core\Models\Version;
+use Ollieread\Core\Support\Status;
 
 class GetVersions
 {
@@ -68,7 +71,13 @@ class GetVersions
         }
 
         if ($this->articleCount) {
-            $query->withCount('articles');
+            $query->withCount([
+                'articles' => static function (Builder $query) {
+                    $query->where('active', '=', 1)
+                        ->where('status', '=', Status::PUBLIC)
+                        ->where('post_at', '<=', Carbon::now());
+                },
+            ]);
         }
 
         if ($this->paginate) {
