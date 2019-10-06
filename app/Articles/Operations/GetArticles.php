@@ -66,12 +66,19 @@ class GetArticles
      */
     private $liveOnly;
 
+    /**
+     * @var bool
+     */
+    private $notReleased;
+
     public function perform()
     {
         $query = Article::query();
 
         if ($this->liveOnly) {
             $query->where('post_at', '<', Carbon::now());
+        } else if ($this->notReleased) {
+            $query->where('post_at', '>', Carbon::now());
         }
 
         if ($this->activeOnly) {
@@ -283,6 +290,18 @@ class GetArticles
     public function setStatuses(int ...$statuses): self
     {
         $this->statuses = $statuses;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $notReleased
+     *
+     * @return $this
+     */
+    public function setNotReleased(bool $notReleased): self
+    {
+        $this->notReleased = $notReleased;
 
         return $this;
     }

@@ -21,6 +21,7 @@ class Series extends Action
                 ->setActiveOnly(true)
                 ->setStatuses(Status::PUBLIC)
                 ->setSeries($series)
+                ->setLiveOnly(true)
                 ->perform();
 
             return $this->response()->view('articles.series', compact('series', 'articles'));

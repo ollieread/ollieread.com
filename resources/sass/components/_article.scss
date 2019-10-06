@@ -9,6 +9,13 @@
         @apply text-blue-700 italic block;
     }
 
+    &__lock {
+        @extend .far;
+        @extend .fa-lock;
+        @extend .fa-2x;
+        @apply float-left mr-3 mt-1;
+    }
+
     &__content {
         @apply px-2;
 
