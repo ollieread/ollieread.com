@@ -3,7 +3,7 @@
 namespace Ollieread\Articles\Operations;
 
 use Carbon\Carbon;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Ollieread\Core\Models\Version;
 use Ollieread\Core\Support\Status;
 
