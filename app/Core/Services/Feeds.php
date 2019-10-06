@@ -78,11 +78,11 @@ class Feeds
         ];
 
         foreach ($items as $item) {
+            $lines[] = '<item>';
             foreach ($item as $key => $value) {
-                $lines[] = '<item>';
                 $lines[] = sprintf('<%s>%s</%s>', $key, htmlentities($value, ENT_XML1), $key);
-                $lines[] = '</item>';
             }
+            $lines[] = '</item>';
         }
 
         $lines[] = '</channel>';
