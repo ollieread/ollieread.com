@@ -13,7 +13,7 @@ class Redirects
 {
     public static function create(string $from, string $to): void
     {
-        if (self::alreadyPresent($from, $to)) {
+        if (! self::alreadyPresent($from, $to)) {
             self::updateExisting($from, $to);
             self::createNew($from, $to);
         }
