@@ -66,30 +66,6 @@ class GetArticles
      */
     private $liveOnly;
 
-    /**
-     * @param bool $liveOnly
-     *
-     * @return $this
-     */
-    public function setLiveOnly(bool $liveOnly): self
-    {
-        $this->liveOnly = $liveOnly;
-
-        return $this;
-    }
-
-    /**
-     * @param array<int> $statuses
-     *
-     * @return $this
-     */
-    public function setStatuses(int ...$statuses): self
-    {
-        $this->statuses = $statuses;
-
-        return $this;
-    }
-
     public function perform()
     {
         $query = Article::query();
@@ -283,6 +259,30 @@ class GetArticles
     public function setVersions(?Collection $versions): self
     {
         $this->versions = $versions;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $liveOnly
+     *
+     * @return $this
+     */
+    public function setLiveOnly(bool $liveOnly): self
+    {
+        $this->liveOnly = $liveOnly;
+
+        return $this;
+    }
+
+    /**
+     * @param array<int> $statuses
+     *
+     * @return $this
+     */
+    public function setStatuses(int ...$statuses): self
+    {
+        $this->statuses = $statuses;
 
         return $this;
     }

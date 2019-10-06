@@ -2,7 +2,7 @@
 
 namespace Ollieread\Core\Services;
 
-use Illuminate\Validation\ValidationException;
+use Exception;
 use Ollieread\Core\Models\Redirect;
 use Ollieread\Core\Operations\CreateRedirect;
 use Ollieread\Core\Operations\DeleteRedirect;
@@ -33,7 +33,7 @@ class Redirects
                     ->perform())
                 ->setInput(compact('to'))
                 ->perform();
-        } catch (ValidationException $exception) {
+        } catch (Exception $exception) {
             report($exception);
         }
 
@@ -44,7 +44,7 @@ class Redirects
     {
         try {
             return (new CreateRedirect)->setInput(compact('from', 'to'))->perform();
-        } catch (ValidationException $exception) {
+        } catch (Exception $exception) {
             report($exception);
         }
 
