@@ -57,7 +57,7 @@ class ArticleMetadata implements Arrayable
             'url'              => route('articles:article', $this->article->slug, true),
             'datePublished'    => $this->article->post_at ? $this->article->post_at->toW3cString() : null,
             'dateModified'     => $this->article->updated_at->toW3cString(),
-            'keywords'         => str_replace(',', '', $this->article->keywords),
+            'keywords'         => $this->article->keywords,
             'description'      => $this->article->excerpt,
             'mainEntityOfPage' => [
                 '@type' => 'WebPage',
@@ -65,9 +65,7 @@ class ArticleMetadata implements Arrayable
             ],
             'image'            => [
                 '@type' => 'ImageObject',
-                'url'   => $this->article->image ?
-                    Storage::disk('public')->url('images/banner_' . $this->article->image) :
-                    asset('images/small-me-icon.png', true),
+                'url'   => asset('images/small-me-icon.png', true),
             ],
         ];
 

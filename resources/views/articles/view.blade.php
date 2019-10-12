@@ -3,9 +3,10 @@
 @section('page.title', 'Article - ' . ($article->title ?? $article->name))
 @section('page.meta.description', $article->excerpt)
 @section('page.meta.keywords', $article->keywords)
+@section('page.type', 'article')
 
 @push('page.header')
-    {!! $article->metadata !!}
+    @include('articles.partials.meta')
 @endpush
 
 @section('breadcrumbs')

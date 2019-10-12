@@ -29,6 +29,8 @@
         }
     </script>
 
+    <link rel="alternate" type="application/rss+xml" title="ollieread.com" href="/feed.rss">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Ollie Read">
@@ -45,13 +47,16 @@
     <meta property="og:title" content="@yield('page.title', 'PHP & Laravel development') - Ollie Read"/>
     <meta property="og:description"
           content="@yield('page.meta.description', 'Birmingham based PHP and Laravel development')"/>
-    <meta property="og:image" content="{{ asset('imgs/pixel-art-ollieread-large.png') }}">
+    <meta property="og:image" content="{{ asset('images/small-me-icon.png') }}">
     <meta property="og:url" content="{{ request()->fullUrl() }}"/>
     <meta property="og:site_name" content="Ollie Read"/>
+
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:description"
           content="@yield('page.meta.description', 'Birmingham based PHP and Laravel development')"/>
     <meta name="twitter:title" content="@yield('page.title', 'PHP & Laravel development') - Ollie Read"/>
     <meta name="twitter:site" content="@ollieread"/>
+    <meta name="twitter:creator" content="@ollieread"/>
+    <meta name="twitter:domain" content="https://ollieread.com"/>
     <meta name="twitter:image" content="{{ asset('images/small-me-icon.png') }}">
 

@@ -93,8 +93,7 @@ class Article extends Model
         return $this->tags
             ->merge($this->topics)
             ->merge($this->versions)
-            ->pluck('name')
-            ->implode(', ');
+            ->implode('name', ', ');
     }
 
     public function getMetadataAttribute(): string
