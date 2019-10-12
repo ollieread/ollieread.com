@@ -1,7 +1,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19364030-1"></script>
     <script>
-        if (! window.location.pathname.startsWith('admin')) {
+        if (! window.location.pathname.startsWith('/admin')) {
             window.dataLayer = window.dataLayer || [];
 
             function gtag() {
