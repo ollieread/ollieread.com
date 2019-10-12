@@ -17,7 +17,7 @@
     }
 
     &__content {
-        @apply px-2;
+        @apply p-2;
 
         blockquote {
             @apply text-gray-600 italic m-4 mr-0 text-lg;
@@ -81,6 +81,22 @@
                     @apply my-0;
                 }
             }
+        }
+
+        .toc {
+            @apply mb-4;
+        }
+
+        .notice {
+            @apply mb-4;
+
+            code {
+                overflow-wrap : break-word;
+            }
+        }
+
+        p {
+            @apply mb-3;
         }
     }
 
