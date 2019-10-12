@@ -73292,8 +73292,7 @@ __webpack_require__(/*! ./features/toc */ "./resources/js/features/toc.js");
 
 __webpack_require__(/*! ./features/iubenda */ "./resources/js/features/iubenda.js");
 
-(function () {// This is where document ready stuff would go... IF I HAD ANY
-})();
+(function () {})();
 
 /***/ }),
 
