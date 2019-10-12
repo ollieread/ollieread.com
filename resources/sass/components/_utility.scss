@@ -53,7 +53,7 @@
     &--anchor {
         @apply absolute hidden;
         bottom : .15rem;
-        left   : -.3rem;
+        left   : -.5rem;
 
         &:before {
             @extend .fa;
