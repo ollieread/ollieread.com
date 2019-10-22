@@ -75,7 +75,7 @@
             }
 
             &-body {
-                @apply bg-white p-6 text-sm border-t relative;
+                @apply bg-white p-6 text-sm border-t relative overflow-x-auto;
 
                 &--headerless {
                     @apply rounded-t-lg border-t-0;

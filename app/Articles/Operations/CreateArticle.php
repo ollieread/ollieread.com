@@ -13,7 +13,7 @@ class CreateArticle
      */
     private $input;
 
-    public function perform(): bool
+    public function perform(): ?Article
     {
         CreateArticleValidator::validate($this->input);
 
@@ -30,30 +30,6 @@ class CreateArticle
             'post_at',
         ]));
 
-        if ($this->input['category']) {
-            $category = (new GetCategory())->setId($this->input['category'])->perform();
-
-            if ($category) {
-                $article->category()->associate($category);
-            }
-        }
-
-        if ($this->input['topics']) {
-            $topics = (new GetTopics)->setIds($this->input['topics'])->perform();
-
-            if ($topics) {
-                $article->topics()->sync($topics->pluck('id'));
-            }
-        }
-
-        if ($this->input['versions']) {
-            $versions = (new GetVersions)->setIds($this->input['versions'])->perform();
-
-            if ($versions) {
-                $article->versions()->sync($versions->pluck('id'));
-            }
-        }
-
         if ($this->input['image']) {
             $image = (new CreateArticleImage)->setUpload($this->input['image'])->perform();
 
@@ -62,7 +38,35 @@ class CreateArticle
             }
         }
 
-        return $article->save();
+        if ($article->save()) {
+            if ($this->input['category']) {
+                $category = (new GetCategory())->setId($this->input['category'])->perform();
+
+                if ($category) {
+                    $article->category()->associate($category);
+                }
+            }
+
+            if ($this->input['topics']) {
+                $topics = (new GetTopics)->setIds($this->input['topics'])->perform();
+
+                if ($topics) {
+                    $article->topics()->sync($topics->pluck('id'));
+                }
+            }
+
+            if ($this->input['versions']) {
+                $versions = (new GetVersions)->setIds($this->input['versions'])->perform();
+
+                if ($versions) {
+                    $article->versions()->sync($versions->pluck('id'));
+                }
+            }
+
+            return $article;
+        }
+
+        return null;
     }
 
     /**

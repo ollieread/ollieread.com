@@ -1,4 +1,4 @@
-window._   = require('lodash');
+window._ = require('lodash');
 
 require('./features/axios');
 require('./features/vue');
@@ -12,5 +12,4 @@ require('./features/toc');
 require('./features/iubenda');
 
 (() => {
-    // This is where document ready stuff would go... IF I HAD ANY
 })();

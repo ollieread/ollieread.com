@@ -26,12 +26,12 @@ class HeadingRenderer implements BlockRendererInterface
         }
 
         // We increase this by 1 to avoid h1 tags
-        $tag        = 'h' . ($block->getLevel() + 1);
-        $attrs      = $block->getData('attributes', []);
-        $contents   = $htmlRenderer->renderInlines($block->children());
-        $anchorName = Str::slug(strip_tags($contents));
-        $anchor     = new HtmlElement('a', [
-            'id'    => $anchorName,
+        $tag         = 'h' . ($block->getLevel() + 1);
+        $attrs       = $block->getData('attributes', []);
+        $contents    = $htmlRenderer->renderInlines($block->children());
+        $anchorName  = Str::slug(strip_tags($contents));
+        $attrs['id'] = $anchorName;
+        $anchor      = new HtmlElement('a', [
             'href'  => '#' . $anchorName,
             'class' => 'link--anchor',
         ]);

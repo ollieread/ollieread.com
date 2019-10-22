@@ -1,3 +1,7 @@
+html, body {
+    scroll-behavior: smooth;
+}
+
 body {
     @apply bg-gray-100 font-primary max-w-full min-h-screen text-gray-700 leading-relaxed;
 }

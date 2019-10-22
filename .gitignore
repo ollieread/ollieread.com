@@ -13,3 +13,4 @@ yarn-error.log
 auth.json
 /packages
 /storage/translation*
+google_client_secret.json
