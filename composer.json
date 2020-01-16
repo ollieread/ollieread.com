@@ -8,7 +8,7 @@
     "license": "MIT",
     "version": "1.7.2",
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "ext-json": "*",
         "ext-xmlwriter": "*",
         "doctrine/dbal": "^2.9",
@@ -17,7 +17,7 @@
         "google/apiclient": "^2.0",
         "hashids/hashids": "^4.0",
         "intervention/image": "^2.5",
-        "laravel/framework": "5.8.*",
+        "laravel/framework": "^6.0",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
         "league/commonmark": "^1.0",
