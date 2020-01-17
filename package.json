@@ -20,7 +20,7 @@
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
+        "sass": "^1.24.5",
         "sass-loader": "^7.1.0",
         "simplemde": "^1.11.2",
         "tailwindcss": "^1.0.2",
