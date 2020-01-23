@@ -25,7 +25,7 @@
         "simplemde": "^1.11.2",
         "tailwindcss": "^1.0.2",
         "tippy.js": "^4.3.5",
-        "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "vue": "^2.6.11",
+        "vue-template-compiler": "^2.6.11"
     }
 }
