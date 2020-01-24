@@ -4865,7 +4865,7 @@ pkg-dir@^3.0.0:
   dependencies:
     find-up "^3.0.0"
 
-popper.js@^1.14.7, popper.js@^1.16:
+popper.js@^1.16, popper.js@^1.16.0:
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
   integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
@@ -6358,12 +6358,12 @@ timsort@^0.3.0:
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
 
-tippy.js@^4.3.5:
-  version "4.3.5"
-  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-4.3.5.tgz#882bff8d92f09bb0546d2826d5668c0560006f54"
-  integrity sha512-NDq3efte8nGK6BOJ1dDN1/WelAwfmh3UtIYXXck6+SxLzbIQNZE/cmRSnwScZ/FyiKdIcvFHvYUgqmoGx8CcyA==
+tippy.js@^5.1.4:
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-5.1.4.tgz#decbef134d35e6ef0c6936e6bd99754cbbd5fb78"
+  integrity sha512-M7AqmLFbo3Cp7SMqdsbfuTpTUlbpK+e6XfCWOWdEy/Qfx7R4CrAAJYaUGEcKRF8IHRZ/9dSm2YAp/fJAdI06ZQ==
   dependencies:
-    popper.js "^1.14.7"
+    popper.js "^1.16.0"
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
