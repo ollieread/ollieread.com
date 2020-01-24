@@ -19,7 +19,7 @@
         "intervention/image": "^2.5",
         "laravel/framework": "^6.0",
         "laravel/socialite": "^4.1",
-        "laravel/tinker": "^1.0",
+        "laravel/tinker": "^2.1",
         "league/commonmark": "^1.0",
         "league/commonmark-extras": "^1.1",
         "league/fractal": "^0.18.0",
