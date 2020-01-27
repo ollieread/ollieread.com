@@ -22,7 +22,7 @@
         "laravel/tinker": "^1.0",
         "league/commonmark": "^1.0",
         "league/commonmark-extras": "^1.1",
-        "league/fractal": "^0.18.0",
+        "league/fractal": "^0.19.2",
         "socialiteproviders/discord": "^2.0",
         "understand/understand-laravel5": "^2.1",
         "wildbit/swiftmailer-postmark": "^3.1"
