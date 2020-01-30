@@ -170,7 +170,7 @@ class Notice extends AbstractStringContainerBlock implements InlineContainerInte
 
         $match = RegexHelper::matchAll('/^:::/', $cursor->getLine(), $cursor->getNextNonSpacePosition());
 
-        if (strlen($match[0]) >= $container->getLength()) {
+        if ($match !== null && strlen($match[0]) >= $container->getLength()) {
             $this->setLength(-1);
 
             return;
