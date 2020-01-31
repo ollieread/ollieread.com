@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abf06c8433ad7a12368f2b89a9a5433f",
+    "content-hash": "11f54cb82478af9ec46933d40e7db393",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -5483,16 +5483,16 @@
         },
         {
             "name": "itsgoingd/clockwork",
-            "version": "v4.0.15",
+            "version": "v4.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "981a9640e9081e5dc1c2698abe35f984ed7f6b92"
+                "reference": "3ddf31bcf04f925ccc551f490839529de32876c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/981a9640e9081e5dc1c2698abe35f984ed7f6b92",
-                "reference": "981a9640e9081e5dc1c2698abe35f984ed7f6b92",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/3ddf31bcf04f925ccc551f490839529de32876c4",
+                "reference": "3ddf31bcf04f925ccc551f490839529de32876c4",
                 "shasum": ""
             },
             "require": {
@@ -5537,7 +5537,7 @@
                 "profiling",
                 "slim"
             ],
-            "time": "2020-01-09T11:14:09+00:00"
+            "time": "2020-01-31T00:43:53+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
