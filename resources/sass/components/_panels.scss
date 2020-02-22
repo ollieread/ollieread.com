@@ -1,0 +1,109 @@
+.panel {
+  @apply flex flex-col justify-start mb-4;
+
+  &__title {
+    @apply text-center p-6 uppercase text-lg font-semibold;
+    color : #8ea3b8;
+  }
+
+  &__heading {
+    @apply font-medium text-lg;
+    color : #438cd1;
+  }
+
+  &__body {
+    @apply p-6;
+
+    @media (max-width : 450px) {
+      @apply px-0;
+    }
+
+    &--with-img {
+      @apply flex flex-row;
+
+      .panel__body-image {
+        @apply p-6;
+        width : 33.3333% !important;
+      }
+    }
+  }
+
+  &__icon {
+    @apply rounded-full shadow-inner text-6xl p-6 flex justify-center content-center items-center;
+    min-width        : 120px !important;
+    min-height       : 120px !important;
+    max-width        : 120px !important;
+    max-height       : 120px !important;
+    background-color : #cdd9e5;
+    color            : #438cd1;
+
+    @media (max-width : 640px) {
+      @apply text-3xl p-2;
+      min-width  : 60px !important;
+      min-height : 60px !important;
+      max-width  : 60px !important;
+      max-height : 60px !important;
+    }
+  }
+
+  &--primary {
+    @apply rounded shadow-md mb-16;
+    background-color : #e6ebf0;
+
+    & + .panel:not(.panel--primary) {
+      @apply -mt-10;
+    }
+
+    & > .panel__title + .panel__body {
+      @apply pt-0;
+    }
+
+    @media (max-width : 640px) {
+      @apply rounded-none;
+    }
+  }
+
+  &--secondary {
+    @apply mb-0 flex-row p-2 items-center;
+
+    @media (max-width : 450px) {
+      @apply flex-col text-center;
+    }
+  }
+
+  &--simple {
+    @apply rounded shadow-md text-center m-0;
+    background-color : #e6ebf0;
+
+    .panel__image {
+      @apply px-3 pt-3 flex justify-center content-center items-center mx-auto;
+      min-height : 120px !important;
+      max-height : 120px !important;
+      min-width  : 120px !important;
+      max-width  : 120px !important;
+    }
+
+    @media (max-width : 450px) {
+      @apply flex-row content-center items-center;
+
+      .panel__image {
+        @apply hidden;
+        @apply p-3 px-5;
+        min-height : 200px !important;
+        max-height : 200px !important;
+        min-width  : 200px !important;
+        max-width  : 200px !important;
+      }
+
+      .panel__body {
+        @apply text-center px-6 w-full;
+      }
+    }
+  }
+}
+
+a.panel {
+  &:hover {
+    @apply shadow-md rounded-lg;
+  }
+}

@@ -7,7 +7,6 @@ mix.sass('resources/sass/app.scss', 'public/css')
        postCss: [tailwindcss('./tailwind.config.js')],
    })
    .js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/multitenancy/app.scss', 'public/css/multitenancy.css')
    .copy('resources/images', 'public/images')
    .copy('node_modules/@fortawesome/fontawesome-pro/webfonts', 'public/webfonts')
    .version();

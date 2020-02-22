@@ -5,39 +5,13 @@
 @import "fonts";
 @import "variables";
 @import "mixins";
-@import "components/generic";
-@import "components/utility";
+@import "base";
+@import "utility";
 
-@import "~highlightjs/styles/darcula.css";
-@import "~simplemde/dist/simplemde.min.css";
-
-.layout {
-    @import "components/brand";
-    @import "components/sidebar";
-    @import "components/nav";
-    @import "components/page";
-    @import "components/box";
-    @import "components/form";
-    @import "components/input";
-    @import "components/article";
-    @import "components/categories";
-    @import "components/tags";
-    @import "components/topics";
-    @import "components/versions";
-    @import "components/pagination";
-    @import "components/lists";
-    @import "components/buttons";
-    @import "components/logo";
-    @import "components/avatar";
-    @import "components/comments";
-    @import "components/notices";
-    @import "components/tabs";
-    @import "components/breadcrumbs";
-    @import "components/tippy";
-    @import "components/table";
-    @import "components/choices";
-    @import "components/grid";
-    @import "components/badges";
-
-    @import "layouts/single";
-}
+// Components
+@import "components/header";
+@import "components/buttons";
+@import "components/panels";
+@import "components/options";
+@import "components/nav";
+@import "components/tiles";

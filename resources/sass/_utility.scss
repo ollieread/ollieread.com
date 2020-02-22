@@ -1,0 +1,277 @@
+.sr-only {
+    border            : 0 !important;
+    clip              : rect(1px, 1px, 1px, 1px) !important; /* 1 */
+    -webkit-clip-path : inset(50%) !important;
+    clip-path         : inset(50%) !important; /* 2 */
+    height            : 1px !important;
+    margin            : -1px !important;
+    overflow          : hidden !important;
+    padding           : 0 !important;
+    position          : absolute !important;
+    white-space       : nowrap !important; /* 3 */
+    width             : 1px !important;
+}
+
+/*
+	Use in conjunction with .sr-only to only display content when it's focused.
+	@note Useful for skip links
+	@see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+	@note Based on a HTML5 Boilerplate technique, included in Bootstrap
+	@note Fixed a bug with position: static on iOS 10.0.2 + VoiceOver
+		@author Sylvain Pigeard
+		@see https://github.com/twbs/bootstrap/issues/20732
+*/
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+    clip              : auto !important;
+    -webkit-clip-path : none !important;
+    clip-path         : none !important;
+    height            : auto !important;
+    margin            : auto !important;
+    overflow          : visible !important;
+    white-space       : normal !important;
+    width             : auto !important;
+}
+
+.link {
+    @apply underline text-blue-500;
+
+    &--external {
+        @apply relative mr-4;
+
+        &:after {
+            @apply absolute;
+            @extend .fa;
+            @extend .fa-xs;
+            @include fa-icon();
+            content : fa-content($fa-var-external-link);
+            right   : -1rem;
+            top     : 0;
+        }
+    }
+
+    &--anchor {
+        @apply absolute hidden;
+        bottom : .15rem;
+        left   : -.5rem;
+
+        &:before {
+            @extend .fa;
+            @include fa-icon();
+            content   : fa-content($fa-var-link);
+            font-size : .75rem !important;
+        }
+    }
+
+    &--subtle {
+        @apply text-sm;
+    }
+
+    &--white {
+        @apply text-white;
+    }
+
+    &--circle {
+        @apply rounded-full;
+    }
+
+    &--twitter {
+        @apply text-white no-underline py-1 px-2 rounded shadow;
+        background-color            : #1da1f2;
+        break-inside                : avoid;
+        -webkit-column-break-inside : avoid;
+        page-break-inside           : avoid;
+
+        &::before {
+            @include fa-icon();
+            @extend .fab;
+            @extend .fa-twitter;
+            @apply mr-2;
+        }
+    }
+
+    &--facebook {
+        @apply text-white no-underline py-1 px-2 rounded shadow;
+        background-color            : #3b5998;
+        break-inside                : avoid;
+        -webkit-column-break-inside : avoid;
+        page-break-inside           : avoid;
+
+        &::before {
+            @include fa-icon();
+            @extend .fab;
+            @extend .fa-facebook;
+            @apply mr-2;
+        }
+    }
+
+    &--github {
+        @apply text-white no-underline py-1 px-2 rounded shadow;
+        background-color            : #333333;
+        break-inside                : avoid;
+        -webkit-column-break-inside : avoid;
+        page-break-inside           : avoid;
+
+        &::before {
+            @include fa-icon();
+            @extend .fab;
+            @extend .fa-github;
+            @apply mr-2;
+        }
+    }
+
+    &--twitch {
+        @apply text-white no-underline py-1 px-2 rounded shadow;
+        background-color            : #6441a5;
+        break-inside                : avoid;
+        -webkit-column-break-inside : avoid;
+        page-break-inside           : avoid;
+
+        &::before {
+            @include fa-icon();
+            @extend .fab;
+            @extend .fa-twitch;
+            @apply mr-2;
+        }
+    }
+}
+
+.image {
+    &--rounded {
+        @apply rounded-full shadow-md;
+    }
+
+    &--large {
+        @apply w-full;
+    }
+}
+
+.text {
+    &--center {
+        @apply text-center;
+    }
+
+    &--spaced {
+        @apply mb-6 leading-loose;
+    }
+
+    &--success {
+        @apply text-green-500;
+    }
+
+    &--error {
+        @apply text-red-500;
+    }
+
+    &--secondary {
+        @apply text-gray-500 text-sm;
+    }
+
+    &--block {
+        @apply block;
+        break-inside : avoid !important;
+        white-space  : nowrap;
+    }
+
+    &--right {
+        @apply text-right;
+    }
+
+    &--number {
+        font-variant : tabular-nums;
+    }
+}
+
+.site__version {
+    @apply bg-blue-600 text-xs text-blue-700 px-1 rounded-full absolute no-underline;
+    left: 1rem;
+    top: 1rem;
+}
+
+.toc {
+    @apply block my-2 relative rounded shadow border bg-white mb-4;
+
+    &__header {
+        @apply block uppercase text-sm tracking-wider font-bold text-gray-500 py-2 w-full border-b pl-4 mb-2 relative;
+        content : 'Table of Contents';
+        cursor  : pointer;
+
+        &:after {
+            @apply ml-2 absolute;
+            @include fa-icon();
+            @extend .fas;
+            content     : '';
+            font-weight : 900;
+            right       : 1rem;
+            top         : .75rem;
+        }
+    }
+
+    &__control {
+        @apply absolute text-gray-500 inline-block;
+        left : 11.75rem;
+        top  : .25rem;
+
+        &:before {
+            @include fa-icon();
+            @extend .fas;
+            content     : '';
+            font-weight : 900;
+        }
+    }
+
+    &--expanded {
+        & .toc__header:after {
+            content : fa-content($fa-var-caret-up);
+        }
+
+        .toc__body {
+            @apply block;
+        }
+    }
+
+    &--collapsed {
+        & .toc__header {
+            @apply border-b-0 mb-0;
+
+            &:after {
+                content : fa-content($fa-var-caret-down);
+            }
+        }
+
+        .toc__body {
+            @apply hidden;
+        }
+    }
+
+    &__item {
+        @apply block text-lg pb-1 pl-4;
+        color           : #718096 !important;
+        text-decoration : none !important;
+
+        &--2 {
+            @apply text-base;
+            padding-left : 2rem;
+        }
+
+        &--3 {
+            @apply text-sm;
+            padding-left : 3rem;
+        }
+
+        &--4 {
+            @apply text-sm;
+            padding-left : 4rem;
+        }
+
+        &--5 {
+            @apply text-sm;
+            padding-left : 5rem;
+        }
+
+        &--6 {
+            @apply text-sm;
+            padding-left : 6rem;
+        }
+    }
+}

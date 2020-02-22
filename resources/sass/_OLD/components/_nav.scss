@@ -1,0 +1,108 @@
+.nav {
+    &--sidebar {
+        .nav__heading {
+            @apply mb-2 mt-4;
+        }
+
+        & + .nav--sidebar {
+            @apply mt-2;
+        }
+
+        .nav__link {
+            @apply uppercase mb-2 p-2 pl-10 relative rounded;
+
+            &:last-of-type {
+                @apply mb-0;
+            }
+
+            &:hover, &--active {
+                @apply rounded bg-blue-700 text-white;
+
+                .nav__icon {
+                    @apply text-blue-200;
+                    @extend .fa;
+
+                    &--brand {
+                        @extend .fab;
+                    }
+                }
+            }
+
+            &--parent {
+                & + .nav--children {
+                    @apply hidden bg-blue-700 rounded px-2 pb-2 mb-2;
+
+                    .nav__link {
+                        margin       : 0 !important;
+                        padding-left : 3.5rem !important;
+                    }
+                }
+
+                &.nav__link--active {
+                    @apply mb-0 rounded-b-none;
+
+                    & + .nav--children {
+                        @apply block rounded-t-none;
+                        @extend .nav--sidebar-inverted;
+                    }
+                }
+            }
+        }
+
+        .nav__icon {
+            @apply text-blue-300 mr-1 -ml-8 absolute;
+            @extend .far;
+            top : .75rem;
+
+            &--brand {
+                @extend .fab;
+            }
+        }
+
+        &-inverted {
+            @extend .nav--sidebar;
+
+            .nav__link {
+                &:hover, &--active {
+                    @apply rounded bg-blue-600 text-white;
+
+                    .nav__icon {
+                        @apply text-blue-200;
+                        @extend .fa;
+                    }
+                }
+            }
+        }
+    }
+
+    &__heading {
+        @apply uppercase text-sm text-blue-200 tracking-wider font-bold;
+    }
+
+    &__link {
+        @apply block w-full;
+    }
+
+    &__icon {
+        @extend .far;
+        @extend .fa-fw;
+    }
+
+    &--horizontal {
+        .nav__link {
+            @apply inline-block m-0 mt-2 text-center mr-2;
+            height : 42px;
+            width  : 42px;
+
+            &:last-of-type {
+                @apply mr-0;
+            }
+
+            .nav__icon {
+                @apply relative text-blue-200;
+                margin-left : -1.75rem;
+                top         : 0;
+            }
+        }
+    }
+}

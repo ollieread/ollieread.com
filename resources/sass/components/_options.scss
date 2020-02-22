@@ -1,0 +1,15 @@
+.options {
+  @apply grid grid-cols-2;
+
+  @media (max-width: 1024px) {
+    @apply grid-cols-1;
+  }
+
+  .option {
+    @apply px-2 pb-4;
+
+    @media (max-width: 1024px) {
+      @apply px-0;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.tiles {
+  @apply grid grid-cols-5;
+
+  @media (max-width: 1024px) {
+    @apply grid-cols-3;
+  }
+
+  @media (max-width: 640px) {
+    @apply grid-cols-2;
+  }
+
+  .tile {
+    @apply p-4;
+  }
+}

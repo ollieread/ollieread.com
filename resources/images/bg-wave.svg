@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="3011px" height="600px" viewBox="0 0 3011 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>bg-wave</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="50%" x2="10%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#3182CE" offset="0%"></stop>
+            <stop stop-color="#2B6CB0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,0 L3011,0 L3011,439.224596 C2341.5879,439.226812 2006.1135,439.230125 2004.57681,439.234537 C1511.72569,440.649502 1506.36464,592.6441 1015.0707,599.880913 C1013.01491,599.911195 674.658016,599.950891 0,600 L0,0 Z"
+              id="bg-wave" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+    </g>
+</svg>
