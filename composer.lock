@@ -4624,21 +4624,21 @@
         },
         {
             "name": "understand/understand-laravel5",
-            "version": "2.2.2",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/understand/understand-laravel5.git",
-                "reference": "a54abf3f62a333ae9fb272517113c110e648e2cf"
+                "reference": "a26df5ba3062d683796626e6945e2bfcfbcaa3de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/understand/understand-laravel5/zipball/a54abf3f62a333ae9fb272517113c110e648e2cf",
-                "reference": "a54abf3f62a333ae9fb272517113c110e648e2cf",
+                "url": "https://api.github.com/repos/understand/understand-laravel5/zipball/a26df5ba3062d683796626e6945e2bfcfbcaa3de",
+                "reference": "a26df5ba3062d683796626e6945e2bfcfbcaa3de",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "illuminate/support": "~5.0|~6.0",
+                "illuminate/support": "~5.0|~6.0|~7.0",
                 "php": ">=5.5.0"
             },
             "require-dev": {
@@ -4651,7 +4651,8 @@
                 "component": "package",
                 "frameworks": [
                     "Laravel 5",
-                    "Laravel 6"
+                    "Laravel 6",
+                    "Laravel 7"
                 ],
                 "branch-alias": {
                     "dev-master": "2.0-dev"
@@ -4686,7 +4687,7 @@
                 "logs",
                 "understand"
             ],
-            "time": "2020-01-14T11:45:08+00:00"
+            "time": "2020-03-03T15:12:01+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
