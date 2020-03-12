@@ -4624,16 +4624,16 @@
         },
         {
             "name": "understand/understand-laravel5",
-            "version": "2.3.0",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/understand/understand-laravel.git",
-                "reference": "a26df5ba3062d683796626e6945e2bfcfbcaa3de"
+                "reference": "04ab14f5a90f59bd5db55609ac8949c1b3958e22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/understand/understand-laravel/zipball/a26df5ba3062d683796626e6945e2bfcfbcaa3de",
-                "reference": "a26df5ba3062d683796626e6945e2bfcfbcaa3de",
+                "url": "https://api.github.com/repos/understand/understand-laravel/zipball/04ab14f5a90f59bd5db55609ac8949c1b3958e22",
+                "reference": "04ab14f5a90f59bd5db55609ac8949c1b3958e22",
                 "shasum": ""
             },
             "require": {
@@ -4678,7 +4678,7 @@
                     "email": "aivis.silins@gmail.com"
                 }
             ],
-            "description": "Laravel 5/6 service provider for Understand.io",
+            "description": "Laravel 5, 6 and 7 service provider for Understand.io",
             "keywords": [
                 "Understand.io",
                 "laravel",
@@ -4687,7 +4687,7 @@
                 "logs",
                 "understand"
             ],
-            "time": "2020-03-03T15:12:01+00:00"
+            "time": "2020-03-05T12:50:41+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
