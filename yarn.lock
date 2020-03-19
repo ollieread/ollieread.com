@@ -743,10 +743,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@popperjs/core@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.1.0.tgz#09a7a352a40508156e1256efdc015593feca28e0"
-  integrity sha512-ntN5t5spqhQv28cLfmmt1dYabsudzR5A7PU15gr/gzcT/gzqAOnYFQPaLPFraDa7ZCJG2eJ1JsO7pgXbYXGIrw==
+"@popperjs/core@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.1.1.tgz#12c572ab88ef7345b43f21883fca26631c223085"
+  integrity sha512-sLqWxCzC5/QHLhziXSCAksBxHfOnQlhPRVgPK0egEw+ktWvG75T2k+aYWVjVh9+WKeT3tlG3ZNbZQvZLmfuOIw==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
@@ -6615,12 +6615,12 @@ timsort@^0.3.0:
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
 
-tippy.js@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-6.0.3.tgz#caf7730132c41b835a0cc41d698f4e2858a10f3c"
-  integrity sha512-buQF6HugTA4YeSA/s9xBhu0ferEAx7sRSn45G+Juh3p+Dz3vEKfxtqdg6JUnHIWDCV/r0u8Lrobs9AB4dtYcUQ==
+tippy.js@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-6.1.0.tgz#9c58b94f92f3044d5e861b9d83da3c2a6d3d4323"
+  integrity sha512-cRFydlVZlvo4soQSUfVNbH2K77zDUhDAzaAjxseyn81gGIa+j72y98yDL2yB0n8gas/E+Zlr1iOyR5ckslUFqA==
   dependencies:
-    "@popperjs/core" "^2.1.0"
+    "@popperjs/core" "^2.1.1"
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
