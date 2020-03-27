@@ -725,10 +725,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@fortawesome/fontawesome-pro@^5.12.1":
-  version "5.12.1"
-  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-pro/-/5.12.1/fontawesome-pro-5.12.1.tgz#4a187cb1ba1111366ce9bc9d7d9660e8514c4ef2"
-  integrity sha512-rwVdMZQfTmN/6ExkA3sXN5fdiJWFYFuaDnBYCxhWEpgIzl14BYQMBLqRkQx/ITBnbITkoOLBpfJJHbZ0GKPjHw==
+"@fortawesome/fontawesome-pro@^5.13.0":
+  version "5.13.0"
+  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-pro/-/5.13.0/fontawesome-pro-5.13.0.tgz#fde32ed4d9933c4c9b60b8a74a79c67eba58d984"
+  integrity sha512-97Su0vmIuCdxrklVbjTzY1i16nvyKaqFmFBgrTsgeCVmyIWXNydiS62jhKlkwH9sMb8Tw4wYQ+J1EKbRILowxw==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
