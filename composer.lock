@@ -4629,16 +4629,16 @@
         },
         {
             "name": "understand/understand-laravel5",
-            "version": "2.3.2",
+            "version": "2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/understand/understand-laravel.git",
-                "reference": "04ab14f5a90f59bd5db55609ac8949c1b3958e22"
+                "reference": "5c56945b7f7dd414b6038a1f046e415b9edfc0eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/understand/understand-laravel/zipball/04ab14f5a90f59bd5db55609ac8949c1b3958e22",
-                "reference": "04ab14f5a90f59bd5db55609ac8949c1b3958e22",
+                "url": "https://api.github.com/repos/understand/understand-laravel/zipball/5c56945b7f7dd414b6038a1f046e415b9edfc0eb",
+                "reference": "5c56945b7f7dd414b6038a1f046e415b9edfc0eb",
                 "shasum": ""
             },
             "require": {
@@ -4692,7 +4692,7 @@
                 "logs",
                 "understand"
             ],
-            "time": "2020-03-05T12:50:41+00:00"
+            "time": "2020-03-23T06:06:35+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
