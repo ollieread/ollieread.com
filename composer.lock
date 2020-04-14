@@ -1194,6 +1194,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -1240,6 +1241,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
@@ -1518,16 +1520,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.3.2",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "75542a366ccbe1896ed79fcf3e8e68206d6c4257"
+                "reference": "dd3261eb9a322e009fa5d96d19b9ae19708ce04b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/75542a366ccbe1896ed79fcf3e8e68206d6c4257",
-                "reference": "75542a366ccbe1896ed79fcf3e8e68206d6c4257",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/dd3261eb9a322e009fa5d96d19b9ae19708ce04b",
+                "reference": "dd3261eb9a322e009fa5d96d19b9ae19708ce04b",
                 "shasum": ""
             },
             "require": {
@@ -1588,7 +1590,7 @@
                 "md",
                 "parser"
             ],
-            "time": "2020-03-25T19:55:28+00:00"
+            "time": "2020-04-13T20:52:18+00:00"
         },
         {
             "name": "league/commonmark-ext-autolink",
@@ -1645,6 +1647,7 @@
                 "markdown",
                 "twitter"
             ],
+            "abandoned": "league/commonmark",
             "time": "2020-01-14T01:53:02+00:00"
         },
         {
@@ -1701,6 +1704,7 @@
                 "punctuation",
                 "smartpunct"
             ],
+            "abandoned": "league/commonmark",
             "time": "2019-10-03T12:57:34+00:00"
         },
         {
@@ -1762,6 +1766,7 @@
                 "strikeout",
                 "strikethrough"
             ],
+            "abandoned": "league/commonmark",
             "time": "2019-06-29T11:34:00+00:00"
         },
         {
@@ -1827,6 +1832,7 @@
                 "markdown",
                 "table"
             ],
+            "abandoned": "league/commonmark",
             "time": "2019-09-26T13:28:33+00:00"
         },
         {
@@ -1884,6 +1890,7 @@
                 "markdown",
                 "task"
             ],
+            "abandoned": "league/commonmark",
             "time": "2019-07-11T00:35:13+00:00"
         },
         {
@@ -1944,6 +1951,7 @@
                 "gfm",
                 "markdown"
             ],
+            "abandoned": "league/commonmark",
             "time": "2019-07-13T11:56:05+00:00"
         },
         {
