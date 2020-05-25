@@ -5506,16 +5506,16 @@
         },
         {
             "name": "itsgoingd/clockwork",
-            "version": "v4.1.1",
+            "version": "v4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "5b149a708a74027404126abe05289ff10d9f0f1d"
+                "reference": "5da03673010a227f400e30debf622954920ecd5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/5b149a708a74027404126abe05289ff10d9f0f1d",
-                "reference": "5b149a708a74027404126abe05289ff10d9f0f1d",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/5da03673010a227f400e30debf622954920ecd5d",
+                "reference": "5da03673010a227f400e30debf622954920ecd5d",
                 "shasum": ""
             },
             "require": {
@@ -5561,7 +5561,7 @@
                 "profiling",
                 "slim"
             ],
-            "time": "2020-04-15T15:10:57+00:00"
+            "time": "2020-05-24T23:30:22+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
