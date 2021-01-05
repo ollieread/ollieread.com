@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@fortawesome/fontawesome-pro": "^5.10.1",
-        "axios": "^0.19",
+        "axios": "^0.21",
         "choices.js": "^9.0.1",
         "cross-env": "^7.0",
         "highlightjs": "^9.12.0",
